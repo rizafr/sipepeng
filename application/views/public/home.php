@@ -37,6 +37,7 @@
                         <li><a href="#works">Work</a></li>
                         <li><a href="#team">Team</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="#peta">Peta</a></li>
                         <li><a href="<?php echo base_url() ?>public/logins">Login</a></li>
                     </ul>
                 </nav>
@@ -517,16 +518,35 @@
 				</div>
 			</div>
 			
-			<!-- Google map -->
-			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div>
-			<!-- End Google map -->
+			
 			
 		</section>
 		
         <!--
         End Contact Us
         ==================================== -->
-
-
+		
+		<!--
+        Peta
+        ==================================== -->	
+		<section id="peta" class="peta">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+							<div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
+						<h2>Peta</h2>
+						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+					</div>
+						<!-- Google map -->
+						<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div>
+						<!-- End Google map -->
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!--
+        End Peta
+        ==================================== -->
 </div><!--end conatiner-->
 <?php $this->load->view('public/templates/footer'); ?>
