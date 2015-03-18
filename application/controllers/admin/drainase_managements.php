@@ -11,43 +11,47 @@ class Drainase_managements extends CI_Controller {
     }
     
     public function index() {
-		//menampilkan menu
-		$data['menu_list'] = $this->menu_model->select_all()->result();
-		$data['title'] = "Drainase | SIPEPENG";
-        $data['username'] = $this->session->userdata('username');	
-				
-		//mengambil uri status
-		$status=$this->uri->segment(4);
-		
-		//status 1 = data awal
-		if($status=='1'){       	
-			$data['drainase_list'] = $this->drainase_model->select_all_data_awal()->result();
-		}
-		
-		//status 2 = data verifikasi
-		if($status=='2'){       	
-			$data['drainase_list'] = $this->drainase_model->select_all_verifikasi()->result();
-		}
-		
-		//status 3 = data progress
-		if($status=='3'){       	
-			$data['drainase_list'] = $this->drainase_model->select_all_sedang_dilaksanakan()->result();
-		}
-		
-		//status 4 = data ssudah dilaksanakan
-		if($status=='3'){       	
-			$data['drainase_list'] = $this->drainase_model->select_all_sudah_dilaksanakan()->result();
-		}
-		
-		//status 5 = data ssudah dilaksanakan
-		if($status=='5'){       	
-			$data['drainase_list'] = $this->drainase_model->select_all_tidak_dilaksanakan()->result();
-		}
-		
-		
-		
-		$data['status']= $status;
-        $this->load->view('admin/drainase/drainase_list',$data);
+		//check sudah login atau belum
+		if($this->session->userdata('is_login')){
+			//menampilkan menu
+			$data['menu_list'] = $this->menu_model->select_all()->result();
+			$data['title'] = "Drainase | SIPEPENG";
+			$data['username'] = $this->session->userdata('username');	
+					
+			//mengambil uri status
+			$status=$this->uri->segment(4);
+			
+			//status 1 = data awal
+			if($status=='1'){       	
+				$data['drainase_list'] = $this->drainase_model->select_all_data_awal()->result();
+			}
+			
+			//status 2 = data verifikasi
+			if($status=='2'){       	
+				$data['drainase_list'] = $this->drainase_model->select_all_verifikasi()->result();
+			}
+			
+			//status 3 = data progress
+			if($status=='3'){       	
+				$data['drainase_list'] = $this->drainase_model->select_all_sedang_dilaksanakan()->result();
+			}
+			
+			//status 4 = data ssudah dilaksanakan
+			if($status=='3'){       	
+				$data['drainase_list'] = $this->drainase_model->select_all_sudah_dilaksanakan()->result();
+			}
+			
+			//status 5 = data ssudah dilaksanakan
+			if($status=='5'){       	
+				$data['drainase_list'] = $this->drainase_model->select_all_tidak_dilaksanakan()->result();
+			}		
+			
+			$data['status']= $status;
+			$this->load->view('admin/drainase/drainase_list',$data);
+			
+		}else {
+             redirect('public/homes');
+        }
     }
     
     public function edit($id_pengguna) {

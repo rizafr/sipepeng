@@ -11,20 +11,29 @@ class User_managements extends CI_Controller {
     }
     
     public function index() {
-        $data['title'] = "User Management List | SIPEPENG";
-        $data['username'] = $this->session->userdata('username');
-        $data['menu_list'] = $this->menu_model->select_all()->result();
-        $data['users_list'] = $this->users_model->select_all()->result();
-        $this->load->view('admin/user_management_list',$data);
+	//check sudah login atau belum
+	 if($this->session->userdata('is_login')){
+		$data['title'] = "User Management List | SIPEPENG";
+		$data['username'] = $this->session->userdata('username');
+		$data['menu_list'] = $this->menu_model->select_all()->result();
+		$data['users_list'] = $this->users_model->select_all()->result();
+		$this->load->view('admin/user_management_list',$data);
+	 }else { // klo belum balik lagi ke home
+		 redirect('public/homes');
+	   }
     }
     
     public function edit($id_pengguna) {
-        $data['idUser'] = $id_pengguna;
-        $data['title'] = "Edit Data User | SIPEPENG";
-        $data['users'] = $this->users_model->getUserById($id_pengguna);       
-        $data['level_list'] = $this->users_model->get_dropdown_list();
-        $data['username'] = $this->session->userdata('username');
-        $this->load->view('admin/user_management_edit', $data);
+		 if($this->session->userdata('is_login')){
+				$data['idUser'] = $id_pengguna;
+				$data['title'] = "Edit Data User | SIPEPENG";
+				$data['users'] = $this->users_model->getUserById($id_pengguna);       
+				$data['level_list'] = $this->users_model->get_dropdown_list();
+				$data['username'] = $this->session->userdata('username');
+				$this->load->view('admin/user_management_edit', $data);
+		 }else {
+		 redirect('public/homes');
+	   }
     }
 
     function delete($id_pengguna) {

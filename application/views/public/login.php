@@ -14,8 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <!-- -->
-<script>var __links = document.querySelectorAll('a');function __linkClick(e) { parent.window.postMessage(this.href, '*');} ;for (var i = 0, l = __links.length; i < l; i++) {if ( __links[i].getAttribute('data-t') == '_blank' ) { __links[i].addEventListener('click', __linkClick, false);}}</script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/jquery-1.11.1.min.js"></script>
 <script>$(document).ready(function(c) {
 	$('.alert-close').on('click', function(c){
 		$('.message').fadeOut('slow', function(c){
@@ -35,12 +34,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 		<form method="post" action="<?php echo base_url('public/logins/process_login'); ?>">
 			<li>
-				<input type="text" name="username" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" required><a href="#" class=" icon user" ></a>
+				<input type="text" name="username" class="text"  placeholder="username" required><a href="#" class=" icon user" ></a>
 				 <?php echo form_error('username', '<p class="field_error">', '</p>'); ?>
 			</li>
 				<div class="clear"> </div>
 			<li>
-				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required> <a href="#" class="icon lock"></a>
+				<input type="password" name="password" placeholder="password" required> <a href="#" class="icon lock"></a>
 				 <?php echo form_error('password', '<p class="field_error">', '</p>'); ?>
 			</li>
 			
@@ -53,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<li>
 			<?php
 				$message = $this->session->flashdata('message');
-				echo $message == '' ? '' : '<p id="message">' . $message . '</p>';
+				echo $message == '' ? '' : "  <br /> <span class='message warning'>" . $message . '</span>';
 			?></li>
 		</form>
 			

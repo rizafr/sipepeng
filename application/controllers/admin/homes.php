@@ -10,11 +10,16 @@ class Homes extends CI_Controller {
     }
     
     public function index() {
-        $data['title'] = "Home Admin | SIPEPENG";
-        $data['user_name'] = $this->session->userdata('user_name');
-		 $data['menu_list'] = $this->menu_model->select_all()->result();
-        $this->load->view('admin/home',$data);
-		}
+		//check sudah login atau belum
+		if($this->session->userdata('is_login')){		
+			$data['title'] = "Home Admin | SIPEPENG";
+			$data['user_name'] = $this->session->userdata('user_name');
+			 $data['menu_list'] = $this->menu_model->select_all()->result();
+			$this->load->view('admin/home',$data);
+		}else {
+              redirect('public/homes');
+          }
+	}
 }
 
 ?>

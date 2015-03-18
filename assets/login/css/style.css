@@ -38,12 +38,13 @@ body{
 	background-size: cover;
 }
 .message.warning  {
-	background: rgba(255, 255, 255, 0.33);
+	
 	-moz-box-shadow: 0 0 0 3px rgba(56, 41, 32, 0.25);
     -webkit-box-shadow: 0 0 0 3px rgba(56, 41, 32, 0.25);
     box-shadow: 0 0 0 3px rgba(56, 41, 32, 0.25);
      margin:9% auto 0;
 	width: 26%;
+	padding: 2px 2px;
 }
 .login-head {
 	padding: 2em 0;
@@ -176,7 +177,7 @@ input[type="submit"]:hover {
 	text-align: center;
 	margin: 14% auto;
 	width: 280px;
-	background: rgba(82, 97, 97, 0.68);
+	
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
