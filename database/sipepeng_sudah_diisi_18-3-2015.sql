@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2015 at 03:42 AM
+-- Generation Time: Mar 18, 2015 at 04:14 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -84,7 +84,14 @@ CREATE TABLE IF NOT EXISTS `drainase` (
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
   `status_tidak_dilaksanakan` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `drainase`
+--
+
+INSERT INTO `drainase` (`id_drainase`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kedalaman`, `ketersediaan_lahan`, `long_awal`, `long_akhir`, `lat_awal`, `lat_akhir`, `anggaran`, `sumber_data`, `tahun_usulan`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 3, 3, 'cimahi', '3', '4', '4', '3', '33', '22', '33', '22', 33333, 'musrenbang', 2015, 'data awal', NULL, NULL, 2, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -552,7 +559,7 @@ MODIFY `id_artesis` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `drainase`
 --
 ALTER TABLE `drainase`
-MODIFY `id_drainase` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_drainase` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `jalan`
 --
