@@ -45,6 +45,9 @@
                                                     <th>Rt</th>
                                                     <th>Rw</th>
                                                     <th>Alamat</th>
+                                                    <th>Panjang</th>
+                                                    <th>Lebar</th>
+                                                    <th>Lahan</th>
                                                     <th>Sumber Data</th>
                                                     <th>Tahun Usulan</th>
                                                     <th>Keterangan</th>
@@ -63,9 +66,12 @@
 															<td><?php echo $row->rt ?></td>
 															<td><?php echo $row->rw ?></td>
 															<td><?php echo $row->alamat ?></td>
+															<td><?php echo $row->panjang ?></td>
+															<td><?php echo $row->lebar ?></td>
+															<td><?php echo $row->ketersediaan_lahan ?></td>
 															<td><?php echo $row->sumber_data ?></td>
 															<td><?php echo $row->tahun_usulan ?></td>
-															<td><?php echo $row->ket ?></td>                                                      
+															<td><?php echo $row->ket ?></td>                                                             
 															<td>
 															<? 
 															if($status=='1'){
@@ -97,10 +103,13 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>No</th>
+                                                     <th>No</th>
                                                     <th>Rt</th>
                                                     <th>Rw</th>
                                                     <th>Alamat</th>
+                                                    <th>Panjang</th>
+                                                    <th>Lebar</th>
+                                                    <th>Lahan</th>
                                                     <th>Sumber Data</th>
                                                     <th>Tahun Usulan</th>
                                                     <th>Keterangan</th>

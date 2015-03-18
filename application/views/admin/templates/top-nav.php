@@ -223,10 +223,10 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="<?php echo base_url(); ?>assets/admin/img/avatar1_small.jpg">
                             <?php
-                            if ($this->session->userdata('username') != NULL) {
-                                $username = $this->session->userdata('username');
+                            if ($this->session->userdata('nama') != NULL) {
+                                $nama = $this->session->userdata('nama');
                                 ?>
-                                <span class="username"><?php echo "$username" ?></span>
+                                <span class="username"><?php echo strtoupper("$nama") ?></span>
                             <?php } ?>
                             <b class="caret"></b>
                         </a>

@@ -20,36 +20,31 @@ class Drainase_model extends CI_Model{
 
 	//select
     public function select_all_verifikasi() {
-        $sql = "select * from drainase where status_data_awal='1'";
+        $sql = "select * from drainase where status_verifikasi='1'";
         return $this->db->query($sql);
     }
 	
 	//select
     public function select_all_sedang_dilaksanakan() {
-        $sql = "select * from drainase where status_data_awal='1'";
+        $sql = "select * from drainase where status_sedang_dilaksanakan='1'";
         return $this->db->query($sql);
     }
 	
 	//select
     public function select_all_sudah_dilaksanakan() {
-        $sql = "select * from drainase where status_data_awal='1'";
+        $sql = "select * from drainase where status_sudah_dilaksanakan='1'";
         return $this->db->query($sql);
     }
 	
 	//select
     public function select_all_tidak_dilaksanakan() {
-        $sql = "select * from drainase where status_data_awal='1'";
+        $sql = "select * from drainase where status_tidak_dilaksanakan='1'";
         return $this->db->query($sql);
     }
 	
 
 
-    public function select_all_paging($limit = array()) {
-        $sql = "select * from drainase";
-        if ($limit != null)
-            $sql .= " limit " . $limit['offset'] . "," . $limit['perpage'];
-        return $this->db->query($sql);
-    }
+   
 
     //search
     public function select_by_id($id_drainase) {

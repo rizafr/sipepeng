@@ -38,7 +38,6 @@
                         <li><a href="#team">Team</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="#peta">Peta</a></li>
-                        <li><a href="<?php echo base_url() ?>public/logins">Login</a></li>
                     </ul>
                 </nav>
 				<!-- /main nav -->

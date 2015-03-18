@@ -3,28 +3,27 @@
 		<!-- sidebar menu start-->
 		<ul class="sidebar-menu" id="nav-accordion">
 			<li>
-				<a href="<?php echo base_url(); ?>admin/homes">
+				<a href="<?php echo base_url(); ?>admin/homes" <? $page='homes'; $url=$this->uri->segment(2);echo ($page==$url ? " class='active' " : '') ?>>
 					<i class="icon-home"></i>
 					<span>Dashboard</span>
 				</a>
 			</li>
 
-			<li>
-				<a  href="<?php echo base_url() ?>admin/user_managements">
+			<li class="active" >
+				<a  href="<?php echo base_url() ?>admin/user_managements" <? $page='user_managements'; $url=$this->uri->segment(2);echo ($page==$url ? " class='active' " : '') ?>>
 					<i class="icon-user"></i>
-					<span>User Management</span>
+					<span>User Management </span>
 				</a>
 			</li>     	
 			
-			
-			<li class="sub-menu">
+			<li class="sub-menu" >
 				<a  href="<?php echo base_url() ?>admin/user_managements">
 					<i class=" icon-bell-alt"></i>
 					<span>Data Awal</span>
 				</a>
 				<ul class="sub">
 					 <?php foreach ($menu_list as $row) { ?>
-					  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>/index/1"><?php echo $row->menu ?></a></li>
+					  <li ><a  class="active" href="<?php echo base_url() ?><?php echo $row->controller ?>/index/1" <? $page=$row->controller; $url=$this->uri->segment(1)."/".$this->uri->segment(2);echo ($page==$url ? " class='active' " : '') ?>><?php echo $row->menu ?></a></li>
 					 <? } ?>
                </ul>
 			</li>      
