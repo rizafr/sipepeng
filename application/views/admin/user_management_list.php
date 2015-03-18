@@ -231,10 +231,10 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="<?php echo base_url(); ?>assets/admin/img/avatar1_small.jpg">
                             <?php
-                            if ($this->session->userdata('user_email') != NULL) {
-                                $user_name = $this->session->userdata('user_name');
+                            if ($this->session->userdata('username') != NULL) {
+                                $username = $this->session->userdata('username');
                                 ?>
-                                <span class="username"><?php echo "$user_name" ?></span>
+                                <span class="username"><?php echo "$username" ?></span>
                             <?php } ?>
                             <b class="caret"></b>
                         </a>
@@ -312,29 +312,31 @@
                                         <table  class="display table table-bordered table-striped table-condensed" id="example">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
+                                                    <th>NIP</th>
+                                                    <th>Nama</th>
+                                                    <th>Username</th>
                                                     <th>Email</th>
+                                                    <th>Telp</th>
+                                                    <th>Alamat</th>
                                                     <th>Level</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
-                                                    <th>City</th>
-                                                    <th>Action</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($users_list as $row) { ?>
                                                     <tr>
-                                                        <td><?php echo $row->user_name ?></td>
-                                                        <td><?php echo $row->user_email ?></td>
-                                                        <td><?php echo $row->status ?></td>
-                                                        <td><?php echo $row->user_phone ?></td>
-                                                        <td><?php echo $row->first_address ?></td>
-                                                        <td><?php echo $row->user_city ?></td>
-                                                        <?php if(($row->user_name)!=$user_name || ($row->status)!='admin'){?>
+                                                        <td><?php echo $row->nip ?></td>
+                                                        <td><?php echo $row->nama ?></td>
+                                                        <td><?php echo $row->username ?></td>
+                                                        <td><?php echo $row->email ?></td>
+                                                        <td><?php echo $row->telp ?></td>
+                                                        <td><?php echo $row->alamat ?></td>
+                                                        <td><?php echo $row->jenis_pengguna ?></td>
+                                                        <?php if(($row->username)!=$username || ($row->jenis_pengguna)!='admin'){?>
                                                         <td>
-                                                            <a href="<?php echo base_url() . 'admin/user_managements/view/' . $row->id_user ?>"><button class = "btn btn-info" data-toggle="tooltip" title="View" data-placemen="bottom"><i class = "icon-eye-open"></i></button></a>
-                                                            <a href="<?php echo base_url() . 'admin/user_managements/edit/' . $row->id_user ?>"><button class = "btn btn-success" title="Edit"><i class = "icon-pencil"></i></button></a>
-                                                            <a href="<?php echo base_url() . 'admin/user_managements/delete/' . $row->id_user ?>" onclick="return confirm('Are you sure want to delete this?');"><button class = "btn btn-danger" title="Delete"><i class = "icon-trash "></i></button></a>
+                                                            <a href="<?php echo base_url() . 'admin/user_managements/view/' . $row->id_pengguna ?>"><button class = "btn btn-info" data-toggle="tooltip" title="View" data-placemen="bottom"><i class = "icon-eye-open"></i></button></a>
+                                                            <a href="<?php echo base_url() . 'admin/user_managements/edit/' . $row->id_pengguna ?>"><button class = "btn btn-success" title="Edit"><i class = "icon-pencil"></i></button></a>
+                                                            <a href="<?php echo base_url() . 'admin/user_managements/delete/' . $row->id_pengguna ?>" onclick="return confirm('Are you sure want to delete this?');"><button class = "btn btn-danger" title="Delete"><i class = "icon-trash "></i></button></a>
                                                         </td>
                                                         <?php }else{?>
                                                         <td></td>
@@ -345,13 +347,14 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>Name</th>
+                                                    <th>NIP</th>
+                                                    <th>Nama</th>
+                                                    <th>Username</th>
                                                     <th>Email</th>
+                                                    <th>Telp</th>
+                                                    <th>Alamat</th>
+                                                    <th>Aksi</th>
                                                     <th>Level</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
-                                                    <th>City</th>
-                                                    <th>Action</th>
                                                 </tr>
                                             </tfoot>
                                         </table>

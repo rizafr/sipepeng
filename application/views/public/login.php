@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Purple_loginform Website Template | Home :: w3layouts</title>
+<title><? echo $title;?></title>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 <link href="<?php echo base_url() ?>assets/login/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,13 +35,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 		<form method="post" action="<?php echo base_url('public/logins/process_login'); ?>">
 			<li>
-				<input type="text" name="user_email" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" required><a href="#" class=" icon user" ></a>
-				 <?php echo form_error('user_email', '<p class="field_error">', '</p>'); ?>
+				<input type="text" name="username" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" required><a href="#" class=" icon user" ></a>
+				 <?php echo form_error('username', '<p class="field_error">', '</p>'); ?>
 			</li>
 				<div class="clear"> </div>
 			<li>
-				<input type="password" name="user_password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required> <a href="#" class="icon lock"></a>
-				 <?php echo form_error('user_password', '<p class="field_error">', '</p>'); ?>
+				<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required> <a href="#" class="icon lock"></a>
+				 <?php echo form_error('password', '<p class="field_error">', '</p>'); ?>
 			</li>
 			
 			<div class="clear"> </div>
