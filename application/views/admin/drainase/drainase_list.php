@@ -53,7 +53,7 @@
                                                         <td><?php echo $row->alamat ?></td>
                                                         <td><?php echo $row->sumber_data ?></td>
                                                         <td><?php echo $row->tahun_usulan ?></td>
-                                                        <td><?php echo $row->keterangan ?></td>                                                      
+                                                        <td><?php echo $row->ket ?></td>                                                      
                                                         <td>
                                                             <a href="<?php echo base_url() . 'admin/drainase_managements/view/' . $row->id_drainase ?>"><button class = "btn btn-info" data-toggle="tooltip" title="View" data-placemen="bottom"><i class = "icon-eye-open"></i></button></a>
                                                             <a href="<?php echo base_url() . 'admin/drainase_managements/edit/' . $row->id_drainase ?>"><button class = "btn btn-success" title="Edit"><i class = "icon-pencil"></i></button></a>
