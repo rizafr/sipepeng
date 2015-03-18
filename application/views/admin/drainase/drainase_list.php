@@ -66,14 +66,14 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>NIP</th>
-                                                    <th>Nama</th>
-                                                    <th>Username</th>
-                                                    <th>Email</th>
-                                                    <th>Telp</th>
+                                                    <th>No</th>
+                                                    <th>Rt</th>
+                                                    <th>Rw</th>
                                                     <th>Alamat</th>
+                                                    <th>Sumber Data</th>
+                                                    <th>Tahun Usulan</th>
+                                                    <th>Keterangan</th>
                                                     <th>Aksi</th>
-                                                    <th>Level</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
