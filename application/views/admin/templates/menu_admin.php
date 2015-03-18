@@ -17,11 +17,16 @@
 			</li>     	
 			
 			
-			<li>
+			<li class="sub-menu">
 				<a  href="<?php echo base_url() ?>admin/user_managements">
 					<i class=" icon-bell-alt"></i>
 					<span>Data Awal</span>
 				</a>
+				<ul class="sub">
+						 <?php foreach ($menu_list as $row) { ?>
+                          <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						 <? } ?>
+               </ul>
 			</li>      
 			
 			<li>

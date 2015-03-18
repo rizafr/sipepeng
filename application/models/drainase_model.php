@@ -3,10 +3,10 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Users_model extends CI_Model{
+class Drainase_model extends CI_Model{
     
-    var $table = 'pengguna';
-    var $jenis_pengguna_level = 'jenis_pengguna'; //Tabel jenis_pengguna
+   // var $table = 'drainase';
+   // var $jenis_pengguna_level = 'jenis_pengguna'; //Tabel jenis_pengguna
     
     public function __construct() {
         parent::__construct();
@@ -14,20 +14,20 @@ class Users_model extends CI_Model{
 
     //select
     public function select_all() {
-        $sql = "select u.*, us.jenis_pengguna from pengguna u, jenis_pengguna us where u.id_jenis_pengguna = us.id_jenis_pengguna";
+        $sql = "select * from drainase";
         return $this->db->query($sql);
     }
 
     public function select_all_paging($limit = array()) {
-        $sql = "select * from pengguna";
+        $sql = "select * from drainase";
         if ($limit != null)
             $sql .= " limit " . $limit['offset'] . "," . $limit['perpage'];
         return $this->db->query($sql);
     }
 
     //search
-    public function select_by_id($id_pengguna) {
-        $sql = " select * from pengguna where id_pengguna=" . $id_pengguna;
+    public function select_by_id($id_drainase) {
+        $sql = " select * from pengguna where id_drainase=" . $id_drainase;
         $query = $this->db->query($sql);
         return $query;
     }
@@ -56,7 +56,7 @@ class Users_model extends CI_Model{
             , 'user_agree' => $data['user_agree']
             , 'created' => $data['created']
         );
-        $this->db->insert($this->table, $data);
+        $this->db->insert('drainase', $data);
     }
     
     //add user from admin
@@ -172,48 +172,12 @@ class Users_model extends CI_Model{
     }
 
     //delete
-    public function delete($id_pengguna) {
-        $sql = "delete from pengguna where id_pengguna = " . $id_pengguna;
+    public function delete($id_drainase) {
+        $sql = "delete from drainase where id_drainase = " . $id_drainase;
         $query = $this->db->query($sql);
     }
 
-    //check_login
-    public function check_login($username, $password) {
-        $query = $this->db->get_where($this->table, array('username' => $username, 'password' => $password), 1, 0);
-        if ($query->num_rows() > 0) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
-    
-    public function checkLogin($username, $password) {
-        $this->db->select('*');
-        $this->db->where('username', $username);
-        $this->db->where('password', md5($password));
-        $query = $this->db->get($this->table, 1);
-        
-        if ($query->num_rows() == 1) {
-            return $query->row_array();
-        }
-    }
-
-    //get user for sessions
-    public function get_users($username, $password) {
-		$password= md5($password);
-        return $this->db->query("SELECT u.id_pengguna, u.username, u.username, u.id_jenis_pengguna, us.jenis_pengguna 
-                                FROM pengguna u, jenis_pengguna us 
-                                WHERE u.id_jenis_pengguna = us.id_jenis_pengguna AND u.username='$username' AND u.password='$password'");
-    }
-    
-    function updateLastLogin($id_pengguna) {
-        $data = array(
-            'last_login' => date('Y-m-d H:i:s', time()+60*60*6)
-        );
-        $this->db->where('id_pengguna', $id_pengguna);
-        $this->db->update($this->table, $data);
-    }
-    
+   
     function get_dropdown_list() {
         $this->db->from($this->jenis_pengguna_level);
         $this->db->order_by('jenis_pengguna', 'asc');

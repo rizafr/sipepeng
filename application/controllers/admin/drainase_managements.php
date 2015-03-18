@@ -3,19 +3,19 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class User_managements extends CI_Controller {
+class Drainase_managements extends CI_Controller {
     function __construct() {
         parent::__construct();
-        $this->load->model('users_model');
-        $this->load->model('menu_model');
+        $this->load->model('drainase_model');
+		 $this->load->model('menu_model');
     }
     
     public function index() {
-        $data['title'] = "User Management List | SIPEPENG";
+        $data['title'] = "Drainase | SIPEPENG";
         $data['username'] = $this->session->userdata('username');
-        $data['menu_list'] = $this->menu_model->select_all()->result();
-        $data['users_list'] = $this->users_model->select_all()->result();
-        $this->load->view('admin/user_management_list',$data);
+		 $data['menu_list'] = $this->menu_model->select_all()->result();
+        $data['drainase_list'] = $this->drainase_model->select_all()->result();
+        $this->load->view('admin/drainase/drainase_list',$data);
     }
     
     public function edit($id_pengguna) {

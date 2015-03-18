@@ -13,12 +13,10 @@ class Profiles extends CI_Controller {
     }
 
     public function index() {
-        $data['title'] = "Profile | Adney's Shop";
-        $data['user_name'] = $this->session->userdata('user_name');
-        $data['user_email'] = $this->session->userdata('user_email');
-        $data['users'] = $this->users_model->get_user_by_id($this->session->userdata('id_user'));
-        $data['states_list'] = $this->states_model->get_dropdown_list();
-        $data['country_list'] = $this->country_model->get_dropdown_list();
+        $data['title'] = "Profil | SIPEPENG";
+        $data['username'] = $this->session->userdata('user_name');
+        $data['email'] = $this->session->userdata('email');
+        $data['users'] = $this->users_model->get_user_by_id($this->session->userdata('id_pengguna'));
         $data['level_list'] = $this->users_model->get_dropdown_list();
         $this->load->view('admin/profile',$data);
     }
