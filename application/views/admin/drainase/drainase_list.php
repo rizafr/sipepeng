@@ -19,10 +19,14 @@
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+								<?php if($status=='1') {?>
                                 <ul class="nav nav-tabs pull-right">
                                     <li><a href="<?php echo base_url() . 'admin/drainase_managements/gotoFormAdd'; ?>"><i class="icon-plus"></i> Add Data</a></li>
                                 </ul>
-								<? $judul = array("1"=>"Awal", "2"=>"Verifikasi" , "3"=>"Sedang Dilaksanakan" , "4"=>"Sudah Dilaksanakan" , "5"=>"Tidak Dilaksanakan");
+								<?
+								}
+								
+								$judul = array("1"=>"Awal", "2"=>"Verifikasi" , "3"=>"Sedang Dilaksanakan" , "4"=>"Sudah Dilaksanakan" , "5"=>"Tidak Dilaksanakan");
 									$judul= $judul[$status];
 								?>
                                 <span class="hidden-sm wht-color">Data Drainase <? echo $judul;?> </span>
