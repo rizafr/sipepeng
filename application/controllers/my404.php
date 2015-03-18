@@ -13,4 +13,4 @@ class my404 extends CI_Controller
         $this->load->view('error_404',$data);//loading in my template 
     } 
 } 
-?> 
+?>

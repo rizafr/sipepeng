@@ -24,7 +24,7 @@
 				</a>
 				<ul class="sub">
 					 <?php foreach ($menu_list as $row) { ?>
-					  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+					  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>/index/1"><?php echo $row->menu ?></a></li>
 					 <? } ?>
                </ul>
 			</li>      
@@ -36,7 +36,7 @@
 				</a>
 					<ul class="sub">
 						 <?php foreach ($menu_list as $row) { ?>
-						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>/index/2"><?php echo $row->menu ?></a></li>
 						 <? } ?>
 					</ul>
 			</li> 
@@ -48,7 +48,7 @@
 				</a>
 					<ul class="sub">
 						 <?php foreach ($menu_list as $row) { ?>
-						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>/index/3"><?php echo $row->menu ?></a></li>
 						 <? } ?>
 					</ul>
 			</li>      
@@ -60,7 +60,7 @@
 				</a>
 					<ul class="sub">
 						 <?php foreach ($menu_list as $row) { ?>
-						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>/index/4"><?php echo $row->menu ?></a></li>
 						 <? } ?>
 					</ul>
 			</li>  
@@ -72,7 +72,7 @@
 				</a>
 					<ul class="sub">
 						 <?php foreach ($menu_list as $row) { ?>
-						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>/index/5"><?php echo $row->menu ?></a></li>
 						 <? } ?>
 					</ul>
 			</li>   

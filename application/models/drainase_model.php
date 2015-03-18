@@ -12,11 +12,37 @@ class Drainase_model extends CI_Model{
         parent::__construct();
     }
 
-    //select
-    public function select_all() {
-        $sql = "select * from drainase";
+    //select 
+    public function select_all_data_awal() {
+        $sql = "select * from drainase where status_data_awal='1'";
         return $this->db->query($sql);
     }
+
+	//select
+    public function select_all_verifikasi() {
+        $sql = "select * from drainase where status_data_awal='1'";
+        return $this->db->query($sql);
+    }
+	
+	//select
+    public function select_all_sedang_dilaksanakan() {
+        $sql = "select * from drainase where status_data_awal='1'";
+        return $this->db->query($sql);
+    }
+	
+	//select
+    public function select_all_sudah_dilaksanakan() {
+        $sql = "select * from drainase where status_data_awal='1'";
+        return $this->db->query($sql);
+    }
+	
+	//select
+    public function select_all_tidak_dilaksanakan() {
+        $sql = "select * from drainase where status_data_awal='1'";
+        return $this->db->query($sql);
+    }
+	
+
 
     public function select_all_paging($limit = array()) {
         $sql = "select * from drainase";
