@@ -23,41 +23,61 @@
 					<span>Data Awal</span>
 				</a>
 				<ul class="sub">
-						 <?php foreach ($menu_list as $row) { ?>
-                          <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
-						 <? } ?>
+					 <?php foreach ($menu_list as $row) { ?>
+					  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+					 <? } ?>
                </ul>
 			</li>      
 			
-			<li>
+			<li class="sub-menu">
 				<a  href="<?php echo base_url() ?>admin/user_managements">
 					<i class=" icon-thumbs-up"></i>
 					<span>Data Verifikasi</span>
 				</a>
+					<ul class="sub">
+						 <?php foreach ($menu_list as $row) { ?>
+						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						 <? } ?>
+					</ul>
 			</li> 
 			
-			<li>
+			<li class="sub-menu">
 				<a  href="<?php echo base_url() ?>admin/user_managements">
 					<i class="icon-tasks"></i>
 					<span>Data Progres</span>
 				</a>
+					<ul class="sub">
+						 <?php foreach ($menu_list as $row) { ?>
+						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						 <? } ?>
+					</ul>
 			</li>      
 			
-			<li>
+			<li class="sub-menu">
 				<a  href="<?php echo base_url() ?>admin/user_managements">
 					<i class="icon-check"></i>
 					<span>Data Selesai</span>
 				</a>
+					<ul class="sub">
+						 <?php foreach ($menu_list as $row) { ?>
+						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						 <? } ?>
+					</ul>
 			</li>  
 			
-			<li>
+			<li class="sub-menu">
 				<a  href="<?php echo base_url() ?>admin/user_managements">
 					<i class="icon-check-minus"></i>
 					<span>Data Tidak Terverifikasi</span>
 				</a>
+					<ul class="sub">
+						 <?php foreach ($menu_list as $row) { ?>
+						  <li><a  href="<?php echo base_url() ?><?php echo $row->controller ?>"><?php echo $row->menu ?></a></li>
+						 <? } ?>
+					</ul>
 			</li>   
 			
-			<li>
+			<li class="sub-menu">
 				<a  href="<?php echo base_url() ?>admin/user_managements">
 					<i class="icon-print"></i>
 					<span>Laporan</span>
