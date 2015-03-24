@@ -300,7 +300,7 @@
                                 <span class="hidden-sm wht-color">Add User</span>
                             </header>
                             <div class="panel-body">
-                                <form method="post" action="<?php echo base_url('admin/user_managements/process_add/add'); ?>" class="form-horizontal" role="form">
+                                <form method="post" action="<?php echo base_url('admin/user_managements/process_add/add'); ?>" class="form-horizontal" id="Form" role="form">
 
                                     <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Pengguna</legend>
                                     

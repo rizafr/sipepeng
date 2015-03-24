@@ -1,7 +1,7 @@
 <!--footer start-->
 <footer class="site-footer">
     <div class="text-center">
-        2013 &copy; FlatLab by VectorLab.
+        2015 &copy; SIPEPENG.
         <a href="#" class="go-top">
             <i class="icon-angle-up"></i>
         </a>
@@ -30,7 +30,8 @@
 <!--Data table css-->
 <script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/js/respond.min.js" ></script>
-
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/jquery.validate.min.js"></script>
+	
 <script class="include" type="text/javascript" src="<?php echo base_url(); ?>assets/admin/js/jquery.dcjqaccordion.2.7.js"></script>
 
 <!--common script for all pages-->
@@ -40,6 +41,9 @@
 <script src="<?php echo base_url(); ?>assets/admin/js/sparkline-chart.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/js/easy-pie-chart.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/js/count.js"></script>
+ 
+ <!--script for this page-->
+ <script src="<?php echo base_url(); ?>assets/admin/js/form-validation-script.js"></script>
 
 <script src="<?php echo base_url(); ?>assets/admin/assets/jquery-knob/js/jquery.knob.js"></script>
 
