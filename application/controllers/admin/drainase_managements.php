@@ -54,8 +54,9 @@ class Drainase_managements extends CI_Controller {
         }
     }
     
-    public function edit($id_pengguna) {
-        $data['idUser'] = $id_pengguna;
+    public function edit($id_status,$id_drainase) {
+        $data['id_drainase'] = $id_drainase;
+        $data['id_status'] = $id_status;
         $data['title'] = "Edit Data User | SIPEPENG";
         $data['users'] = $this->users_model->getUserById($id_pengguna);       
         $data['level_list'] = $this->users_model->get_dropdown_list();
@@ -113,10 +114,18 @@ class Drainase_managements extends CI_Controller {
     }
     
     public function gotoFormAdd() {
-        $data['title'] = "Tambah Pengguna | SIPEPENG";
-        $data['username'] = $this->session->userdata('username');
-        $data['level_list'] = $this->users_model->get_dropdown_list();
-        $this->load->view('admin/user_management_add', $data);
+        //check sudah login atau belum
+        if($this->session->userdata('is_login')){
+            //menampilkan menu..wajib ada
+            $data['menu_list'] = $this->menu_model->select_all()->result();
+            // end menampilkan menu..wajib ada
+            $data['title'] = "Tambah Data Awal Drainase | SIPEPENG";
+            $data['judulForm'] = "Tambah Data Awal Drainase";
+            $data['username'] = $this->session->userdata('username');
+            $this->load->view('admin/drainase/drainase_add', $data);
+        }else {
+             redirect('public/homes');
+        }
     }
     
     public function process_add($action, $id_pengguna = null){

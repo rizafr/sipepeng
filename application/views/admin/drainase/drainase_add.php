@@ -1,7 +1,7 @@
 <?php $this->load->view('admin/templates/header'); ?>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/admin/assets/bootstrap-datepicker/css/datepicker.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/admin/assets/bootstrap-colorpicker/css/colorpicker.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/admin/assets/bootstrap-daterangepicker/daterangepicker.css" />
+<link href="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+<link href="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+<link href="<?php echo base_url(); ?>assets/admin/css/table-responsive.css" rel="stylesheet" />
 <body>
 
     <section id="container" >
@@ -9,7 +9,7 @@
         <?php $this->load->view('admin/templates/top-nav'); ?>
         <!--header end-->
         <!--sidebar start-->
-			 <?php $this->load->view('admin/templates/menu_admin'); ?>
+             <?php $this->load->view('admin/templates/menu_admin'); ?>
         <!--sidebar end-->
         <!--main content start-->
         <section id="main-content">
@@ -19,77 +19,110 @@
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                <span class="hidden-sm wht-color">Add User</span>
+                                <span class="hidden-sm wht-color"><? echo $judulForm ?></span>
                             </header>
                             <div class="panel-body">
-                                <form method="post" action="<?php echo base_url('admin/user_managements/process_add/add'); ?>" class="form-horizontal" role="form">
+                                <form method="post" action="<?php echo base_url('admin/drainase_managements/process_add/add'); ?>" class="form-horizontal" role="form" autocomplete="off">
 
-                                    <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Pengguna</legend>
+                                    <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Awal</legend>
                                     
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="inputNip">NIP: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputNip" name="nip" placeholder="Nip" value="<?php echo set_value('nip'); ?>">
-                                            <span class="help-inline"><?php echo form_error('nip'); ?></span>
+                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt'); ?>">
+                                            <span class="help-inline"><?php echo form_error('rt'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
-									
-									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="inputNama">Nama: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputNama" name="nama" placeholder="nama" value="<?php echo set_value('nama'); ?>">
-                                            <span class="help-inline"><?php echo form_error('nama'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-									
-									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="inputUserName">Username: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputUserName" name="username" placeholder="Username" value="<?php echo set_value('username'); ?>">
-                                            <span class="help-inline"><?php echo form_error('username'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-									
-									 <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="inputPass">Password: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="password" class="form-control" id="inputPass" name="password" placeholder="**********" value="<?php echo set_value('password'); ?>">
-                                            <span class="help-inline"><?php echo form_error('password'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
+                                    
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="inputEmailAddress">E-Mail: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputEmailAddress" name="email" placeholder="example@example.com" value="<?php echo set_value('email'); ?>">
-                                            <span class="help-inline"><?php echo form_error('email'); ?></span>
+                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw'); ?>">
+                                            <span class="help-inline"><?php echo form_error('rw'); ?></span>
                                         </div>
-                                    </div><!--end form-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="inputTele">Telepon: <span class="text-error">*</span></label>
+                                    </div><!--end control-group-->
+                                    
+                                  <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputTele" name="telp" placeholder="(02)-1598-548" value="<?php echo set_value('telp'); ?>">
-                                            <span class="help-inline"><?php echo form_error('telp'); ?></span>
-                                        </div>
-                                    </div><!--end form-group-->
-
-									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="inputAlamat">Alamat: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-											<textarea class="form-control" id="inputAlamat" name="alamat"><?php echo set_value('alamat'); ?></textarea>                                           
+                                            <textarea class="form-control" id="alamat" name="alamat"><?php echo set_value('alamat'); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('alamat'); ?></span>
                                         </div>
                                     </div><!--end form-group-->
                                     
-                                    <div class="form-group">
-                                        <div class="col-lg-2 col-sm-2 control-label">Level: <span class="text-error">*</span></div>
+                                     <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo form_dropdown('id_jenis_pengguna', $level_list, set_value('id_jenis_pengguna'), 'class="form-control m-bot15"'); ?>
-                                            <span class="help-inline"><?php echo form_error('id_jenis_pengguna'); ?></span>
+                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang" value="<?php echo set_value('panjang'); ?>">
+                                            <span class="help-inline"><?php echo form_error('panjang'); ?></span>
                                         </div>
-                                    </div><!--end form-group-->
-                                    
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="lebar">Lebar: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="lebar" name="lebar" placeholder="Lebar" value="<?php echo set_value('lebar'); ?>">
+                                            <span class="help-inline"><?php echo form_error('lebar'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="kedalaman">Kedalaman: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="kedalaman" name="kedalaman" placeholder="Kedalaman" value="<?php echo set_value('kedalaman'); ?>">
+                                            <span class="help-inline"><?php echo form_error('kedalaman'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" placeholder="Kedalaman" value="<?php echo set_value('ketersediaan_lahan'); ?>">
+                                            <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="long_awal" name="long_awal" placeholder="Longitude" value="<?php echo set_value('long_awal'); ?>">
+                                            <span class="help-inline"><?php echo form_error('long_awal'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_awal'); ?>">
+                                            <span class="help-inline"><?php echo form_error('long_akhir'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="lat_awal" name="lat_awal" placeholder="Latitude Awal" value="<?php echo set_value('lat_awal'); ?>">
+                                            <span class="help-inline"><?php echo form_error('lat_awal'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_awal'); ?>">
+                                            <span class="help-inline"><?php echo form_error('long_akhir'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="anggaran" name="anggaran" placeholder="anggaran" value="<?php echo set_value('anggaran'); ?>">
+                                            <span class="help-inline"><?php echo form_error('anggaran'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                                                        
                                     <div class="form-group">
                                         <div class="col-lg-10">                                           
                                             <button type="submit" class="btn btn-primary">Add</button>

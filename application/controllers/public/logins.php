@@ -23,7 +23,7 @@ class Logins extends CI_Controller {
     public function process_login() {
         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
-   
+
         $this->form_validation->set_error_delimiters('', '<br/>');
 
         if ($this->form_validation->run() == TRUE) {
@@ -47,11 +47,11 @@ class Logins extends CI_Controller {
                     redirect('admin/homes');
                 }
             } else {
-                $this->session->set_flashdata('message', 'Login Failed!, username and password was wrong '. $this->session->userdata('id_jenis_pengguna'));
+                $this->session->set_flashdata('message', 'Login Gagal!, username atau password salah '. $this->session->userdata('id_jenis_pengguna'));
                 redirect('public/logins');
             }
         } else {
-            $this->session->set_flashdata('message', 'Login Failed!, username and password was wrong ');
+            $this->session->set_flashdata('message', 'Login Gagal!, username atau password salah ');
             $data['title'] = "Login | SIPEPENG";
             $this->load->view('public/login', $data);
         }
