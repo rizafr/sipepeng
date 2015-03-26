@@ -22,7 +22,7 @@
                                 <span class="hidden-sm wht-color"><? echo $judulForm ?></span>
                             </header>
                             <div class="panel-body">
-                                <form method="post" action="<?php echo base_url('admin/drainase_managements/process_add/add'); ?>" class="form-horizontal" role="form" autocomplete="off">
+                                <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" role="form">
 
                                     <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Awal</legend>
                                     
@@ -121,6 +121,55 @@
                                             <span class="help-inline"><?php echo form_error('anggaran'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Sumber Data" value="<?php echo set_value('sumber_data'); ?>">
+                                            <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Tahun Usulan" value="<?php echo set_value('tahun_usulan'); ?>">
+                                            <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                     <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Tahun Usulan" value="<?php echo set_value('tahun_usulan'); ?>">
+                                            <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                     <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                           <textarea class="form-control" id="ket" name="ket"><?php echo set_value('ket'); ?></textarea>                                           
+                                            <span class="help-inline"><?php echo form_error('ket'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>">
+                                            <span class="help-inline"><?php echo form_error('foto'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                     <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="file" class="form-control" id="dokumen" name="dokumen" placeholder="Dokumen" value="<?php echo set_value('dokumen'); ?>">
+                                            <span class="help-inline"><?php echo form_error('dokumen'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
 
                                                                         
                                     <div class="form-group">

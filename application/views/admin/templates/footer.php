@@ -42,9 +42,7 @@
 <script src="<?php echo base_url(); ?>assets/admin/js/easy-pie-chart.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/js/count.js"></script>
  
- <!--script for this page-->
- <script src="<?php echo base_url(); ?>assets/admin/js/form-validation-script.js"></script>
-
+ 
 <script src="<?php echo base_url(); ?>assets/admin/assets/jquery-knob/js/jquery.knob.js"></script>
 
 <script>

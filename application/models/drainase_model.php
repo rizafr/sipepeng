@@ -48,7 +48,7 @@ class Drainase_model extends CI_Model{
 
     //search
     public function select_by_id($id_drainase) {
-        $sql = " select * from pengguna where id_drainase=" . $id_drainase;
+        $sql = " select * from dra where id_drainase=" . $id_drainase;
         $query = $this->db->query($sql);
         return $query;
     }
@@ -61,40 +61,23 @@ class Drainase_model extends CI_Model{
     //add user as public
     public function add($data) {
         $data = array(
-            'id_pengguna' => ''
-            , 'id_jenis_pengguna' => '2'
-            , 'username' => $data['username']
-            , 'password' => $data['password']
-            , 'confirm_password' => $data['confirm_password']
-            , 'username' => $data['username']
-            , 'first_address' => $data['first_address']
-            , 'second_address' => $data['second_address']
-            , 'user_phone' => $data['user_phone']
-            , 'user_city' => $data['user_city']
-            , 'user_zip' => $data['user_zip']
-            , 'id_state' => $data['id_state']
-            , 'id_country' => $data['id_country']
-            , 'user_agree' => $data['user_agree']
-            , 'created' => $data['created']
+             'rt' => $data['rt']
+            , 'rw' => $data['rw']
+            , 'alamat' => $data['alamat']
+            , 'panjang' => $data['panjang']
+            , 'lebar' => $data['lebar']
+            , 'kedalaman' => $data['kedalaman']
+            , 'ketersediaan_lahan' => $data['ketersediaan_lahan']
+            , 'status_data_awal' => '1'
+            , 'status_verifikasi' => '0'
+            , 'status_sedang_dilaksanakan' => '0'
+            , 'status_sudah_dilaksanakan' => '0'
+            , 'status_tidak_dilaksanakan' => '0'
         );
-        $this->db->insert('drainase', $data);
+       return $this->db->insert('drainase', $data);
     }
     
-    //add user from admin
-    public function add_from_admin($data) {
-        $data = array(
-            'id_pengguna' => ''
-            , 'id_jenis_pengguna' => $data['id_jenis_pengguna']
-            , 'username' => $data['username']
-            , 'password' => md5($data['password'])
-            , 'nama' => $data['nama']
-            , 'email' => $data['email']
-            , 'nip' => $data['nip']
-            , 'alamat' => $data['alamat']
-            , 'telp' => $data['telp']
-        );
-        $this->db->insert($this->table, $data);
-    }
+   
 
     //update user    
     public function update($id_pengguna) {
