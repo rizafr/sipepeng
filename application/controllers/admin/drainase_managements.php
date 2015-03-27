@@ -77,17 +77,12 @@ class Drainase_managements extends CI_Controller {
         $this->form_validation->set_rules('rt', 'RT', 'required|number');
         $this->form_validation->set_rules('rw', 'RW', 'required|number');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('panjang', 'Panjang', 'required|number');
-        $this->form_validation->set_rules('lebar', 'Lebar', 'required|number');
+        $this->form_validation->set_rules('panjang', 'Panjang', 'required');
+        $this->form_validation->set_rules('lebar', 'Lebar', 'required');
         $this->form_validation->set_rules('kedalaman', 'Kedalaman', 'required');
         $this->form_validation->set_rules('ketersediaan_lahan', 'Ketersediaan Lahan', 'required');
         $this->form_validation->set_rules('long_awal', 'Longitude Awal', 'required');
         $this->form_validation->set_rules('long_akhir', 'Longitude Akhir', 'required');
-        $this->form_validation->set_rules('lat_awal', 'Latitude Awal', 'required');
-        $this->form_validation->set_rules('lat_akhir', 'Latitude Akhir', 'required');
-        $this->form_validation->set_rules('anggaran', 'Anggaran', 'required|number');
-        $this->form_validation->set_rules('sumber_data', 'Sumber Data', 'required');
-        $this->form_validation->set_rules('tahun_asal', 'Tahun Asal', 'required');
         
 
         $this->form_validation->set_error_delimiters('', '<br/>');
@@ -102,14 +97,16 @@ class Drainase_managements extends CI_Controller {
             $data['ketersediaan_lahan'] = $this->input->post('ketersediaan_lahan');
            
             $hasil = $this->drainase_model->add($data);
-           
-            $this->session->set_flashdata('message', 'Tambah Drainase Success!');
+            $this->session->set_flashdata('message', 'Tambah Drainase Berhasil!');
             $data['username'] = $this->session->userdata('username');
             redirect('admin/drainase_managements/index/1',$data);
         } else {
              $data['title'] = "Tambah Data Awal Drainase | SIPEPENG";
             $data['judulForm'] = "Tambah Data Awal Drainase";
             $data['username'] = $this->session->userdata('username');
+			 echo "<script>
+						alert('Gagal!');
+				</script>";
             $this->load->view('admin/drainase/drainase_add', $data);
         }
 
