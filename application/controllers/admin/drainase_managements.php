@@ -12,6 +12,9 @@
 			$this->load->model('drainase_model');
 			$this->load->model('menu_model');
 			$this->load->helper(array('form', 'url'));
+			
+			# menampilkan google map
+			$this->load->library('googlemaps');
 		}
 		
 		public function index() {
@@ -67,6 +70,15 @@
 				$data['title'] = "Tambah Data Awal Drainase | SIPEPENG";
 				$data['judulForm'] = "Tambah Data Awal Drainase";
 				$data['username'] = $this->session->userdata('username');
+				
+				#google map yg bisa di klik otomatis dapetin koordinatnya
+				$config['center'] = '-6.900282, 107.530010';
+				$config['zoom'] = 'auto';
+				$config['onclick'] = 'alert(\'You just clicked at: \' + event.latLng.lat() + \', \' + event.latLng.lng());';
+				$this->googlemaps->initialize($config);
+				$data['map'] = $this->googlemaps->create_map();
+				#end google map
+				
 				$this->load->view('admin/drainase/drainase_add', $data);
 				}else {
 				redirect('public/homes');
@@ -173,10 +185,7 @@
 			$data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
 			$data['username'] = $this->session->userdata('username');
 			
-			# menampilkan google map
-			$this->load->library('googlemaps');
-			
-			$config['center'] = '-6.902442, 107.527813';
+			$config['center'] = '-6.900282, 107.530010';
 			$config['zoom'] = 'auto';
 			$this->googlemaps->initialize($config);
 
