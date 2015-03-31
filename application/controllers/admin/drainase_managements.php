@@ -175,14 +175,17 @@
 			
 			# menampilkan google map
 			$this->load->library('googlemaps');
-			$config['center'] = '37.4419, -122.1419';
+			
+			$config['center'] = '-6.902442, 107.527813';
 			$config['zoom'] = 'auto';
 			$this->googlemaps->initialize($config);
 
-			$marker = array();
-			$marker['position'] = '37.429, -122.1419';
-			$this->googlemaps->add_marker($marker);
+			$polyline = array();
+			$polyline['points'] = array('-6.905027, 107.525885',
+							'-6.904228, 107.528964');
+			$this->googlemaps->add_polyline($polyline);
 			$data['map'] = $this->googlemaps->create_map();
+			# end google map
 			
 			$this->load->view('admin/drainase/drainase_view',$data);
 		}
