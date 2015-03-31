@@ -22,7 +22,7 @@
                                 <span class="hidden-sm wht-color"><? echo $judulForm ?></span>
                             </header>
                             <div class="panel-body">
-                                <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" role="form">
+                                <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" role="form" enctype="multipart/form-data">
 
                                     <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Awal</legend>
                                     

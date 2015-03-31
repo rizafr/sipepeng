@@ -81,6 +81,7 @@
 <!--main content end-->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/data-tables/jquery.dataTables.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/data-tables/DT_bootstrap.js"></script>
+ <script src="<?php echo base_url(); ?>assets/admin/assets/fancybox/source/jquery.fancybox.js"></script>
 
 <!--script for this page only-->
 <script src="<?php echo base_url(); ?>assets/admin/js/editable-table.js"></script>
@@ -98,5 +99,12 @@
 
 </script>
 <!-- END JAVASCRIPTS -->
+ <script type="text/javascript">
+      $(function() {
+        //    fancybox
+          jQuery(".fancybox").fancybox();
+      });
+
+  </script>
 </body>
 </html>
