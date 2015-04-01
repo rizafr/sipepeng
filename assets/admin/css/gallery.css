@@ -1,3 +1,11 @@
+img {
+    display: block;
+    max-width:380px;
+    max-height:245px;
+    width: auto;
+    height: auto;
+}
+
 .grid {
 	list-style: none;
 }

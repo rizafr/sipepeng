@@ -78,8 +78,6 @@ class User_managements extends CI_Controller {
             $data['title'] = "Edit Data User | Adney's Shop";
             $data['idUser'] = $this->input->post('id_pengguna');
             $data['users'] = $this->users_model->getUserById($this->input->post('id_pengguna'));
-            $data['states_list'] = $this->states_model->get_dropdown_list();
-            $data['country_list'] = $this->country_model->get_dropdown_list();
             $data['level_list'] = $this->users_model->get_dropdown_list();
             $this->load->view('admin/user_management_edit', $data);
         }
@@ -132,8 +130,6 @@ class User_managements extends CI_Controller {
         $data['title'] = "View Data User | Adney's Shop";
         $data['users'] = $this->users_model->getUserById($id_pengguna);
         $data['view'] = $this->users_model->get_user_by_id($id_pengguna);
-        $data['states_list'] = $this->states_model->get_dropdown_list();
-        $data['country_list'] = $this->country_model->get_dropdown_list();
         $data['level_list'] = $this->users_model->get_dropdown_list();
         $data['username'] = $this->session->userdata('username');
         $this->load->view('admin/user_management_view',$data);
