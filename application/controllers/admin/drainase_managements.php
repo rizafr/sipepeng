@@ -96,8 +96,22 @@ class Drainase_managements extends CI_Controller {
             $data['kedalaman'] = $this->input->post('kedalaman');
             $data['ketersediaan_lahan'] = $this->input->post('ketersediaan_lahan');
            
+		   //masukan data ke model
             $hasil = $this->drainase_model->add($data);
-            $this->session->set_flashdata('message', 'Tambah Drainase Berhasil!');
+			
+			//pesan
+			$message = "<div class='alert alert-success alert-block fade in'>
+                                  <button data-dismiss='alert' class='close close-sm' type='button'>
+                                      <i class='icon-remove'></i>
+                                  </button>
+                                  <h4>
+                                      <i class='icon-ok-sign'></i>
+                                      Success!
+                                  </h4>
+                                  <p>Tambah Drainase Berhasil!</p>
+                              </div>";
+							  
+            $this->session->set_flashdata('message', $message);			
             $data['username'] = $this->session->userdata('username');
             redirect('admin/drainase_managements/index/1',$data);
         } else {
@@ -105,7 +119,7 @@ class Drainase_managements extends CI_Controller {
             $data['judulForm'] = "Tambah Data Awal Drainase";
             $data['username'] = $this->session->userdata('username');
 			 echo "<script>
-						alert('Gagal!');
+						alert('Ada kesalahan, Silakan Periksa Kembali Form!');
 				</script>";
             $this->load->view('admin/drainase/drainase_add', $data);
         }
