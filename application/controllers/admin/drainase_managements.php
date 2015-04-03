@@ -115,6 +115,8 @@
 				$data['anggaran'] = $this->input->post('anggaran');
 				$data['sumber_data'] = $this->input->post('sumber_data');
 				$data['tahun_usulan'] = $this->input->post('tahun_usulan');
+				$data['long_awal'] = $this->input->post('long_awal');
+				$data['ket'] = $this->input->post('ket');
 				
 				//mengecek apakah foto di upload
 				if($_FILES['foto']['name'] != "")
@@ -242,7 +244,7 @@
 			if($file_name != "")
 			{
 				$config = array(
-					'file_name'		=> preg_replace("/[^A-Za-z0-9_-\s]/", ""),
+					'file_name'		=> preg_replace("/[^A-Za-z0-9_-\s]/", "", $ket."_".$tahun_usulan."_".$rw."_".$alamat),
 					'overwrite'		=> TRUE,
 					'remove_spaces'	=> TRUE,
 					'allowed_types' => 'jpg|JPG|jpeg|JPEG|gif|png',

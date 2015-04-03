@@ -1,6 +1,10 @@
 <?php $this->load->view('admin/templates/header'); ?>
  <!--header google map start-->
-<?php echo $map['js']; ?>
+<?php 
+$mapjs = isset($map['js']) ? $map['js'] : '';											
+echo $mapjs; 
+
+?>
  <!--header  google map end-->
 <link href="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
 <link href="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
@@ -88,7 +92,10 @@
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo $map['html']; ?>
+                                            <?php 
+												$map = isset($map['html']) ? $map['html'] : '';											
+												echo $map; 
+											?>
                                         </div>
                                     </div><!--end control-group--> 
 									
