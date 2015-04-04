@@ -14,7 +14,7 @@
 		
 		//select 
 		public function select_all_data_awal() {
-			$sql = "select * from drainase where status_data_awal='1'";
+			$sql = "select * from drainase where status_data_awal='1' ";
 			return $this->db->query($sql);
 		}
 		
@@ -69,6 +69,9 @@
             , 'kedalaman' => $data['kedalaman']
             , 'ketersediaan_lahan' => $data['ketersediaan_lahan']
             , 'long_awal' => $data['long_awal']
+            , 'long_akhir' => $data['long_akhir']
+			, 'lat_awal' => $data['lat_awal']
+            , 'lat_akhir' => $data['lat_akhir']
             , 'anggaran' => $data['anggaran']
             , 'sumber_data' => $data['sumber_data']
             , 'tahun_usulan' => $data['tahun_usulan']
@@ -87,40 +90,27 @@
 		
 		
 		//update user    
-		public function update($id_pengguna) {
-			if ($this->input->post('password')) {
-				$data = array(
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
-                'confirm_password' => $this->input->post('confirm_password'),
-                'username' => $this->input->post('username'),
-                'first_address' => $this->input->post('first_address'),
-                'second_address' => $this->input->post('second_address'),
-                'user_phone' => $this->input->post('user_phone'),
-                'user_city' => $this->input->post('user_city'),
-                'user_zip' => $this->input->post('user_zip'),
-                'id_country' => $this->input->post('id_country'),
-                'id_state' => $this->input->post('id_state'),
-                'user_agree' => $this->input->post('user_agree'),
-                'modified' => date('Y-m-d H:i:s', time()+60*60*6)
-				);
-				} else {
-				$data = array(
-                'username' => $this->input->post('username'),
-                'username' => $this->input->post('username'),
-                'first_address' => $this->input->post('first_address'),
-                'second_address' => $this->input->post('second_address'),
-                'user_phone' => $this->input->post('user_phone'),
-                'user_city' => $this->input->post('user_city'),
-                'user_zip' => $this->input->post('user_zip'),
-                'id_country' => $this->input->post('id_country'),
-                'id_state' => $this->input->post('id_state'),
-                'user_agree' => $this->input->post('user_agree'),
-                'modified' => date('Y-m-d H:i:s', time()+60*60*6)
-				);
-			}
-			$this->db->where('id_pengguna', $id_pengguna);
-			return $this->db->update($this->table, $data);
+		public function update($id_drainase) {	
+			$data = array(
+				'rt' => $this->input->post('rt')
+				, 'rw' => $this->input->post('rw')
+				, 'alamat' => $this->input->post('alamat')
+				, 'panjang' => $this->input->post('panjang')
+				, 'lebar' => $this->input->post('lebar')
+				, 'kedalaman' => $this->input->post('kedalaman')
+				, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
+				, 'long_awal' => $data['long_awal']
+				, 'long_akhir' => $data['long_akhir']
+				, 'lat_awal' => $data['lat_awal']
+				, 'lat_akhir' => $data['lat_akhir']
+				, 'anggaran' =>  $this->input->post('anggaran')
+				, 'sumber_data' =>  $this->input->post('sumber_data')
+				, 'tahun_usulan' => $this->input->post('tahun_usulan')
+				, 'ket' => $this->input->post('ket')
+			);
+			
+			$this->db->where('id_drainase', $id_drainase);
+			return $this->db->update('drainase', $data);
 		}
 		
 		
@@ -138,8 +128,29 @@
 		
 		//delete
 		public function delete($id_drainase) {
-			$sql = "delete from drainase where id_drainase = " . $id_drainase;
-			$query = $this->db->query($sql);
+			 $this->db->where('id_drainase',$id_drainase);
+			 $query = $this->db->get('drainase');
+			 $row = $query->row();
+			
+			//menghapus file
+			 $foto = $row->foto;
+			 $dokumen = $row->dokumen;
+			// lokasi folder image
+			$map = $_SERVER['DOCUMENT_ROOT'];
+			
+			$pathImage = $map . '/assets/upload/foto/';
+			$pathDocument = $map . '/assets/upload/dokumen/';
+		   
+			//lokasi gambar secara spesifik
+			$image = $pathImage.$foto;
+			$document = $pathDocument.$dokumen;
+			
+			//hapus image
+			unlink($image);
+			unlink($document);
+			 
+			$this->db->delete('drainase', array('id_drainase' => $id_drainase));
+			
 		}
 		
 		

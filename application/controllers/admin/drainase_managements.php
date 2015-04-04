@@ -61,15 +61,18 @@
 			}
 		}
 		
-		public function gotoFormAdd() {
+		public function gotoForm() {
 			//check sudah login atau belum
 			if($this->session->userdata('is_login')){
 				//menampilkan menu..wajib ada
 				$data['menu_list'] = $this->menu_model->select_all()->result();
 				// end menampilkan menu..wajib ada
-				$data['title'] = "Tambah Data Awal Drainase | SIPEPENG";
-				$data['judulForm'] = "Tambah Data Awal Drainase";
+				$data['title'] = "Data Awal Drainase | SIPEPENG";
+				$data['judulForm'] = "Data Awal Drainase";
 				$data['username'] = $this->session->userdata('username');
+				
+				//mengambil uri aksi
+				$data['aksi']=$this->uri->segment(4);
 				
 				#google map yg bisa di klik otomatis dapetin koordinatnya
 				$config['center'] = '-6.900282, 107.530010';
@@ -79,8 +82,14 @@
 				$data['map'] = $this->googlemaps->create_map();
 				#end google map
 				
-				$this->load->view('admin/drainase/drainase_add', $data);
-				}else {
+				if($data['aksi']=='edit'){
+				//mengambil uri aksi
+				$id_drainase =$this->uri->segment(5);
+				$data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
+				}
+				
+				$this->load->view('admin/drainase/drainase_olahdata', $data);
+			}else {
 				redirect('public/homes');
 			}
 		}
@@ -89,7 +98,10 @@
 			//menampilkan menu..wajib ada
 			$data['menu_list'] = $this->menu_model->select_all()->result();
 			// end menampilkan menu..wajib ada
-			$ket = "drainase";
+			
+			$aksi = $this->input->post('aksi');		
+			$data['aksi']=$aksi;
+			$id_drainase = $this->input->post('id_drainase');
 			
 			$this->form_validation->set_rules('rt', 'RT', 'required|number');
 			$this->form_validation->set_rules('rw', 'RW', 'required|number');
@@ -98,13 +110,12 @@
 			$this->form_validation->set_rules('lebar', 'Lebar', 'required');
 			$this->form_validation->set_rules('kedalaman', 'Kedalaman', 'required');
 			$this->form_validation->set_rules('ketersediaan_lahan', 'Ketersediaan Lahan', 'required');
-			$this->form_validation->set_rules('long_awal', 'Longitude Awal', 'required');
-			$this->form_validation->set_rules('long_akhir', 'Longitude Akhir', 'required');
 			
 			
-			$this->form_validation->set_error_delimiters('', '<br/>');
+			//$this->form_validation->set_error_delimiters('', '<br/>');
+			$this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
 			
-			if ($this->form_validation->run() == TRUE) {
+			if ($this->form_validation->run() == TRUE) {						
 				$data['rt'] = $this->input->post('rt');
 				$data['rw'] = $this->input->post('rw');
 				$data['alamat'] = $this->input->post('alamat');
@@ -115,64 +126,71 @@
 				$data['anggaran'] = $this->input->post('anggaran');
 				$data['sumber_data'] = $this->input->post('sumber_data');
 				$data['tahun_usulan'] = $this->input->post('tahun_usulan');
+				$data['lat_awal'] = $this->input->post('lat_awal');
+				$data['lat_akhir'] = $this->input->post('lat_akhir');
 				$data['long_awal'] = $this->input->post('long_awal');
+				$data['long_akhir'] = $this->input->post('long_akhir');
 				$data['ket'] = $this->input->post('ket');
+				$ket = "drainase";
 				
 				//mengecek apakah foto di upload
 				if($_FILES['foto']['name'] != "")
 				{
-				$foto = $this->upload_foto($ket,$data['tahun_usulan'],$data['rw'],$data['alamat']);
+					$foto = $this->upload_foto($ket,$data['tahun_usulan'],$data['rw'],$data['alamat']);
 				}
 				 $data['foto'] = $foto;
 				 
 				 //mengecek apakah dokumen di upload
 				if($_FILES['dokumen']['name'] != "")
 				{
-				$dokumen = $this->upload_dokumen($ket,$data['tahun_usulan'],$data['rw'],$data['alamat']);
+					$dokumen = $this->upload_dokumen($ket,$data['tahun_usulan'],$data['rw'],$data['alamat']);
 				}
-				 $data['dokumen'] = $dokumen;
-				 
-				//proses menginput ke model
-				$hasil = $this->drainase_model->add($data);
+					$data['dokumen'] = $dokumen;
 				
-				$this->session->set_flashdata('message', 'Tambah Drainase Berhasil!');
+				//mengecek aksi
+				# jika tambah
+				if($aksi=='add'){
+					//proses menginput ke model
+					$hasil = $this->drainase_model->add($data);
+					$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil ditambah </div>');
+				}
+				# jika edit
+				if($aksi=='edit'){
+					
+					//proses menginput ke model
+					$hasil = $this->drainase_model->update($id_drainase);					
+					 if ($hasil == TRUE) {
+						$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
+					} else {
+						$this->session->set_flashdata('message', '<div class="alert alert-error"> Gagal ditambahkan </div>');
+					}
+				}
+				
 				$data['username'] = $this->session->userdata('username');
 				redirect('admin/drainase_managements/index/1',$data);
 				
 			} else {
-				$data['title'] = "Tambah Data Awal Drainase | SIPEPENG";
-				$data['judulForm'] = "Tambah Data Awal Drainase";
+				$data['title'] = "Data Awal Drainase | SIPEPENG";
+				$data['judulForm'] = "Data Awal Drainase";
 				$data['username'] = $this->session->userdata('username');
-				echo "<script>
-				alert('Gagal!');
-				</script>";
-				$this->load->view('admin/drainase/drainase_add', $data);
+				$data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
+				$this->load->view('admin/drainase/drainase_olahdata', $data);
 			}
 			
 			
 		}
 		
 		
-		
-		public function edit($id_status,$id_drainase) {
-			$data['id_drainase'] = $id_drainase;
-			$data['id_status'] = $id_status;
-			$data['title'] = "Edit Data User | SIPEPENG";
-			$data['users'] = $this->users_model->getUserById($id_drainase);       
-			$data['level_list'] = $this->users_model->get_dropdown_list();
-			$data['username'] = $this->session->userdata('username');
-			$this->load->view('admin/user_management_edit', $data);
-		}
-		
 		function delete($id_drainase) {
-			$status=$this->uri->segment(4);
+			$id_drainase=$this->uri->segment(4);
+			$status=$this->uri->segment(5);
 			if (empty($id_drainase)) {
-				$this->session->set_flashdata('message', 'Error Invalid Drainase');
-				redirect('admin/drainase_managements',$status);
+				$this->session->set_flashdata('message', 'Error Invalid');
+				redirect('admin/drainase_managements/index/'.$status);
 				} else {
 				$this->drainase_model->delete($id_drainase);
-				$this->session->set_flashdata('message', 'Success Drainase deleted');
-				redirect('admin/drainase_managements',$status);
+				$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil Dihapus </div>');
+				redirect('admin/drainase_managements/index/'.$status);
 			}
 		}
 		
@@ -206,7 +224,7 @@
 		{
 			$this->load->library('upload');
 			
-			$image_foto = "no_image.jpg";
+			$image_foto = "noimage.jpg";
 			$field_name = "foto";
 			$file_name = $_FILES['foto']['name'];
 			

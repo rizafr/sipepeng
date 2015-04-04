@@ -138,11 +138,26 @@
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
+										<? 
+											$foto = isset($drainase_list['foto']) ? $drainase_list['foto'] : 'NULL';
+											if($foto === NULL){
+												$foto = 'noimage.jpg';
+											}else{												
+												$foto = $foto;
+											}
+											
+											
+											$dokumen = isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'NULL';
+											if($dokumen === NULL){
+												$dokumen = 'noimage.jpg';
+											}else{												
+												$dokumen = $dokumen;
+											}
+											
+										?>
 												<figure>
-													<img src="<?php echo base_url(); ?>/assets/upload/foto/<?php echo set_value('foto', isset($drainase_list['foto']) ? $drainase_list['foto'] : 'noimage.jpg'); ?>"  alt="img03">
-													<figcaption>
-														<button  class="btn btn-success dropdown-toggle btn-xs" type="button"><a class="fancybox" rel="group" href="<?php echo base_url(); ?>/assets/upload/foto/<?php echo set_value('foto', isset($drainase_list['foto']) ? $drainase_list['foto'] : 'noimage.jpg'); ?>">Lihat</a> 
-													</figcaption>
+													<img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
+													<a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
 												</figure
 										</div>
 									</div><!--end control-group-->
@@ -150,7 +165,7 @@
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<a class="fancybox" rel="group" href="<?php echo base_url(); ?>/assets/upload/foto/<?php echo set_value('foto', isset($drainase_list['foto']) ? $drainase_list['foto'] : 'noimage.jpg'); ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'Belum Ada'); ?></button></a>
+											<a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'Belum Ada'); ?></button></a>
                                             
 										</div>
 									</div><!--end control-group-->
@@ -163,7 +178,7 @@
 									
                                     <div class="form-group">
                                         <div class="col-lg-10">                                           
-											<button type="button" class="btn btn-Info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
+											<button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
 										</div>
 									</div><!--end control-group-->
 									

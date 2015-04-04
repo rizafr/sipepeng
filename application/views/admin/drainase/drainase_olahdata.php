@@ -4,6 +4,15 @@
 $mapjs = isset($map['js']) ? $map['js'] : '';											
 echo $mapjs; 
 
+//cek status tambah atau edit
+if(strtolower($aksi) == 'add') {
+		$aksi = 'add';
+		$namaform="Tambah";
+		}
+    else if(strtolower($aksi) == 'edit') {
+		$aksi = 'edit';
+		$namaform="Ubah";
+		}
 ?>
  <!--header  google map end-->
 <link href="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
@@ -26,17 +35,17 @@ echo $mapjs;
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                <span class="hidden-sm wht-color"><? echo $judulForm ?></span>
+                                <span class="hidden-sm wht-color"><? echo $namaform." " .$judulForm ?></span>
                             </header>
                             <div class="panel-body">
                                 <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" role="form" enctype="multipart/form-data">
-
-                                    <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Awal</legend>
-                                    
+								<input type="text" name="aksi" value="<? echo $aksi ?>" />
+								<input type="text" name="id_drainase" value="<?php echo set_value('id_drainase', isset($drainase_list['id_drainase']) ? $drainase_list['id_drainase'] : ''); ?>" />
+                                     <span class="help-inline"><?php echo form_error('id_drainase'); ?></span>
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt'); ?>">
+                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt', isset($drainase_list['rt']) ? $drainase_list['rt'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('rt'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -44,7 +53,7 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw'); ?>">
+                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw', isset($drainase_list['rw']) ? $drainase_list['rw'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('rw'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -52,7 +61,7 @@ echo $mapjs;
                                   <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" id="alamat" name="alamat"><?php echo set_value('alamat'); ?></textarea>                                           
+                                            <textarea class="form-control" id="alamat" name="alamat"><?php echo set_value('alamat', isset($drainase_list['alamat']) ? $drainase_list['alamat'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('alamat'); ?></span>
                                         </div>
                                     </div><!--end form-group-->
@@ -60,7 +69,7 @@ echo $mapjs;
                                      <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang" value="<?php echo set_value('panjang'); ?>">
+                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang" value="<?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('panjang'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -68,7 +77,7 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lebar">Lebar: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lebar" name="lebar" placeholder="Lebar" value="<?php echo set_value('lebar'); ?>">
+                                            <input type="text" class="form-control" id="lebar" name="lebar" placeholder="Lebar" value="<?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('lebar'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -76,15 +85,15 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="kedalaman">Kedalaman: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="kedalaman" name="kedalaman" placeholder="Kedalaman" value="<?php echo set_value('kedalaman'); ?>">
-                                            <span class="help-inline"><?php echo form_error('kedalaman'); ?></span>
+                                            <input type="text" class="form-control" id="kedalaman" name="kedalaman" placeholder="Kedalaman" value="<?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : ''); ?>">
+                                            <p class="help-block"><?php echo form_error('kedalaman'); ?></p>
                                         </div>
                                     </div><!--end control-group-->
 
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" placeholder="Kedalaman" value="<?php echo set_value('ketersediaan_lahan'); ?>">
+                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -101,9 +110,9 @@ echo $mapjs;
 									
 									
 									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude Awal: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long_awal" name="long_awal" placeholder="Longitude" value="<?php echo set_value('long_awal'); ?>">
+                                            <input type="text" class="form-control" id="long_awal" name="long_awal" placeholder="Longitude Awal" value="<?php echo set_value('long_awal', isset($drainase_list['long_awal']) ? $drainase_list['long_awal'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('long_awal'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -111,7 +120,7 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_awal'); ?>">
+                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_akhir', isset($drainase_list['long_akhir']) ? $drainase_list['long_akhir'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('long_akhir'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -119,7 +128,7 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lat_awal" name="lat_awal" placeholder="Latitude Awal" value="<?php echo set_value('lat_awal'); ?>">
+                                            <input type="text" class="form-control" id="lat_awal" name="lat_awal" placeholder="Latitude Awal" value="<?php echo set_value('lat_awal', isset($drainase_list['lat_awal']) ? $drainase_list['lat_awal'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('lat_awal'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -127,7 +136,7 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_awal'); ?>">
+                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_akhir', isset($drainase_list['long_akhir']) ? $drainase_list['long_akhir'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('long_akhir'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -135,7 +144,7 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="anggaran" name="anggaran" placeholder="anggaran" value="<?php echo set_value('anggaran'); ?>">
+                                            <input type="text" class="form-control" id="anggaran" name="anggaran" placeholder="anggaran" value="<?php echo set_value('anggaran', isset($drainase_list['anggaran']) ? $drainase_list['anggaran'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('anggaran'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -143,7 +152,7 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Sumber Data" value="<?php echo set_value('sumber_data'); ?>">
+                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Sumber Data" value="<?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -151,23 +160,15 @@ echo $mapjs;
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Tahun Usulan" value="<?php echo set_value('tahun_usulan'); ?>">
+                                            <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Tahun Usulan" value="<?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
-                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Tahun Usulan" value="<?php echo set_value('tahun_usulan'); ?>">
-                                            <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                     <div class="form-group">
+                                   <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                           <textarea class="form-control" id="ket" name="ket"><?php echo set_value('ket'); ?></textarea>                                           
+                                           <textarea class="form-control" id="ket" name="ket"> <?php echo set_value('ket', isset($drainase_list['ket']) ? $drainase_list['ket'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('ket'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -191,8 +192,8 @@ echo $mapjs;
 
                                                                         
                                     <div class="form-group">
-                                        <div class="col-lg-10">                                           
-                                            <button type="submit" class="btn btn-primary">Add</button>
+                                        <div class="col-lg-10"> 
+                                            <button type="submit" class="btn btn-primary"><?echo $namaform ?></button>
                                             <button type="reset" class="btn btn-primary">Reset</button>
                                         </div>
                                     </div><!--end control-group-->
