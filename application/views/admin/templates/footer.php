@@ -106,5 +106,12 @@
       });
 
   </script>
+  
+  <!-- Jquery validation Ketchup-->
+ <script src="<?php echo base_url(); ?>assets/form-validator/jquery.form-validator.min.js"></script>
+ <script> $.validate({
+			  modules : 'file'
+			});
+</script>
 </body>
 </html>

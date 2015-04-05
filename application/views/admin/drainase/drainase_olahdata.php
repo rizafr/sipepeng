@@ -38,14 +38,14 @@ if(strtolower($aksi) == 'add') {
                                 <span class="hidden-sm wht-color"><? echo $namaform." " .$judulForm ?></span>
                             </header>
                             <div class="panel-body">
-                                <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" role="form" enctype="multipart/form-data">
+                                <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">
 								<input type="text" name="aksi" value="<? echo $aksi ?>" />
 								<input type="text" name="id_drainase" value="<?php echo set_value('id_drainase', isset($drainase_list['id_drainase']) ? $drainase_list['id_drainase'] : ''); ?>" />
                                      <span class="help-inline"><?php echo form_error('id_drainase'); ?></span>
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt', isset($drainase_list['rt']) ? $drainase_list['rt'] : ''); ?>">
+                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt', isset($drainase_list['rt']) ? $drainase_list['rt'] : ''); ?>"  data-validation="number">
                                             <span class="help-inline"><?php echo form_error('rt'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -53,7 +53,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw', isset($drainase_list['rw']) ? $drainase_list['rw'] : ''); ?>">
+                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw', isset($drainase_list['rw']) ? $drainase_list['rw'] : ''); ?>"  data-validation="number">
                                             <span class="help-inline"><?php echo form_error('rw'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -61,7 +61,7 @@ if(strtolower($aksi) == 'add') {
                                   <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" id="alamat" name="alamat"><?php echo set_value('alamat', isset($drainase_list['alamat']) ? $drainase_list['alamat'] : ''); ?></textarea>                                           
+                                            <textarea class="form-control" id="alamat" name="alamat" data-validation="length" data-validation-length="min10"><?php echo set_value('alamat', isset($drainase_list['alamat']) ? $drainase_list['alamat'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('alamat'); ?></span>
                                         </div>
                                     </div><!--end form-group-->
@@ -77,7 +77,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lebar">Lebar: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lebar" name="lebar" placeholder="Lebar" value="<?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : ''); ?>">
+                                            <input type="text" class="form-control" id="lebar" name="lebar" placeholder="Lebar" value="<?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : ''); ?>" data-validation="number" data-validation-allowing="range[0;1]" data-validation-help="Silakan masukan dalam satuan meter">
                                             <span class="help-inline"><?php echo form_error('lebar'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -152,7 +152,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Sumber Data" value="<?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : ''); ?>">
+                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Sumber Data" value="<?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : ''); ?>" data-validation-help="Sumber data drainase berasal darimana">
                                             <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -176,7 +176,8 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>">
+                                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
+													data-validation-max-size="512kb">
                                             <span class="help-inline"><?php echo form_error('foto'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
