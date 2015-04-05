@@ -86,6 +86,7 @@
 <!--script for this page only-->
 <script src="<?php echo base_url(); ?>assets/admin/js/editable-table.js"></script>
 
+  
 <script>
     jQuery(document).ready(function() {
         EditableTable.init();

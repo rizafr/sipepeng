@@ -39,8 +39,8 @@ if(strtolower($aksi) == 'add') {
                             </header>
                             <div class="panel-body">
                                 <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">
-								<input type="text" name="aksi" value="<? echo $aksi ?>" />
-								<input type="text" name="id_drainase" value="<?php echo set_value('id_drainase', isset($drainase_list['id_drainase']) ? $drainase_list['id_drainase'] : ''); ?>" />
+								<input type="hidden" name="aksi" value="<? echo $aksi ?>" />
+								<input type="hidden" name="id_drainase" value="<?php echo set_value('id_drainase', isset($drainase_list['id_drainase']) ? $drainase_list['id_drainase'] : ''); ?>" />
                                      <span class="help-inline"><?php echo form_error('id_drainase'); ?></span>
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
@@ -69,7 +69,7 @@ if(strtolower($aksi) == 'add') {
                                      <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang" value="<?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : ''); ?>">
+                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang"  data-validation="number" value="<?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('panjang'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -143,8 +143,8 @@ if(strtolower($aksi) == 'add') {
 
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="anggaran" name="anggaran" placeholder="anggaran" value="<?php echo set_value('anggaran', isset($drainase_list['anggaran']) ? $drainase_list['anggaran'] : ''); ?>">
+                                        <div class="col-lg-10">                                               	  
+                                            <input type="text" class="form-control" id="anggaran" name="anggaran" placeholder="Silakan isi anggaran" value="<?php echo set_value('anggaran', isset($drainase_list['anggaran']) ? $drainase_list['anggaran'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('anggaran'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -152,16 +152,21 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Sumber Data" value="<?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : ''); ?>" data-validation-help="Sumber data drainase berasal darimana">
+                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Silakan isi Sumber Data" value="<?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : ''); ?>" data-validation-help="Sumber data drainase berasal darimana">
                                             <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
-                                    <div class="form-group">
+                                   <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Tahun Usulan" value="<?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : ''); ?>">
+                                        <div class="col-md-3 col-xs-11">
+                                            <div data-date-minviewmode="years" data-date-viewmode="years" data-date-format=" yyyy" data-date="102/2012"  class="input-append date dpYears">
+                                         <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Silakan isi tahun Usulan" value="<?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : ''); ?>" readonly>
                                             <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
+                                              <span class="input-group-btn add-on">
+                                                <button class="btn btn-danger" type="button"><i class="icon-calendar"></i></button>
+                                              </span>
+                                      </div>
                                         </div>
                                     </div><!--end control-group-->
 
@@ -208,4 +213,22 @@ if(strtolower($aksi) == 'add') {
             </section>
         </section>
         <!--main content end-->
-        <?php $this->load->view('admin/templates/footer'); ?>
+		   <?php $this->load->view('admin/templates/footer'); ?>
+		   
+	 <!--js only this page-->	   
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/fuelux/js/spinner.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-daterangepicker/moment.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/jquery-multi-select/js/jquery.multi-select.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
+  <script src="<?php echo base_url(); ?>assets/admin/js/advanced-form-components.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+     
+			
