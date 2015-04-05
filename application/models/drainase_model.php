@@ -14,19 +14,19 @@
 		
 		//select 
 		public function select_all_data_awal() {
-			$sql = "select * from drainase where status_data_awal='1' ";
+			$sql = "select * from drainase where status_verifikasi='0' ";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_verifikasi() {
-			$sql = "select * from drainase where status_verifikasi='1'";
+			$sql = "select * from drainase where status_sedang_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_sedang_dilaksanakan() {
-			$sql = "select * from drainase where status_sedang_dilaksanakan='1'";
+			$sql = "select * from drainase where status_sudah_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
@@ -68,11 +68,11 @@
             , 'lebar' => $data['lebar']
             , 'kedalaman' => $data['kedalaman']
             , 'ketersediaan_lahan' => $data['ketersediaan_lahan']
-            , 'long_awal' => $data['long_awal']
-            , 'long_akhir' => $data['long_akhir']
 			, 'lat_awal' => $data['lat_awal']
             , 'lat_akhir' => $data['lat_akhir']
-            , 'anggaran' => $data['anggaran']
+			, 'long_awal' => $data['long_awal']
+            , 'long_akhir' => $data['long_akhir']
+			, 'anggaran' => $data['anggaran']
             , 'sumber_data' => $data['sumber_data']
             , 'tahun_usulan' => $data['tahun_usulan']
             , 'ket' => $data['ket']
@@ -92,21 +92,21 @@
 		//update user    
 		public function update($id_drainase) {	
 			$data = array(
-				'rt' => $this->input->post('rt')
-				, 'rw' => $this->input->post('rw')
-				, 'alamat' => $this->input->post('alamat')
-				, 'panjang' => $this->input->post('panjang')
-				, 'lebar' => $this->input->post('lebar')
-				, 'kedalaman' => $this->input->post('kedalaman')
-				, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
-				, 'long_awal' => $data['long_awal']
-				, 'long_akhir' => $data['long_akhir']
-				, 'lat_awal' => $data['lat_awal']
-				, 'lat_akhir' => $data['lat_akhir']
-				, 'anggaran' =>  $this->input->post('anggaran')
-				, 'sumber_data' =>  $this->input->post('sumber_data')
-				, 'tahun_usulan' => $this->input->post('tahun_usulan')
-				, 'ket' => $this->input->post('ket')
+			'rt' => $this->input->post('rt')
+			, 'rw' => $this->input->post('rw')
+			, 'alamat' => $this->input->post('alamat')
+			, 'panjang' => $this->input->post('panjang')
+			, 'lebar' => $this->input->post('lebar')
+			, 'kedalaman' => $this->input->post('kedalaman')
+			, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
+			, 'long_awal' => $data['long_awal']
+			, 'long_akhir' => $data['long_akhir']
+			, 'lat_awal' => $data['lat_awal']
+			, 'lat_akhir' => $data['lat_akhir']
+			, 'anggaran' =>  $this->input->post('anggaran')
+			, 'sumber_data' =>  $this->input->post('sumber_data')
+			, 'tahun_usulan' => $this->input->post('tahun_usulan')
+			, 'ket' => $this->input->post('ket')
 			);
 			
 			$this->db->where('id_drainase', $id_drainase);
@@ -123,24 +123,23 @@
 				return $query->row_array();
 			}
 		}
-		
-		
+			
 		
 		//delete
 		public function delete($id_drainase) {
-			 $this->db->where('id_drainase',$id_drainase);
-			 $query = $this->db->get('drainase');
-			 $row = $query->row();
+			$this->db->where('id_drainase',$id_drainase);
+			$query = $this->db->get('drainase');
+			$row = $query->row();
 			
 			//menghapus file
-			 $foto = $row->foto;
-			 $dokumen = $row->dokumen;
+			$foto = $row->foto;
+			$dokumen = $row->dokumen;
 			// lokasi folder image
 			$map = $_SERVER['DOCUMENT_ROOT'];
 			
 			$pathImage = $map . '/assets/upload/foto/';
 			$pathDocument = $map . '/assets/upload/dokumen/';
-		   
+			
 			//lokasi gambar secara spesifik
 			$image = $pathImage.$foto;
 			$document = $pathDocument.$dokumen;
@@ -148,24 +147,49 @@
 			//hapus image
 			unlink($image);
 			unlink($document);
-			 
+			
 			$this->db->delete('drainase', array('id_drainase' => $id_drainase));
 			
 		}
+		///////////////////////////////////////////////////////////////////////
+		//FUNGSI MERUBAH STATUS
+		////////////////////////////////////////////////////////////////////////
 		
 		
-		function get_dropdown_list() {
-			$this->db->from($this->jenis_pengguna_level);
-			$this->db->order_by('jenis_pengguna', 'asc');
-			$result = $this->db->get();
-			$return = array();
-			if ($result->num_rows() > 0) {
-				$return[''] = "--Select a Level--";
-				foreach ($result->result_array() as $row) {
-					$return[$row['id_jenis_pengguna']] = $row['jenis_pengguna'];
-				}
-			}
-			return $return;
+		# update data awal menjadi verifikasi   
+		public function update_status_data_awal($id_drainase) {	
+			$data = array(
+			'status_verifikasi' => "1"			
+			);
+			
+			$this->db->where('id_drainase', $id_drainase);
+			return $this->db->update('drainase', $data);
 		}
+	
+		# update data verifikasi menjadi sedang dilaksanakan   
+		public function update_status_verifikasi($id_drainase) {	
+			$data = array(
+			'status_sedang_dilaksanakan' => "1"			
+			);
+			
+			$this->db->where('id_drainase', $id_drainase);
+			return $this->db->update('drainase', $data);
+		}
+		
+		# update data verifikasi menjadi sedang dilaksanakan   
+		public function update_status_sedang_dilaksanakan($id_drainase) {	
+			$data = array(
+			'status_sudah_dilaksanakan' => "1"			
+			);
+			
+			$this->db->where('id_drainase', $id_drainase);
+			return $this->db->update('drainase', $data);
+		}
+		
+			
+	
+	
+	
+	
 	}
 ?>

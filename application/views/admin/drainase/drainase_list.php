@@ -51,6 +51,7 @@
                                                     <th>Sumber Data</th>
                                                     <th>Tahun Usulan</th>
                                                     <th>Keterangan</th>
+                                                    <th>status</th>
                                                     <th>Aksi</th>
 												</tr>
 											</thead>
@@ -72,24 +73,36 @@
 															<td><?php echo $row->sumber_data ?></td>
 															<td><?php echo $row->tahun_usulan ?></td>
 															<td><?php echo $row->ket ?></td>                                                             
+															<td><? 
+																if($status=='1'){
+																?>
+																<span class="label label-default">Belum Diverifikasi</span>
+																<? }
+																if($status=='2'){
+																?>
+																<span class="label label-primary">Belum Dilaksanakan</span><? }
+																if($status=='3'){
+																?>
+																<span class="label label-success">Belum Selesai</span><? }
+																if($status=='4'){
+																?>
+																<span class="label label-info">Sudah dilaksanakan</span>
+															<? }?></td>                                                             
 															<td>
 																<? 
 																	if($status=='1'){
 																	?>
-																	<a href="<?php echo base_url() . 'admin/drainase_managements/view/' . $row->id_drainase ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Verifikasi" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																	<a href="<?php echo base_url() . 'admin/drainase_managements/update_status_data_awal/' . $row->id_drainase ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Verifikasi" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
 																	<? }
 																	if($status=='2'){
 																	?>
-																	<a href="<?php echo base_url() . 'admin/drainase_managements/view/' . $row->id_drainase ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Progress" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																	<a href="<?php echo base_url() . 'admin/drainase_managements/update_status_verifikasi/' . $row->id_drainase ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Progress" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
 																	<? }
 																	if($status=='3'){
 																	?>
-																	<a href="<?php echo base_url() . 'admin/drainase_managements/view/' . $row->id_drainase ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Sudah Dilaksanakan" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																	<a href="<?php echo base_url() . 'admin/drainase_managements/update_status_sedang_dilaksanakan/' . $row->id_drainase ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Sudah Dilaksanakan" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
 																	<? }
-																	if($status=='4'){
-																	?>
-																	<a href="<?php echo base_url() . 'admin/drainase_managements/view/' . $row->id_drainase ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Sudah Selesai" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
-																<? }?>		
+																	?>		
 																
 																<a href="<?php echo base_url() . 'admin/drainase_managements/view/' . $row->id_drainase ?>"><button class = "btn btn-info" data-toggle="tooltip" title="View" data-placemen="bottom"><i class = "icon-eye-open"></i></button></a>
 																<a href="<?php echo base_url() . 'admin/drainase_managements/gotoForm/edit/' . $row->id_drainase ?>"><button class = "btn btn-success" title="Edit"><i class = "icon-pencil"></i></button></a>
@@ -113,6 +126,7 @@
                                                     <th>Sumber Data</th>
                                                     <th>Tahun Usulan</th>
                                                     <th>Keterangan</th>
+                                                    <th>status</th>
                                                     <th>Aksi</th>
 												</tr>
 											</tfoot>
@@ -127,4 +141,4 @@
 			</section>
 		</section>
         <!--main content end-->
-	<?php $this->load->view('admin/templates/footer'); ?>	
+	<?php $this->load->view('admin/templates/footer'); ?>		

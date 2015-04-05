@@ -43,12 +43,12 @@
 					$data['drainase_list'] = $this->drainase_model->select_all_sedang_dilaksanakan()->result();
 				}
 				
-				//status 4 = data ssudah dilaksanakan
-				if($status=='3'){       	
+				//status 4 = data sudah dilaksanakan
+				if($status=='4'){       	
 					$data['drainase_list'] = $this->drainase_model->select_all_sudah_dilaksanakan()->result();
 				}
 				
-				//status 5 = data ssudah dilaksanakan
+				//status 5 = data sudah dilaksanakan
 				if($status=='5'){       	
 					$data['drainase_list'] = $this->drainase_model->select_all_tidak_dilaksanakan()->result();
 				}		
@@ -103,13 +103,13 @@
 			$data['aksi']=$aksi;
 			$id_drainase = $this->input->post('id_drainase');
 			
-			$this->form_validation->set_rules('rt', 'RT', 'required|number');
-			$this->form_validation->set_rules('rw', 'RW', 'required|number');
-			$this->form_validation->set_rules('alamat', 'Alamat', 'required');
-			$this->form_validation->set_rules('panjang', 'Panjang', 'required');
-			$this->form_validation->set_rules('lebar', 'Lebar', 'required');
-			$this->form_validation->set_rules('kedalaman', 'Kedalaman', 'required');
-			$this->form_validation->set_rules('ketersediaan_lahan', 'Ketersediaan Lahan', 'required');
+			$this->form_validation->set_rules('rt', 'RT', 'trim|required|number');
+			$this->form_validation->set_rules('rw', 'RW', 'trim|required|number');
+			$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+			$this->form_validation->set_rules('panjang', 'Panjang', 'trim|required');
+			$this->form_validation->set_rules('lebar', 'Lebar', 'trim|required');
+			$this->form_validation->set_rules('kedalaman', 'Kedalaman', 'trim|required');
+			$this->form_validation->set_rules('ketersediaan_lahan', 'Ketersediaan Lahan', 'trim|required');
 			
 			
 			//$this->form_validation->set_error_delimiters('', '<br/>');
@@ -177,7 +177,6 @@
 				$this->load->view('admin/drainase/drainase_olahdata', $data);
 			}
 			
-			
 		}
 		
 		
@@ -218,6 +217,36 @@
 			
 			$this->load->view('admin/drainase/drainase_view',$data);
 		}
+		
+		function update_status_data_awal(){
+			$id_drainase=$this->uri->segment(4);
+			$hasil = $this->drainase_model->update_status_data_awal($id_drainase);
+			redirect('admin/drainase_managements/index/1');
+		}
+		
+		function update_status_verifikasi(){
+			$id_drainase=$this->uri->segment(4);
+			$hasil = $this->drainase_model->update_status_verifikasi($id_drainase);
+			redirect('admin/drainase_managements/index/2');
+		}
+		function update_status_sedang_dilaksanakan(){
+			$id_drainase=$this->uri->segment(4);
+			$hasil = $this->drainase_model->update_status_sedang_dilaksanakan($id_drainase);
+			redirect('admin/drainase_managements/index/3');
+		}
+		function update_status_sudah_dilaksanakan(){
+			$id_drainase=$this->uri->segment(4);
+			$hasil = $this->drainase_model->update_status_data_awal($id_drainase);
+			redirect('admin/drainase_managements/index/4');
+		}
+		function update_status_tidak_dilaksanakan(){
+			$id_drainase=$this->uri->segment(4);
+			$hasil = $this->drainase_model->update_status_data_awal($id_drainase);
+			redirect('admin/drainase_managements/index/5');		
+		}
+		
+		
+		
 		
 		# Upload Foto
 		function upload_foto($ket,$tahun_usulan,$rw,$alamat)

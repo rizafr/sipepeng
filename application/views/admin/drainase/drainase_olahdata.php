@@ -85,7 +85,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="kedalaman">Kedalaman: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="kedalaman" name="kedalaman" placeholder="Kedalaman" value="<?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : ''); ?>">
+                                            <input type="text" class="form-control" id="kedalaman" name="kedalaman" placeholder="Kedalaman" data-validation="number" value="<?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : ''); ?>">
                                             <p class="help-block"><?php echo form_error('kedalaman'); ?></p>
                                         </div>
                                     </div><!--end control-group-->
@@ -93,7 +93,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : ''); ?>">
+                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" data-validation="number" placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
