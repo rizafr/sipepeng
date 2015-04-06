@@ -8,7 +8,7 @@ LAPORAN
 ----------------------------------
 RIZA:
 FRONT END,
-DRAINASE,
+DRAINASE v,
 JALAN,
 ARTESIS,
 SUMUR RESAPAN,
