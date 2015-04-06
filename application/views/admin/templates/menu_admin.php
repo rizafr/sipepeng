@@ -175,7 +175,7 @@
             </div>
 			
 			<?php } else
-			#login sebagai pu
+			#login sebagai PU
 			if($this->session->userdata('id_jenis_pengguna')==3){ ?>
             <div id="sidebar"  class="nav-collapse ">
                 <!-- sidebar menu start-->
