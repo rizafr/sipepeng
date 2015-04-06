@@ -19,16 +19,17 @@
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                <span class="hidden-sm wht-color">Add User</span>
+                                <span class="hidden-sm wht-color">Edit User</span>
                             </header>
                             <div class="panel-body">
-                                <form method="post" action="<?php echo base_url('admin/user_managements/process_add/add'); ?>" class="form-horizontal" id="Form" role="form">
+                                <form method="post" action="<?php echo base_url('admin/user_managements/process/edit'); ?>" class="form-horizontal" id="Form" role="form">
 
                                     <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Pengguna</legend>
                                     
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="inputNip">NIP: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
+											<input type="hidden" class="form-control" id="id_pengguna" name="id_pengguna" placeholder="id_pengguna" value="<?php echo set_value('id_pengguna', isset($users['id_pengguna']) ? $users['id_pengguna'] : ''); ?>">
 											<input type="text" class="form-control" id="inputNip" name="nip" placeholder="Nip" value="<?php echo set_value('nip', isset($users['nip']) ? $users['nip'] : ''); ?>"  data-validation="number">
                                             <span class="help-inline"><?php echo form_error('nip'); ?></span>
                                         </div>
@@ -54,8 +55,7 @@
 									 <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="inputPass">Password: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<input type="password" class="form-control" id="inputPass" name="password" placeholder="**********" value="<?php echo set_value('password', isset($users['password']) ? $users['password'] : ''); ?>"  data-validation="strength" 
-		 data-validation-strength="2">
+											<input type="password" class="form-control" id="inputPass" name="password" placeholder="**********" value="">
                                             <span class="help-inline"><?php echo form_error('password'); ?></span>
                                         </div>
                                     </div><!--end control-group-->

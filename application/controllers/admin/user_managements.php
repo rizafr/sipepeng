@@ -50,40 +50,7 @@ class User_managements extends CI_Controller {
         }
     }
 
-    public function process() {
-        $this->form_validation->set_rules('username', 'Name', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('first_address', 'First Address', 'required');
-        $this->form_validation->set_rules('user_phone', 'Phone Number', 'required');
-        $this->form_validation->set_rules('user_city', 'City', 'required');
-        $this->form_validation->set_rules('user_zip', 'Zip', 'required');
-        $this->form_validation->set_rules('id_state', 'State', 'required');
-        $this->form_validation->set_rules('id_status', 'Level', 'required');
-        $this->form_validation->set_rules('id_country', 'Country', 'required');
-        $this->form_validation->set_rules('user_agree', 'User Agree', 'required');
-        if (($this->input->post('user_password'))||($this->input->post('confirm_password'))) {
-            $this->form_validation->set_rules('user_password', 'Password', 'required|matches[confirm_password]');
-            $this->form_validation->set_rules('confirm_password', 'Retype Password', 'required');
-        }
-        $this->form_validation->set_error_delimiters('', '<br/>');
-
-        if ($this->form_validation->run() == TRUE) {
-            $hasil = $this->users_model->update($this->input->post('id_pengguna'));
-            if ($hasil == TRUE) {
-                $this->session->set_flashdata('message', '<div class="alert alert-success"> Tambah Pengguna  '. $this->input->post("nama") .' Berhasil  </div>');
-                redirect('admin/user_managements');
-            } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-error"> User ' . $this->input->post('username') . ' Failed Update </div>');
-                redirect('admin/user_managements');
-            }
-        } else {
-            $data['title'] = "Edit Data User | SIPEPENG";
-            $data['idUser'] = $this->input->post('id_pengguna');
-            $data['users'] = $this->users_model->getUserById($this->input->post('id_pengguna'));
-            $data['level_list'] = $this->users_model->get_dropdown_list();
-            $this->load->view('admin/user_management_edit', $data);
-        }
-    }
+    
     
     public function gotoFormAdd() {
 		//menampilkan menu..wajib ada
@@ -95,39 +62,38 @@ class User_managements extends CI_Controller {
         $this->load->view('admin/user_management_add', $data);
     }
     
-    public function process_add($action, $id_pengguna = null){
-        $this->form_validation->set_rules('nip', 'NIP', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('username', 'username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-	$this->form_validation->set_rules('telp', 'Phone Number', 'required|number');      
-        $this->form_validation->set_rules('id_jenis_pengguna', 'Level', 'required');
+	# menambah dan mengedit pengguna
+    public function process(){
+		$action = $this->uri->segment(4);	
+           
+		$data['id_jenis_pengguna'] = $this->input->post('id_jenis_pengguna');
+		$data['nip'] = $this->input->post('nip');
+		$data['nama'] = $this->input->post('nama');
+		$data['username'] = $this->input->post('username');
+		$data['password'] = $this->input->post('password');
+		$data['email'] = $this->input->post('email');
+		$data['alamat'] = $this->input->post('alamat');
+		$data['telp'] = $this->input->post('telp');
+		if ($action == 'add') {
+			$this->users_model->add_from_admin($data);
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Tambah Pengguna  '. $this->input->post("nama") .' Berhasil  </div>');
+		}  
+		if ($action == 'edit') {
+			$id_pengguna = $this->input->post('id_pengguna');
+			$hasil = $this->users_model->update($id_pengguna);
+			
+			 if ($hasil == 1) {
+				$this->session->set_flashdata('message', '<div class="alert alert-success"> Ubah Pengguna  '. $hasil .' Berhasil  </div>');
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-error"> Ubah Pengguna  '. $hasil .' Gagal  </div>');
+			}
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Ubah Pengguna  '. $hasil .' Berhasil  </div>'); 
+		}            
+		
+		$data['username'] = $this->session->userdata('username');
+		redirect('admin/user_managements',$data);
+		
        
-        $this->form_validation->set_error_delimiters('', '<br/>');
-        
-        if ($this->form_validation->run() == TRUE) {
-            $data['id_jenis_pengguna'] = $this->input->post('id_jenis_pengguna');
-            $data['nip'] = $this->input->post('nip');
-            $data['nama'] = $this->input->post('nama');
-            $data['username'] = $this->input->post('username');
-            $data['password'] = $this->input->post('password');
-            $data['email'] = $this->input->post('email');
-            $data['alamat'] = $this->input->post('alamat');
-            $data['telp'] = $this->input->post('telp');
-            if ($action == 'add') {
-                $this->users_model->add_from_admin($data);
-            }            
-            $this->session->set_flashdata('message', '<div class="alert alert-success"> Ubah Pengguna  '. $this->input->post("nama") .' Berhasil  </div>');
-            $data['username'] = $this->session->userdata('username');
-            redirect('admin/user_managements',$data);
-        } else {
-            $data['title'] = "Add Data User | SIPEPENG";        
-            $data['username'] = $this->session->userdata('username');
-            $data['level_list'] = $this->users_model->get_dropdown_list();
-            $this->load->view('admin/user_management_add', $data);
-        }
     }
     
     public function view($id_pengguna){
