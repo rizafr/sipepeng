@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 06 Apr 2015 pada 05.30
+-- Waktu pembuatan: 06 Apr 2015 pada 11.53
 -- Versi Server: 5.5.27
 -- Versi PHP: 5.4.7
 
@@ -246,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `controller` varchar(100) NOT NULL,
   `id_jenis_pengguna` int(15) NOT NULL,
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data untuk tabel `menu`
@@ -256,7 +256,8 @@ INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `id_jenis_pengguna`) VALUES
 (6, 'Drainase', 'admin/drainase_managements', 2),
 (7, 'Artesis', 'admin/artesis_managements', 0),
 (8, 'Jalan', 'admin/jalan_managements', 0),
-(9, 'Sumur Dangkal', 'admin/sumur_dangkal_managements', 2);
+(9, 'Sumur Dangkal', 'admin/sumur_dangkal_managements', 2),
+(10, 'Sumur Resapan', 'admin/sumur_resapan_managements', 2);
 
 -- --------------------------------------------------------
 
@@ -275,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `password` varchar(50) DEFAULT NULL,
   `telp` varchar(15) NOT NULL,
   PRIMARY KEY (`id_pengguna`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data untuk tabel `pengguna`
@@ -283,11 +284,10 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `id_jenis_pengguna`, `nama`, `nip`, `alamat`, `email`, `username`, `password`, `telp`) VALUES
 (1, 1, 'Admin', '1234', 'Cimahi', 'admin@admin.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456'),
-(4, 1, 'Ratih', '222', 'cimahi', 'riza.fauzi.rahman@gmail.com', 'ratih', 'a5bd72a3d2c4d1686415f93a46fc7a0a', '222'),
 (5, 1, 'riza', '123456', 'cimahi', 'riza.fauzi.rahman@gmail.com', 'riza', 'd5f275885bd96778f7f01c814e405e7c', '1111'),
-(6, 2, 'tes', '222', 'tes', 'tes@tes.com', 'tes', '28b662d883b6d76fd96e4ddc5e9ba780', '222'),
 (7, 1, 'Admin123', '1234', 'Cimahi', 'admin@admin.com', 'admin123', '21232f297a57a5a743894a0e4a801fc3', '123456'),
-(8, 1, 'Admin123456', '1234', 'Cimahi', 'admin@admin.com', 'admin123456', '21232f297a57a5a743894a0e4a801fc3', '123456');
+(8, 1, 'Admin123456', '1234', 'Cimahi', 'admin@admin.com', 'admin123456', '21232f297a57a5a743894a0e4a801fc3', '123456'),
+(9, 1, 'Ratih', '222', 'Kp. Baru Gg. Nuryadi Rt.10 / 04 No. 80', 'ratih.pujihati@gmail.com', 'ratih', 'a5bd72a3d2c4d1686415f93a46fc7a0a', '085720017874');
 
 -- --------------------------------------------------------
 
@@ -385,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `sumur_dangkal` (
 --
 
 INSERT INTO `sumur_dangkal` (`id_sumur_dangkal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 10, 4, 'Kp. Baru Gg. Nuryadi Cibeber Cimahi Selatan', '15', '', '', 5000000, 'Masyarakat Sekitar', 2014, 'Ya', ' -', NULL, NULL, 1, 1, 1, 1, 1, 0);
+(1, 10, 4, 'Kp. Baru Gg. Nuryadi Cibeber Cimahi Selatan No. 80', '15', '', '', 5000000, 'Masyarakat Sekitar', 2014, 'Ada', '   -', NULL, NULL, 1, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -415,7 +415,14 @@ CREATE TABLE IF NOT EXISTS `sumur_resapan` (
   `status_sudah_dilaksanakan` int(3) NOT NULL,
   `status_tidak_dilaksanakan` int(3) NOT NULL,
   PRIMARY KEY (`id_sumur_resapan`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `sumur_resapan`
+--
+
+INSERT INTO `sumur_resapan` (`id_sumur_resapan`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 1, 3, 'Cibeber Cimahi Selatan No. 80', '100', '', '', 5600000, 'Masyarakat Sekitar', 2009, 'Ada', '  Apa aja yaa', 'sumur_resapan__2009_03_Cibeber_Cimahi_Selatan.jpg', 'no_image.jpg', 0, 1, 1, 0, 1, 0);
 
 -- --------------------------------------------------------
 
