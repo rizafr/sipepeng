@@ -56,19 +56,7 @@ class Users_model extends CI_Model{
 
     //update user    
     public function update($id_pengguna) {
-        if (!empty($this->input->post('password'))) {
-            $data = array(
-			'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna')
-            , 'username' => $this->input->post('username')
-            , 'password' => md5($this->input->post('password'))
-            , 'nama' => $this->input->post('nama')
-            , 'email' => $this->input->post('email')
-            , 'nip' => $this->input->post('nip')
-            , 'alamat' => $this->input->post('alamat')
-            , 'telp' => $this->input->post('telp')
-            );
-        } else {
-            $data = array(
+		$data = array(
             'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna')
             , 'username' => $this->input->post('username')
             , 'nama' => $this->input->post('nama')
@@ -77,26 +65,13 @@ class Users_model extends CI_Model{
             , 'alamat' => $this->input->post('alamat')
             , 'telp' => $this->input->post('telp')
             );
-        }
         $this->db->where('id_pengguna', $id_pengguna);
         return $this->db->update('pengguna', $data);
     }
     
     //update profile admin
-    public function update_admin($id_pengguna) {
-        if (!empty($this->input->post('password'))) {
-            $data = array(
-			'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna')
-            , 'username' => $this->input->post('username')
-            , 'password' => md5($this->input->post('password'))
-            , 'nama' => $this->input->post('nama')
-            , 'email' => $this->input->post('email')
-            , 'nip' => $this->input->post('nip')
-            , 'alamat' => $this->input->post('alamat')
-            , 'telp' => $this->input->post('telp')
-            );
-        } else {
-            $data = array(
+    public function update_admin($id_pengguna) {        
+        $data = array(
             'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna')
             , 'username' => $this->input->post('username')
             , 'nama' => $this->input->post('nama')
@@ -105,7 +80,6 @@ class Users_model extends CI_Model{
             , 'alamat' => $this->input->post('alamat')
             , 'telp' => $this->input->post('telp')
             );
-        }
         $this->db->where('id_pengguna', $id_pengguna);
         return $this->db->update('pengguna', $data);
     }
