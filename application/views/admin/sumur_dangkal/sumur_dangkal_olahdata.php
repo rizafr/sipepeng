@@ -69,7 +69,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" data-validation="number" placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($sumur_dangkal_list['ketersediaan_lahan']) ? $sumur_dangkal_list['ketersediaan_lahan'] : ''); ?>">
+                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" placeholder="Ketersediaan Lahan" value=" <?php echo set_value('ketersediaan_lahan', isset($sumur_dangkal_list['ketersediaan_lahan']) ? $sumur_dangkal_list['ketersediaan_lahan'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -132,9 +132,15 @@ if(strtolower($aksi) == 'add') {
 									
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Persetujuan Warga: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="persetujuan_warga" name="persetujuan_warga" placeholder="Silakan isi Persetujuan Warga" value="<?php echo set_value('persetujuan_warga', isset($sumur_dangkal_list['persetujuan_warga']) ? $sumur_dangkal_list['persetujuan_warga'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
+                                        <div class="col-md-3 col-xs-11">											
+											 <?php 
+												 $options = array(
+													  'Ada'  => 'Ada',
+													  'Tidak'    => 'Tidak'
+													);
+												 
+												 echo form_dropdown('persetujuan_warga', $options, set_value('persetujuan_warga', isset($sumur_dangkal_list['persetujuan_warga']) ? $sumur_dangkal_list['persetujuan_warga'] : ''), 'class="form-control m-bot15"'); ?>
+                                            <span class="help-inline"><?php echo form_error('persetujuan_warga'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
