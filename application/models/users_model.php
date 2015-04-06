@@ -37,32 +37,11 @@ class Users_model extends CI_Model{
         return $this->db->query($sql);
     }
 
-    //add user as public
-    public function add($data) {
-        $data = array(
-            'id_pengguna' => ''
-            , 'id_jenis_pengguna' => '2'
-            , 'username' => $data['username']
-            , 'password' => $data['password']
-            , 'confirm_password' => $data['confirm_password']
-            , 'username' => $data['username']
-            , 'first_address' => $data['first_address']
-            , 'second_address' => $data['second_address']
-            , 'user_phone' => $data['user_phone']
-            , 'user_city' => $data['user_city']
-            , 'user_zip' => $data['user_zip']
-            , 'id_state' => $data['id_state']
-            , 'id_country' => $data['id_country']
-            , 'user_agree' => $data['user_agree']
-            , 'created' => $data['created']
-        );
-        $this->db->insert($this->table, $data);
-    }
-    
+        
     //add user from admin
     public function add_from_admin($data) {
         $data = array(
-            'id_pengguna' => ''
+				'id_pengguna' => ''
             , 'id_jenis_pengguna' => $data['id_jenis_pengguna']
             , 'username' => $data['username']
             , 'password' => md5($data['password'])
@@ -77,78 +56,58 @@ class Users_model extends CI_Model{
 
     //update user    
     public function update($id_pengguna) {
-        if ($this->input->post('password')) {
+        if (!empty($this->input->post('password'))) {
             $data = array(
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
-                'confirm_password' => $this->input->post('confirm_password'),
-                'username' => $this->input->post('username'),
-                'first_address' => $this->input->post('first_address'),
-                'second_address' => $this->input->post('second_address'),
-                'user_phone' => $this->input->post('user_phone'),
-                'user_city' => $this->input->post('user_city'),
-                'user_zip' => $this->input->post('user_zip'),
-                'id_country' => $this->input->post('id_country'),
-                'id_state' => $this->input->post('id_state'),
-                'user_agree' => $this->input->post('user_agree'),
-                'modified' => date('Y-m-d H:i:s', time()+60*60*6)
+			'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna')
+            , 'username' => $this->input->post('username')
+            , 'password' => md5($this->input->post('password'))
+            , 'nama' => $this->input->post('nama')
+            , 'email' => $this->input->post('email')
+            , 'nip' => $this->input->post('nip')
+            , 'alamat' => $this->input->post('alamat')
+            , 'telp' => $this->input->post('telp')
             );
         } else {
             $data = array(
-                'username' => $this->input->post('username'),
-                'username' => $this->input->post('username'),
-                'first_address' => $this->input->post('first_address'),
-                'second_address' => $this->input->post('second_address'),
-                'user_phone' => $this->input->post('user_phone'),
-                'user_city' => $this->input->post('user_city'),
-                'user_zip' => $this->input->post('user_zip'),
-                'id_country' => $this->input->post('id_country'),
-                'id_state' => $this->input->post('id_state'),
-                'user_agree' => $this->input->post('user_agree'),
-                'modified' => date('Y-m-d H:i:s', time()+60*60*6)
+            'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna')
+            , 'username' => $this->input->post('username')
+            , 'nama' => $this->input->post('nama')
+            , 'email' => $this->input->post('email')
+            , 'nip' => $this->input->post('nip')
+            , 'alamat' => $this->input->post('alamat')
+            , 'telp' => $this->input->post('telp')
             );
         }
         $this->db->where('id_pengguna', $id_pengguna);
-        return $this->db->update($this->table, $data);
+        return $this->db->update('pengguna', $data);
     }
     
     //update profile admin
     public function update_admin($id_pengguna) {
-        if ($this->input->post('password')) {
+        if (!empty($this->input->post('password'))) {
             $data = array(
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
-                'confirm_password' => $this->input->post('confirm_password'),
-                'username' => $this->input->post('username'),
-                'first_address' => $this->input->post('first_address'),
-                'second_address' => $this->input->post('second_address'),
-                'user_phone' => $this->input->post('user_phone'),
-                'user_city' => $this->input->post('user_city'),
-                'user_zip' => $this->input->post('user_zip'),
-                'id_country' => $this->input->post('id_country'),
-                'id_state' => $this->input->post('id_state'),
-                'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna'),
-                'user_agree' => $this->input->post('user_agree'),
-                'modified' => date('Y-m-d H:i:s', time()+60*60*6)
+			'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna')
+            , 'username' => $this->input->post('username')
+            , 'password' => md5($this->input->post('password'))
+            , 'nama' => $this->input->post('nama')
+            , 'email' => $this->input->post('email')
+            , 'nip' => $this->input->post('nip')
+            , 'alamat' => $this->input->post('alamat')
+            , 'telp' => $this->input->post('telp')
             );
         } else {
             $data = array(
-                'username' => $this->input->post('username'),
-                'username' => $this->input->post('username'),
-                'first_address' => $this->input->post('first_address'),
-                'second_address' => $this->input->post('second_address'),
-                'user_phone' => $this->input->post('user_phone'),
-                'user_city' => $this->input->post('user_city'),
-                'user_zip' => $this->input->post('user_zip'),
-                'id_country' => $this->input->post('id_country'),
-                'id_state' => $this->input->post('id_state'),
-                'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna'),
-                'user_agree' => $this->input->post('user_agree'),
-                'modified' => date('Y-m-d H:i:s', time()+60*60*6)
+            'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna')
+            , 'username' => $this->input->post('username')
+            , 'nama' => $this->input->post('nama')
+            , 'email' => $this->input->post('email')
+            , 'nip' => $this->input->post('nip')
+            , 'alamat' => $this->input->post('alamat')
+            , 'telp' => $this->input->post('telp')
             );
         }
         $this->db->where('id_pengguna', $id_pengguna);
-        return $this->db->update($this->table, $data);
+        return $this->db->update('pengguna', $data);
     }
     
     public function getUserById($id_pengguna) {
@@ -213,7 +172,8 @@ class Users_model extends CI_Model{
         $this->db->where('id_pengguna', $id_pengguna);
         $this->db->update($this->table, $data);
     }
-    
+	
+    #memilih level dari pengguna
     function get_dropdown_list() {
         $this->db->from($this->jenis_pengguna_level);
         $this->db->order_by('jenis_pengguna', 'asc');
