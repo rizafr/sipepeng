@@ -25,6 +25,9 @@ class User_managements extends CI_Controller {
     
     public function edit($id_pengguna) {
 		 if($this->session->userdata('is_login')){
+				//menampilkan menu..wajib ada
+					$data['menu_list'] = $this->menu_model->select_all()->result();
+				// end menampilkan menu..wajib ada
 				$data['idUser'] = $id_pengguna;
 				$data['title'] = "Edit Data User | SIPEPENG";
 				$data['users'] = $this->users_model->getUserById($id_pengguna);       
@@ -42,7 +45,7 @@ class User_managements extends CI_Controller {
             redirect('admin/user_managements');
         } else {
             $this->users_model->delete($id_pengguna);
-            $this->session->set_flashdata('message', 'Success User deleted');
+            $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil Dihapus </div>');
             redirect('admin/user_managements');
         }
     }
@@ -66,16 +69,15 @@ class User_managements extends CI_Controller {
 
         if ($this->form_validation->run() == TRUE) {
             $hasil = $this->users_model->update($this->input->post('id_pengguna'));
-            var_dump($hasil);
             if ($hasil == TRUE) {
-                $this->session->set_flashdata('message', '<div class="alert alert-success"> User ' . $this->input->post('username') . ' Success Update </div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-success"> Tambah Pengguna  '. $this->input->post("nama") .' Berhasil  </div>');
                 redirect('admin/user_managements');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-error"> User ' . $this->input->post('username') . ' Failed Update </div>');
                 redirect('admin/user_managements');
             }
         } else {
-            $data['title'] = "Edit Data User | Adney's Shop";
+            $data['title'] = "Edit Data User | SIPEPENG";
             $data['idUser'] = $this->input->post('id_pengguna');
             $data['users'] = $this->users_model->getUserById($this->input->post('id_pengguna'));
             $data['level_list'] = $this->users_model->get_dropdown_list();
@@ -84,6 +86,9 @@ class User_managements extends CI_Controller {
     }
     
     public function gotoFormAdd() {
+		//menampilkan menu..wajib ada
+			$data['menu_list'] = $this->menu_model->select_all()->result();
+		// end menampilkan menu..wajib ada
         $data['title'] = "Tambah Pengguna | SIPEPENG";
         $data['username'] = $this->session->userdata('username');
         $data['level_list'] = $this->users_model->get_dropdown_list();
@@ -114,11 +119,11 @@ class User_managements extends CI_Controller {
             if ($action == 'add') {
                 $this->users_model->add_from_admin($data);
             }            
-            $this->session->set_flashdata('message', 'Tambah Pengguna' . $this->input->post('nama') . 'Success!');
+            $this->session->set_flashdata('message', '<div class="alert alert-success"> Ubah Pengguna  '. $this->input->post("nama") .' Berhasil  </div>');
             $data['username'] = $this->session->userdata('username');
             redirect('admin/user_managements',$data);
         } else {
-            $data['title'] = "Add Data User | Adney's Shop";        
+            $data['title'] = "Add Data User | SIPEPENG";        
             $data['username'] = $this->session->userdata('username');
             $data['level_list'] = $this->users_model->get_dropdown_list();
             $this->load->view('admin/user_management_add', $data);
@@ -127,7 +132,7 @@ class User_managements extends CI_Controller {
     
     public function view($id_pengguna){
         $data['idUser'] = $id_pengguna;
-        $data['title'] = "View Data User | Adney's Shop";
+        $data['title'] = "View Data User | SIPEPENG";
         $data['users'] = $this->users_model->getUserById($id_pengguna);
         $data['view'] = $this->users_model->get_user_by_id($id_pengguna);
         $data['level_list'] = $this->users_model->get_dropdown_list();
