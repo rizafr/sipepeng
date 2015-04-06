@@ -31,70 +31,70 @@
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<?php echo set_value('rt', isset($sumur_dangkal_list['rt']) ? $sumur_dangkal_list['rt'] : 'Belum Ada'); ?>
+											<?php echo set_value('rt', isset($sumur_resapan_list['rt']) ? $sumur_resapan_list['rt'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
                                     
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<?php echo set_value('rw', isset($sumur_dangkal_list['rw']) ? $sumur_dangkal_list['rw'] : 'Belum Ada'); ?>
+											<?php echo set_value('rw', isset($sumur_resapan_list['rw']) ? $sumur_resapan_list['rw'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
                                     
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('alamat', isset($sumur_dangkal_list['alamat']) ? $sumur_dangkal_list['alamat'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('alamat', isset($sumur_resapan_list['alamat']) ? $sumur_resapan_list['alamat'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end form-group-->
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('ketersediaan_lahan', isset($sumur_dangkal_list['ketersediaan_lahan']) ? $sumur_dangkal_list['ketersediaan_lahan'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('ketersediaan_lahan', isset($sumur_resapan_list['ketersediaan_lahan']) ? $sumur_resapan_list['ketersediaan_lahan'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<?php echo set_value('long', isset($sumur_dangkal_list['long']) ? $sumur_dangkal_list['long'] : 'Belum Ada'); ?>
+											<?php echo set_value('long', isset($sumur_resapan_list['long']) ? $sumur_resapan_list['long'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<?php echo set_value('lat', isset($sumur_dangkal_list['lat']) ? $sumur_dangkal_list['lat'] : 'Belum Ada'); ?>
+											<?php echo set_value('lat', isset($sumur_resapan_list['lat']) ? $sumur_resapan_list['lat'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('anggaran', isset($sumur_dangkal_list['anggaran']) ? $sumur_dangkal_list['anggaran'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('anggaran', isset($sumur_resapan_list['anggaran']) ? $sumur_resapan_list['anggaran'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<?php echo set_value('sumber_data', isset($sumur_dangkal_list['sumber_data']) ? $sumur_dangkal_list['sumber_data'] : 'Belum Ada'); ?>
+											<?php echo set_value('sumber_data', isset($sumur_resapan_list['sumber_data']) ? $sumur_resapan_list['sumber_data'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('tahun_usulan', isset($sumur_dangkal_list['tahun_usulan']) ? $sumur_dangkal_list['tahun_usulan'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('tahun_usulan', isset($sumur_resapan_list['tahun_usulan']) ? $sumur_resapan_list['tahun_usulan'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Persetujuan Warga: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('tahun_usulan', isset($sumur_dangkal_list['persetujuan_warga']) ? $sumur_dangkal_list['persetujuan_warga'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('tahun_usulan', isset($sumur_resapan_list['persetujuan_warga']) ? $sumur_resapan_list['persetujuan_warga'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 								
@@ -102,7 +102,7 @@
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('ket', isset($sumur_dangkal_list['ket']) ? $sumur_dangkal_list['ket'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('ket', isset($sumur_resapan_list['ket']) ? $sumur_resapan_list['ket'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
@@ -110,7 +110,7 @@
                                         <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
 										<? 
-											$foto = isset($sumur_dangkal_list['foto']) ? $sumur_dangkal_list['foto'] : 'NULL';
+											$foto = isset($sumur_resapan_list['foto']) ? $sumur_resapan_list['foto'] : 'NULL';
 											if($foto === NULL){
 												$foto = 'noimage.jpg';
 											}else{												
@@ -118,7 +118,7 @@
 											}
 											
 											
-											$dokumen = isset($sumur_dangkal_list['dokumen']) ? $sumur_dangkal_list['dokumen'] : 'NULL';
+											$dokumen = isset($sumur_resapan_list['dokumen']) ? $sumur_resapan_list['dokumen'] : 'NULL';
 											if($dokumen === NULL){
 												$dokumen = 'noimage.jpg';
 											}else{												
@@ -136,7 +136,7 @@
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($sumur_dangkal_list['dokumen']) ? $sumur_dangkal_list['dokumen'] : 'Belum Ada'); ?></button></a>
+											<a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($sumur_resapan_list['dokumen']) ? $sumur_resapan_list['dokumen'] : 'Belum Ada'); ?></button></a>
                                             
 										</div>
 									</div><!--end control-group-->

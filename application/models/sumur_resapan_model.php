@@ -5,7 +5,7 @@
 	
 	class Sumur_resapan_model extends CI_Model{
 		
-		var $table = 'sumur_dangkal';
+		var $table = 'sumur_resapan';
 		// var $jenis_pengguna_level = 'jenis_pengguna'; //Tabel jenis_pengguna
 		
 		public function __construct() {
@@ -14,31 +14,31 @@
 		
 		//select 
 		public function select_all_data_awal() {
-			$sql = "select * from sumur_dangkal where status_verifikasi='0' ";
+			$sql = "select * from sumur_resapan where status_verifikasi='0' ";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_verifikasi() {
-			$sql = "select * from sumur_dangkal where status_sedang_dilaksanakan='0'";
+			$sql = "select * from sumur_resapan where status_sedang_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_sedang_dilaksanakan() {
-			$sql = "select * from sumur_dangkal where status_sudah_dilaksanakan='0'";
+			$sql = "select * from sumur_resapan where status_sudah_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_sudah_dilaksanakan() {
-			$sql = "select * from sumur_dangkal where status_sudah_dilaksanakan='1'";
+			$sql = "select * from sumur_resapan where status_sudah_dilaksanakan='1'";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_tidak_dilaksanakan() {
-			$sql = "select * from sumur_dangkal where status_tidak_dilaksanakan='1'";
+			$sql = "select * from sumur_resapan where status_tidak_dilaksanakan='1'";
 			return $this->db->query($sql);
 		}
 		
@@ -47,8 +47,8 @@
 		
 		
 		//search
-		public function select_by_id($id_sumur_dangkal) {
-			$sql = " select * from dra where id_sumur_dangkal=" . $id_sumur_dangkal;
+		public function select_by_id($id_sumur_resapan) {
+			$sql = " select * from dra where id_sumur_resapan=" . $id_sumur_resapan;
 			$query = $this->db->query($sql);
 			return $query;
 		}
@@ -80,13 +80,13 @@
             , 'status_sudah_dilaksanakan' => '0'
             , 'status_tidak_dilaksanakan' => '0'
 			);
-			return $this->db->insert('sumur_dangkal', $data);
+			return $this->db->insert('sumur_resapan', $data);
 		}
 		
 		
 		
 		//update user    
-		public function update($id_sumur_dangkal) {	
+		public function update($id_sumur_resapan) {	
 			$data = array(
 			'rt' => $this->input->post('rt')
 			, 'rw' => $this->input->post('rw')
@@ -101,15 +101,15 @@
 			, 'ket' => $this->input->post('ket')
 			);
 			
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
+			$this->db->where('id_sumur_resapan', $id_sumur_resapan);
+			return $this->db->update('sumur_resapan', $data);
 		}
 		
 		
-		public function getSumurDangkalById($id_sumur_dangkal) {
+		public function getSumurResapanById($id_sumur_resapan) {
 			$this->db->select('*');
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			$query = $this->db->get('sumur_dangkal', 1);
+			$this->db->where('id_sumur_resapan', $id_sumur_resapan);
+			$query = $this->db->get('sumur_resapan', 1);
 			
 			if ($query->num_rows() == 1) {
 				return $query->row_array();
@@ -118,9 +118,9 @@
 			
 		
 		//delete
-		public function delete($id_sumur_dangkal) {
-			$this->db->where('id_sumur_dangkal',$id_sumur_dangkal);
-			$query = $this->db->get('sumur_dangkal');
+		public function delete($id_sumur_resapan) {
+			$this->db->where('id_sumur_resapan',$id_sumur_resapan);
+			$query = $this->db->get('sumur_resapan');
 			$row = $query->row();
 			
 			//menghapus file
@@ -140,7 +140,7 @@
 			unlink($image);
 			unlink($document);
 			
-			$this->db->delete('sumur_dangkal', array('id_sumur_dangkal' => $id_sumur_dangkal));
+			$this->db->delete('sumur_resapan', array('id_sumur_resapan' => $id_sumur_resapan));
 			
 		}
 		///////////////////////////////////////////////////////////////////////
@@ -149,33 +149,33 @@
 		
 		
 		# update data awal menjadi verifikasi   
-		public function update_status_data_awal($id_sumur_dangkal) {	
+		public function update_status_data_awal($id_sumur_resapan) {	
 			$data = array(
 			'status_verifikasi' => "1"			
 			);
 			
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
+			$this->db->where('id_sumur_resapan', $id_sumur_resapan);
+			return $this->db->update('sumur_resapan', $data);
 		}
 	
 		# update data verifikasi menjadi sedang dilaksanakan   
-		public function update_status_verifikasi($id_sumur_dangkal) {	
+		public function update_status_verifikasi($id_sumur_resapan) {	
 			$data = array(
 			'status_sedang_dilaksanakan' => "1"			
 			);
 			
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
+			$this->db->where('id_sumur_resapan', $id_sumur_resapan);
+			return $this->db->update('sumur_resapan', $data);
 		}
 		
 		# update data verifikasi menjadi sedang dilaksanakan   
-		public function update_status_sedang_dilaksanakan($id_sumur_dangkal) {	
+		public function update_status_sedang_dilaksanakan($id_sumur_resapan) {	
 			$data = array(
 			'status_sudah_dilaksanakan' => "1"			
 			);
 			
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
+			$this->db->where('id_sumur_resapan', $id_sumur_resapan);
+			return $this->db->update('sumur_resapan', $data);
 		}
 		
 			

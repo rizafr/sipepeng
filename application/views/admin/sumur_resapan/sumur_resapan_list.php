@@ -21,7 +21,7 @@
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
 								<?php if($status=='1') {?>
 									<ul class="nav nav-tabs pull-right">
-										<li><a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/gotoForm/add'; ?>"><i class="icon-plus"></i> Add Data</a></li>
+										<li><a href="<?php echo base_url() . 'admin/sumur_resapan_managements/gotoForm/add'; ?>"><i class="icon-plus"></i> Add Data</a></li>
 									</ul>
 									<?
 									}
@@ -57,9 +57,9 @@
                                                 <?php 
 													$no=1; 
 													
-													$jum=count(@$sumur_dangkal_list);												
+													$jum=count(@$sumur_resapan_list);												
 													if($jum >0){
-														foreach ($sumur_dangkal_list as $row) { ?>
+														foreach ($sumur_resapan_list as $row) { ?>
 														<tr>
 															<td><?php echo $no++?></td>
 															<td><?php echo $row->rt ?></td>
@@ -88,21 +88,21 @@
 																<? 
 																	if($status=='1'){
 																	?>
-																	<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_data_awal/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Verifikasi" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																	<a href="<?php echo base_url() . 'admin/sumur_resapan_managements/update_status_data_awal/' . $row->id_sumur_resapan ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Verifikasi" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
 																	<? }
 																	if($status=='2'){
 																	?>
-																	<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_verifikasi/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Progress" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																	<a href="<?php echo base_url() . 'admin/sumur_resapan_managements/update_status_verifikasi/' . $row->id_sumur_resapan ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Progress" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
 																	<? }
 																	if($status=='3'){
 																	?>
-																	<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_sedang_dilaksanakan/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Sudah Dilaksanakan" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																	<a href="<?php echo base_url() . 'admin/sumur_resapan_managements/update_status_sedang_dilaksanakan/' . $row->id_sumur_resapan ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Sudah Dilaksanakan" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
 																	<? }
 																	?>		
 																
-																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/view/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-info" data-toggle="tooltip" title="View" data-placemen="bottom"><i class = "icon-eye-open"></i></button></a>
-																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/gotoForm/edit/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-success" title="Edit"><i class = "icon-pencil"></i></button></a>
-																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/delete/' . $row->id_sumur_dangkal.'/'.$status ?>" onclick="return confirm('Are you sure want to delete this?');"><button class = "btn btn-danger" title="Delete"><i class = "icon-trash "></i></button></a>
+																<a href="<?php echo base_url() . 'admin/sumur_resapan_managements/view/' . $row->id_sumur_resapan ?>"><button class = "btn btn-info" data-toggle="tooltip" title="View" data-placemen="bottom"><i class = "icon-eye-open"></i></button></a>
+																<a href="<?php echo base_url() . 'admin/sumur_resapan_managements/gotoForm/edit/' . $row->id_sumur_resapan ?>"><button class = "btn btn-success" title="Edit"><i class = "icon-pencil"></i></button></a>
+																<a href="<?php echo base_url() . 'admin/sumur_resapan_managements/delete/' . $row->id_sumur_resapan.'/'.$status ?>" onclick="return confirm('Are you sure want to delete this?');"><button class = "btn btn-danger" title="Delete"><i class = "icon-trash "></i></button></a>
 															</td>
 															
 														</tr>

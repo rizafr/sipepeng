@@ -38,14 +38,14 @@ if(strtolower($aksi) == 'add') {
                                 <span class="hidden-sm wht-color"><? echo $namaform." " .$judulForm ?></span>
                             </header>
                             <div class="panel-body">
-                                <form method="post" action="<?php echo base_url('admin/sumur_dangkal_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">
+                                <form method="post" action="<?php echo base_url('admin/sumur_resapan_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">
 								<input type="hidden" name="aksi" value="<? echo $aksi ?>" />
-								<input type="hidden" name="id_sumur_dangkal" value="<?php echo set_value('id_sumur_dangkal', isset($sumur_dangkal_list['id_sumur_dangkal']) ? $sumur_dangkal_list['id_sumur_dangkal'] : ''); ?>" />
-                                     <span class="help-inline"><?php echo form_error('id_sumur_dangkal'); ?></span>
+								<input type="hidden" name="id_sumur_resapan" value="<?php echo set_value('id_sumur_resapan', isset($sumur_resapan_list['id_sumur_resapan']) ? $sumur_resapan_list['id_sumur_resapan'] : ''); ?>" />
+                                     <span class="help-inline"><?php echo form_error('id_sumur_resapan'); ?></span>
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt', isset($sumur_dangkal_list['rt']) ? $sumur_dangkal_list['rt'] : ''); ?>"  data-validation="number">
+                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt', isset($sumur_resapan_list['rt']) ? $sumur_resapan_list['rt'] : ''); ?>"  data-validation="number">
                                             <span class="help-inline"><?php echo form_error('rt'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -53,7 +53,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw', isset($sumur_dangkal_list['rw']) ? $sumur_dangkal_list['rw'] : ''); ?>"  data-validation="number">
+                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw', isset($sumur_resapan_list['rw']) ? $sumur_resapan_list['rw'] : ''); ?>"  data-validation="number">
                                             <span class="help-inline"><?php echo form_error('rw'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -61,15 +61,15 @@ if(strtolower($aksi) == 'add') {
                                   <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" id="alamat" name="alamat" data-validation="length" data-validation-length="min10"><?php echo set_value('alamat', isset($sumur_dangkal_list['alamat']) ? $sumur_dangkal_list['alamat'] : ''); ?></textarea>                                           
+                                            <textarea class="form-control" id="alamat" name="alamat" data-validation="length" data-validation-length="min10"><?php echo set_value('alamat', isset($sumur_resapan_list['alamat']) ? $sumur_resapan_list['alamat'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('alamat'); ?></span>
                                         </div>
                                     </div><!--end form-group-->                                     
 
-                                    <div class="form-group">
+                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" data-validation="number" placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($sumur_dangkal_list['ketersediaan_lahan']) ? $sumur_dangkal_list['ketersediaan_lahan'] : ''); ?>">
+                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" placeholder="Ketersediaan Lahan" value=" <?php echo set_value('ketersediaan_lahan', isset($sumur_resapan_list['ketersediaan_lahan']) ? $sumur_resapan_list['ketersediaan_lahan'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -88,7 +88,7 @@ if(strtolower($aksi) == 'add') {
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long" name="long" placeholder=Longitude" value="<?php echo set_value('long', isset($sumur_dangkal_list['long']) ? $sumur_dangkal_list['long'] : ''); ?>">
+                                            <input type="text" class="form-control" id="long" name="long" placeholder=Longitude" value="<?php echo set_value('long', isset($sumur_resapan_list['long']) ? $sumur_resapan_list['long'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('long'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -96,7 +96,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lat">Latitude: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lat" name="lat" placeholder="Latitude" value="<?php echo set_value('lat', isset($sumur_dangkal_list['lat']) ? $sumur_dangkal_list['lat'] : ''); ?>">
+                                            <input type="text" class="form-control" id="lat" name="lat" placeholder="Latitude" value="<?php echo set_value('lat', isset($sumur_resapan_list['lat']) ? $sumur_resapan_list['lat'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('lat'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -104,7 +104,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">                                               	  
-                                            <input type="text" class="form-control" id="anggaran" name="anggaran" placeholder="Silakan isi anggaran" value="<?php echo set_value('anggaran', isset($sumur_dangkal_list['anggaran']) ? $sumur_dangkal_list['anggaran'] : ''); ?>">
+                                            <input type="text" class="form-control" id="anggaran" name="anggaran" placeholder="Silakan isi anggaran" value="<?php echo set_value('anggaran', isset($sumur_resapan_list['anggaran']) ? $sumur_resapan_list['anggaran'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('anggaran'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -112,7 +112,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Silakan isi Sumber Data" value="<?php echo set_value('sumber_data', isset($sumur_dangkal_list['sumber_data']) ? $sumur_dangkal_list['sumber_data'] : ''); ?>" data-validation-help="Sumber data sumur dangkal berasal darimana">
+                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Silakan isi Sumber Data" value="<?php echo set_value('sumber_data', isset($sumur_resapan_list['sumber_data']) ? $sumur_resapan_list['sumber_data'] : ''); ?>" data-validation-help="Sumber data sumur dangkal berasal darimana">
                                             <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -121,7 +121,7 @@ if(strtolower($aksi) == 'add') {
                                         <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
                                         <div class="col-md-3 col-xs-11">
                                             <div data-date-minviewmode="years" data-date-viewmode="years" data-date-format=" yyyy" data-date="102/2012"  class="input-append date dpYears">
-                                         <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Silakan isi tahun Usulan" value="<?php echo set_value('tahun_usulan', isset($sumur_dangkal_list['tahun_usulan']) ? $sumur_dangkal_list['tahun_usulan'] : ''); ?>" readonly>
+                                         <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Silakan isi tahun Usulan" value="<?php echo set_value('tahun_usulan', isset($sumur_resapan_list['tahun_usulan']) ? $sumur_resapan_list['tahun_usulan'] : ''); ?>" readonly>
                                             <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
                                               <span class="input-group-btn add-on">
                                                 <button class="btn btn-danger" type="button"><i class="icon-calendar"></i></button>
@@ -132,16 +132,22 @@ if(strtolower($aksi) == 'add') {
 									
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Persetujuan Warga: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-											<input type="text" class="form-control" id="persetujuan_warga" name="persetujuan_warga" placeholder="Silakan isi Persetujuan Warga" value="<?php echo set_value('persetujuan_warga', isset($sumur_dangkal_list['persetujuan_warga']) ? $sumur_dangkal_list['persetujuan_warga'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
+                                         <div class="col-md-3 col-xs-11">											
+											 <?php 
+												 $options = array(
+													  'Ada'  => 'Ada',
+													  'Tidak'    => 'Tidak'
+													);
+												 
+												 echo form_dropdown('persetujuan_warga', $options, set_value('persetujuan_warga', isset($sumur_resapan_list['persetujuan_warga']) ? $sumur_resapan_list['persetujuan_warga'] : ''), 'class="form-control m-bot15"'); ?>
+                                            <span class="help-inline"><?php echo form_error('persetujuan_warga'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                           <textarea class="form-control" id="ket" name="ket"> <?php echo set_value('ket', isset($sumur_dangkal_list['ket']) ? $sumur_dangkal_list['ket'] : ''); ?></textarea>                                           
+                                           <textarea class="form-control" id="ket" name="ket"> <?php echo set_value('ket', isset($sumur_resapan_list['ket']) ? $sumur_resapan_list['ket'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('ket'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
