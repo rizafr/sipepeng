@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 06 Apr 2015 pada 11.53
+-- Waktu pembuatan: 06 Apr 2015 pada 13.02
 -- Versi Server: 5.5.27
 -- Versi PHP: 5.4.7
 
@@ -232,7 +232,14 @@ CREATE TABLE IF NOT EXISTS `mck` (
   `status_sudah_dilaksanakan` int(3) NOT NULL,
   `status_tidak_dilaksanakan` int(3) NOT NULL,
   PRIMARY KEY (`id_mck`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `mck`
+--
+
+INSERT INTO `mck` (`id_mck`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 10, 1, 'Cibeber Cimahi Selatan', '210', '', '', 2300000, 'Masyarakat Sekitar', 2015, 'Ada', '  Biki WC umum', 'mck__2015_01_cimahi_cibeber.jpg', 'mck__2015_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -246,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `controller` varchar(100) NOT NULL,
   `id_jenis_pengguna` int(15) NOT NULL,
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data untuk tabel `menu`
@@ -257,7 +264,8 @@ INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `id_jenis_pengguna`) VALUES
 (7, 'Artesis', 'admin/artesis_managements', 0),
 (8, 'Jalan', 'admin/jalan_managements', 0),
 (9, 'Sumur Dangkal', 'admin/sumur_dangkal_managements', 2),
-(10, 'Sumur Resapan', 'admin/sumur_resapan_managements', 2);
+(10, 'Sumur Resapan', 'admin/sumur_resapan_managements', 2),
+(11, 'MCK', 'admin/mck_managements', 2);
 
 -- --------------------------------------------------------
 
