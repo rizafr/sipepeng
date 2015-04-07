@@ -3,13 +3,13 @@
 	if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 	
-	class Mck_managements extends CI_Controller {
+	class Septictank_managements extends CI_Controller {
 		var $gallery_path;
 		var $gallery_path_url;
 		
 		function __construct() {
 			parent::__construct();
-			$this->load->model('mck_model');
+			$this->load->model('septictank_model');
 			$this->load->model('menu_model');
 			$this->load->helper(array('form', 'url'));
 			
@@ -22,7 +22,7 @@
 			if($this->session->userdata('is_login')){
 				//menampilkan menu
 				$data['menu_list'] = $this->menu_model->select_all()->result();
-				$data['title'] = "MCK | SIPEPENG";
+				$data['title'] = "Septictank | SIPEPENG";
 				$data['username'] = $this->session->userdata('username');	
 				
 				//mengambil uri status
@@ -30,31 +30,31 @@
 				
 				//status 1 = data awal
 				if($status=='1'){       	
-					$data['mck_list'] = $this->mck_model->select_all_data_awal()->result();
+					$data['septictank_list'] = $this->septictank_model->select_all_data_awal()->result();
 				}
 				
 				//status 2 = data verifikasi
 				if($status=='2'){       	
-					$data['mck_list'] = $this->mck_model->select_all_verifikasi()->result();
+					$data['septictank_list'] = $this->septictank_model->select_all_verifikasi()->result();
 				}
 				
 				//status 3 = data progress
 				if($status=='3'){       	
-					$data['mck_list'] = $this->mck_model->select_all_sedang_dilaksanakan()->result();
+					$data['septictank_list'] = $this->septictank_model->select_all_sedang_dilaksanakan()->result();
 				}
 				
 				//status 4 = data sudah dilaksanakan
 				if($status=='4'){       	
-					$data['mck_list'] = $this->mck_model->select_all_sudah_dilaksanakan()->result();
+					$data['septictank_list'] = $this->septictank_model->select_all_sudah_dilaksanakan()->result();
 				}
 				
 				//status 5 = data sudah dilaksanakan
 				if($status=='5'){       	
-					$data['mck_list'] = $this->mck_model->select_all_tidak_dilaksanakan()->result();
+					$data['septictank_list'] = $this->septictank_model->select_all_tidak_dilaksanakan()->result();
 				}		
 				
 				$data['status']= $status;
-				$this->load->view('admin/mck/mck_list',$data);
+				$this->load->view('admin/septictank/septictank_list',$data);
 				
 				}else {
 				redirect('public/homes');
@@ -67,8 +67,8 @@
 				//menampilkan menu..wajib ada
 				$data['menu_list'] = $this->menu_model->select_all()->result();
 				// end menampilkan menu..wajib ada
-				$data['title'] = "Data Awal MCK | SIPEPENG";
-				$data['judulForm'] = "Data Awal MCK";
+				$data['title'] = "Data Awal Septictank | SIPEPENG";
+				$data['judulForm'] = "Data Awal Septictank";
 				$data['username'] = $this->session->userdata('username');
 				
 				//mengambil uri aksi
@@ -84,11 +84,11 @@
 				
 				if($data['aksi']=='edit'){
 				//mengambil uri aksi
-				$id_mck =$this->uri->segment(5);
-				$data['mck_list'] = $this->mck_model->getMckById($id_mck);
+				$id_septictank =$this->uri->segment(5);
+				$data['septictank_list'] = $this->septictank_model->getSeptictankById($id_septictank);
 				}
 				
-				$this->load->view('admin/mck/mck_olahdata', $data);
+				$this->load->view('admin/septictank/septictank_olahdata', $data);
 			}else {
 				redirect('public/homes');
 			}
@@ -101,7 +101,7 @@
 			
 			$aksi = $this->input->post('aksi');		
 			$data['aksi']=$aksi;
-			$id_mck = $this->input->post('id_mck');
+			$id_septictank = $this->input->post('id_septictank');
 			
 			$this->form_validation->set_rules('rt', 'RT', 'trim|required|number');
 			$this->form_validation->set_rules('rw', 'RW', 'trim|required|number');
@@ -124,7 +124,7 @@
 				$data['lat'] = $this->input->post('lat');
 				$data['long'] = $this->input->post('long');
 				$data['ket'] = $this->input->post('ket');
-				$ket = "mck";
+				$ket = "septictank";
 				
 				//mengecek apakah foto di upload
 				if($_FILES['foto']['name'] != "")
@@ -144,14 +144,14 @@
 				# jika tambah
 				if($aksi=='add'){
 					//proses menginput ke model
-					$hasil = $this->mck_model->add($data);
+					$hasil = $this->septictank_model->add($data);
 					$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil ditambah </div>');
 				}
 				# jika edit
 				if($aksi=='edit'){
 					
 					//proses menginput ke model
-					$hasil = $this->mck_model->update($id_mck);					
+					$hasil = $this->septictank_model->update($id_septictank);					
 					 if ($hasil == TRUE) {
 						$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
 					} else {
@@ -160,41 +160,41 @@
 				}
 				
 				$data['username'] = $this->session->userdata('username');
-				redirect('admin/mck_managements/index/1',$data);
+				redirect('admin/septictank_managements/index/1',$data);
 				
 			} else {
-				$data['title'] = "Data Awal MCK | SIPEPENG";
-				$data['judulForm'] = "Data Awal MCK";
+				$data['title'] = "Data Awal Septictank | SIPEPENG";
+				$data['judulForm'] = "Data Awal Septictank";
 				$data['username'] = $this->session->userdata('username');
-				$data['mck_list'] = $this->mck_model->getMckById($id_mck);
-				$this->load->view('admin/mck/mck_olahdata', $data);
+				$data['septictank_list'] = $this->septictank_model->getSeptictankById($id_septictank);
+				$this->load->view('admin/septictank/septictank_olahdata', $data);
 			}
 			
 		}
 		
 		
-		function delete($id_mck) {
-			$id_mck=$this->uri->segment(4);
+		function delete($id_septictank) {
+			$id_septictank=$this->uri->segment(4);
 			$status=$this->uri->segment(5);
-			if (empty($id_mck)) {
+			if (empty($id_septictank)) {
 				$this->session->set_flashdata('message', 'Error Invalid');
-				redirect('admin/mck_managements/index/'.$status);
+				redirect('admin/septictank_managements/index/'.$status);
 				} else {
-				$this->mck_model->delete($id_mck);
+				$this->septictank_model->delete($id_septictank);
 				$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil Dihapus </div>');
-				redirect('admin/mck_managements/index/'.$status);
+				redirect('admin/septictank_managements/index/'.$status);
 			}
 		}
 		
 		//fungsi menampilkan berdasarkan id yg dipilih
-		public function view($id_mck){
+		public function view($id_septictank){
 			//menampilkan menu..wajib ada
 			$data['menu_list'] = $this->menu_model->select_all()->result();
 			// end menampilkan menu..wajib ada
-			$data['id_mck'] = $id_mck;
-			$data['title'] = "View Data MCK | SIPEPENG";
-			$data['judulForm'] = "Detail MCK";
-			$data['mck_list'] = $this->mck_model->getMckById($id_mck);
+			$data['id_septictank'] = $id_septictank;
+			$data['title'] = "View Data Septictank | SIPEPENG";
+			$data['judulForm'] = "Detail Septictank";
+			$data['septictank_list'] = $this->septictank_model->getSeptictankById($id_septictank);
 			$data['username'] = $this->session->userdata('username');
 			
 			$config['center'] = '-6.900282, 107.530010';
@@ -208,37 +208,35 @@
 			$data['map'] = $this->googlemaps->create_map();
 			# end google map
 			
-			$this->load->view('admin/mck/mck_view',$data);
+			$this->load->view('admin/septictank/septictank_view',$data);
 		}
 		
 		function update_status_data_awal(){
-			$id_mck=$this->uri->segment(4);
-			$hasil = $this->mck_model->update_status_data_awal($id_mck);
-			redirect('admin/mck_managements/index/1');
+			$id_septictank=$this->uri->segment(4);
+			$hasil = $this->septictank_model->update_status_data_awal($id_septictank);
+			redirect('admin/septictank_managements/index/1');
 		}
 		
 		function update_status_verifikasi(){
-			$id_mck=$this->uri->segment(4);
-			$hasil = $this->mck_model->update_status_verifikasi($id_mck);
-			redirect('admin/mck_managements/index/2');
+			$id_septictank=$this->uri->segment(4);
+			$hasil = $this->septictank_model->update_status_verifikasi($id_septictank);
+			redirect('admin/septictank_managements/index/2');
 		}
 		function update_status_sedang_dilaksanakan(){
-			$id_mck=$this->uri->segment(4);
-			$hasil = $this->mck_model->update_status_sedang_dilaksanakan($id_mck);
-			redirect('admin/mck_managements/index/3');
+			$id_septictank=$this->uri->segment(4);
+			$hasil = $this->septictank_model->update_status_sedang_dilaksanakan($id_septictank);
+			redirect('admin/septictank_managements/index/3');
 		}
 		function update_status_sudah_dilaksanakan(){
-			$id_mck=$this->uri->segment(4);
-			$hasil = $this->mck_model->update_status_data_awal($id_mck);
-			redirect('admin/mck_managements/index/4');
+			$id_septictank=$this->uri->segment(4);
+			$hasil = $this->septictank_model->update_status_data_awal($id_septictank);
+			redirect('admin/septictank_managements/index/4');
 		}
 		function update_status_tidak_dilaksanakan(){
-			$id_mck=$this->uri->segment(4);
-			$hasil = $this->mck_model->update_status_data_awal($id_mck);
-			redirect('admin/mck_managements/index/5');		
+			$id_septictank=$this->uri->segment(4);
+			$hasil = $this->septictank_model->update_status_data_awal($id_septictank);
+			redirect('admin/septictank_managements/index/5');		
 		}
-		
-		
 		
 		
 		# Upload Foto
