@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 06 Apr 2015 pada 13.02
+-- Waktu pembuatan: 07 Apr 2015 pada 07.40
 -- Versi Server: 5.5.27
 -- Versi PHP: 5.4.7
 
@@ -253,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `controller` varchar(100) NOT NULL,
   `id_jenis_pengguna` int(15) NOT NULL,
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data untuk tabel `menu`
@@ -265,7 +265,9 @@ INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `id_jenis_pengguna`) VALUES
 (8, 'Jalan', 'admin/jalan_managements', 0),
 (9, 'Sumur Dangkal', 'admin/sumur_dangkal_managements', 2),
 (10, 'Sumur Resapan', 'admin/sumur_resapan_managements', 2),
-(11, 'MCK', 'admin/mck_managements', 2);
+(11, 'MCK', 'admin/mck_managements', 2),
+(12, 'Septictank', 'admin/septictank_managements', 2),
+(13, 'Septictank Komunal', 'admin/septictank_komunal_managements', 2);
 
 -- --------------------------------------------------------
 
@@ -325,7 +327,14 @@ CREATE TABLE IF NOT EXISTS `septictank` (
   `status_sudah_dilaksanakan` int(3) NOT NULL,
   `status_tidak_dilaksanakan` int(3) NOT NULL,
   PRIMARY KEY (`id_septictank`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `septictank`
+--
+
+INSERT INTO `septictank` (`id_septictank`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 1, 10, 'cimahi cibeber no. 100', '120', '', '', 3400000, 'dinas', 2015, 'Ada', '  tidak', 'septictank__2015_10_cimahi_cibeber.jpg', 'septictank__2015_10_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -356,7 +365,14 @@ CREATE TABLE IF NOT EXISTS `septictank_komunal` (
   `status_sudah_dilaksanakan` int(3) NOT NULL,
   `status_tidak_dilaksanakan` int(3) NOT NULL,
   PRIMARY KEY (`id_septictank_komunal`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `septictank_komunal`
+--
+
+INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 10, 1, 'cibeber no 120 cimahi selatan', '22', '', '', 3400000, 'iii', 2013, 'Ada', 34, '  ga da', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
