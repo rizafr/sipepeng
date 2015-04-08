@@ -37,6 +37,7 @@ class Logins extends CI_Controller {
                 $sessionData['nama'] = $user['nama'];
                 $sessionData['email'] = $user['email'];
                 $sessionData['id_jenis_pengguna'] = $user['id_jenis_pengguna'];
+                $sessionData['jenis_pengguna'] = $user['jenis_pengguna'];
                 $sessionData['is_login'] = TRUE;
 
                 $this->session->set_userdata($sessionData);

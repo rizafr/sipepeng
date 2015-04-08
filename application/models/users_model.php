@@ -122,9 +122,11 @@ class Users_model extends CI_Model{
     
     public function checkLogin($username, $password) {
         $this->db->select('*');
-        $this->db->where('username', $username);
-        $this->db->where('password', md5($password));
-        $query = $this->db->get($this->table, 1);
+		$this->db->from('pengguna');
+		$this->db->join('jenis_pengguna', 'jenis_pengguna.id_jenis_pengguna = pengguna.id_jenis_pengguna');
+        $this->db->where('pengguna.username', $username);
+        $this->db->where('pengguna.password', md5($password));
+        $query = $this->db->get();
         
         if ($query->num_rows() == 1) {
             return $query->row_array();

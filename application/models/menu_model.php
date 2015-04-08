@@ -11,9 +11,21 @@ class Menu_model extends CI_Model {
         parent::__construct();
     }
     
-    //select
+    //select all
     public function select_all(){
         $sql = "select * from menu order by menu asc";
+        return $this->db->query($sql);
+    } 
+	
+	//select menu pu
+    public function select_pu(){
+        $sql = "select * from menu  where id_jenis_pengguna = 3 order by menu asc";
+        return $this->db->query($sql);
+    }
+    
+	//select menu dkp
+    public function select_dkp(){
+        $sql = "select * from menu where id_jenis_pengguna = 2 order by menu asc";
         return $this->db->query($sql);
     }
     
