@@ -97,6 +97,9 @@ class User_managements extends CI_Controller {
     }
     
     public function view($id_pengguna){
+		//menampilkan menu..wajib ada
+			$data['menu_list'] = $this->menu_model->select_all()->result();
+		// end menampilkan menu..wajib ada
         $data['idUser'] = $id_pengguna;
         $data['title'] = "View Data User | SIPEPENG";
         $data['users'] = $this->users_model->getUserById($id_pengguna);
