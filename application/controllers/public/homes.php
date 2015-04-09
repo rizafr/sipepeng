@@ -14,6 +14,12 @@ class Homes extends CI_Controller {
 		$data['data_list'] = $this->public_model->select_all()->result();
         $this->load->view('public/home',$data);
     }
+
+	public function renja(){
+        $data['title'] = "RENJA - SIPEPENG";
+		$data['data_list'] = $this->public_model->select_all()->result();
+        $this->load->view('public/renja',$data);
+    }
 }
 
 ?>

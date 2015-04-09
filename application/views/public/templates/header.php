@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | Sistem Informasi Pemetaan Pembangunan</title>
+    <title><?php echo $title ?></title>
 	
 	<!-- core CSS -->
     <link href="<?php echo base_url() ?>assets/public/css/bootstrap.min.css" rel="stylesheet">

@@ -13,8 +13,8 @@
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
+                        <li <? $page=''; $url=$this->uri->segment(2); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>">Beranda</a></li>
+                        <li <? $page='renja'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/renja">Renja</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
                         <li class="dropdown">
