@@ -35,7 +35,7 @@ if(strtolower($aksi) == 'add') {
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                <span class="hidden-sm wht-color"><? echo $namaform." " .$judulForm ?></span>
+                                <span class="hidden-sm wht-color"><? echo $namaform." " .$judulForm?></span>
                             </header>
                             <div class="panel-body">
                                 <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">

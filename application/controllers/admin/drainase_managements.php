@@ -217,9 +217,23 @@
 		$this->googlemaps->initialize($config);
 		
 		$polyline = array();
-		// $polyline['points'] = array("'".$data['drainase_list']['lat_awal'].",". $data['drainase_list']['long_awal']."','".$data['drainase_list']['lat_akhir'].",".$data['drainase_list']['long_akhir']."'");
-		$polyline['points'] = array('-6.899616304255486 ,107.52874667955393 ',' -6.901024637547955, 107.53150105454552 ');
+		// $polyline['points'] = array($data['drainase_list']['lat_awal'].",". $data['drainase_list']['long_awal'].",".$data['drainase_list']['lat_akhir'].",".$data['drainase_list']['long_akhir']);
+		$polyline['points'] = array($data['drainase_list']['lat_awal'].",". $data['drainase_list']['long_awal'],$data['drainase_list']['lat_akhir'].",".$data['drainase_list']['long_akhir']);
 		$this->googlemaps->add_polyline($polyline);
+		
+		
+		$marker = array();
+		$marker['position'] = $data['drainase_list']['lat_awal'].",". $data['drainase_list']['long_awal'];
+		$marker['infowindow_content'] = "RW : ".$data['drainase_list']['rw'] ." <br /> Alamat:  ". $data['drainase_list']['alamat'];
+		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+		$this->googlemaps->add_marker($marker);
+		
+		$marker = array();
+		$marker['position'] = $data['drainase_list']['lat_akhir'].",".$data['drainase_list']['long_akhir'];
+		$marker['infowindow_content'] = "RW : ".$data['drainase_list']['rw'] ." <br /> Alamat:  ". $data['drainase_list']['alamat'];
+		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|9999FF|000000';
+		$this->googlemaps->add_marker($marker);
+				
 		$data['map'] = $this->googlemaps->create_map();
 	# end google map
 	
