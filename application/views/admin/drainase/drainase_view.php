@@ -76,27 +76,28 @@
                                             <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
+									<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+											<?php echo set_value('lat_awal', isset($drainase_list['lat_awal']) ? $drainase_list['lat_awal'] : 'Belum Ada'); ?>
+										</div>
+									</div><!--end control-group-->
 									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude Awal: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
 											<?php echo set_value('long_awal', isset($drainase_list['long_awal']) ? $drainase_list['long_awal'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Latitude Akhir: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('long_akhir', isset($drainase_list['long_akhir']) ? $drainase_list['long_akhir'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('long_akhir', isset($drainase_list['lat_akhir']) ? $drainase_list['lat_akhir'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-											<?php echo set_value('lat_awal', isset($drainase_list['lat_awal']) ? $drainase_list['lat_awal'] : 'Belum Ada'); ?>
-										</div>
-									</div><!--end control-group-->
+                                    
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>

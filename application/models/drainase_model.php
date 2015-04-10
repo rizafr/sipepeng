@@ -99,10 +99,10 @@
 			, 'lebar' => $this->input->post('lebar')
 			, 'kedalaman' => $this->input->post('kedalaman')
 			, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
-			, 'long_awal' => $data['long_awal']
-			, 'long_akhir' => $data['long_akhir']
-			, 'lat_awal' => $data['lat_awal']
-			, 'lat_akhir' => $data['lat_akhir']
+			, 'lat_awal' => $this->input->post('lat_awal')
+			, 'long_awal' => $this->input->post('long_awal')
+			, 'lat_akhir' => $this->input->post('lat_akhir')
+			, 'long_akhir' => $this->input->post('long_akhir')
 			, 'anggaran' =>  $this->input->post('anggaran')
 			, 'sumber_data' =>  $this->input->post('sumber_data')
 			, 'tahun_usulan' => $this->input->post('tahun_usulan')

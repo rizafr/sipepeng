@@ -2,9 +2,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    Sistem Informasi Pemetaan Pembangunan <br />
-						Proyek Perubahan Diklatpim IV - Devi Januar  <br /> </h4>
-						<p>Developed by Riza Fauzi Rahman dan Ratih Pujihati </p>
+                    <p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
+						Proyek Perubahan Diklatpim V - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
+						<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
                 </div>                
             </div>
         </div>
