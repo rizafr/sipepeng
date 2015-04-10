@@ -214,6 +214,8 @@
 		function update_status_data_awal(){
 			$id_septictank=$this->uri->segment(4);
 			$hasil = $this->septictank_model->update_status_data_awal($id_septictank);
+			//message berhasil loncat
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diverifikasi. <br /> Klik menu Data Verifikasi </div>');
 			redirect('admin/septictank_managements/index/1');
 		}
 		

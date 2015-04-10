@@ -16,3 +16,16 @@ KIRMIR,
 LOGIN,
 USER MANAGEMENT v,
 MENU v, 
+
+
+TAMBAHAN:
+1. Message berhasil loncat harus ada disemua status 
+2. Dimenu verifikasi tambah tombol x, utk data tidak dapat dilaksanakan
+3. Keterangan jumlah data ditiap status
+4. Sumber data placeholdernya hrs sesuai menu
+5. Data Long + Lat harus otomatis saat peta dklik
+6. Dashbord : Tambah peta yg isinya titik data keseluruhan menu. 
+	      Tambah grafik per status, per menu.
+7. Report ditanyain ke pa Devi
+8. Menu yang muncul sesuai hak akses pengguna
+9. Menu PUBLIC : beranda,profil,peta, peraturan, manual book,Kontak (ada programmer)
