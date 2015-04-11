@@ -192,6 +192,16 @@
 			return $this->db->update('drainase', $data);
 		}
 		
+# update data verifikasi menjadi sedang dilaksanakan   
+		public function update_status_tidak_dilaksanakan($id_drainase) {	
+			$data = array(
+			'status_tidak_dilaksanakan' => "1"			
+			);
+			
+			$this->db->where('id_drainase', $id_drainase);
+			return $this->db->update('drainase', $data);
+		}
+		
 			
 	
 	
