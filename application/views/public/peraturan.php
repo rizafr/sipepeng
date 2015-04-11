@@ -7,10 +7,10 @@
             <div class="get-started center wow fadeInDown">
                 <h2>Landasan Hukum</h2>
 		  </div>
-		  <div class="get-started lead wow fadeInDown">
+		  <div class="get-started wow fadeInDown">
 <p>
-    <strong> </strong>
-    Landasan hukum penyusunan Rencana Kerja SOPD Kelurahan Leuwigajah Tahun Anggaran 2015 adalah :
+    <strong> 
+    Landasan hukum penyusunan Rencana Kerja SOPD Kelurahan Leuwigajah Tahun Anggaran 2015 adalah : </strong>
 </p>
 <p>
     1. Undang-undang Nomor 9 Tahun 2001 tentang Pembentukan Kota Cimahi (Lembaran Negara Republik Indonesia Tahun 2001 Nomor 89, Tambahan Lembaran Negara
