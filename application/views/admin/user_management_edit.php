@@ -60,7 +60,7 @@
                                         </div>
                                     </div><!--end control-group-->
 
-                                    <div class="form-group">
+<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="inputEmailAddress">E-Mail: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
 											<input type="text" class="form-control" id="inputEmailAddress" name="email" placeholder="example@example.com" value="<?php echo set_value('email', isset($users['email']) ? $users['email'] : ''); ?>"  data-validation="email">
@@ -94,9 +94,10 @@
                                     
                                     <div class="form-group">
                                         <div class="col-lg-10">                                           
+											<button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
                                             <button type="submit" class="btn btn-primary">Ubah</button>
                                             <button type="reset" class="btn btn-primary">Reset</button>
-                                        </div>
+										  </div>
                                     </div><!--end control-group-->
 
                                 </form><!--end form-->

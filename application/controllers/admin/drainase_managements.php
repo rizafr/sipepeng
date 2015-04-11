@@ -77,17 +77,28 @@
 				#google map yg bisa di klik otomatis dapetin koordinatnya
 				$config['center'] = '-6.900282, 107.530010';
 				$config['zoom'] = 'auto';
-				$config['onclick']= 'getLokasiAkhir(event.latLng.lat(), event.latLng.lng());';
 				
 				$this->googlemaps->initialize($config);
 				
+				#marker A
 				$marker = array();
-				$marker['position'] = '-6.900282, 107.530010';
+				$marker['position'] = '-6.900282, 107.530010'; //posisi awal
 				$marker['draggable'] = true;
 				$marker['ondragend'] = 'getLokasi(event.latLng.lat(), event.latLng.lng());';
+				$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
 				$this->googlemaps->add_marker($marker);
+				
+				#marker B
+				$marker = array();
+				$marker['position'] = '-6.900232, 107.530030'; //posisi akhir
+				$marker['draggable'] = true;
+				$marker['ondragend'] = 'getLokasiAkhir(event.latLng.lat(), event.latLng.lng());';
+				$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|9999FF|000000';
+				$this->googlemaps->add_marker($marker);
+				
+				//fungsi untuk membuat peta 
 				$data['map'] = $this->googlemaps->create_map();
-			#end google map
+				#end google map
 			
 			if($data['aksi']=='edit'){
 				//mengambil uri aksi

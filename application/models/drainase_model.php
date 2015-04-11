@@ -13,6 +13,12 @@
 		}
 		
 		//select 
+		public function select_all() {
+			$sql = "select * from drainase";
+			return $this->db->query($sql);
+		}
+		
+		//select 
 		public function select_all_data_awal() {
 			$sql = "select * from drainase where status_verifikasi='0' ";
 			return $this->db->query($sql);

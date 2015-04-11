@@ -198,8 +198,9 @@ if(strtolower($aksi) == 'add') {
                                                                         
                                     <div class="form-group">
                                         <div class="col-lg-10"> 
+											<button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
                                             <button type="submit" class="btn btn-primary"><?echo $namaform ?></button>
-                                            <button type="reset" class="btn btn-primary">Reset</button>
+                                            <button type="reset" class="btn btn-primary">Reset</button>										 
                                         </div>
                                     </div><!--end control-group-->
 
