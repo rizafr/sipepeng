@@ -26,158 +26,160 @@
                             <div class="panel-body">
                                 <form class="form-horizontal" role="form">
 
-                                    <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Awal</legend>
+                                    <div id="area-1">
+                                        <!--area print-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('rt', isset($drainase_list['rt']) ? $drainase_list['rt'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('rt', isset($drainase_list['rt']) ? $drainase_list['rt'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('rw', isset($drainase_list['rw']) ? $drainase_list['rw'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('rw', isset($drainase_list['rw']) ? $drainase_list['rw'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('alamat', isset($drainase_list['alamat']) ? $drainase_list['alamat'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end form-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('alamat', isset($drainase_list['alamat']) ? $drainase_list['alamat'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end form-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="lebar">Lebar: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="lebar">Lebar: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="kedalaman">Kedalaman: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="kedalaman">Kedalaman: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('lat_awal', isset($drainase_list['lat_awal']) ? $drainase_list['lat_awal'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('lat_awal', isset($drainase_list['lat_awal']) ? $drainase_list['lat_awal'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude Awal: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('long_awal', isset($drainase_list['long_awal']) ? $drainase_list['long_awal'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude Awal: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('long_awal', isset($drainase_list['long_awal']) ? $drainase_list['long_awal'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Latitude Akhir: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('long_akhir', isset($drainase_list['lat_akhir']) ? $drainase_list['lat_akhir'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
-
-
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('long_akhir', isset($drainase_list['long_akhir']) ? $drainase_list['long_akhir'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('anggaran', isset($drainase_list['anggaran']) ? $drainase_list['anggaran'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Latitude Akhir: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('long_akhir', isset($drainase_list['lat_akhir']) ? $drainase_list['lat_akhir'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
 
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo set_value('ket', isset($drainase_list['ket']) ? $drainase_list['ket'] : 'Belum Ada'); ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('long_akhir', isset($drainase_list['long_akhir']) ? $drainase_list['long_akhir'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?
-                                            $foto = isset($drainase_list['foto']) ? $drainase_list['foto'] : 'NULL';
-                                            if ($foto === NULL) {
-                                                $foto = 'noimage.jpg';
-                                            } else {
-                                                $foto = $foto;
-                                            }
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('anggaran', isset($drainase_list['anggaran']) ? $drainase_list['anggaran'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
+
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
+
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
 
-                                            $dokumen = isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'NULL';
-                                            if ($dokumen === NULL) {
-                                                $dokumen = 'noimage.jpg';
-                                            } else {
-                                                $dokumen = $dokumen;
-                                            }
-                                            ?>
-                                            <figure>
-                                                <img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
-                                                <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
-                                            </figure
-                                        </div>
-                                    </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'Belum Ada'); ?></button></a>
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo set_value('ket', isset($drainase_list['ket']) ? $drainase_list['ket'] : 'Belum Ada'); ?>
+                                            </div>
+                                        </div><!--end control-group-->
 
-                                        </div>
-                                    </div><!--end control-group-->
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Peta: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php echo $map['html']; ?>
-                                        </div>
-                                    </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: </label>
+                                            <div class="col-lg-10">
+                                                <?
+                                                $foto = isset($drainase_list['foto']) ? $drainase_list['foto'] : 'NULL';
+                                                if ($foto === NULL) {
+                                                    $foto = 'noimage.jpg';
+                                                } else {
+                                                    $foto = $foto;
+                                                }
+
+
+                                                $dokumen = isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'NULL';
+                                                if ($dokumen === NULL) {
+                                                    $dokumen = 'noimage.jpg';
+                                                } else {
+                                                    $dokumen = $dokumen;
+                                                }
+                                                ?>
+                                                <figure>
+                                                    <img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
+                                                    <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
+                                                </figure
+                                            </div>
+                                        </div><!--end control-group-->
+
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: </label>
+                                            <div class="col-lg-10">
+                                                <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'Belum Ada'); ?></button></a>
+
+                                            </div>
+                                        </div><!--end control-group-->
+                                        <div class="form-group">
+                                            <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Peta: </label>
+                                            <div class="col-lg-10">
+                                                <?php echo $map['html']; ?>
+                                            </div>
+                                        </div><!--end control-group-->
+                                    </div><!--end area print-->
 
                                     <div class="form-group">
                                         <div class="col-lg-10">                                           
+                                            <button type="button" class="btn btn-info " onclick="cetak();"><i class=" icon-print"></i> <a class="no-print" href="javascript:printDiv('area-1');">Print</a></button>
                                             <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
                                         </div>
                                     </div><!--end control-group-->
@@ -192,3 +194,18 @@
         </section>
         <!--main content end-->
         <?php $this->load->view('admin/templates/footer'); ?>	
+
+        <textarea id="printing-css" style="display:none;">.no-print{display:none}</textarea>
+        <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
+        <script type="text/javascript">
+            //<![CDATA[
+            function printDiv(elementId) {
+                var a = document.getElementById('printing-css').value;
+                var b = document.getElementById(elementId).innerHTML;
+                window.frames["print_frame"].document.title = document.title;
+                window.frames["print_frame"].document.body.innerHTML = '<style>' + a + '</style>' + b;
+                window.frames["print_frame"].window.focus();
+                window.frames["print_frame"].window.print();
+            }
+            //]]>
+        </script>
