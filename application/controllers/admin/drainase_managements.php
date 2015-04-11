@@ -195,7 +195,7 @@ class Drainase_managements extends CI_Controller {
         }
     }
 
-    function delete($id_drainase) {
+    function delete() {
         $id_drainase = $this->uri->segment(4);
         $status = $this->uri->segment(5);
         if (empty($id_drainase)) {
