@@ -74,6 +74,7 @@
 				//mengambil uri aksi
 				$data['aksi']=$this->uri->segment(4);
 				
+				#ratih kopi paste dari sini
 				#google map yg bisa di klik otomatis dapetin koordinatnya
 				$config['center'] = '-6.900282, 107.530010';
 				$config['zoom'] = 'auto';
@@ -84,7 +85,7 @@
 				$marker = array();
 				$marker['position'] = '-6.900282, 107.530010'; //posisi awal
 				$marker['draggable'] = true;
-				$marker['ondragend'] = 'getLokasi(event.latLng.lat(), event.latLng.lng());';
+				$marker['ondragend'] = 'getLokasi(event.latLng.lat(), event.latLng.lng());'; //buat javascript di viewnya namanya getLokasi
 				$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
 				$this->googlemaps->add_marker($marker);
 				
@@ -92,13 +93,14 @@
 				$marker = array();
 				$marker['position'] = '-6.900232, 107.530030'; //posisi akhir
 				$marker['draggable'] = true;
-				$marker['ondragend'] = 'getLokasiAkhir(event.latLng.lat(), event.latLng.lng());';
+				$marker['ondragend'] = 'getLokasiAkhir(event.latLng.lat(), event.latLng.lng());'; //buat javascript di viewnya namanya getLokasiAkhir
 				$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|9999FF|000000';
 				$this->googlemaps->add_marker($marker);
 				
 				//fungsi untuk membuat peta 
 				$data['map'] = $this->googlemaps->create_map();
 				#end google map
+				# end ratih kopi paste dari sini
 			
 			if($data['aksi']=='edit'){
 				//mengambil uri aksi
@@ -223,30 +225,36 @@
 		// var_dump($data['drainase_list']['lat_awal']);
 		$data['username'] = $this->session->userdata('username');
 		
+		#ratih kopi paste dari sini
+		# menampilkan google map ke dalam view berdasarkan koordinat didalam database
 		$config['center'] = '-6.900282, 107.530010';
 		$config['zoom'] = '16';
 		$this->googlemaps->initialize($config);
 		
+		#garis di google map
 		$polyline = array();
-		// $polyline['points'] = array($data['drainase_list']['lat_awal'].",". $data['drainase_list']['long_awal'].",".$data['drainase_list']['lat_akhir'].",".$data['drainase_list']['long_akhir']);
 		$polyline['points'] = array($data['drainase_list']['lat_awal'].",". $data['drainase_list']['long_awal'],$data['drainase_list']['lat_akhir'].",".$data['drainase_list']['long_akhir']);
 		$this->googlemaps->add_polyline($polyline);
 		
-		
+		#marker / tanda di google map
 		$marker = array();
 		$marker['position'] = $data['drainase_list']['lat_awal'].",". $data['drainase_list']['long_awal'];
 		$marker['infowindow_content'] = "RW : ".$data['drainase_list']['rw'] ." <br /> Alamat:  ". $data['drainase_list']['alamat'];
 		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
 		$this->googlemaps->add_marker($marker);
 		
+		#marker / tanda di google map
 		$marker = array();
 		$marker['position'] = $data['drainase_list']['lat_akhir'].",".$data['drainase_list']['long_akhir'];
 		$marker['infowindow_content'] = "RW : ".$data['drainase_list']['rw'] ." <br /> Alamat:  ". $data['drainase_list']['alamat'];
 		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|9999FF|000000';
 		$this->googlemaps->add_marker($marker);
-				
+		
+		#buat peta google map
 		$data['map'] = $this->googlemaps->create_map();
-	# end google map
+		
+		# end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+		# kopi sampe sini
 	
 	$this->load->view('admin/drainase/drainase_view',$data);
 }
