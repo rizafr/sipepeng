@@ -214,13 +214,13 @@
 
 			#garis di google map
 			$polyline = array();
-			$polyline['points'] = array($data['sumur_septictank_list']['lat'] . "," . $data['sumur_septictank_list']['long']);
+			$polyline['points'] = array($data['septictank_list']['lat'] . "," . $data['septictank_list']['long']);
 			$this->googlemaps->add_polyline($polyline);
 
 			#marker / tanda di google map
 			$marker = array();
-			$marker['position'] = $data['sumur_septictank_list']['lat'] . "," . $data['sumur_septictank_list']['long'];
-			$marker['infowindow_content'] = "RW : " . $data['sumur_septictank_list']['rw'] . " <br /> Alamat:  " . $data['sumur_septictank_list']['alamat'];
+			$marker['position'] = $data['septictank_list']['lat'] . "," . $data['septictank_list']['long'];
+			$marker['infowindow_content'] = "RW : " . $data['septictank_list']['rw'] . " <br /> Alamat:  " . $data['septictank_list']['alamat'];
 			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
 			$this->googlemaps->add_marker($marker);
 			
