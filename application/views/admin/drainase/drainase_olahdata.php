@@ -232,8 +232,6 @@ if(strtolower($aksi) == 'add') {
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
   
   <script type="text/javascript">
-	 // #ratih kopi paste dari sini
-	 
 		//FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
 		function getLokasi(newLat, newLng)
 		{			
@@ -246,7 +244,6 @@ if(strtolower($aksi) == 'add') {
 					document.getElementById('lat_akhir').value= newLat;
 					document.getElementById('long_akhir').value= newLng;
 		}
-	// #ratih kopi paste dari sini
 	</script>
      
 			

@@ -219,8 +219,7 @@ class Drainase_managements extends CI_Controller {
         $data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
         // var_dump($data['drainase_list']['lat_awal']);
         $data['username'] = $this->session->userdata('username');
-
-        #ratih kopi paste dari sini
+     
         # menampilkan google map ke dalam view berdasarkan koordinat didalam database
         $config['center'] = '-6.900282, 107.530010';
         $config['zoom'] = '16';
@@ -284,6 +283,7 @@ class Drainase_managements extends CI_Controller {
     function update_status_sudah_dilaksanakan() {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_data_awal($id_drainase);
+		
         redirect('admin/drainase_managements/index/4');
     }
 

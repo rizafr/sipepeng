@@ -29,7 +29,7 @@
 									$judul = array("1"=>"Awal", "2"=>"Verifikasi" , "3"=>"Sedang Dilaksanakan" , "4"=>"Sudah Dilaksanakan" , "5"=>"Tidak Dilaksanakan");
 									$judul= $judul[$status];
 								?>
-                                <span class="hidden-sm wht-color">Data Sumur Dangkal <? echo $judul;?> </span>
+                                <span class="hidden-sm wht-color">Data Sumur Resapan <? echo $judul;?> </span>
 							</header>
                             <div class="panel-body">
                                 <div class="adv-table">

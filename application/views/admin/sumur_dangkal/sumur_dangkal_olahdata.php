@@ -204,5 +204,14 @@ if(strtolower($aksi) == 'add') {
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
   <script src="<?php echo base_url(); ?>assets/admin/js/advanced-form-components.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-     
+  
+  <script type="text/javascript">
+		//FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
+		function getLokasi(newLat, newLng)
+		{			
+					document.getElementById('lat').value= newLat;
+					document.getElementById('long').value= newLng;
+		}
+		
+	</script>
 			
