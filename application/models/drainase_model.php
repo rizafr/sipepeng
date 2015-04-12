@@ -185,8 +185,7 @@ class Drainase_model extends CI_Model {
         return $this->db->update('drainase', $data);
     }
 
-# update data verifikasi menjadi sedang dilaksanakan   
-
+	# update data verifikasi menjadi sedang dilaksanakan   
     public function update_status_tidak_dilaksanakan($id_drainase) {
         $data = array(
             'status_tidak_dilaksanakan' => "1"

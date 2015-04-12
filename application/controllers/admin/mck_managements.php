@@ -48,7 +48,7 @@
 					$data['mck_list'] = $this->mck_model->select_all_sudah_dilaksanakan()->result();
 				}
 				
-				//status 5 = data sudah dilaksanakan
+				//status 5 = data tidak dilaksanakan
 				if($status=='5'){       	
 					$data['mck_list'] = $this->mck_model->select_all_tidak_dilaksanakan()->result();
 				}		
@@ -253,7 +253,7 @@
 			$id_mck=$this->uri->segment(4);
 			$hasil = $this->mck_model->update_status_sedang_dilaksanakan($id_mck);
 			//message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data sudah dilaksanakan </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data Sudah Dilaksanakan </div>');
 
 			redirect('admin/mck_managements/index/3');
 		}
@@ -264,9 +264,9 @@
 		}
 		function update_status_tidak_dilaksanakan(){
 			$id_mck=$this->uri->segment(4);
-			$hasil = $this->mck_model->update_status_data_awal($id_mck);
+			$hasil = $this->mck_model->update_status_tidak_dilaksanakan($id_mck);
 			//message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Tidak Terverifikasi </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
 
 			redirect('admin/mck_managements/index/5');		
 		}

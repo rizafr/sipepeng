@@ -36,15 +36,11 @@
 			return $this->db->query($sql);
 		}
 		
-		//select
+		 //select
 		public function select_all_tidak_dilaksanakan() {
 			$sql = "select * from mck where status_tidak_dilaksanakan='1'";
 			return $this->db->query($sql);
 		}
-		
-		
-		
-		
 		
 		//search
 		public function select_by_id($id_mck) {
@@ -178,7 +174,15 @@
 			return $this->db->update('mck', $data);
 		}
 		
-			
+		# update data verifikasi menjadi sedang dilaksanakan   
+		public function update_status_tidak_dilaksanakan($id_mck) {
+			$data = array(
+				'status_tidak_dilaksanakan' => "1"
+			);
+
+			$this->db->where('id_mck', $id_mck);
+			return $this->db->update('mck', $data);
+		}	
 	
 	
 	

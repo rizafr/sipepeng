@@ -49,7 +49,7 @@ class Drainase_managements extends CI_Controller {
                 $data['drainase_list'] = $this->drainase_model->select_all_sudah_dilaksanakan()->result();
             }
 
-            //status 5 = data sudah dilaksanakan
+            //status 5 = data tidak dilaksanakan
             if ($status == '5') {
                 $data['drainase_list'] = $this->drainase_model->select_all_tidak_dilaksanakan()->result();
             }
@@ -275,7 +275,7 @@ class Drainase_managements extends CI_Controller {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_sedang_dilaksanakan($id_drainase);
          //message berhasil loncat
-        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data sudah dilaksanakan </div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data sudah dilaksanakan </div>');
 
         redirect('admin/drainase_managements/index/3');
     }
@@ -291,7 +291,7 @@ class Drainase_managements extends CI_Controller {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_tidak_dilaksanakan($id_drainase);
          //message berhasil loncat
-        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Tidak Terverifikasi </div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
 
         redirect('admin/drainase_managements/index/5');
     }
