@@ -1,74 +1,84 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title><? echo $title;?></title>
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-<link href="<?php echo base_url() ?>assets/login/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--------------------
+LOGIN FORM
+by: Amit Jakhu
+www.amitjakhu.com
+--------------------->
+
+<!--META-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<!-- -->
-<script src="<?php echo base_url() ?>assets/js/jquery-1.11.1.min.js"></script>
-<script>$(document).ready(function(c) {
-	$('.alert-close').on('click', function(c){
-		$('.message').fadeOut('slow', function(c){
-	  		$('.message').remove();
-		});
-	});	  
+<title><? echo $title;?></title>
+
+<!--STYLESHEETS-->
+<link href="<?php echo base_url() ?>assets/login/css/style.css" rel="stylesheet" type="text/css" />
+
+<!--SCRIPTS-->
+<script type="text/javascript" src="<?php echo base_url() ?>assets/login/js/jquery-1.11.1.min.js"></script>
+<!--Slider-in icons-->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".username").focus(function() {
+		$(".user-icon").css("left","-48px");
+	});
+	$(".username").blur(function() {
+		$(".user-icon").css("left","0px");
+	});
+	
+	$(".password").focus(function() {
+		$(".pass-icon").css("left","-48px");
+	});
+	$(".password").blur(function() {
+		$(".pass-icon").css("left","0px");
+	});
 });
 </script>
+
 </head>
 <body>
-<!-- contact-form -->	
-<div class="message warning"> 
-<div class="inset">
-	<div class="login-head">
-		<h1>Silakan Login</h1>
-			
-	</div>
-		<form method="post" action="<?php echo base_url('public/logins/process_login'); ?>">
-			<li>
-				<input type="text" name="username" class="text"  placeholder="username" required><a href="#" class=" icon user" ></a>
-				 <?php echo form_error('username', '<p class="field_error">', '</p>'); ?>
-			</li>
-				<div class="clear"> </div>
-			<li>
-				<input type="password" name="password" placeholder="password" required> <a href="#" class="icon lock"></a>
-				 <?php echo form_error('password', '<p class="field_error">', '</p>'); ?>
-			</li>
-			
-			<div class="clear"> </div>
-			<div class="submit">
-				<input type="submit" value="Login" >
-						  <div class="clear">  </div>	
-			</div>
-				<div class="clear"> </div>
-				<li>
-			<?php
-				$message = $this->session->flashdata('message');
-				echo $message == '' ? '' : "  <br /> <span class='message warning'>" . $message . '</span>';
-			?></li>
-		</form>
-			
-		</div>					
-	</div>
-	</div>
-	<div class="clear"> </div>
-<!--- footer --->
-<div class="footer">
+
+<!--WRAPPER-->
+<div id="wrapper">
+
+	<!--SLIDE-IN ICONS-->
+    <div class="user-icon"></div>
+    <div class="pass-icon"></div>
+    <!--END SLIDE-IN ICONS-->
+
+<!--LOGIN FORM-->
+<form  name="login-form" class="login-form"  method="post" action="<?php echo base_url('public/logins/process_login'); ?>">
+	<!--HEADER-->
+    <div class="header">
+    <!--TITLE--><h1>Login Form</h1><!--END TITLE-->
+    <!--DESCRIPTION--><span>Silakan isi username dan password.</span><!--END DESCRIPTION-->
+    </div>
+    <!--END HEADER-->
 	
+	<!--CONTENT-->
+    <div class="content">
+	<!--USERNAME--><input name="username" type="text" class="input username" placeholder="input username " required /><!--END USERNAME-->
+    <!--PASSWORD--><input name="password" type="password" class="input password"  placeholder="input password " required/><!--END PASSWORD-->
+    </div>
+    <!--END CONTENT-->
+    
+    <!--FOOTER-->
+    <div class="footer">
+    <!--LOGIN BUTTON--><input type="submit" name="submit" value="Login" class="button" /><!--END LOGIN BUTTON-->
+    </div>
+    <!--END FOOTER-->
+	<?php
+				$message = $this->session->flashdata('message');
+				echo $message == '' ? '' : "  <br /> <div class='peringatan'>" . $message . '</div>';
+			?>
+</form>
+<!--END LOGIN FORM-->
+
 </div>
-  <!-- Jquery validation Ketchup-->
- <script src="<?php echo base_url(); ?>assets/form-validator/jquery.form-validator.min.js"></script>
- <script> $.validate({
-			  modules : 'file'
-			});
-</script>
+<!--END WRAPPER-->
+
+<!--GRADIENT--><div class="gradient"></div><!--END GRADIENT-->
+
 </body>
 </html>
