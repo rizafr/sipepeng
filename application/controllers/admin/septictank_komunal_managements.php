@@ -77,8 +77,18 @@
 				#google map yg bisa di klik otomatis dapetin koordinatnya
 				$config['center'] = '-6.900282, 107.530010';
 				$config['zoom'] = 'auto';
-				$config['onclick'] = 'alert(\'You just clicked at: \' + event.latLng.lat() + \', \' + event.latLng.lng());';
+
 				$this->googlemaps->initialize($config);
+
+				#marker A
+				$marker = array();
+				$marker['position'] = '-6.900282, 107.530010'; //posisi awal
+				$marker['draggable'] = true;
+				$marker['ondragend'] = 'getLokasi(event.latLng.lat(), event.latLng.lng());'; //buat javascript di viewnya namanya getLokasi
+				$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+				$this->googlemaps->add_marker($marker);				
+
+				//fungsi untuk membuat peta 
 				$data['map'] = $this->googlemaps->create_map();
 				#end google map
 				
@@ -198,16 +208,27 @@
 			$data['septictank_komunal_list'] = $this->septictank_komunal_model->getSeptictankKomunalById($id_septictank_komunal);
 			$data['username'] = $this->session->userdata('username');
 			
+			# menampilkan google map ke dalam view berdasarkan koordinat didalam database
 			$config['center'] = '-6.900282, 107.530010';
-			$config['zoom'] = 'auto';
+			$config['zoom'] = '16';
 			$this->googlemaps->initialize($config);
 
+			#garis di google map
 			$polyline = array();
-			$polyline['points'] = array('-6.905027, 107.525885',
-							'-6.904228, 107.528964');
+			$polyline['points'] = array($data['sumur_septictank_komunal_list']['lat'] . "," . $data['sumur_septictank_komunal_list']['long']);
 			$this->googlemaps->add_polyline($polyline);
+
+			#marker / tanda di google map
+			$marker = array();
+			$marker['position'] = $data['sumur_septictank_komunal_list']['lat'] . "," . $data['sumur_septictank_komunal_list']['long'];
+			$marker['infowindow_content'] = "RW : " . $data['sumur_septictank_komunal_list']['rw'] . " <br /> Alamat:  " . $data['sumur_septictank_komunal_list']['alamat'];
+			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+			$this->googlemaps->add_marker($marker);
+			
+			#buat peta google map
 			$data['map'] = $this->googlemaps->create_map();
-			# end google map
+			# end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+			
 			
 			$this->load->view('admin/septictank_komunal/septictank_komunal_view',$data);
 		}
@@ -215,17 +236,26 @@
 		function update_status_data_awal(){
 			$id_septictank_komunal=$this->uri->segment(4);
 			$hasil = $this->septictank_komunal_model->update_status_data_awal($id_septictank_komunal);
+			//message berhasil loncat
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diverifikasi. <br /> Klik menu Data Verifikasi </div>');
+	
 			redirect('admin/septictank_komunal_managements/index/1');
 		}
 		
 		function update_status_verifikasi(){
 			$id_septictank_komunal=$this->uri->segment(4);
 			$hasil = $this->septictank_komunal_model->update_status_verifikasi($id_septictank_komunal);
+			//message berhasil loncat
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Sedang dilaksanakan </div>');
+
 			redirect('admin/septictank_komunal_managements/index/2');
 		}
 		function update_status_sedang_dilaksanakan(){
 			$id_septictank_komunal=$this->uri->segment(4);
 			$hasil = $this->septictank_komunal_model->update_status_sedang_dilaksanakan($id_septictank_komunal);
+			//message berhasil loncat
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data sudah dilaksanakan </div>');
+
 			redirect('admin/septictank_komunal_managements/index/3');
 		}
 		function update_status_sudah_dilaksanakan(){
@@ -236,6 +266,9 @@
 		function update_status_tidak_dilaksanakan(){
 			$id_septictank_komunal=$this->uri->segment(4);
 			$hasil = $this->septictank_komunal_model->update_status_data_awal($id_septictank_komunal);
+			//message berhasil loncat
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Tidak Terverifikasi </div>');
+
 			redirect('admin/septictank_komunal_managements/index/5');		
 		}
 		

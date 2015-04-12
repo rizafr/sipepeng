@@ -90,8 +90,8 @@
 			, 'rw' => $this->input->post('rw')
 			, 'alamat' => $this->input->post('alamat')
 			, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
-			, 'long' => $data['long']
-			, 'lat' => $data['lat']
+			, 'long' => $post['long']
+			, 'lat' => $post['lat']
 			, 'anggaran' =>  $this->input->post('anggaran')
 			, 'sumber_data' =>  $this->input->post('sumber_data')
 			, 'tahun_usulan' => $this->input->post('tahun_usulan')
