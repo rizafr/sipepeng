@@ -112,7 +112,7 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Silakan isi Sumber Data" value="<?php echo set_value('sumber_data', isset($mck_list['sumber_data']) ? $mck_list['sumber_data'] : ''); ?>" data-validation-help="Sumber data sumur dangkal berasal darimana">
+                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Silakan isi Sumber Data" value="<?php echo set_value('sumber_data', isset($mck_list['sumber_data']) ? $mck_list['sumber_data'] : ''); ?>" data-validation-help="Sumber data MCK berasal darimana">
                                             <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -205,4 +205,12 @@ if(strtolower($aksi) == 'add') {
   <script src="<?php echo base_url(); ?>assets/admin/js/advanced-form-components.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
      
-			
+	<script type="text/javascript">
+		//FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
+		function getLokasi(newLat, newLng)
+		{			
+					document.getElementById('lat').value= newLat;
+					document.getElementById('long').value= newLng;
+		}
+		
+	</script>		
