@@ -27,7 +27,7 @@ class Drainase_model extends CI_Model {
 
     //select
     public function select_all_verifikasi() {
-        $sql = "select * from drainase where status_sedang_dilaksanakan='0'";
+        $sql = "select * from drainase where status_sedang_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 

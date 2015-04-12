@@ -297,7 +297,7 @@ class Drainase_managements extends CI_Controller {
          //message berhasil loncat
         $this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
 
-        redirect('admin/drainase_managements/index/5');
+        redirect('admin/drainase_managements/index/2');
     }
 
 # Upload Foto

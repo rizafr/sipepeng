@@ -20,7 +20,7 @@
 		
 		//select
 		public function select_all_verifikasi() {
-			$sql = "select * from septictank where status_sedang_dilaksanakan='0'";
+			$sql = "select * from septictank where status_sedang_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		

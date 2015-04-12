@@ -273,7 +273,7 @@
 			//message berhasil loncat
 			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data  permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
 
-			redirect('admin/septictank_managements/index/5');		
+			redirect('admin/septictank_managements/index/2');		
 		}
 		
 		
