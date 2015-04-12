@@ -16,6 +16,9 @@ class Drainase_managements extends CI_Controller {
 
         # menampilkan google map
         $this->load->library('googlemaps');
+        
+        
+         
     }
 
     public function index() {
@@ -32,6 +35,7 @@ class Drainase_managements extends CI_Controller {
             //status 1 = data awal
             if ($status == '1') {
                 $data['drainase_list'] = $this->drainase_model->select_all_data_awal()->result();
+                $jumlahDrainase = count($data['drainase_list']);
             }
 
             //status 2 = data verifikasi

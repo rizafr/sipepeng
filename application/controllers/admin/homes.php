@@ -32,7 +32,7 @@ class Homes extends CI_Controller {
 			
 			#rekap data
 			$data['jumPengguna'] = $this->home_model->getJumlahPengguna();
-			
+			#jumlah semua data
 			$data['jumArtesis'] = $this->home_model->getJumlahArtesis();
 			$data['jumDrainase'] = $this->home_model->getJumlahDrainase();
 			$data['jumJalan'] = $this->home_model->getJumlahJalan();
@@ -45,6 +45,7 @@ class Homes extends CI_Controller {
 			$data['jumlahData'] = $data['jumArtesis'] + $data['jumDrainase'] + $data['jumJalan'] + $data['jumKirmir'] + $data['jumMck']+$data['jumSeptictank'] 
 									+ $data['jumSeptictankKomunal'] + $data['jumSumurDangkal'] +  $data['jumSumurResapan'];
 			
+                        #persentasi jumlah semua data
 			$data['persenArtesis'] = ($data['jumArtesis']/ $data['jumlahData'] )* 100;
 			$data['persenDrainase'] = ($data['jumDrainase']/ $data['jumlahData'] )* 100;
 			$data['persenJalan'] = ($data['jumJalan']/ $data['jumlahData'] )* 100;
@@ -55,7 +56,13 @@ class Homes extends CI_Controller {
 			$data['persenSumurDangkal'] = ($data['jumSumurDangkal']/ $data['jumlahData'] )* 100;
 			$data['persenSumurResapan'] = ($data['jumSumurResapan']/ $data['jumlahData'] )* 100;
 			
-			
+                        #jumlah status menu
+                        #drainase
+                       $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+                       $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+                       $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+                       $data['jumStatusDrainase']=  $data['jumDrainaseVerifikasi'] +  $data['jumDrainaseBelumDilaksanakan'] +  $data['jumDrainaseBelumSelesai'];
+                   	
 			$this->load->view('admin/home',$data);
 		}else {
               redirect('public/homes');
