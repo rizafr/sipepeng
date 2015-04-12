@@ -36,15 +36,11 @@
 			return $this->db->query($sql);
 		}
 		
-		//select
+		 //select
 		public function select_all_tidak_dilaksanakan() {
 			$sql = "select * from mck where status_tidak_dilaksanakan='1'";
 			return $this->db->query($sql);
 		}
-		
-		
-		
-		
 		
 		//search
 		public function select_by_id($id_mck) {
@@ -92,8 +88,8 @@
 			, 'rw' => $this->input->post('rw')
 			, 'alamat' => $this->input->post('alamat')
 			, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
-			, 'long' => $post['long']
-			, 'lat' => $post['lat']
+			, 'long' => $this->input->$post['long']
+			, 'lat' => $this->input->$post['lat']
 			, 'anggaran' =>  $this->input->post('anggaran')
 			, 'sumber_data' =>  $this->input->post('sumber_data')
 			, 'tahun_usulan' => $this->input->post('tahun_usulan')
@@ -178,7 +174,15 @@
 			return $this->db->update('mck', $data);
 		}
 		
-			
+		# update data verifikasi menjadi sedang dilaksanakan   
+		public function update_status_tidak_dilaksanakan($id_mck) {
+			$data = array(
+				'status_tidak_dilaksanakan' => "1"
+			);
+
+			$this->db->where('id_mck', $id_mck);
+			return $this->db->update('mck', $data);
+		}	
 	
 	
 	

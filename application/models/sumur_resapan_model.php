@@ -43,9 +43,6 @@
 		}
 		
 		
-		
-		
-		
 		//search
 		public function select_by_id($id_sumur_resapan) {
 			$sql = " select * from dra where id_sumur_resapan=" . $id_sumur_resapan;
@@ -92,8 +89,8 @@
 			, 'rw' => $this->input->post('rw')
 			, 'alamat' => $this->input->post('alamat')
 			, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
-			, 'long' => $post['long']
-			, 'lat' => $post['lat']
+			, 'long' => $this->input->$post['long']
+			, 'lat' => $this->input->$post['lat']
 			, 'anggaran' =>  $this->input->post('anggaran')
 			, 'sumber_data' =>  $this->input->post('sumber_data')
 			, 'tahun_usulan' => $this->input->post('tahun_usulan')
@@ -178,7 +175,15 @@
 			return $this->db->update('sumur_resapan', $data);
 		}
 		
-			
+		# update data verifikasi menjadi tidak dilaksanakan   
+		public function update_status_tidak_dilaksanakan($id_sumur_resapan) {
+			$data = array(
+				'status_tidak_dilaksanakan' => "1"
+			);
+
+			$this->db->where('id_sumur_resapan', $id_sumur_resapan);
+			return $this->db->update('sumur_resapan', $data);
+		}	
 	
 	
 	

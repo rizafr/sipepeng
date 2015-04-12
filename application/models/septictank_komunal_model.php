@@ -42,8 +42,6 @@
 			return $this->db->query($sql);
 		}
 		
-		
-		
 		//search
 		public function select_by_id($id_septictank_komunal) {
 			$sql = " select * from dra where id_septictank_komunal=" . $id_septictank_komunal;
@@ -91,8 +89,8 @@
 			, 'rw' => $this->input->post('rw')
 			, 'alamat' => $this->input->post('alamat')
 			, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
-			, 'long' => $post['long']
-			, 'lat' => $post['lat']
+			, 'long' => $this->input->$post['long']
+			, 'lat' => $this->input->$post['lat']
 			, 'anggaran' =>  $this->input->post('anggaran')
 			, 'sumber_data' =>  $this->input->post('sumber_data')
 			, 'tahun_usulan' => $this->input->post('tahun_usulan')
@@ -178,7 +176,15 @@
 			return $this->db->update('septictank_komunal', $data);
 		}
 		
-			
+		# update data verifikasi menjadi tidak dilaksanakan   
+		public function update_status_tidak_dilaksanakan($id_septictank_komunal) {
+			$data = array(
+				'status_tidak_dilaksanakan' => "1"
+			);
+
+			$this->db->where('id_septictank_komunal', $id_septictank_komunal);
+			return $this->db->update('septictank_komunal', $data);
+		}
 	
 	
 	

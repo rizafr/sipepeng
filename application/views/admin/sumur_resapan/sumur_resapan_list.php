@@ -93,6 +93,8 @@
 																	if($status=='2'){
 																	?>
 																	<a href="<?php echo base_url() . 'admin/sumur_resapan_managements/update_status_verifikasi/' . $row->id_sumur_resapan ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Progress" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																	<a href="<?php echo base_url() . 'admin/sumur_resapan_managements/update_status_tidak_dilaksanakan/' . $row->id_sumur_resapan ?>"><button class = "btn btn-danger" data-toggle="tooltip" title="Tolak" data-placemen="bottom"><i class = "icon-remove-circle"></i></button></a>
+                                                                
 																	<? }
 																	if($status=='3'){
 																	?>

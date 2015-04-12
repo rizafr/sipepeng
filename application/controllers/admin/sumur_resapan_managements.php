@@ -48,11 +48,12 @@
 					$data['sumur_resapan_list'] = $this->sumur_resapan_model->select_all_sudah_dilaksanakan()->result();
 				}
 				
-				//status 5 = data sudah dilaksanakan
+				//status 5 = data tdk dilaksanakan
 				if($status=='5'){       	
 					$data['sumur_resapan_list'] = $this->sumur_resapan_model->select_all_tidak_dilaksanakan()->result();
-				}		
+				}	
 				
+
 				$data['status']= $status;
 				$this->load->view('admin/sumur_resapan/sumur_resapan_list',$data);
 				
@@ -252,7 +253,7 @@
 			$id_sumur_resapan=$this->uri->segment(4);
 			$hasil = $this->sumur_resapan_model->update_status_sedang_dilaksanakan($id_sumur_resapan);
 			//message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data sudah dilaksanakan </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data sudah dilaksanakan </div>');
 
 			redirect('admin/sumur_resapan_managements/index/3');
 		}
@@ -263,15 +264,12 @@
 		}
 		function update_status_tidak_dilaksanakan(){
 			$id_sumur_resapan=$this->uri->segment(4);
-			$hasil = $this->sumur_resapan_model->update_status_data_awal($id_sumur_resapan);
+			$hasil = $this->sumur_resapan_model->update_status_tidak_dilaksanakan($id_sumur_resapan);
 			 //message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Tidak Terverifikasi </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
 
 			redirect('admin/sumur_resapan_managements/index/5');		
 		}
-		
-		
-		
 		
 		# Upload Foto
 		function upload_foto($ket,$tahun_usulan,$rw,$alamat)
