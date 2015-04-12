@@ -254,7 +254,7 @@
 			$id_septictank_komunal=$this->uri->segment(4);
 			$hasil = $this->septictank_komunal_model->update_status_sedang_dilaksanakan($id_septictank_komunal);
 			//message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data sudah dilaksanakan </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data sudah dilaksanakan </div>');
 
 			redirect('admin/septictank_komunal_managements/index/3');
 		}
@@ -265,9 +265,9 @@
 		}
 		function update_status_tidak_dilaksanakan(){
 			$id_septictank_komunal=$this->uri->segment(4);
-			$hasil = $this->septictank_komunal_model->update_status_data_awal($id_septictank_komunal);
+			$hasil = $this->septictank_komunal_model->update_status_tidak_dilaksanakan($id_septictank_komunal);
 			//message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Tidak Terverifikasi </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
 
 			redirect('admin/septictank_komunal_managements/index/5');		
 		}

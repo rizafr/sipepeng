@@ -53,6 +53,11 @@
 					$data['septictank_list'] = $this->septictank_model->select_all_tidak_dilaksanakan()->result();
 				}		
 				
+				 //status 5 = data tidak dilaksanakan
+				if ($status == '5') {
+					$data['septictank_list'] = $this->septictank_model->select_all_tidak_dilaksanakan()->result();
+				}
+				
 				$data['status']= $status;
 				$this->load->view('admin/septictank/septictank_list',$data);
 				
@@ -253,7 +258,7 @@
 			$id_septictank=$this->uri->segment(4);
 			$hasil = $this->septictank_model->update_status_sedang_dilaksanakan($id_septictank);
 			//message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data sudah dilaksanakan </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data sudah dilaksanakan </div>');
 
 			redirect('admin/septictank_managements/index/3');
 		}
@@ -264,9 +269,9 @@
 		}
 		function update_status_tidak_dilaksanakan(){
 			$id_septictank=$this->uri->segment(4);
-			$hasil = $this->septictank_model->update_status_data_awal($id_septictank);
+			$hasil = $this->septictank_model->update_status_tidak_dilaksanakan($id_septictank);
 			//message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Tidak Terverifikasi </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data  permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
 
 			redirect('admin/septictank_managements/index/5');		
 		}
