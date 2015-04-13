@@ -85,7 +85,7 @@
                 <li class="sub-menu">
                     <a  href="<?php echo base_url() ?>admin/user_managements">
                         <i class=" icon-remove"></i>
-                        <span>Data Tidak Terverifikasi</span>
+                        <span>Tidak Dilaksanakan</span>
                     </a>
                     <ul class="sub">
     <?php foreach ($menu_list as $row) { ?>
@@ -179,7 +179,7 @@ if ($this->session->userdata('id_jenis_pengguna') == 2) {
                 <li class="sub-menu">
                     <a  href="<?php echo base_url() ?>admin/user_managements">
                         <i class=" icon-remove"></i>
-                        <span>Data Tidak Terverifikasi</span>
+                        <span>Tidak Dilaksanakan</span>
                     </a>
                     <ul class="sub">
     <?php foreach ($menu_list as $row) { ?>
@@ -274,7 +274,7 @@ if ($this->session->userdata('id_jenis_pengguna') == 2) {
                 <li class="sub-menu">
                     <a  href="<?php echo base_url() ?>admin/user_managements">
                         <i class=" icon-remove"></i>
-                        <span>Data Tidak Terverifikasi</span>
+                        <span>Tidak Dilaksanakan</span>
                     </a>
                     <ul class="sub">
     <?php foreach ($menu_list as $row) { ?>

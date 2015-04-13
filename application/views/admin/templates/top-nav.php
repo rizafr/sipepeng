@@ -11,7 +11,7 @@
                     <!-- settings start -->
                    <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <i class="icon-tasks"> Drainase</i>
+                            <i class="icon-tasks"> Pemberitahuan</i>
                             <span class="badge bg-important"><?php echo set_value('$jumStatusDrainase', isset($jumStatusDrainase) ? $jumStatusDrainase : '0'); ?></span>
                         </a>
                         <ul class="dropdown-menu extended tasks-bar">

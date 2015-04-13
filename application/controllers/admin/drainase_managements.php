@@ -261,16 +261,15 @@ class Drainase_managements extends CI_Controller {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_data_awal($id_drainase);
         //message berhasil loncat
-        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diverifikasi. <br /> Klik menu Data Verifikasi </div>');
-
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diverifikasi. <br /> Klik menu Data Verifikasi </div>');
         redirect('admin/drainase_managements/index/1');
     }
 
     function update_status_verifikasi() {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_verifikasi($id_drainase);
-         //message berhasil loncat
-        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Sedang dilaksanakan </div>');
+        //message berhasil loncat
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Sedang dilaksanakan </div>');
 
         redirect('admin/drainase_managements/index/2');
     }
@@ -278,9 +277,9 @@ class Drainase_managements extends CI_Controller {
     function update_status_sedang_dilaksanakan() {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_sedang_dilaksanakan($id_drainase);
-         //message berhasil loncat
-        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data sudah dilaksanakan </div>');
-
+     //message berhasil loncat
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data Sudah Dilaksanakan </div>');
+			
         redirect('admin/drainase_managements/index/3');
     }
 
@@ -294,8 +293,8 @@ class Drainase_managements extends CI_Controller {
     function update_status_tidak_dilaksanakan() {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_tidak_dilaksanakan($id_drainase);
-         //message berhasil loncat
-        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
+        //message berhasil loncat
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Dilaksanakan </div>');
 
         redirect('admin/drainase_managements/index/2');
     }
