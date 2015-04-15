@@ -12,7 +12,8 @@ class Drainase_managements extends CI_Controller {
         parent::__construct();
         $this->load->model('drainase_model');
         $this->load->model('menu_model');
-        $this->load->helper(array('form', 'url'));
+		 $this->load->model('home_model');
+        $this->load->helper(array('form', 'url','pemberitahuan'));
 
         # menampilkan google map
         $this->load->library('googlemaps');
@@ -28,6 +29,14 @@ class Drainase_managements extends CI_Controller {
             $data['menu_list'] = $this->menu_model->select_all()->result();
             $data['title'] = "Drainase | SIPEPENG";
             $data['username'] = $this->session->userdata('username');
+			
+			#jumlah status menu
+			#drainase
+		   $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+		   $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+		   $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+		   $data['jumStatusDrainase']=  $data['jumDrainaseVerifikasi'] +  $data['jumDrainaseBelumDilaksanakan'] +  $data['jumDrainaseBelumSelesai'];
+		   
 
             //mengambil uri status
             $status = $this->uri->segment(4);
@@ -59,6 +68,8 @@ class Drainase_managements extends CI_Controller {
             }
 
             $data['status'] = $status;
+			
+			
             $this->load->view('admin/drainase/drainase_list', $data);
         } else {
             redirect('public/homes');
@@ -74,6 +85,14 @@ class Drainase_managements extends CI_Controller {
             $data['title'] = "Data Awal Drainase | SIPEPENG";
             $data['judulForm'] = "Data Awal Drainase";
             $data['username'] = $this->session->userdata('username');
+			
+			#jumlah status menu
+			#drainase
+		   $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+		   $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+		   $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+		   $data['jumStatusDrainase']=  $data['jumDrainaseVerifikasi'] +  $data['jumDrainaseBelumDilaksanakan'] +  $data['jumDrainaseBelumSelesai'];
+		   
 
             //mengambil uri aksi
             $data['aksi'] = $this->uri->segment(4);
@@ -111,7 +130,7 @@ class Drainase_managements extends CI_Controller {
                 $id_drainase = $this->uri->segment(5);
                 $data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
             }
-
+			
             $this->load->view('admin/drainase/drainase_olahdata', $data);
         } else {
             redirect('public/homes');
