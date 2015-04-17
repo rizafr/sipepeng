@@ -1,20 +1,19 @@
 <?php $this->load->view('admin/templates/header'); ?>
- <!--header google map start-->
-<?php 
-$mapjs = isset($map['js']) ? $map['js'] : '';											
-echo $mapjs; 
+<!--header google map start-->
+<?php
+$mapjs = isset($map['js']) ? $map['js'] : '';
+echo $mapjs;
 
 //cek status tambah atau edit
-if(strtolower($aksi) == 'add') {
-		$aksi = 'add';
-		$namaform="Tambah";
-		}
-    else if(strtolower($aksi) == 'edit') {
-		$aksi = 'edit';
-		$namaform="Ubah";
-		}
+if (strtolower($aksi) == 'add') {
+    $aksi = 'add';
+    $namaform = "Tambah";
+} else if (strtolower($aksi) == 'edit') {
+    $aksi = 'edit';
+    $namaform = "Ubah";
+}
 ?>
- <!--header  google map end-->
+<!--header  google map end-->
 <link href="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
 <link href="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
 <link href="<?php echo base_url(); ?>assets/admin/css/table-responsive.css" rel="stylesheet" />
@@ -25,7 +24,7 @@ if(strtolower($aksi) == 'add') {
         <?php $this->load->view('admin/templates/top-nav'); ?>
         <!--header end-->
         <!--sidebar start-->
-             <?php $this->load->view('admin/templates/menu_admin'); ?>
+        <?php $this->load->view('admin/templates/menu_admin'); ?>
         <!--sidebar end-->
         <!--main content start-->
         <section id="main-content">
@@ -35,13 +34,13 @@ if(strtolower($aksi) == 'add') {
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                <span class="hidden-sm wht-color"><? echo $namaform." " .$judulForm?></span>
+                                <span class="hidden-sm wht-color"><? echo $namaform . " " . $judulForm ?></span>
                             </header>
                             <div class="panel-body">
                                 <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">
-								<input type="hidden" name="aksi" value="<? echo $aksi ?>" />
-								<input type="hidden" name="id_drainase" value="<?php echo set_value('id_drainase', isset($drainase_list['id_drainase']) ? $drainase_list['id_drainase'] : ''); ?>" />
-                                     <span class="help-inline"><?php echo form_error('id_drainase'); ?></span>
+                                    <input type="hidden" name="aksi" value="<? echo $aksi ?>" />
+                                    <input type="hidden" name="id_drainase" value="<?php echo set_value('id_drainase', isset($drainase_list['id_drainase']) ? $drainase_list['id_drainase'] : ''); ?>" />
+                                    <span class="help-inline"><?php echo form_error('id_drainase'); ?></span>
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
@@ -49,7 +48,7 @@ if(strtolower($aksi) == 'add') {
                                             <span class="help-inline"><?php echo form_error('rt'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
-                                    
+
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
@@ -57,16 +56,16 @@ if(strtolower($aksi) == 'add') {
                                             <span class="help-inline"><?php echo form_error('rw'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
-                                    
-                                  <div class="form-group">
+
+                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                             <textarea class="form-control" id="alamat" name="alamat" data-validation="length" data-validation-length="min10"><?php echo set_value('alamat', isset($drainase_list['alamat']) ? $drainase_list['alamat'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('alamat'); ?></span>
                                         </div>
                                     </div><!--end form-group-->
-                                    
-                                     <div class="form-group">
+
+                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                             <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang"  data-validation="number" value="<?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : ''); ?>">
@@ -101,22 +100,22 @@ if(strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php 
-												$map = isset($map['html']) ? $map['html'] : '';											
-												echo $map; 
-											?>
+                                            <?php
+                                            $map = isset($map['html']) ? $map['html'] : '';
+                                            echo $map;
+                                            ?>
                                         </div>
                                     </div><!--end control-group--> 
-									
-									<div class="form-group">
+
+                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                             <input type="text" class="form-control" id="lat_awal" name="lat_awal" placeholder="Latitude Awal" value="<?php echo set_value('lat_awal', isset($drainase_list['lat_awal']) ? $drainase_list['lat_awal'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('lat_awal'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
-									
-									<div class="form-group">
+
+                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude Awal: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                             <input type="text" class="form-control" id="long_awal" name="long_awal" placeholder="Longitude Awal" value="<?php echo set_value('long_awal', isset($drainase_list['long_awal']) ? $drainase_list['long_awal'] : ''); ?>">
@@ -156,23 +155,23 @@ if(strtolower($aksi) == 'add') {
                                         </div>
                                     </div><!--end control-group-->
 
-                                   <div class="form-group">
+                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
                                         <div class="col-md-3 col-xs-11">
                                             <div data-date-minviewmode="years" data-date-viewmode="years" data-date-format=" yyyy" data-date="102/2012"  class="input-append date dpYears">
-                                         <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Silakan isi tahun Usulan" value="<?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : ''); ?>" readonly>
-                                            <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
-                                              <span class="input-group-btn add-on">
-                                                <button class="btn btn-danger" type="button"><i class="icon-calendar"></i></button>
-                                              </span>
-                                      </div>
+                                                <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Silakan isi tahun Usulan" value="<?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : ''); ?>" readonly>
+                                                <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
+                                                <span class="input-group-btn add-on">
+                                                    <button class="btn btn-danger" type="button"><i class="icon-calendar"></i></button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div><!--end control-group-->
 
-                                   <div class="form-group">
+                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                           <textarea class="form-control" id="ket" name="ket"> <?php echo set_value('ket', isset($drainase_list['ket']) ? $drainase_list['ket'] : ''); ?></textarea>                                           
+                                            <textarea class="form-control" id="ket" name="ket"> <?php echo set_value('ket', isset($drainase_list['ket']) ? $drainase_list['ket'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('ket'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -181,12 +180,12 @@ if(strtolower($aksi) == 'add') {
                                         <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                             <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
-													data-validation-max-size="512kb">
+                                                   data-validation-max-size="512kb">
                                             <span class="help-inline"><?php echo form_error('foto'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                             <input type="file" class="form-control" id="dokumen" name="dokumen" placeholder="Dokumen" value="<?php echo set_value('dokumen'); ?>">
@@ -195,11 +194,11 @@ if(strtolower($aksi) == 'add') {
                                     </div><!--end control-group-->
 
 
-                                                                        
+
                                     <div class="form-group">
                                         <div class="col-lg-10"> 
-											<button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
-                                            <button type="submit" class="btn btn-primary"><?echo $namaform ?></button>
+                                            <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
+                                            <button type="submit" class="btn btn-primary"><? echo $namaform ?></button>
                                             <button type="reset" class="btn btn-primary">Reset</button>										 
                                         </div>
                                     </div><!--end control-group-->
@@ -213,37 +212,36 @@ if(strtolower($aksi) == 'add') {
             </section>
         </section>
         <!--main content end-->
-		   <?php $this->load->view('admin/templates/footer'); ?>
-		   
-	 <!--js only this page-->	   
-	<script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/fuelux/js/spinner.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-daterangepicker/moment.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/jquery-multi-select/js/jquery.multi-select.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
-  <script src="<?php echo base_url(); ?>assets/admin/js/advanced-form-components.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-  
-  <script type="text/javascript">
-		//FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
-		function getLokasi(newLat, newLng)
-		{			
-					document.getElementById('lat_awal').value= newLat;
-					document.getElementById('long_awal').value= newLng;
-		}
-		
-		function getLokasiAkhir(newLat, newLng)
-		{			
-					document.getElementById('lat_akhir').value= newLat;
-					document.getElementById('long_akhir').value= newLng;
-		}
-	</script>
-     
-			
+        <?php $this->load->view('admin/templates/footer'); ?>
+
+        <!--js only this page-->	   
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/fuelux/js/spinner.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-daterangepicker/moment.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/jquery-multi-select/js/jquery.multi-select.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
+        <script src="<?php echo base_url(); ?>assets/admin/js/advanced-form-components.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+
+        <script type="text/javascript">
+        //FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
+        function getLokasi(newLat, newLng)
+        {
+            document.getElementById('lat_awal').value = newLat;
+            document.getElementById('long_awal').value = newLng;
+        }
+
+        function getLokasiAkhir(newLat, newLng)
+        {
+            document.getElementById('lat_akhir').value = newLat;
+            document.getElementById('long_akhir').value = newLng;
+        }
+        </script>
+
