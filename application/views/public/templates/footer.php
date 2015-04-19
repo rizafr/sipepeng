@@ -18,3 +18,13 @@
     <script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>
 </body>
 </html>
+ <script>
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('nav').addClass('shrink');
+  } else {
+    $('nav').removeClass('shrink');
+  }
+});
+
+</script>
