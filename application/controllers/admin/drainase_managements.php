@@ -12,31 +12,41 @@ class Drainase_managements extends CI_Controller {
         parent::__construct();
         $this->load->model('drainase_model');
         $this->load->model('menu_model');
-		 $this->load->model('home_model');
-        $this->load->helper(array('form', 'url','pemberitahuan'));
+        $this->load->model('home_model');
+        $this->load->helper(array('form', 'url', 'pemberitahuan'));
 
         # menampilkan google map
         $this->load->library('googlemaps');
-        
-        
-         
     }
 
     public function index() {
         //check sudah login atau belum
         if ($this->session->userdata('is_login')) {
             //menampilkan menu
-            $data['menu_list'] = $this->menu_model->select_all()->result();
+            #menampilkan menu sesuai hak ases
+            #admin
+            if ($this->session->userdata('id_jenis_pengguna') == 1) {
+                $data['menu_list'] = $this->menu_model->select_all()->result();
+            }
+            #dkp
+            if ($this->session->userdata('id_jenis_pengguna') == 2) {
+                $data['menu_list'] = $this->menu_model->select_dkp()->result();
+            }
+            #pu
+            if ($this->session->userdata('id_jenis_pengguna') == 3) {
+                $data['menu_list'] = $this->menu_model->select_pu()->result();
+            }
+            
             $data['title'] = "Drainase | SIPEPENG";
             $data['username'] = $this->session->userdata('username');
-			
-			#jumlah status menu
-			#drainase
-		   $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
-		   $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
-		   $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
-		   $data['jumStatusDrainase']=  $data['jumDrainaseVerifikasi'] +  $data['jumDrainaseBelumDilaksanakan'] +  $data['jumDrainaseBelumSelesai'];
-		   
+
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+
 
             //mengambil uri status
             $status = $this->uri->segment(4);
@@ -68,8 +78,8 @@ class Drainase_managements extends CI_Controller {
             }
 
             $data['status'] = $status;
-			
-			
+
+
             $this->load->view('admin/drainase/drainase_list', $data);
         } else {
             redirect('public/homes');
@@ -79,20 +89,43 @@ class Drainase_managements extends CI_Controller {
     public function gotoForm() {
         //check sudah login atau belum
         if ($this->session->userdata('is_login')) {
-            //menampilkan menu..wajib ada
-            $data['menu_list'] = $this->menu_model->select_all()->result();
-            // end menampilkan menu..wajib ada
+            
             $data['title'] = "Data Awal Drainase | SIPEPENG";
             $data['judulForm'] = "Data Awal Drainase";
             $data['username'] = $this->session->userdata('username');
-			
-			#jumlah status menu
-			#drainase
-		   $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
-		   $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
-		   $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
-		   $data['jumStatusDrainase']=  $data['jumDrainaseVerifikasi'] +  $data['jumDrainaseBelumDilaksanakan'] +  $data['jumDrainaseBelumSelesai'];
-		   
+            
+            //menampilkan menu..wajib ada
+            #menampilkan menu sesuai hak ases
+            #admin
+            if ($this->session->userdata('id_jenis_pengguna') == 1) {
+                $data['menu_list'] = $this->menu_model->select_all()->result();
+                 
+                #jumlah status menu
+                #drainase
+                $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+                $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+                $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+                $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            }
+            #dkp
+            if ($this->session->userdata('id_jenis_pengguna') == 2) {
+                $data['menu_list'] = $this->menu_model->select_dkp()->result();
+                 #jumlah status menu
+                #drainase
+                $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+                $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+                $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+                $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            }
+            #pu
+            if ($this->session->userdata('id_jenis_pengguna') == 3) {
+                $data['menu_list'] = $this->menu_model->select_pu()->result();
+            }
+            // end menampilkan menu..wajib ada
+          
+
+           
+
 
             //mengambil uri aksi
             $data['aksi'] = $this->uri->segment(4);
@@ -130,7 +163,7 @@ class Drainase_managements extends CI_Controller {
                 $id_drainase = $this->uri->segment(5);
                 $data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
             }
-			
+
             $this->load->view('admin/drainase/drainase_olahdata', $data);
         } else {
             redirect('public/homes');
@@ -139,7 +172,19 @@ class Drainase_managements extends CI_Controller {
 
     public function process() {
         //menampilkan menu..wajib ada
-        $data['menu_list'] = $this->menu_model->select_all()->result();
+         #menampilkan menu sesuai hak ases
+            #admin
+            if ($this->session->userdata('id_jenis_pengguna') == 1) {
+                $data['menu_list'] = $this->menu_model->select_all()->result();
+            }
+            #dkp
+            if ($this->session->userdata('id_jenis_pengguna') == 2) {
+                $data['menu_list'] = $this->menu_model->select_dkp()->result();
+            }
+            #pu
+            if ($this->session->userdata('id_jenis_pengguna') == 3) {
+                $data['menu_list'] = $this->menu_model->select_pu()->result();
+            }
         // end menampilkan menu..wajib ada
 
         $aksi = $this->input->post('aksi');
@@ -234,7 +279,19 @@ class Drainase_managements extends CI_Controller {
     //fungsi menampilkan berdasarkan id yg dipilih
     public function view($id_drainase) {
         //menampilkan menu..wajib ada
-        $data['menu_list'] = $this->menu_model->select_all()->result();
+        #menampilkan menu sesuai hak ases
+            #admin
+            if ($this->session->userdata('id_jenis_pengguna') == 1) {
+                $data['menu_list'] = $this->menu_model->select_all()->result();
+            }
+            #dkp
+            if ($this->session->userdata('id_jenis_pengguna') == 2) {
+                $data['menu_list'] = $this->menu_model->select_dkp()->result();
+            }
+            #pu
+            if ($this->session->userdata('id_jenis_pengguna') == 3) {
+                $data['menu_list'] = $this->menu_model->select_pu()->result();
+            }
         // end menampilkan menu..wajib ada
         $data['id_drainase'] = $id_drainase;
         $data['title'] = "View Data Drainase | SIPEPENG";
@@ -242,7 +299,7 @@ class Drainase_managements extends CI_Controller {
         $data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
         // var_dump($data['drainase_list']['lat_awal']);
         $data['username'] = $this->session->userdata('username');
-     
+
         # menampilkan google map ke dalam view berdasarkan koordinat didalam database
         $config['center'] = '-6.900282, 107.530010';
         $config['zoom'] = '16';
@@ -280,7 +337,7 @@ class Drainase_managements extends CI_Controller {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_data_awal($id_drainase);
         //message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diverifikasi. <br /> Klik menu Data Verifikasi </div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diverifikasi. <br /> Klik menu Data Verifikasi </div>');
         redirect('admin/drainase_managements/index/1');
     }
 
@@ -288,7 +345,7 @@ class Drainase_managements extends CI_Controller {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_verifikasi($id_drainase);
         //message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Sedang dilaksanakan </div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Sedang dilaksanakan </div>');
 
         redirect('admin/drainase_managements/index/2');
     }
@@ -296,16 +353,16 @@ class Drainase_managements extends CI_Controller {
     function update_status_sedang_dilaksanakan() {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_sedang_dilaksanakan($id_drainase);
-     //message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data Sudah Dilaksanakan </div>');
-			
+        //message berhasil loncat
+        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data Sudah Dilaksanakan </div>');
+
         redirect('admin/drainase_managements/index/3');
     }
 
     function update_status_sudah_dilaksanakan() {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_data_awal($id_drainase);
-		
+
         redirect('admin/drainase_managements/index/4');
     }
 
@@ -313,7 +370,7 @@ class Drainase_managements extends CI_Controller {
         $id_drainase = $this->uri->segment(4);
         $hasil = $this->drainase_model->update_status_tidak_dilaksanakan($id_drainase);
         //message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Dilaksanakan </div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Dilaksanakan </div>');
 
         redirect('admin/drainase_managements/index/2');
     }

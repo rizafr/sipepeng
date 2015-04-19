@@ -365,7 +365,31 @@ input.search-form:hover {
   border-top: 0;
   padding-bottom: 0;
 }
+/* add efect shrink*/
 
+.navbar .shrink{
+  border-radius: 0;
+  margin-bottom: 0;
+  background: #FDFDFF;
+  padding: 10px 0;
+  padding-bottom: 0;
+}
+
+
+.navbar-inverse .shrink a {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  font-size: 15px;
+}
+
+.navbar-inverse .shrink .navbar-brand {
+  font-size: 25px;
+}
+
+.navbar-inverse .shrink .navbar-toggle {
+  padding: 4px 5px;
+  margin: 8px 15px 8px 0;
+}
 
 /*************************
 *******Home Page******
