@@ -34,11 +34,18 @@ BODY STYLING
 }
 
 body {
-	background: url(../images/bg.png) repeat;
+	background: linear-gradient(
+		  rgba(3, 0, 0, 0.45), 
+		 rgba(3, 0, 0, 0.45)
+		),url(../images/bgcimahi.jpg) repeat;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight:300;
 	text-align: left;
 	text-decoration: none;
+	-webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	  background-size: cover;
 }
 
 #wrapper {
