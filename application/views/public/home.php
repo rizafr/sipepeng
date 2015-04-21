@@ -151,12 +151,11 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="<?php echo base_url() ?>assets/public/images/portfolio/recent/item1.png" alt="">
+                        <img class="img-responsive" src=" <?php echo base_url() ?>assets/public/images/slider/slide3.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme</a> </h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/portfolio/full/item1.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="preview" href=" <?php echo base_url() ?>assets/public/images/slider/slide3.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
@@ -164,12 +163,11 @@
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="<?php echo base_url() ?>assets/public/images/portfolio/recent/item2.png" alt="">
+                        <img class="img-responsive" src=" <?php echo base_url() ?>assets/public/images/slider/slide2.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme</a></h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/slider/slide2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
@@ -181,7 +179,6 @@
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme </a></h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
                                 <a class="preview" href="<?php echo base_url() ?>assets/public/images/portfolio/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
