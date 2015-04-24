@@ -1,0 +1,96 @@
+<!--Program-->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						  <h3 class="panel-title">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
+							  <b>Program dan Kegiatan</b>
+							  <i class="fa fa-angle-right pull-right"></i>
+							</a>
+						  </h3>
+						</div>
+						<div id="collapseThree1" class="panel-collapse collapse">
+						  <div class="panel-body">
+						  <h3>
+						  Prioritas dan program kegiatan disesuaikan dengan prioritas Pembangunan Daerah Kota Cimahi dan tingkat 
+						  permasalahan serta tuntutan masyarakat yang disampaikan pada Musyawarah Perencanaan Pembangunan (Musrenbang) di tingkat kelurahan. 
+						  Dengan demikian Kelurahan Leuwigajah pada Tahun 2015 menyusun urutan prioritas program dan kegiatan pembangunan berjumlah  11 (sebelas) program 
+						  dan 32 (tiga dua) kegiatan, seperti tercantum  berikut ini :
+						  <h4>Urusan Wajib</h4>
+						  <ol>
+							<li>PERENCANAAN PEMBANGUNAN
+								<ul> 
+								<li>Program Perencanaan Pembangunan Daerah</li>
+								<li>Kegiatan Pelaksanaan Musyawarah Pembangunan Desa</li>
+								</ul>
+							</li>
+							<li>PROGRAM PENINGKATAN SISTEM PENGAWASAN INTERNAL DAN PENGENDALIAN PELAKSANAAN KEBIJAKAN KDH
+								<ul>
+								<li>Kegiatan Pengendalian Manajemen Pelaksanaan Kebijakan KDH</li>
+								</ul>
+							</li>
+							<li>PEMBERDAYAAN MASYARAKAT DAN DESA
+								<ul>
+									<li>Program Peningkatan Keberdayaan Masyarakat</li>
+										<ul>
+											<li>Kegiatan Pemberdayaan Lembaga dan Organisasi Masyarakat Perdesaan</li>
+											<li>Peningkatan Pelaksanaan Pembangunan Daerah</li>
+										</ul>
+								</ul>
+							</li>
+							<li>KESATUAN BANGSA DAN POLITIK DALAM NEGERI
+								<ul>
+									<li>Program Pengembangan Wawasan Kebangsaan, dengan Kegiatan Pelaksanaan PHBA dan PHBN.</li>
+									<li>Program Peningkatan Keamanan dan Kenyamanan Lingkungan, dengan Kegiatan Pembinaan Linmas</li>
+								</ul>
+							</li>
+							<li>OTDA, PEMERINTAHAN UMUM, ADM. KEUANGAN DAERAH, PERANGKAT DAERAH, KEPEGAWAIAN, DAN PERSANDIAN
+								<ul>
+									<li>Program Pelayanan Administrasi Perkantoran, dengan kegiatan sebagai berikut :
+										<ul>
+											<li>Penyediaan Jasa Surat Menyurat</li>
+											<li>Penyediaan Jasa Komunikasi, Sumber Daya Air dan Listrik</li>
+											<li>Penyediaan Jasa Jaminan Barang Milik Daerah</li>
+											<li>Penyediaan Jasa Pemeliharaan dan Perizinan Kendaraan Dinas/Operasional.</li>
+											<li>Penyediaan Jasa Administrasi Keuangan</li>
+											<li>Penyediaan Jasa Kebersihan Kantor</li>
+											<li>Penyediaan Jasa Perbaikan Peralatan Kerja</li>
+											<li>Penyediaan Alat Tulis Kantor</li>
+											<li>Penyediaan Barang Cetakan dan Penggandaan</li>
+											<li>Penyediaan Komponen Instlasi Listrik/Penerangan Bangunan Kantor</li>
+											<li>Penyediaan Bahan Bacaan dan Peraturan Perundang-undangan</li>
+											<li>Penyediaan Makanan Minuman</li>
+											<li>Rapat-rapat Koordinasi dan Konsultasi ke Luar Daerah</li>
+											<li>Penyediaan Jasa Pengamanan Kantor dan Rumah Dinas</li>
+										</ul>
+									</li>
+									<li>Program Pelayanan Administrasi Perkantoran, dengan kegiatan sebagai berikut :
+										<ul>
+											<li>Pengadaan Meubeleur</li>
+											<li>Peningkatan Sarana dan Prasarana Aparatur</li>
+											<li>Pemeliharaan Rutin/Berkala Gedung Kantor</li>
+											<li>Pemeliharaan Rutin/Berkala Kendaraan Dinas/Operasional</li>										
+										</ul>
+									</li>
+									<li>Program Peningkatan Pengembangan Sistem Pelaporan Capaian Kinerja dan Keuangan, dengan kegiatan sebagai berikut :
+										<ul>
+											<li>Penyusunan Laporan Capaian Kinerja dan Ikhtisar Realisasi Kinerja SKPD</li>
+											<li>Penyusunan Laporan Keuangan Semesteran</li>
+											<li>Penyusunan Pelaporan Keuangan Akhir Tahun</li>
+											<li>Program Peningkatan Kapasitas Sumberdaya Aparatur, dengan  kegiatan Pembinaan Pegawai</li>											
+										</ul>
+									</li>
+									<li>Program Peningkatan Disiplin Aparatur, dengan kegiatan sebagai berikut :
+										<ul>
+											<li>Pengadaan Pakaian Dinas beserta Perlengkapannya</li>
+											<li>Pengadaan Pakaian KORPRI</li>
+											<li>Pengadaan Pakaian Khusus Hari-hari Tertentu</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						  </ol>
+						  </h3>
+						 </div>						 
+					  </div>
+					</div>
+					<!--end Program-->

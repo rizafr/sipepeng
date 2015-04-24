@@ -393,7 +393,7 @@
                             <div class="panel-heading active">
                               <h3 class="panel-title">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
-                                  Lorem ipsum dolor sit amet
+                                  VISI
                                   <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                               </h3>
@@ -434,7 +434,7 @@
                             <div class="panel-heading">
                               <h3 class="panel-title">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
-                                  Lorem ipsum dolor sit amet
+                                  <b>Struktur Organisasi Dan Pejabat Struktural </b>
                                   <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                               </h3>

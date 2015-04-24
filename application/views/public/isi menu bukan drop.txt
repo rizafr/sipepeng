@@ -1,0 +1,44 @@
+ <div class="row">
+                <div class="features">					
+                    <div class="col-md-12 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">                           
+                            <h2>VISI</h2>
+                            <h3>Dalam rangka pelaksanaan tugas pemerintahan dan pembangunan serta pelayanan masyarakat, 
+							Kelurahan Leuwigajah menetapkan visi yang mendukung terhadap Visi Kota Cimahi Menuju Cimahi <b>CERDAS</b>
+							yaitu Menjaga dan mewujudkan masyarakat Leuwigajah yang taat <b>IBADAH (Indah, Bersih, Agamis, Demokratis, Aman dan Harmonis) </b>
+							yang dijabarkan sebagai berikut : <br>
+							<ul><li>Indah              : yang berarti mewujudkan keindahan baik akhlak, mental maupun lingkungannya.</li></ul>
+							<ul><li>Bersih            : yang berarti budaya hidup bersih baik lingkungan maupun mental yang bersih jauh dari perbuatan yang tercela.</li></ul>
+							<ul><li>Agamis           : yang berarti mewujudkan nilai-nilai keagamanan dalan kehidupan dimasyarakat</li></ul>
+							<ul><li>Demokratis    : yang berarti mengandung pengertian bahwa dalam menyelesaikan permasalahan yang timbul di lingkungan masyarakat harus menjungjung tinggi nilai-nilai musyawarah untuk mufakat yang dilaksanakan secara demokratis.</li></ul>
+							<ul><li>Aman                : yang berarti menjaga lingkungan yang aman dan nyaman.</li></ul>
+							<ul><li>Harmonis      : yang berarti mewujudkan masyarakat yang dapat hidup berdampingan atau harmonis.</li></ul>
+							
+							</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+					
+					<div class="col-md-12 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">                           
+                            <h2>MISI</h2>
+                            <h3>
+							Dalam upaya perwujudan Visi Kelurahan Leuwigajah Tahun 2012 – 2017 tersebut akan dicapai melalui 5 (lima) misi sebagai berikut :
+							<ol>
+							<li>Meningkatkan kualitas pelayanan kepada masyarakat</li>							
+							Yaitu peningkatan pelayanan yang lebih efektif dan efisien guna mempercepat pelayanan pemerintahan kepada masyarakat. 
+							
+							<li>Meningkatkan pemberdayaan masyarakat dalam pembangunan</li>							
+							Yaitu mendorong terciptanya kemandirian masyarakat dalam ikut serta berpartisipasi 
+							dalam pembangunan diwilayahnya supaya lebih mandiri dan berkesinambungan.
+							
+							<li>Meningkatkan peran sumber daya aparatur dan masyarakat dalam  pembangunan</li>						
+							Yaitu meningkatkan kapasitas aparatur dan peran serta masyarakat dalam menumbuh kembangkan inovasi kreatif dalam pembangunan diwilayahnya.
+							
+							<li>Meningkatkan situasi dan kondisi masyarakat yang kondusif.</li>							
+							Yaitu mengoptimalkan pengamanan keamanan di lingkungannya secara bersama - sama sehingga mendukung lancarnya pembangunan.
+							
+							<li>Meningkatkan kualitas sumber daya aparatur</li>							
+							Yaitu dengan meningkatkan kualitas aparatur yang profesional sehingga dapat mewujudkan kualitas pelayanan yang semakin baik.
+							</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
