@@ -271,13 +271,19 @@ input.search-form:hover {
   margin:0;
 }
 
+.back-brand{
+	background:#333;
+	}
+
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
   /* background: #151515; */
 	padding: 10px 0; 
   padding-bottom: 0;  
-  background: rgba(255, 255, 255, 0.2) none repeat scroll 0% 0% ;
+  background: rgba(255, 255, 255, 0.5) none repeat scroll 0% 0% ;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+ height: 60px !important;
 }
 .navbar {
   transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
@@ -293,6 +299,7 @@ input.search-form:hover {
 	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
 	z-index: 201;
 	color: #333;
+	height: 55px! important;
 }
 
 .navbar-nav>li{
@@ -304,14 +311,15 @@ input.search-form:hover {
   padding: 2px 12px;
   margin: 0;
   border-radius: 3px;
-  color: #fff;
+  color: #FFFFF2;
+  text-shadow: 1px 1px #000;
   line-height: 24px;
   display: inline-block;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover{
 	background-color: #c52d2f;
-  color: #fff;
+  color: #FFFFF2;
 }
 
 .navbar-inverse {
@@ -321,7 +329,7 @@ input.search-form:hover {
 .navbar-inverse .navbar-brand {
   font-size: 12px;
   line-height: 8px;
-  color: #fff;
+  color: #F0F0E1;
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -379,7 +387,7 @@ input.search-form:hover {
 }
 /* add efect shrink*/
 
-.navbar .shrink{
+.shrink{
   border-radius: 0;
   margin-bottom: 0;
   background: #FDFDFF;
