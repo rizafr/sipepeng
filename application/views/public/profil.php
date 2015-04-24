@@ -15,7 +15,7 @@
 
             <div class="row">
                 <div class="features">	
-					<div class="panel-group" id="accordion1">
+					<div class="panel-group wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms" id="accordion1" >
 					<!--VISI-->
 					  <div class="panel panel-default">
 						<div class="panel-heading active">

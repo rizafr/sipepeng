@@ -9,6 +9,7 @@ class Homes extends CI_Controller {
 		 $this->load->model('public_model');
 		 # menampilkan google map
 		 $this->load->library('googlemaps');
+		
     }
     #halaman utama
     public function index(){
@@ -72,7 +73,7 @@ class Homes extends CI_Controller {
 			$marker = array();
 			$marker['position'] = $row->lat_akhir.",".$row->long_akhir;
 			$marker['infowindow_content'] = "Drainase <br />RW : ".$row->rw ." <br /> Alamat:  ". $row->alamat ."<br />".$foto ;
-			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|9999FF|000000';
+			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
 			$this->googlemaps->add_marker($marker);
 		}
 		#end tampilkan data koordinat artesis 
@@ -90,27 +91,27 @@ class Homes extends CI_Controller {
 			$marker = array();
 			$marker['position'] = $row->lat_awal.",". $row->long_awal;
 			$marker['infowindow_content'] = "Drainase <br /> RW : ".$row->rw ." <br /> Alamat:  ". $row->alamat."<br />	".$foto ;
-			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+			$marker['icon'] = base_url()."assets/public/map-icon/drainase.png";
 			$this->googlemaps->add_marker($marker);
 		
 			$marker = array();
 			$marker['position'] = $row->lat_akhir.",".$row->long_akhir;
 			$marker['infowindow_content'] = "Drainase <br />RW : ".$row->rw ." <br /> Alamat:  ". $row->alamat ."<br />".$foto ;
-			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|9999FF|000000';
+			$marker['icon'] = base_url()."assets/public/map-icon/drainase.png";
 			$this->googlemaps->add_marker($marker);
 		}
 		#end tampilkan data koordinat drainase 
                
 		#tampilkan data koordinat mck
 		foreach ($mck_list as $row) {
-		
+			 $path = base_url();
 			#ambil fotonya jika ada
 			$foto = isset($row->foto) ? "<img src='".base_url()."assets/upload/foto/".$row->foto."' height='150px' width='250px'/>" : 'Belum Ada foto';
 			
 			$marker = array();
 			$marker['position'] = $row->lat.",".$row->long;
 			$marker['infowindow_content'] = "MCK <br />RW : ".$row->rw ." <br /> Alamat:  ". $row->alamat ."<br />".$foto ;
-			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=M|4999FF|000000';
+			$marker['icon'] = base_url()."assets/public/map-icon/mck.png";
 			$this->googlemaps->add_marker($marker);
 		}
 		#end tampilkan data koordinat mck 
@@ -124,7 +125,7 @@ class Homes extends CI_Controller {
 			$marker = array();
 			$marker['position'] = $row->lat.",".$row->long;
 			$marker['infowindow_content'] = "Septictank <br />RW : ".$row->rw ." <br /> Alamat:  ". $row->alamat ."<br />".$foto ;
-			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=M|4999FF|000000';
+			$marker['icon'] = base_url()."assets/public/map-icon/septictank.png";
 			$this->googlemaps->add_marker($marker);
 		}
 		#end tampilkan data koordinat septictank 
@@ -138,7 +139,7 @@ class Homes extends CI_Controller {
 			$marker = array();
 			$marker['position'] = $row->lat.",".$row->long;
 			$marker['infowindow_content'] = "Septictank Komunal <br />RW : ".$row->rw ." <br /> Alamat:  ". $row->alamat ."<br />".$foto ;
-			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=M|4999FF|000000';
+			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SK|ffeb3b|000000';
 			$this->googlemaps->add_marker($marker);
 		}
 		#end tampilkan data koordinat septictank_komunal 
