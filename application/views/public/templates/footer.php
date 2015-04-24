@@ -20,11 +20,28 @@
 </html>
  <script>
 $(window).scroll(function() {
-  if ($(document).scrollTop() > 50) {
-    $('nav').addClass('shrink');
+  if ($(document).scrollTop() > 75) {
+    $('nav').addClass('small-height');
   } else {
-    $('nav').removeClass('shrink');
+    $('nav').removeClass('small-height');
   }
 });
 
+</script>
+
+<script>
+	// var $j = jQuery.noConflict();
+// $j(function() {
+    // $j(window).bind('scroll', function() {
+         // if ($j(window).scrollTop() > 20) {
+             // $j('#menu').addClass('fixed');
+         // } 
+		 // else if ($j(window).scrollTop() < 20) {
+             // $j('#menu').removeClass('fixed');
+         // }
+         // else {
+             // $j('#menu').removeClass('fixed');
+         // }
+    // });
+// });
 </script>
