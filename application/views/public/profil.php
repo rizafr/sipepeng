@@ -109,6 +109,7 @@
 							<li>Kelompok Jabatan Fungsional</li>
 						</ol>
 						  <h3>
+						  <img src="<?php echo base_url() ?>assets/img/struktur_organisasi.png" class="img-responsive">
 						  </div>
 						</div>
                     </div>
