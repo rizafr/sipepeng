@@ -1,0 +1,40 @@
+Print out / Laporan 
+1. per rw, per kegiatan. 
+2. Tiap status perencanaan, progress, hasil.
+3. Surat Usulan (word), Lampiran (foto data awal dan Dokumen pendukung), 
+4. Di print ke excel juga
+ 
+--
+profil 
+1. tambah tupoksi
+
+--
+beranda
+1. Munculkan rekapitulasi (jml usulan, jml kegiatan per rw) pakai diagram atau bar
+
+--
+Dashbord
+1. di dashbord, munculkan hanya rekapan jumlah UMKM
+2. Jumlah per RW
+
+--
+Hak akses (Level)
+DKP = MCK, spetictank komunal dan biasa, sumur dangkal dan resapan
+PU = drainase, jalan, sisanya
+Admin = semua
+level RW : hanya bisa masuk pada data yang ada RW tersebut
+
+--
+Koordinat
+
+--
+UMKM dan Ekonomi di entry dan tampilkan. Di sort berdasarkan RW dan kegiatan
+
+--
+Saat data verifikasi ditolak, harus ada alasannya (1 filed). Diinput manual.
+
+--
+Ekonomi dan Pertanian tambah di Menu
+
+--
+Diklatpim IV
