@@ -29,6 +29,10 @@ Koordinat
 
 --
 UMKM dan Ekonomi di entry dan tampilkan. Di sort berdasarkan RW dan kegiatan
+UMKM ada di menu public (tidak kuning dimunculkan)
+Minimarket (tidak kuning dimunculkan)
+Menu Admin : Nama - nama perusahaan.xls
+Rumah KOS dan Toko : Rekapitulasi per RW 
 
 --
 Saat data verifikasi ditolak, harus ada alasannya (1 filed). Diinput manual.
