@@ -23,7 +23,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Ekonomi <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                  <!--<li <? $page='perusahaan'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/perusahaan">Daftar Perusahaan</a></li-->
-                                 <li <? $page='minimarket'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/peraturan">Minimarket</a></li>
+                                 <li <? $page='minimarket'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/minimarket">Minimarket</a></li>
                                  <li <? $page='gas'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/gas">Pangkalan Gas LPG</a></li>
                                  <li <? $page='kos'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/peraturan">Rumah Kos</a></li>
                                  <li <? $page='umkm'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/umkm">UMKM</a></li>

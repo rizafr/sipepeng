@@ -11,6 +11,7 @@ class Homes extends CI_Controller {
         $this->load->model('umkm_model');
         $this->load->model('perusahaan_model');
         $this->load->model('gas_model');
+        $this->load->model('minimarket_model');
         # menampilkan google map
         $this->load->library('googlemaps');
     }
@@ -181,6 +182,13 @@ class Homes extends CI_Controller {
         $data['title'] = "DAFTAR PANGKALAN GAS LPG - SIPEPENG";
         $data['data_list'] = $this->gas_model->select_all()->result();
         $this->load->view('public/gas', $data);
+    }
+	
+	#halaman minimarket
+    public function minimarket() {
+        $data['title'] = "DAFTAR MINIMARKET - SIPEPENG";
+        $data['data_list'] = $this->minimarket_model->select_all()->result();
+        $this->load->view('public/minimarket', $data);
     }
 
 }
