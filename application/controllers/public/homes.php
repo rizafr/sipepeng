@@ -8,6 +8,9 @@ class Homes extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('public_model');
+        $this->load->model('umkm_model');
+        $this->load->model('perusahaan_model');
+        $this->load->model('gas_model');
         # menampilkan google map
         $this->load->library('googlemaps');
     }
@@ -153,11 +156,31 @@ class Homes extends CI_Controller {
     }
 
     #halaman peraturan
-
     public function peraturan() {
         $data['title'] = "Peraturan - SIPEPENG";
         $data['data_list'] = $this->public_model->select_all()->result();
         $this->load->view('public/peraturan', $data);
+    }
+	
+	#halaman umkm
+    public function umkm() {
+        $data['title'] = "Data UMKM - SIPEPENG";
+        $data['data_list'] = $this->umkm_model->select_all()->result();
+        $this->load->view('public/umkm', $data);
+    }
+	
+	#halaman perusahaan
+    public function perusahaan() {
+        $data['title'] = "Data Perusahaan - SIPEPENG";
+        $data['data_list'] = $this->perusahaan_model->select_all()->result();
+        $this->load->view('public/perusahaan', $data);
+    }
+	
+	#halaman gas
+    public function gas() {
+        $data['title'] = "DAFTAR PANGKALAN GAS LPG - SIPEPENG";
+        $data['data_list'] = $this->gas_model->select_all()->result();
+        $this->load->view('public/gas', $data);
     }
 
 }
