@@ -2,10 +2,10 @@
 -- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 25, 2015 at 04:20 PM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Inang: 127.0.0.1
+-- Waktu pembuatan: 27 Apr 2015 pada 06.11
+-- Versi Server: 5.5.27
+-- Versi PHP: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `sipepeng`
+-- Basis data: `sipepeng`
 --
 CREATE DATABASE `sipepeng` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `sipepeng`;
@@ -25,7 +25,7 @@ USE `sipepeng`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artesis`
+-- Struktur dari tabel `artesis`
 --
 
 CREATE TABLE IF NOT EXISTS `artesis` (
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `artesis` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `drainase`
+-- Struktur dari tabel `drainase`
 --
 
 CREATE TABLE IF NOT EXISTS `drainase` (
@@ -88,17 +88,17 @@ CREATE TABLE IF NOT EXISTS `drainase` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `drainase`
+-- Dumping data untuk tabel `drainase`
 --
 
 INSERT INTO `drainase` (`id_drainase`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kedalaman`, `ketersediaan_lahan`, `long_awal`, `long_akhir`, `lat_awal`, `lat_akhir`, `anggaran`, `sumber_data`, `tahun_usulan`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 3, 3, 'cimahi jalan', '3', '3', '4', '3', '107.52990271163935', '107.53018154480947', '-6.90024272397706', '-6.900368467526406', 33333, 'musrenbang', 2015, '  data awal', NULL, NULL, 2, 0, 1, 0, 0, 0),
-(2, 4, 4, 'jalan cimahi', '3', '3', '4', '3', '107.52990271173935', '107.53018154490947', '-6.90024272398706', '-6.900368467626406', 33333, 'musrenbang', 2015, '  data awal', NULL, NULL, 2, 0, 1, 0, 0, 0);
+(1, 3, 3, 'cimahi jalan', '3', '3', '4', '3', '107.52990271163935', '107.53018154480947', '-6.90024272397706', '-6.900368467526406', 33333, 'musrenbang', 2015, '  data awal', NULL, NULL, 2, 1, 1, 1, 1, 0),
+(2, 4, 4, 'jalan cimahi', '3', '3', '4', '3', '107.52990271173935', '107.53018154490947', '-6.90024272398706', '-6.900368467626406', 33333, 'musrenbang', 2015, '  data awal', NULL, NULL, 2, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekonomi_gas`
+-- Struktur dari tabel `ekonomi_gas`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_gas` (
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_gas` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `ekonomi_gas`
+-- Dumping data untuk tabel `ekonomi_gas`
 --
 
 INSERT INTO `ekonomi_gas` (`id_gas`, `nama_pemilik`, `alamat`, `rt`, `rw`, `kelurahan`, `telp`, `sp_agen`, `qty`, `lat`, `long`, `no_ijin`) VALUES
@@ -139,7 +139,7 @@ INSERT INTO `ekonomi_gas` (`id_gas`, `nama_pemilik`, `alamat`, `rt`, `rw`, `kelu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekonomi_kos`
+-- Struktur dari tabel `ekonomi_kos`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_kos` (
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_kos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekonomi_minimarket`
+-- Struktur dari tabel `ekonomi_minimarket`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_minimarket` (
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_minimarket` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `ekonomi_minimarket`
+-- Dumping data untuk tabel `ekonomi_minimarket`
 --
 
 INSERT INTO `ekonomi_minimarket` (`id_minimarket`, `nama_perusahaan`, `bentuk_perusahaan`, `alamat`, `rt`, `rw`, `nama_pemilik`, `jml_pekerja`, `jam_kerja`, `status_tanah`, `luas_bangunan`, `luas_ruang_usaha`, `no_ijin`) VALUES
@@ -193,7 +193,7 @@ INSERT INTO `ekonomi_minimarket` (`id_minimarket`, `nama_perusahaan`, `bentuk_pe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekonomi_nama_perusahaan`
+-- Struktur dari tabel `ekonomi_nama_perusahaan`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_nama_perusahaan` (
@@ -210,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_nama_perusahaan` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
--- Dumping data for table `ekonomi_nama_perusahaan`
+-- Dumping data untuk tabel `ekonomi_nama_perusahaan`
 --
 
 INSERT INTO `ekonomi_nama_perusahaan` (`id_nama_perusahaan`, `nama_perusahaan`, `nama_pemilik`, `jml_pegawai`, `bergerak_dibidang`, `telp`, `alamat`, `rt`, `rw`) VALUES
@@ -237,7 +237,7 @@ INSERT INTO `ekonomi_nama_perusahaan` (`id_nama_perusahaan`, `nama_perusahaan`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekonomi_umkm`
+-- Struktur dari tabel `ekonomi_umkm`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_umkm` (
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_umkm` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=205 ;
 
 --
--- Dumping data for table `ekonomi_umkm`
+-- Dumping data untuk tabel `ekonomi_umkm`
 --
 
 INSERT INTO `ekonomi_umkm` (`id_umkm`, `kota`, `kecamatan`, `kelurahan`, `nbs`, `rw`, `rt`, `klasifikasi_perusahaan`, `nama_perusahaan`, `alamat_perusahaan`, `kegiatan_utama`, `jenis_usaha`, `jk_pengusaha`, `prov_tempat_lahir_pengusaha`, `kota_tempat_lahir_pengusaha`, `bentuk_badan_hukum`, `tahun_mulai_operasi`, `gabung_paguyuban`, `bermitra`, `bentuk_kemitraan`, `pembinaan_pemerintah`, `pemberi_pembinaan`, `eksport`, `persentase_eksport`, `import`, `persentase_import`) VALUES
@@ -484,7 +484,7 @@ INSERT INTO `ekonomi_umkm` (`id_umkm`, `kota`, `kecamatan`, `kelurahan`, `nbs`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jalan`
+-- Struktur dari tabel `jalan`
 --
 
 CREATE TABLE IF NOT EXISTS `jalan` (
@@ -517,7 +517,7 @@ CREATE TABLE IF NOT EXISTS `jalan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_pengguna`
+-- Struktur dari tabel `jenis_pengguna`
 --
 
 CREATE TABLE IF NOT EXISTS `jenis_pengguna` (
@@ -527,7 +527,7 @@ CREATE TABLE IF NOT EXISTS `jenis_pengguna` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `jenis_pengguna`
+-- Dumping data untuk tabel `jenis_pengguna`
 --
 
 INSERT INTO `jenis_pengguna` (`id_jenis_pengguna`, `jenis_pengguna`) VALUES
@@ -538,7 +538,7 @@ INSERT INTO `jenis_pengguna` (`id_jenis_pengguna`, `jenis_pengguna`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
@@ -548,7 +548,7 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `kategori`) VALUES
@@ -560,7 +560,7 @@ INSERT INTO `kategori` (`id_kategori`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kirmir`
+-- Struktur dari tabel `kirmir`
 --
 
 CREATE TABLE IF NOT EXISTS `kirmir` (
@@ -594,7 +594,7 @@ CREATE TABLE IF NOT EXISTS `kirmir` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mck`
+-- Struktur dari tabel `mck`
 --
 
 CREATE TABLE IF NOT EXISTS `mck` (
@@ -622,7 +622,7 @@ CREATE TABLE IF NOT EXISTS `mck` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `mck`
+-- Dumping data untuk tabel `mck`
 --
 
 INSERT INTO `mck` (`id_mck`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -631,35 +631,36 @@ INSERT INTO `mck` (`id_mck`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Struktur dari tabel `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
   `id_menu` int(11) NOT NULL AUTO_INCREMENT,
   `menu` varchar(100) NOT NULL,
   `controller` varchar(100) NOT NULL,
+  `nama_tabel` varchar(50) NOT NULL,
   `id_jenis_pengguna` int(15) NOT NULL,
   PRIMARY KEY (`id_menu`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `menu`
+-- Dumping data untuk tabel `menu`
 --
 
-INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `id_jenis_pengguna`) VALUES
-(6, 'Drainase', 'admin/drainase_managements', 2),
-(7, 'Artesis', 'admin/artesis_managements', 0),
-(8, 'Jalan', 'admin/jalan_managements', 0),
-(9, 'Sumur Dangkal', 'admin/sumur_dangkal_managements', 2),
-(10, 'Sumur Resapan', 'admin/sumur_resapan_managements', 2),
-(11, 'MCK', 'admin/mck_managements', 2),
-(12, 'Septictank', 'admin/septictank_managements', 2),
-(13, 'Septictank Komunal', 'admin/septictank_komunal_managements', 2);
+INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `nama_tabel`, `id_jenis_pengguna`) VALUES
+(6, 'Drainase', 'admin/drainase_managements', 'drainase', 2),
+(7, 'Artesis', 'admin/artesis_managements', 'artesis', 0),
+(8, 'Jalan', 'admin/jalan_managements', 'jalan', 0),
+(9, 'Sumur Dangkal', 'admin/sumur_dangkal_managements', 'sumur_dangkal', 2),
+(10, 'Sumur Resapan', 'admin/sumur_resapan_managements', 'sumur_resapan', 2),
+(11, 'MCK', 'admin/mck_managements', 'mck', 2),
+(12, 'Septictank', 'admin/septictank_managements', 'septictank', 2),
+(13, 'Septictank Komunal', 'admin/septictank_komunal_managements', 'septictank_komunal', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE IF NOT EXISTS `pengguna` (
@@ -676,7 +677,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data untuk tabel `pengguna`
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `id_jenis_pengguna`, `nama`, `nip`, `alamat`, `email`, `username`, `password`, `telp`) VALUES
@@ -689,7 +690,45 @@ INSERT INTO `pengguna` (`id_pengguna`, `id_jenis_pengguna`, `nama`, `nip`, `alam
 -- --------------------------------------------------------
 
 --
--- Table structure for table `septictank`
+-- Struktur dari tabel `rw`
+--
+
+CREATE TABLE IF NOT EXISTS `rw` (
+  `id_rw` int(11) NOT NULL AUTO_INCREMENT,
+  `rw` varchar(5) NOT NULL,
+  PRIMARY KEY (`id_rw`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data untuk tabel `rw`
+--
+
+INSERT INTO `rw` (`id_rw`, `rw`) VALUES
+(1, '1'),
+(2, '2'),
+(3, '3'),
+(4, '4'),
+(5, '5'),
+(6, '6'),
+(7, '7'),
+(8, '8'),
+(9, '9'),
+(10, '10'),
+(11, '11'),
+(12, '12'),
+(13, '13'),
+(14, '14'),
+(15, '15'),
+(16, '16'),
+(17, '17'),
+(18, '18'),
+(19, '19'),
+(20, '20');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `septictank`
 --
 
 CREATE TABLE IF NOT EXISTS `septictank` (
@@ -717,7 +756,7 @@ CREATE TABLE IF NOT EXISTS `septictank` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `septictank`
+-- Dumping data untuk tabel `septictank`
 --
 
 INSERT INTO `septictank` (`id_septictank`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -727,7 +766,7 @@ INSERT INTO `septictank` (`id_septictank`, `rt`, `rw`, `alamat`, `ketersediaan_l
 -- --------------------------------------------------------
 
 --
--- Table structure for table `septictank_komunal`
+-- Struktur dari tabel `septictank_komunal`
 --
 
 CREATE TABLE IF NOT EXISTS `septictank_komunal` (
@@ -756,7 +795,7 @@ CREATE TABLE IF NOT EXISTS `septictank_komunal` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `septictank_komunal`
+-- Dumping data untuk tabel `septictank_komunal`
 --
 
 INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -765,7 +804,7 @@ INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sumur_dangkal`
+-- Struktur dari tabel `sumur_dangkal`
 --
 
 CREATE TABLE IF NOT EXISTS `sumur_dangkal` (
@@ -793,7 +832,7 @@ CREATE TABLE IF NOT EXISTS `sumur_dangkal` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `sumur_dangkal`
+-- Dumping data untuk tabel `sumur_dangkal`
 --
 
 INSERT INTO `sumur_dangkal` (`id_sumur_dangkal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -802,7 +841,7 @@ INSERT INTO `sumur_dangkal` (`id_sumur_dangkal`, `rt`, `rw`, `alamat`, `ketersed
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sumur_resapan`
+-- Struktur dari tabel `sumur_resapan`
 --
 
 CREATE TABLE IF NOT EXISTS `sumur_resapan` (
@@ -830,7 +869,7 @@ CREATE TABLE IF NOT EXISTS `sumur_resapan` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `sumur_resapan`
+-- Dumping data untuk tabel `sumur_resapan`
 --
 
 INSERT INTO `sumur_resapan` (`id_sumur_resapan`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -839,7 +878,7 @@ INSERT INTO `sumur_resapan` (`id_sumur_resapan`, `rt`, `rw`, `alamat`, `ketersed
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_status`
+-- Struktur dari tabel `users_status`
 --
 
 CREATE TABLE IF NOT EXISTS `users_status` (
@@ -849,7 +888,7 @@ CREATE TABLE IF NOT EXISTS `users_status` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `users_status`
+-- Dumping data untuk tabel `users_status`
 --
 
 INSERT INTO `users_status` (`id_status`, `status`) VALUES
@@ -859,7 +898,7 @@ INSERT INTO `users_status` (`id_status`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_tabel`
+-- Struktur dari tabel `users_tabel`
 --
 
 CREATE TABLE IF NOT EXISTS `users_tabel` (
@@ -884,7 +923,7 @@ CREATE TABLE IF NOT EXISTS `users_tabel` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `users_tabel`
+-- Dumping data untuk tabel `users_tabel`
 --
 
 INSERT INTO `users_tabel` (`id_user`, `id_status`, `user_email`, `user_password`, `confirm_password`, `user_name`, `first_address`, `second_address`, `user_phone`, `user_city`, `user_zip`, `id_state`, `id_country`, `user_agree`, `last_login`, `created`, `modified`) VALUES
