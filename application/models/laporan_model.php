@@ -62,12 +62,31 @@ class Laporan_model extends CI_Model {
 		}
 		
 		$this->db->where('rw', $data['rw']);
-		$this->db->from($data['kegiatan']);
 		
-		$query = $this->db->get();
+		$query = $this->db->get($data['kegiatan']);
 		return $query;
 	}
-
+	
+	function cetak($data) {
+		$this->db->select('*');
+		
+		if($data['status'] == 1){
+			$this->db->where('status_data_awal', '1');			
+		}
+		
+		if($data['status'] == 3){
+			$this->db->where('status_sedang_dilaksanakan', '1');			
+		}
+		
+		if($data['status'] == 4){
+			$this->db->where('status_sedang_dilaksanakan', '1');			
+		}
+		
+		$this->db->where('rw', $data['rw']);
+		
+		$query = $this->db->get($data['kegiatan']);
+		return $query;
+	}
 }
 
 ?>
