@@ -83,7 +83,9 @@ class Laporan_model extends CI_Model {
 			$this->db->where('status_sedang_dilaksanakan', '1');			
 		}
 		
-		$this->db->where('rw', $data['rw']);
+		if($data['rw']!=0){
+			$this->db->where('rw', $data['rw']);
+		}
 		
 		$query = $this->db->get($data['kegiatan']);
 		return $query;

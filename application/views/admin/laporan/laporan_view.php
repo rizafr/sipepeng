@@ -88,6 +88,7 @@
                                 </div>
 								<div class="form-group">
                                         <div class="col-lg-10">    
+										<?php $rw = (empty($rw)) ? '0' : $rw; ?>
                                             <a href="<?php echo base_url('admin/laporan_managements/cetak'); echo "/".$rw."/".$kegiatan."/".$status ?>" ><button type=submit class="btn btn-primary">Cetak</button></a>
 										  </div>
                                     </div><!--end control-group-->
