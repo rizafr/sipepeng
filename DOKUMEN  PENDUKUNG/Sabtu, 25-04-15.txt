@@ -41,4 +41,47 @@ Saat data verifikasi ditolak, harus ada alasannya (1 filed). Diinput manual.
 Ekonomi dan Pertanian tambah di Menu
 
 --
-Diklatpim IV
+Diklatpim IV 
+
+-----------------------------------------------------------
+
+Ja klo pas nu backproses nya halaman awal na aya nu gini abis login. bisa icon na meh teu langsung masuk
+Jadi aya data pembangunan
+Ekonomi
+Statistik/grafik
+Laporan
+Gt aja pas mau entri di klik icon na
+Terus program kegiatan ga usah paling tupoksi aja gantinya yang dimasukin
+Terus untuk entri data entri kaya kedalaman. Lebar. Panjang.  Harus bisa pakai satuan 0.5m atau 0.6 m itu masih harus bulat satuan na
+Terus untuk peta nya klo bisa setelah di entri koordinat nya pas di liat biar ga tumpang tindih. Jadi klo bisa drainase di tampilin drainase aja. Klo jalan jalan aja za
+Terus klo untuk print surat usulan di masukin nya mending tambah menu lagi aja buat print surat usulan tea di sini
+
+Pas yang di perencanaan nya
+
+Terus za di struktur pegawai tea. Pang hapusin pa adeng sapturi udah alm
+
+Nomor 3
+
+Jadi pns nya ada 13 orang
+
+
+Iya paling warna jalan sama drainase garis na di bedain aja
+
+Klo menu jdi icon.. D coba dlu pak..
+
+Warna garis.. Nya bsa pak..
+
+Terus ukuran garis nya klo jalan rada tebel. drainase rada tipis
+
+Klo yg surat usulan..pilih dlu rw, kegiatan nya..baru cetak ya pak?
+
+Ada 2 za icon dulu pas di buka icon masuk menu pembangunan
+
+Terus pas di buka icon ekonomi masuk ke economi
+
+Terus icon dashboard jg ada
+
+Surat usulan rw tinggal klik baris data base yang akan di cetak langsung maasuk ka usulan
+
+Kan aya tah per baris mun dari usulan
+yg udah verifikasi dan ditindaklajuti
