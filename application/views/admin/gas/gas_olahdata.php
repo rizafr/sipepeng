@@ -45,7 +45,7 @@ if (strtolower($aksi) == 'add') {
 									 <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="nama_pemilik">Nama Pemilik: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="nama_pemilik" name="nama_pemilik" placeholder="nama_pemilik" value="<?php echo set_value('nama_pemilik', isset($gas_list['nama_pemilik']) ? $gas_list['nama_pemilik'] : ''); ?>">
+                                            <input type="text" class="form-control" id="nama_pemilik" name="nama_pemilik" placeholder="Nama Pemilik" value="<?php echo set_value('nama_pemilik', isset($gas_list['nama_pemilik']) ? $gas_list['nama_pemilik'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('nama_pemilik'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
