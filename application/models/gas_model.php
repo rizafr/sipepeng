@@ -19,15 +19,59 @@ class Gas_model extends CI_Model {
 		return $this->db->query($sql);
 	}
 	
+	public function getGasById($id_gas) {
+		$this->db->select('*');
+		$this->db->where('id_gas', $id_gas);
+		$query = $this->db->get('ekonomi_gas', 1);
+		
+		if ($query->num_rows() == 1) {
+			return $query->row_array();
+		}
+	}	
 	
+	public function update($id_gas) {
+        $data = array(
+            'nama_pemilik' => $this->input->post('nama_pemilik')
+            , 'alamat' => $this->input->post('alamat')
+            , 'rt' => $this->input->post('rt')
+            , 'rw' => $this->input->post('rw')
+            , 'kelurahan' => $this->input->post('kelurahan')
+            , 'telp' => $this->input->post('telp')
+            , 'sp_agen' => $this->input->post('sp_agen')
+            , 'qty' => $this->input->post('qty')
+            , 'lat' => $this->input->post('lat')
+            , 'long' => $this->input->post('long')
+            , 'no_ijin' => $this->input->post('no_ijin')
+        );
+
+        $this->db->where('id_gas', $id_gas);
+        return $this->db->update('ekonomi_gas', $data);
+    }
 	
+	public function add($data) {
+		$data = array(
+		'nama_pemilik' 		=> $data['nama_pemilik']
+		, 'alamat' 			=> $data['alamat']
+		, 'rt' 				=> $data['rt']
+		, 'rw' 				=> $data['rw']
+		, 'kelurahan' 		=> $data['kelurahan']
+		, 'telp' 			=> $data['telp']
+		, 'sp_agen' 		=> $data['sp_agen']
+		, 'qty' 			=> $data['qty']
+		, 'lat' 			=> $data['lat']
+		, 'long' 			=> $data['long']
+		, 'no_ijin' 		=> $data['no_ijin']
+		);
+		return $this->db->insert('ekonomi_gas', $data);
+	}
+	
+	//-------------------------------------------------------------------------------------------
 	public function search_all($keyword) {
 		$sql = "select * from ekonomi_gas where nama_perusahaan like '%" . $keyword . "%'";
 		return $this->db->query($sql);
 	}
 	
-	//add user as public
-	public function add($data) {
+	public function add2($data) {
 		$data = array(
 		'rt' 						=> $data['rt']
 		, 'rw' 						=> $data['rw']
@@ -61,7 +105,7 @@ class Gas_model extends CI_Model {
 	}
 	
 	//update user    
-	public function update($id_gas) {
+	public function update2($id_gas) {
 		$data = array(
 		'rt' 						=> $this->input->post('rt')
 		, 'rw' 						=> $this->input->post('rw')
@@ -95,15 +139,6 @@ class Gas_model extends CI_Model {
 		return $this->db->update('ekonomi_gas', $data);
 	}
 	
-	public function getekonomi_gasById($id_gas) {
-		$this->db->select('*');
-		$this->db->where('id_gas', $id_gas);
-		$query = $this->db->get('ekonomi_gas', 1);
-		
-		if ($query->num_rows() == 1) {
-			return $query->row_array();
-		}
-	}
 	
 	//delete
 	public function delete($id_gas) {

@@ -37,14 +37,23 @@ if (strtolower($aksi) == 'add') {
                                 <span class="hidden-sm wht-color"><? echo $namaform . " " . $judulForm ?></span>
                             </header>
                             <div class="panel-body">
-                                <form method="post" action="<?php echo base_url('admin/drainase_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">
+                                <form method="post" action="<?php echo base_url('admin/gas_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">
                                     <input type="hidden" name="aksi" value="<? echo $aksi ?>" />
-                                    <input type="hidden" name="id_drainase" value="<?php echo set_value('id_drainase', isset($drainase_list['id_drainase']) ? $drainase_list['id_drainase'] : ''); ?>" />
-                                    <span class="help-inline"><?php echo form_error('id_drainase'); ?></span>
-                                    <div class="form-group">
+                                    <input type="hidden" name="id_gas" value="<?php echo set_value('id_gas', isset($gas_list['id_gas']) ? $gas_list['id_gas'] : ''); ?>" />
+                                    <span class="help-inline"><?php echo form_error('id_gas'); ?></span>
+									
+									 <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="nama_pemilik">Nama Pemilik: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="nama_pemilik" name="nama_pemilik" placeholder="nama_pemilik" value="<?php echo set_value('nama_pemilik', isset($gas_list['nama_pemilik']) ? $gas_list['nama_pemilik'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('nama_pemilik'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+									
+									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt', isset($drainase_list['rt']) ? $drainase_list['rt'] : ''); ?>"  data-validation="number">
+                                            <input type="text" class="form-control" id="rt" name="rt" placeholder="RT" value="<?php echo set_value('rt', isset($gas_list['rt']) ? $gas_list['rt'] : ''); ?>"  data-validation="number">
                                             <span class="help-inline"><?php echo form_error('rt'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -52,7 +61,7 @@ if (strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw', isset($drainase_list['rw']) ? $drainase_list['rw'] : ''); ?>"  data-validation="number">
+                                            <input type="text" class="form-control" id="rw" name="rw" placeholder="RW" value="<?php echo set_value('rw', isset($gas_list['rw']) ? $gas_list['rw'] : ''); ?>"  data-validation="number">
                                             <span class="help-inline"><?php echo form_error('rw'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -60,141 +69,68 @@ if (strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" id="alamat" name="alamat" data-validation="length" data-validation-length="min10"><?php echo set_value('alamat', isset($drainase_list['alamat']) ? $drainase_list['alamat'] : ''); ?></textarea>                                           
+                                            <textarea class="form-control" id="alamat" name="alamat" data-validation="length" data-validation-length="min10"><?php echo set_value('alamat', isset($gas_list['alamat']) ? $gas_list['alamat'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('alamat'); ?></span>
                                         </div>
                                     </div><!--end form-group-->
 
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="kelurahan">Kelurahan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang"  data-validation="number" value="<?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('panjang'); ?></span>
+                                            <input type="text" class="form-control" id="kelurahan" name="kelurahan" placeholder="Kelurahan" value="<?php echo set_value('kelurahan', isset($gas_list['kelurahan']) ? $gas_list['kelurahan'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('kelurahan'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="lebar">Lebar: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="telp">No Telp: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lebar" name="lebar" placeholder="Lebar" value="<?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : ''); ?>" data-validation="number" data-validation-allowing="range[0;3]" data-validation-help="Silakan masukan dalam satuan meter">
-                                            <span class="help-inline"><?php echo form_error('lebar'); ?></span>
+                                            <input type="text" class="form-control" id="telp" name="telp" placeholder="Telp" value="<?php echo set_value('telp', isset($gas_list['telp']) ? $gas_list['telp'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('telp'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+									<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="sp_agen">SP Agen: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="sp_agen" name="sp_agen" placeholder="SP Agen" value="<?php echo set_value('sp_agen', isset($gas_list['sp_agen']) ? $gas_list['sp_agen'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('sp_agen'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+									
+									<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="qty">Quantity: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="qty" name="qty" placeholder="Quantity" value="<?php echo set_value('qty', isset($gas_list['qty']) ? $gas_list['qty'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('qty'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="kedalaman">Kedalaman: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="lat">Latitude: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="kedalaman" name="kedalaman" placeholder="Kedalaman" data-validation="number" value="<?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : ''); ?>">
-                                            <p class="help-block"><?php echo form_error('kedalaman'); ?></p>
+                                            <input type="text" class="form-control" id="lat" name="lat" placeholder="Latitude" value="<?php echo set_value('lat', isset($gas_list['lat']) ? $gas_list['lat'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('lat'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long">Longitude: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan"  placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
+                                            <input type="text" class="form-control" id="long" name="long" placeholder="Longitude" value="<?php echo set_value('long', isset($gas_list['long']) ? $gas_list['long'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('long'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+									
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="no_ijin">No Ijin: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="no_ijin" name="no_ijin" placeholder="No Ijin" value="<?php echo set_value('no_ijin', isset($gas_list['no_ijin']) ? $gas_list['no_ijin'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('no_ijin'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <?php
-                                            $map = isset($map['html']) ? $map['html'] : '';
-                                            echo $map;
-                                            ?>
-                                        </div>
-                                    </div><!--end control-group--> 
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lat_awal" name="lat_awal" placeholder="Latitude Awal" value="<?php echo set_value('lat_awal', isset($drainase_list['lat_awal']) ? $drainase_list['lat_awal'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('lat_awal'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude Awal: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long_awal" name="long_awal" placeholder="Longitude Awal" value="<?php echo set_value('long_awal', isset($drainase_list['long_awal']) ? $drainase_list['long_awal'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('long_awal'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_akhir">Latitude Akhir: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lat_akhir" name="lat_akhir" placeholder="Latitude Akhir" value="<?php echo set_value('lat_akhir', isset($drainase_list['lat_akhir']) ? $drainase_list['lat_akhir'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('lat_akhir'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->                                    
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_akhir', isset($drainase_list['long_akhir']) ? $drainase_list['long_akhir'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('long_akhir'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">                                               	  
-                                            <input type="text" class="form-control" id="anggaran" name="anggaran" placeholder="Silakan isi anggaran" value="<?php echo set_value('anggaran', isset($drainase_list['anggaran']) ? $drainase_list['anggaran'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('anggaran'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="sumber_data" name="sumber_data" placeholder="Silakan isi Sumber Data" value="<?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : ''); ?>" data-validation-help="Sumber data drainase berasal darimana">
-                                            <span class="help-inline"><?php echo form_error('sumber_data'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
-                                        <div class="col-md-3 col-xs-11">
-                                            <div data-date-minviewmode="years" data-date-viewmode="years" data-date-format=" yyyy" data-date="102/2012"  class="input-append date dpYears">
-                                                <input type="text" class="form-control" id="tahun_usulan" name="tahun_usulan" placeholder="Silakan isi tahun Usulan" value="<?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : ''); ?>" readonly>
-                                                <span class="help-inline"><?php echo form_error('tahun_usulan'); ?></span>
-                                                <span class="input-group-btn add-on">
-                                                    <button class="btn btn-danger" type="button"><i class="icon-calendar"></i></button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <textarea class="form-control" id="ket" name="ket"> <?php echo set_value('ket', isset($drainase_list['ket']) ? $drainase_list['ket'] : ''); ?></textarea>                                           
-                                            <span class="help-inline"><?php echo form_error('ket'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
-                                                   data-validation-max-size="512kb">
-                                            <span class="help-inline"><?php echo form_error('foto'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="file" class="form-control" id="dokumen" name="dokumen" placeholder="Dokumen" value="<?php echo set_value('dokumen'); ?>">
-                                            <span class="help-inline"><?php echo form_error('dokumen'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
-
-
-
+                                    
                                     <div class="form-group">
                                         <div class="col-lg-10"> 
                                             <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
