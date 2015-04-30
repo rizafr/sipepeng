@@ -19,8 +19,6 @@ class Minimarket_model extends CI_Model {
 		return $this->db->query($sql);
 	}
 	
-	
-	
 	public function search_all($keyword) {
 		$sql = "select * from ekonomi_minimarket where nama_perusahaan like '%" . $keyword . "%'";
 		return $this->db->query($sql);
@@ -29,33 +27,18 @@ class Minimarket_model extends CI_Model {
 	//add user as public
 	public function add($data) {
 		$data = array(
-		'rt' 						=> $data['rt']
+		'nama_perusahaan' 			=> $data['nama_perusahaan']
+		, 'bentuk_perusahaan' 		=> $data['bentuk_perusahaan']
+		, 'alamat'					=> $data['alamat']
+		, 'rt' 						=> $data['rt']
 		, 'rw' 						=> $data['rw']
-		, 'kota'					=> $data['kota']
-		, 'kecamatan' 				=> $data['kecamatan']
-		, 'kelurahan' 				=> $data['kelurahan']
-		, 'nbs' 					=> $data['nbs']
-		, 'klasifikasi_perusahaan' 	=> $data['klasifikasi_perusahaan']
-		, 'nama_perusahaan' 		=> $data['nama_perusahaan']
-		, 'alamat_perusahaan' 		=> $data['alamat_perusahaan']
-		, 'kegiatan_utama' 			=> $data['kegiatan_utama']
-		, 'jenis_usaha' 			=> $data['jenis_usaha']
-		, 'jk_pengusaha' 			=> $data['jk_pengusaha']
-		, 'prov_tempat_lahir_pengusaha' => $data['prov_tempat_lahir_pengusaha']
-		, 'kota_tempat_lahir_pengusaha' => $data['kota_tempat_lahir_pengusaha']
-		, 'bentuk_badan_hukum' 		=> $data['bentuk_badan_hukum']
-		, 'tahun_mulai_operasi' 	=> $data['tahun_mulai_operasi']
-		, 'tahun_mulai_operasi' 	=> $data['tahun_mulai_operasi']
-		, 'gabung_paguyuban' 		=> $data['gabung_paguyuban']
-		, 'bermitra' 				=> $data['bermitra']
-		, 'bentuk_kemitraan' 		=> $data['bentuk_kemitraan']
-		, 'pembinaan_pemerintah' 	=> $data['pembinaan_pemerintah']
-		, 'pemberi_pembinaan' 		=> $data['pemberi_pembinaan']
-		, 'eksport' 				=> $data['eksport']
-		, 'persentase_eksport' 		=> $data['persentase_eksport']
-		, 'import' 					=> $data['import']
-		, 'persentase_import' 		=> $data['persentase_import']
-		
+		, 'nama_pemilik' 			=> $data['nama_pemilik']
+		, 'jml_pekerja' 			=> $data['jml_pekerja']
+		, 'jam_kerja' 				=> $data['jam_kerja']
+		, 'status_tanah' 			=> $data['status_tanah']
+		, 'luas_bangunan' 			=> $data['luas_bangunan']
+		, 'luas_ruang_usaha'		=> $data['luas_ruang_usaha']
+		, 'no_ijin'					=> $data['no_ijin']
 		);
 		return $this->db->insert('ekonomi_minimarket', $data);
 	}
@@ -63,36 +46,32 @@ class Minimarket_model extends CI_Model {
 	//update user    
 	public function update($id_minimarket) {
 		$data = array(
-		'rt' 						=> $this->input->post('rt')
+		'nama_perusahaan' 			=> $this->input->post('nama_perusahaan')
+		, 'bentuk_perusahaan' 		=> $this->input->post('bentuk_perusahaan')
+		, 'alamat'					=> $this->input->post('alamat')
+		, 'rt' 						=> $this->input->post('rt')
 		, 'rw' 						=> $this->input->post('rw')
-		, 'kota'					=> $this->input->post('kota')
-		, 'kecamatan' 				=> $this->input->post('kecamatan')
-		, 'kelurahan' 				=> $this->input->post('kelurahan')
-		, 'nbs' 					=> $this->input->post('nbs')
-		, 'klasifikasi_perusahaan' 	=> $this->input->post('klasifikasi_perusahaan')
-		, 'nama_perusahaan' 		=> $this->input->post('nama_perusahaan')
-		, 'alamat_perusahaan' 		=> $this->input->post('alamat_perusahaan')
-		, 'kegiatan_utama' 			=> $this->input->post('kegiatan_utama')
-		, 'jenis_usaha' 			=> $this->input->post('jenis_usaha')
-		, 'jk_pengusaha' 			=> $this->input->post('jk_pengusaha')
-		, 'prov_tempat_lahir_pengusaha' => $this->input->post('prov_tempat_lahir_pengusaha')
-		, 'kota_tempat_lahir_pengusaha' => $this->input->post('kota_tempat_lahir_pengusaha')
-		, 'bentuk_badan_hukum' 		=> $this->input->post('bentuk_badan_hukum')
-		, 'tahun_mulai_operasi' 	=> $this->input->post('tahun_mulai_operasi')
-		, 'tahun_mulai_operasi' 	=> $this->input->post('tahun_mulai_operasi')
-		, 'gabung_paguyuban' 		=> $this->input->post('gabung_paguyuban')
-		, 'bermitra' 				=> $this->input->post('bermitra')
-		, 'bentuk_kemitraan' 		=> $this->input->post('bentuk_kemitraan')
-		, 'pembinaan_pemerintah' 	=> $this->input->post('pembinaan_pemerintah')
-		, 'pemberi_pembinaan' 		=> $this->input->post('pemberi_pembinaan')
-		, 'eksport' 				=> $this->input->post('eksport')
-		, 'persentase_eksport' 		=> $this->input->post('persentase_eksport')
-		, 'import' 					=> $this->input->post('import')
-		, 'persentase_import' 		=> $this->input->post('persentase_import')
+		, 'nama_pemilik' 			=> $this->input->post('nama_pemilik')
+		, 'jml_pekerja' 			=> $this->input->post('jml_pekerja')
+		, 'jam_kerja' 				=> $this->input->post('jam_kerja')
+		, 'status_tanah' 			=> $this->input->post('status_tanah')
+		, 'luas_bangunan' 			=> $this->input->post('luas_bangunan')
+		, 'luas_ruang_usaha' 		=> $this->input->post('luas_ruang_usaha')
+		, 'no_ijin' 				=> $this->input->post('no_ijin')
 		);
 		
 		$this->db->where('id_minimarket', $id_minimarket);
 		return $this->db->update('ekonomi_minimarket', $data);
+	}
+	
+	public function getMinimarketById($id_minimarket) {
+		$this->db->select('*');
+		$this->db->where('id_minimarket', $id_minimarket);
+		$query = $this->db->get('ekonomi_minimarket', 1);
+		
+		if ($query->num_rows() == 1) {
+			return $query->row_array();
+		}
 	}
 	
 	public function getekonomi_minimarketById($id_minimarket) {
