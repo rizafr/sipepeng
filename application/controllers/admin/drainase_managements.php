@@ -124,9 +124,6 @@ class Drainase_managements extends CI_Controller {
             // end menampilkan menu..wajib ada
           
 
-           
-
-
             //mengambil uri aksi
             $data['aksi'] = $this->uri->segment(4);
 

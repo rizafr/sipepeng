@@ -93,13 +93,34 @@
     <? } ?>
                     </ul>
                 </li>   
-
-                <li class="sub-menu">
-                    <a  href="<?php echo base_url() ?>admin/user_managements">
-                        <i class="icon-print"></i>
+				<li class="sub-menu" >
+                    <a  href="javascript:;">
+                        <i class=" icon-bell-alt"></i>
                         <span>Laporan</span>
                     </a>
-                </li>                    
+                    <ul class="sub">
+						<li>
+							<a  href="<?php echo base_url() ?>admin/laporan_managements/index/1" >Perencanaan</a>
+							<a  href="<?php echo base_url() ?>admin/laporan_managements/index/3" >Pelaksanaan</a>
+							<a  href="<?php echo base_url() ?>admin/laporan_managements/index/4" >Hasil</a>
+						</li>
+                    </ul>
+                </li>
+				
+				<li class="sub-menu" >
+                    <a  href="javascript:;">
+                        <i class=" icon-bell-alt"></i>
+                        <span>Ekonomi</span>
+                    </a>
+                    <ul class="sub">
+						<li>
+							<a  href="<?php echo base_url() ?>admin/minimarket_managements/index" >Minimarket</a>
+							<a  href="<?php echo base_url() ?>admin/gas_managements/index" >Pangkalan Gas LPG</a>
+							<a  href="<?php echo base_url() ?>admin/kos_managements/index" >Rumah Kos</a>
+							<a  href="<?php echo base_url() ?>admin/umkm_managements/index" >UMKM</a>
+						</li>
+                    </ul>
+                </li>
 
             </ul>
             <!-- sidebar menu end-->

@@ -14,6 +14,8 @@
     <link href="<?php echo base_url() ?>assets/public/css/prettyPhoto.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/public/css/main.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/public/css/responsive.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+<link href="<?php echo base_url(); ?>assets/admin/css/table-responsive.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
