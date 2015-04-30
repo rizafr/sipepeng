@@ -1,347 +1,332 @@
-<?php $this->load->view('admin/templates/header'); ?> 
-<?php echo $map['js']; ?>   
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+        Home | SIPEPENG
+	</title>
+    <meta charset="UTF-8">
+	<link rel="icon" href="">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/home/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/home/frontend.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/home/font-awesome.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/home/hover-min.css">
+</head>
 <body>
-
-    <section id="container" >
-        <!--header start-->
-        <?php $this->load->view('admin/templates/top-nav'); ?>
-        <!--header end-->
-       <!--sidebar start-->
-			 <?php $this->load->view('admin/templates/menu_admin'); ?>
-        <!--sidebar end-->
-        <!--main content start-->
-        <section id="main-content">
-            <section class="wrapper">
-                <!--state overview start-->
-                <div class="row state-overview">
-                    <div class="col-lg-3 col-sm-6">
-                        <section class="panel">
-                            <div class="symbol terques">
-                                <i class="icon-user"></i>
-                            </div>
-                            <div class="value">
-                                <h1 class="count">
-                                   0
-                                </h1>
-                                <p>Pengguna</p>
-                            </div>
-                        </section>
+    <div style="display: none;" class="se-pre-con"></div>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="col-md-12">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand visible-lg visible-md">
+					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 20px;display: inline-block;vertical-align: top;" alt="">
+					<strong>SIPEPENG</strong> ·Sistem Informasi Pembangunan Daerah
+				</a>
+				<a href="http://puskim.pu.go.id/Aplikasi/ekatalog/public" class="navbar-brand visible-sm">
+					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 20px;display: inline-block;vertical-align: top;" alt="">
+					Sistem Informasi Pembangunan Daerah
+				</a>
+				<a href="http://puskim.pu.go.id/Aplikasi/ekatalog/public" class="navbar-brand visible-xs">
+					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
+					<small><strong>SIPEPENG</strong></small>
+				</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1">
+					<i class="glyphicon glyphicon-search"></i>
+				</button>
+				
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse1">
+				<!-- <form class="navbar-form pull-right">
+					<div class="input-group" style="max-width:470px;">
+                    <input type="text" class="form-control input-md" placeholder="Pencarian" name="srch-term" id="srch-term">
+                    <div class="input-group-btn">
+					<button class="btn btn-default btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <section class="panel">
-                            <div class="symbol red">
-                                <i class="icon-tags"></i>
-                            </div>
-                            <div class="value">
-                                <h1 class=" count2">
-                                    0
-                                </h1>
-                                <p>Data</p>
-                            </div>
-                        </section>
-                    </div>
-                    
-                </div>
-                <!--state overview end-->
-
-                <div class="row">
-                    <div class="col-lg-8">
-                        <!--custom chart start-->
-                        <div class="border-head">
-                            <h3>Rekapitulasi Data</h3>
-							
-                        </div>
-                        <div class="custom-bar-chart">
-                            <ul class="y-axis">                                
-                              <li><span>100</span></li>
-                              <li><span>80</span></li>
-                              <li><span>60</span></li>
-                              <li><span>40</span></li>
-                              <li><span>20</span></li>
-                              <li><span>0</span></li>
-                            </ul>
-							<div class="bar ">
-                                <div class="title">ARTESIS</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenArtesis,2);?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenArtesis?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">DRAINASE</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenDrainase,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenDrainase ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">JALAN</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenJalan,2)?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenJalan ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">Kirmir</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenKirmir,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenKirmir ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">Mck</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenMck,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenMck ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">Septictank</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenSeptictank,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenSeptictank ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">Komunal    </div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenSeptictankKomunal,2)?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenSeptictankKomunal ?>%</div>
-                            </div>
-                           
-						   <div class="bar">
-                                <div class="title">Dangkal</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenSumurDangkal,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenSumurDangkal ?>%</div>
-                            </div>
-                           
-						   <div class="bar">
-                                <div class="title">Resapan</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenSumurResapan,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenSumurResapan ?>%</div>
-                            </div>
-                            
-                            
-                        </div>
-                        <!--custom chart end-->
-                    </div>
-                    <div class="col-lg-4">
-                        <!--new earning start-->
-                        <div class="panel terques-chart">
-                            <div class="panel-body chart-texture">
-                                <div class="chart">
-                                    <div class="heading">
-                                        <span>Friday</span>
-                                        <strong>$ 57,00 | 15%</strong>
-                                    </div>
-                                    <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
-                                </div>
-                            </div>
-                            <div class="chart-tittle">
-                                <span class="title">New Earning</span>
-                                <span class="value">
-                                    <a href="#" class="active">Market</a>
-                                    |
-                                    <a href="#">Referal</a>
-                                    |
-                                    <a href="#">Online</a>
-                                </span>
-                            </div>
-                        </div>
-                        <!--new earning end-->
-
-                        <!--total earning start-->
-                        <div class="panel green-chart">
-                            <div class="panel-body">
-                                <div class="chart">
-                                    <div class="heading">
-                                        <span>June</span>
-                                        <strong>23 Days | 65%</strong>
-                                    </div>
-                                    <div id="barchart"></div>
-                                </div>
-                            </div>
-                            <div class="chart-tittle">
-                                <span class="title">Total Earning</span>
-                                <span class="value">$, 76,54,678</span>
-                            </div>
-                        </div>
-                        <!--total earning end-->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <!--user info table start-->
-                        <section class="panel">
-                            <div class="panel-body">
-                                <a href="#" class="task-thumb">
-                                    <img src="<?php echo base_url();?>assets/admin/img/avatar1.jpg" alt="">
-                                </a>
-                                <div class="task-thumb-details">
-                                    <h1><a href="#"><?php echo $this->session->userdata('nama')?></a></h1>
-                                    <p><?php echo $this->session->userdata('jenis_pengguna')?></p>
-                                </div>
-                            </div>
-                            <table class="table table-hover personal-task">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <i class=" icon-tasks"></i>
-                                        </td>
-                                        <td>New Task Issued</td>
-                                        <td> 02</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <i class="icon-warning-sign"></i>
-                                        </td>
-                                        <td>Task Pending</td>
-                                        <td> 14</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <i class="icon-envelope"></i>
-                                        </td>
-                                        <td>Inbox</td>
-                                        <td> 45</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <i class=" icon-bell-alt"></i>
-                                        </td>
-                                        <td>New Notification</td>
-                                        <td> 09</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                        <!--user info table end-->
-                    </div>
-                    <div class="col-lg-8">
-                        <!--work progress start-->
-                        <section class="panel">
-                            <div class="panel-body progress-panel">
-                                <div class="task-progress">
-                                    <h1>Work Progress</h1>
-                                    <p>Anjelina Joli</p>
-                                </div>
-                                <div class="task-option">
-                                    <select class="styled">
-                                        <option>Anjelina Joli</option>
-                                        <option>Tom Crouse</option>
-                                        <option>Jhon Due</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <table class="table table-hover personal-task">
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            Target Sell
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-important">75%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress1"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>
-                                            Product Delivery
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-success">43%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress2"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>
-                                            Payment Collection
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-info">67%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress3"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>
-                                            Work Progress
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-warning">30%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress4"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>
-                                            Delivery Pending
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-primary">15%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress5"></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                        <!--work progress end-->
-                    </div>
-                </div>
-               <div class="container-fluid">
-					<div class="row">
-						<?php echo $map['html']; ?>
+					</div>
+				</form> -->
+			</div>
+		</div>
+	</nav>
+	<!--<div class="navbar navbar-default" id="subnav"> 
+		<div class="col-md-12">
+			<div class="navbar-header">
+				<a style="margin-left:15px; margin-top: 8px" class="navbar-btn btn btn-default btn-primary" href="<?php echo base_url(); ?>"><i class="fa fa-home"></i></a>
+				<a href="#" class="navbar-btn btn btn-default btn-primary dropdown-toggle" data-toggle="dropdown">
+					<i class="fa fa-bars"></i>
+					E-Katalog
+					<small>
+						<i class="glyphicon glyphicon-chevron-down"></i>
+					</small>
+				</a>
+				<a href="http://play.google.com/" target="_blank" class="hidden-xs">
+					<img src="<?php echo base_url(); ?>assets/home/playstore.png" alt="Unduh Aplikasi di Play Store" style="height: 38px;">
+				</a>
+				<a href="http://play.google.com/" target="_blank" class="hidden-sm hidden-md hidden-lg hidden-xl">
+					<img src="<?php echo base_url(); ?>assets/home/playstore_small.png" alt="Unduh Aplikasi di Play Store" style="height: 38px;">
+				</a>
+				<ul class="nav dropdown-menu">
+					<li><a href="http://puskim.pu.go.id/Aplikasi/ekatalog/public/page/1">Profil Puslitbang</a></li>
+					<li><a href="http://puskim.pu.go.id/Aplikasi/ekatalog/public/contact">Hubungi Kami</a></li>					
+				</ul>
+				
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse2">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" class="navbar-btn btn btn-default btn-primary ">
+					<i class="fa fa-bars"></i>
+						TENTANG
+					<small>
+						<i class="glyphicon glyphicon-chevron-down"></i>
+					</small>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+</div>-->
+<div class="container" id="main">
+	<div class="container" id="main">
+		<!-- will be used to show any messages -->
+        <div style="display: block;" class="row row-item">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+                <a href="<?php echo base_url() ?>admin/user_managements">
+					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/user_managements">
+						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/pembangunan.png" class="img-responsive"></div>
+						</a><div class="panel-body"><a href="<?php echo base_url() ?>admin/user_managements">
+							<h3 class="item-title">
+								DATA PEMBANGUNAN
+							</h3>
+							</a><div class="btn-group" role="group" aria-label="aksi"><a href="<?php echo base_url() ?>admin/user_managements">
+							</a><a href="<?php echo base_url() ?>admin/user_managements" class="btn btn-primary"><i class="fa fa-eye" style="color: white;"></i> Lihat</a>
+						</div>
 					</div>
 				</div>
-            </section>
-        </section>
-        <!--main content end-->
-        <?php $this->load->view('admin/templates/footer'); ?>
+                
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+                <a href="<?php echo base_url() ?>admin/minimarket_managements/index">
+					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/minimarket_managements/index">
+						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/ekonomi.png" class="img-responsive"></div>
+						</a><div class="panel-body"><a href="<?php echo base_url() ?>admin/minimarket_managements/index">
+							<h3 class="item-title">
+								EKONOMI
+							</h3>
+							</a><div class="btn-group" role="group" aria-label="aksi"><a href="<?php echo base_url() ?>admin/minimarket_managements/index">
+							</a><a href="<?php echo base_url() ?>admin/minimarket_managements/index" class="btn btn-primary"><i class="fa fa-eye" style="color: white;"></i> Lihat</a>
+						</div>
+					</div>
+				</div>
+                
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+                <a href="<?php echo base_url(); ?>admin/dashboards">
+					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url(); ?>admin/dashboards">
+						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/statistik.png" class="img-responsive"></div>
+						</a><div class="panel-body"><a href="<?php echo base_url(); ?>admin/dashboards">
+							<h3 class="item-title">
+								STATISTIK / GRAFIK
+							</h3>
+							</a><div class="btn-group" role="group" aria-label="aksi"><a href="<?php echo base_url(); ?>admin/dashboards">
+							</a><a href="<?php echo base_url(); ?>admin/dashboards" class="btn btn-primary"><i class="fa fa-eye" style="color: white;"></i> Lihat</a>
+						</div>
+					</div>
+				</div>
+                
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+                <a href="<?php echo base_url() ?>admin/laporan_managements/index/1">
+					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/laporan_managements/index/1">
+						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/report.png" class="img-responsive"></div>
+						</a><div class="panel-body"><a href="<?php echo base_url() ?>admin/laporan_managements/index/1">
+							<h3 class="item-title">
+								LAPORAN
+							</h3>
+							</a><div class="btn-group" role="group" aria-label="aksi"><a href="<?php echo base_url() ?>admin/laporan_managements/index/1">
+							</a><a href="<?php echo base_url() ?>admin/laporan_managements/index/1" class="btn btn-primary"><i class="fa fa-eye" style="color: white;"></i> Lihat</a>
+						</div>
+					</div>
+				</div>
+                
+			</div>
+		</div>
 		
+		<div class="row text-center">
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+<footer id="footer" class="midnight-blue">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
+					Proyek Perubahan Diklatpim V - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
+				<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
+			</div>                
+		</div>
+	</div>
+</footer><!--/#footer-->
+
+
+<!--login modal-->
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="text-center">Masuk</h2>
+			</div>
+            <div class="modal-body">
+                <form method="POST" action="http://puskim.pu.go.id/Aplikasi/ekatalog/public/login" accept-charset="UTF-8" class="form col-md-12 center-block"><input name="_token" value="hymiy96oFAyoCr7MKUKk9uzI7MfG4xUl49g4b7jO" type="hidden">
+                    <div class="form-group">
+                        <input name="name" class="form-control input-lg" placeholder="Nama Pengguna" type="text">
+					</div>
+                    <div class="form-group">
+                        <input name="password" class="form-control input-lg" placeholder="Kata Sandi" type="password">
+					</div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Masuk</button>
+					</div>
+				</form>
+			</div>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Batalkan</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--register modal-->
+<div id="registerModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="text-center">Daftar</h2>
+			</div>
+            <div class="modal-body">
+                <form method="POST" action="http://puskim.pu.go.id/Aplikasi/ekatalog/public/register" accept-charset="UTF-8" class="form col-md-12 center-block"><input name="_token" value="hymiy96oFAyoCr7MKUKk9uzI7MfG4xUl49g4b7jO" type="hidden">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <input name="full_name" id="full_name" class="form-control input-lg" placeholder="Nama Lengkap" tabindex="2" type="text">
+							</div>
+						</div>
+					</div>
+                    <div class="form-group">
+                        <input name="name" id="name" class="form-control input-lg" placeholder="Nama Pengguna" tabindex="3" type="text">
+					</div>
+                    <div class="form-group">
+                        <input name="email" id="email" class="form-control input-lg" placeholder="Alamat Surel" tabindex="4" type="email">
+					</div>
+                    <div class="form-group">
+                        <input name="phone" id="phone" class="form-control input-lg" placeholder="Nomor Telepon" tabindex="4" type="text">
+					</div>
+                    <div class="form-group">
+                        <label for="file">Foto Profil</label>
+                        <input name="file" id="file" class="form-control input-lg" placeholder="Unggah Foto" tabindex="4" type="file">
+					</div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input name="password" id="password" class="form-control input-lg" placeholder="Sandi" tabindex="5" type="password">
+							</div>
+						</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Ulang Sandi" tabindex="6" type="password">
+							</div>
+						</div>
+					</div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12"><input value="Daftar" class="btn btn-primary btn-block btn-lg" tabindex="7" type="submit"></div>
+					</div>
+				</form>
+			</div>
+            <div class="modal-footer">
+                <div class="col-md-12"><br>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Batalkan</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--about modal-->
+<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="text-center">About</h2>
+			</div>
+            <div class="modal-body">
+                <div class="col-md-12 text-center">
+                    <a href="http://www.bootply.com/DwnjTNuvVt">This Bootstrap Template</a><br>was made with <i class="glyphicon glyphicon-heart"></i> by <a href="http://bootply.com/templates">Bootply</a>
+                    <br><br>
+                    <a href="https://github.com/iatek/bootstrap-google-plus">GitHub Fork</a>
+				</div>
+			</div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">OK</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="<?php echo base_url(); ?>assets/home/jquery.js"></script>
+<script src="<?php echo base_url(); ?>assets/home/bootstrap.js"></script>
 <script>
-	//jumlah user
-	function countUp(count)
-{
-    var div_by = 100,
-        speed = Math.round(count / div_by),
-        $display = $('.count'),
-        run_count = 1,
-        int_speed = 24;
-
-    var int = setInterval(function() {
-        if(run_count < div_by){
-            $display.text(speed * run_count);
-            run_count++;
-        } else if(parseInt($display.text()) < count) {
-            var curr_count = parseInt($display.text()) + 1;
-            $display.text(curr_count);
-        } else {
-            clearInterval(int);
-        }
-    }, int_speed);
-}
-
-countUp(<? echo $jumPengguna ?>);
-
-
-function countUp2(count)
-{
-    var div_by = 100,
-        speed = Math.round(count / div_by),
-        $display = $('.count2'),
-        run_count = 1,
-        int_speed = 24;
-
-    var int = setInterval(function() {
-        if(run_count < div_by){
-            $display.text(speed * run_count);
-            run_count++;
-        } else if(parseInt($display.text()) < count) {
-            var curr_count = parseInt($display.text()) + 1;
-            $display.text(curr_count);
-        } else {
-            clearInterval(int);
-        }
-    }, int_speed);
-}
-
-countUp2(<? echo $jumlahData ?>);
+    /* Preloader */
+    //paste this code under head tag or in a seperate js file.
+    // Wait for window load
+    $(window).load(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");
+        $('.row-item').fadeIn();
+	});
+	
+    function calcHeight()
+    {
+        //find the height of the internal page
+        var the_height=
+		document.getElementById('the_iframe').contentWindow.
+		document.body.scrollHeight;
 		
+        //change the height of the iframe
+        document.getElementById('the_iframe').height=
+		the_height;
+	}
+	
+	
+    /* jQuery toggle layout */
+    $('#btnToggle').click(function(){
+        if ($(this).hasClass('on')) {
+            $('#main .col-md-6').addClass('col-md-4').removeClass('col-md-6');
+            $(this).removeClass('on');
+		}
+        else {
+            $('#main .col-md-4').addClass('col-md-6').removeClass('col-md-4');
+            $(this).addClass('on');
+		}
+	});
 </script>
+<!---
+	<script src="http://puskim.pu.go.id/Aplikasi/ekatalog/public/bower_resources/masonry/dist/masonry.pkgd.min.js"></script>
+	<script src="http://puskim.pu.go.id/Aplikasi/ekatalog/public/bower_resources/imagesloaded/imagesloaded.js"></script>
+	<script>
+	imagesLoaded( document.querySelector('.row-item'), function( instance ) {
+    var $container = $('.row-item');
+	// initialize
+	$container.masonry({
+	itemSelector: '.panel-item'
+	});
+    $('.panel-item').fadeIn();
+	});
+	</script>
+--->
+
+
+</body></html>

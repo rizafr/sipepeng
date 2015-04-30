@@ -8,8 +8,8 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a href="<?php echo base_url(); ?>admin/homes" <?
-                    $page = 'homes';
+                    <a href="<?php echo base_url(); ?>admin/dashboards" <?
+                    $page = 'dashboards';
                     $url = $this->uri->segment(2);
                     echo ($page == $url ? " class='active' " : '')
                     ?>>
@@ -134,8 +134,8 @@ if ($this->session->userdata('id_jenis_pengguna') == 2) {
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a href="<?php echo base_url(); ?>admin/homes" <?
-                $page = 'homes';
+                    <a href="<?php echo base_url(); ?>admin/dashboards" <?
+                $page = 'dashboards';
                 $url = $this->uri->segment(2);
                 echo ($page == $url ? " class='active' " : '')
                 ?>>
@@ -229,8 +229,8 @@ if ($this->session->userdata('id_jenis_pengguna') == 2) {
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a href="<?php echo base_url(); ?>admin/homes" <?
-                       $page = 'homes';
+                    <a href="<?php echo base_url(); ?>admin/dashboards" <?
+                       $page = 'dashboards';
                        $url = $this->uri->segment(2);
                        echo ($page == $url ? " class='active' " : '')
                        ?>>
