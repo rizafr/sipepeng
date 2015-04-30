@@ -263,7 +263,7 @@
 			redirect('admin/sumur_dangkal_managements/index/4');
 		}
 		function update_status_tidak_dilaksanakan(){
-			$id_sumur_dangkal=$this->uri->segment(4);
+			$id_sumur_dangkal=$this->input->post('id');
 			$hasil = $this->sumur_dangkal_model->update_status_tidak_dilaksanakan($id_sumur_dangkal);
 			//message berhasil loncat
 			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data  permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');

@@ -180,6 +180,7 @@
 		public function update_status_tidak_dilaksanakan($id_sumur_dangkal) {
 			$data = array(
 				'status_tidak_dilaksanakan' => "1"
+				,'ket' => $this->input->post('ket')
 			);
 
 			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);

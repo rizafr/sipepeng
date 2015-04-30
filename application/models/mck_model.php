@@ -178,6 +178,7 @@
 		public function update_status_tidak_dilaksanakan($id_mck) {
 			$data = array(
 				'status_tidak_dilaksanakan' => "1"
+				,'ket' => $this->input->post('ket')
 			);
 
 			$this->db->where('id_mck', $id_mck);

@@ -176,6 +176,7 @@
 		public function update_status_tidak_dilaksanakan($id_septictank) {
 			$data = array(
 				'status_tidak_dilaksanakan' => "1"
+				,'ket' => $this->input->post('ket')
 			);
 
 			$this->db->where('id_septictank', $id_septictank);

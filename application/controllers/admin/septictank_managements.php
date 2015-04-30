@@ -268,7 +268,7 @@
 			redirect('admin/septictank_managements/index/4');
 		}
 		function update_status_tidak_dilaksanakan(){
-			$id_septictank=$this->uri->segment(4);
+			$id_septictank=$this->input->post('id');
 			$hasil = $this->septictank_model->update_status_tidak_dilaksanakan($id_septictank);
 			//message berhasil loncat
 			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data  permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');

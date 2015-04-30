@@ -24,6 +24,8 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/admin/assets/bootstrap-daterangepicker/daterangepicker-bs3.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/admin/assets/bootstrap-datetimepicker/css/datetimepicker.css" />
 		
+		 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/admin/assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+		
 		 <link href="<?php echo base_url(); ?>assets/admin/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/admin/css/gallery.css" />
 

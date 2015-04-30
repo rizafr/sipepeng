@@ -20,11 +20,11 @@
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 20px;display: inline-block;vertical-align: top;" alt="">
 					<strong>SIPEPENG</strong> ·Sistem Informasi Pembangunan Daerah
 				</a>
-				<a href="http://puskim.pu.go.id/Aplikasi/ekatalog/public" class="navbar-brand visible-sm">
+				<a href="<?php echo base_url(); ?>admin/homes" class="navbar-brand visible-sm">
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 20px;display: inline-block;vertical-align: top;" alt="">
 					Sistem Informasi Pembangunan Daerah
 				</a>
-				<a href="http://puskim.pu.go.id/Aplikasi/ekatalog/public" class="navbar-brand visible-xs">
+				<a href="<?php echo base_url(); ?>admin/homes" class="navbar-brand visible-xs">
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
 					<small><strong>SIPEPENG</strong></small>
 				</a>
@@ -34,14 +34,14 @@
 				
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse1">
-				<!-- <form class="navbar-form pull-right">
+				 <form class="navbar-form pull-right">
 					<div class="input-group" style="max-width:470px;">
                     <input type="text" class="form-control input-md" placeholder="Pencarian" name="srch-term" id="srch-term">
                     <div class="input-group-btn">
 					<button class="btn btn-default btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
 					</div>
-				</form> -->
+				</form> 
 			</div>
 		</div>
 	</nav>
@@ -85,6 +85,22 @@
 	<div class="container" id="main">
 		<!-- will be used to show any messages -->
         <div style="display: block;" class="row row-item">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+                <a href="<?php echo base_url() ?>admin/user_managements">
+					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/user_managements">
+						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/pembangunan.png" class="img-responsive"></div>
+						</a><div class="panel-body"><a href="<?php echo base_url() ?>admin/user_managements">
+							<h3 class="item-title">
+								DATA PEMBANGUNAN
+							</h3>
+							</a><div class="btn-group" role="group" aria-label="aksi"><a href="<?php echo base_url() ?>admin/user_managements">
+							</a><a href="<?php echo base_url() ?>admin/user_managements" class="btn btn-primary"><i class="fa fa-eye" style="color: white;"></i> Lihat</a>
+						</div>
+					</div>
+				</div>
+                
+			</div>
+			
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
                 <a href="<?php echo base_url() ?>admin/user_managements">
 					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/user_managements">

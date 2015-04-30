@@ -177,9 +177,10 @@
 		
 		# update data verifikasi menjadi tidak dilaksanakan   
 		public function update_status_tidak_dilaksanakan($id_sumur_resapan) {
-			$data = array(
-				'status_tidak_dilaksanakan' => "1"
-			);
+			 $data = array(
+            'status_tidak_dilaksanakan' => "1"
+            ,'ket' => $this->input->post('ket')
+        );
 
 			$this->db->where('id_sumur_resapan', $id_sumur_resapan);
 			return $this->db->update('sumur_resapan', $data);
