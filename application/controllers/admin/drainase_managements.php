@@ -363,8 +363,9 @@ class Drainase_managements extends CI_Controller {
         redirect('admin/drainase_managements/index/4');
     }
 
-    function update_status_tidak_dilaksanakan() {
-        $id_drainase = $this->uri->segment(4);
+	function update_status_tidak_dilaksanakan() {
+	
+        $id_drainase = $this->input->post('id');
         $hasil = $this->drainase_model->update_status_tidak_dilaksanakan($id_drainase);
         //message berhasil loncat
         $this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Dilaksanakan </div>');

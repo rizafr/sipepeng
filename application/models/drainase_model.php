@@ -189,6 +189,7 @@ class Drainase_model extends CI_Model {
     public function update_status_tidak_dilaksanakan($id_drainase) {
         $data = array(
             'status_tidak_dilaksanakan' => "1"
+            ,'ket' => $this->input->post('ket')
         );
 
         $this->db->where('id_drainase', $id_drainase);

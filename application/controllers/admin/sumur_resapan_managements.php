@@ -258,7 +258,7 @@
 			redirect('admin/sumur_resapan_managements/index/3');
 		}
 		function update_status_sudah_dilaksanakan(){
-			$id_sumur_resapan=$this->uri->segment(4);
+			$id_sumur_resapan=$this->input->post('id');
 			$hasil = $this->sumur_resapan_model->update_status_data_awal($id_sumur_resapan);
 			redirect('admin/sumur_resapan_managements/index/4');
 		}

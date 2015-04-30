@@ -179,7 +179,8 @@
 		# update data verifikasi menjadi sedang dilaksanakan   
 		public function update_status_sedang_dilaksanakan($id_jalan) {	
 			$data = array(
-			'status_sudah_dilaksanakan' => "1"			
+				'status_tidak_dilaksanakan' => "1"
+				,'ket' => $this->input->post('ket')
 			);
 			
 			$this->db->where('id_jalan', $id_jalan);
