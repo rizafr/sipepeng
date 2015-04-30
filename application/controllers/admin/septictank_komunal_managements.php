@@ -20,10 +20,23 @@
 		public function index() {
 			//check sudah login atau belum
 			if($this->session->userdata('is_login')){
-				//menampilkan menu
-				$data['menu_list'] = $this->menu_model->select_all()->result();
+				
 				$data['title'] = "Septictank Komunal | SIPEPENG";
 				$data['username'] = $this->session->userdata('username');	
+				
+				/////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+				#menampilkan menu
+				#menampilkan menu sesuai hak ases				
+				$akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+				$data['menu_list'] = $akses;
+				#end menampilkan menu sesuai hak ases	
+				#jumlah status menu
+				#drainase
+				$data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+				$data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+				$data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+				$data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 				
 				//mengambil uri status
 				$status=$this->uri->segment(4);
@@ -64,12 +77,24 @@
 		public function gotoForm() {
 			//check sudah login atau belum
 			if($this->session->userdata('is_login')){
-				//menampilkan menu..wajib ada
-				$data['menu_list'] = $this->menu_model->select_all()->result();
-				// end menampilkan menu..wajib ada
+				
 				$data['title'] = "Data Awal Septictank Komunal | SIPEPENG";
 				$data['judulForm'] = "Data Awal Septictank Komunal";
 				$data['username'] = $this->session->userdata('username');
+				
+				/////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+				#menampilkan menu
+				#menampilkan menu sesuai hak ases				
+				$akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+				$data['menu_list'] = $akses;
+				#end menampilkan menu sesuai hak ases	
+				#jumlah status menu
+				#drainase
+				$data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+				$data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+				$data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+				$data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+				/////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 				
 				//mengambil uri aksi
 				$data['aksi']=$this->uri->segment(4);
@@ -105,9 +130,19 @@
 		}
 		
 		public function process() {
-			//menampilkan menu..wajib ada
-			$data['menu_list'] = $this->menu_model->select_all()->result();
-			// end menampilkan menu..wajib ada
+			/////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+			/////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 			
 			$aksi = $this->input->post('aksi');		
 			$data['aksi']=$aksi;
@@ -199,9 +234,20 @@
 		
 		//fungsi menampilkan berdasarkan id yg dipilih
 		public function view($id_septictank_komunal){
-			//menampilkan menu..wajib ada
-			$data['menu_list'] = $this->menu_model->select_all()->result();
-			// end menampilkan menu..wajib ada
+			/////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+			
 			$data['id_septictank_komunal'] = $id_septictank_komunal;
 			$data['title'] = "View Data Septictank Komunal | SIPEPENG";
 			$data['judulForm'] = "Detail Septictank Komunal";
@@ -267,7 +313,7 @@
 			$id_septictank_komunal=$this->input->post('id');
 			$hasil = $this->septictank_komunal_model->update_status_tidak_dilaksanakan($id_septictank_komunal);
 			//message berhasil loncat
-			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil permintaan ditolak. <br /> Klik menu Data Tidak Terverifikasi </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil permintaan ditolak. <br /> Klik menu Data Tidak Dilaksanakan </div>');
 
 			redirect('admin/septictank_komunal_managements/index/2');		
 		}

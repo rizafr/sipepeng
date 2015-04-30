@@ -14,7 +14,7 @@
 		
 		//select 
 		public function select_all_data_awal() {
-			$sql = "select * from sumur_resapan where status_verifikasi='0' ";
+			$sql = "select * from sumur_resapan where status_verifikasi='0' and status_tidak_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
@@ -26,19 +26,19 @@
 		
 		//select
 		public function select_all_sedang_dilaksanakan() {
-			$sql = "select * from sumur_resapan where status_sudah_dilaksanakan='0'";
+			$sql = "select * from sumur_resapan where status_sudah_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_sudah_dilaksanakan() {
-			$sql = "select * from sumur_resapan where status_sudah_dilaksanakan='1'";
+			$sql = "select * from sumur_resapan where status_sudah_dilaksanakan='1' and status_tidak_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_tidak_dilaksanakan() {
-			$sql = "select * from sumur_resapan where status_tidak_dilaksanakan='1'";
+			$sql = "select * from sumur_resapan where status_tidak_dilaksanakan='1' ";
 			return $this->db->query($sql);
 		}
 		

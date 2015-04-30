@@ -22,32 +22,24 @@ class Drainase_managements extends CI_Controller {
     public function index() {
         //check sudah login atau belum
         if ($this->session->userdata('is_login')) {
-            //menampilkan menu
-            #menampilkan menu sesuai hak ases
-            #admin
-            if ($this->session->userdata('id_jenis_pengguna') == 1) {
-                $data['menu_list'] = $this->menu_model->select_all()->result();
-            }
-            #dkp
-            if ($this->session->userdata('id_jenis_pengguna') == 2) {
-                $data['menu_list'] = $this->menu_model->select_dkp()->result();
-            }
-            #pu
-            if ($this->session->userdata('id_jenis_pengguna') == 3) {
-                $data['menu_list'] = $this->menu_model->select_pu()->result();
-            }
-            
+
             $data['title'] = "Drainase | SIPEPENG";
             $data['username'] = $this->session->userdata('username');
 
+            /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
             #jumlah status menu
             #drainase
             $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
             $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
             $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
             $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
-
-
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+			
             //mengambil uri status
             $status = $this->uri->segment(4);
 
@@ -89,41 +81,25 @@ class Drainase_managements extends CI_Controller {
     public function gotoForm() {
         //check sudah login atau belum
         if ($this->session->userdata('is_login')) {
-            
+
             $data['title'] = "Data Awal Drainase | SIPEPENG";
             $data['judulForm'] = "Data Awal Drainase";
             $data['username'] = $this->session->userdata('username');
-            
-            //menampilkan menu..wajib ada
-            #menampilkan menu sesuai hak ases
-            #admin
-            if ($this->session->userdata('id_jenis_pengguna') == 1) {
-                $data['menu_list'] = $this->menu_model->select_all()->result();
-                 
-                #jumlah status menu
-                #drainase
-                $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
-                $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
-                $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
-                $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
-            }
-            #dkp
-            if ($this->session->userdata('id_jenis_pengguna') == 2) {
-                $data['menu_list'] = $this->menu_model->select_dkp()->result();
-                 #jumlah status menu
-                #drainase
-                $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
-                $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
-                $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
-                $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
-            }
-            #pu
-            if ($this->session->userdata('id_jenis_pengguna') == 3) {
-                $data['menu_list'] = $this->menu_model->select_pu()->result();
-            }
-            // end menampilkan menu..wajib ada
-          
 
+            /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
             //mengambil uri aksi
             $data['aksi'] = $this->uri->segment(4);
 
@@ -153,7 +129,7 @@ class Drainase_managements extends CI_Controller {
             //fungsi untuk membuat peta 
             $data['map'] = $this->googlemaps->create_map();
             #end google map
-            # end ratih kopi paste dari sini
+# end ratih kopi paste dari sini
 
             if ($data['aksi'] == 'edit') {
                 //mengambil uri aksi
@@ -168,21 +144,21 @@ class Drainase_managements extends CI_Controller {
     }
 
     public function process() {
-        //menampilkan menu..wajib ada
-         #menampilkan menu sesuai hak ases
-            #admin
-            if ($this->session->userdata('id_jenis_pengguna') == 1) {
-                $data['menu_list'] = $this->menu_model->select_all()->result();
-            }
-            #dkp
-            if ($this->session->userdata('id_jenis_pengguna') == 2) {
-                $data['menu_list'] = $this->menu_model->select_dkp()->result();
-            }
-            #pu
-            if ($this->session->userdata('id_jenis_pengguna') == 3) {
-                $data['menu_list'] = $this->menu_model->select_pu()->result();
-            }
-        // end menampilkan menu..wajib ada
+
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+        #menampilkan menu
+        #menampilkan menu sesuai hak ases				
+        $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+        $data['menu_list'] = $akses;
+        #end menampilkan menu sesuai hak ases	
+        #jumlah status menu
+        #drainase
+        $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+        $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+        $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+        $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+        /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+
 
         $aksi = $this->input->post('aksi');
         $data['aksi'] = $aksi;
@@ -197,7 +173,7 @@ class Drainase_managements extends CI_Controller {
         $this->form_validation->set_rules('ketersediaan_lahan', 'Ketersediaan Lahan', 'trim|required');
 
 
-        //$this->form_validation->set_error_delimiters('', '<br/>');
+//$this->form_validation->set_error_delimiters('', '<br/>');
         $this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
 
         if ($this->form_validation->run() == TRUE) {
@@ -273,28 +249,31 @@ class Drainase_managements extends CI_Controller {
         }
     }
 
-    //fungsi menampilkan berdasarkan id yg dipilih
+//fungsi menampilkan berdasarkan id yg dipilih
     public function view($id_drainase) {
+
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
         //menampilkan menu..wajib ada
-        #menampilkan menu sesuai hak ases
-            #admin
-            if ($this->session->userdata('id_jenis_pengguna') == 1) {
-                $data['menu_list'] = $this->menu_model->select_all()->result();
-            }
-            #dkp
-            if ($this->session->userdata('id_jenis_pengguna') == 2) {
-                $data['menu_list'] = $this->menu_model->select_dkp()->result();
-            }
-            #pu
-            if ($this->session->userdata('id_jenis_pengguna') == 3) {
-                $data['menu_list'] = $this->menu_model->select_pu()->result();
-            }
-        // end menampilkan menu..wajib ada
+        #menampilkan menu
+        #menampilkan menu sesuai hak ases				
+        $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+        $data['menu_list'] = $akses;
+        #end menampilkan menu sesuai hak ases	
+        #jumlah status menu
+        #drainase
+        $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+        $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+        $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+        $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+
+        /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+
+
         $data['id_drainase'] = $id_drainase;
         $data['title'] = "View Data Drainase | SIPEPENG";
         $data['judulForm'] = "Detail Drainase";
         $data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
-        // var_dump($data['drainase_list']['lat_awal']);
+
         $data['username'] = $this->session->userdata('username');
 
         # menampilkan google map ke dalam view berdasarkan koordinat didalam database
@@ -324,8 +303,8 @@ class Drainase_managements extends CI_Controller {
         #buat peta google map
         $data['map'] = $this->googlemaps->create_map();
 
-        # end menampilkan google map ke dalam view berdasarkan koordinat didalam database
-        # kopi sampe sini
+# end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+# kopi sampe sini
 
         $this->load->view('admin/drainase/drainase_view', $data);
     }
@@ -363,8 +342,8 @@ class Drainase_managements extends CI_Controller {
         redirect('admin/drainase_managements/index/4');
     }
 
-	function update_status_tidak_dilaksanakan() {
-	
+    function update_status_tidak_dilaksanakan() {
+
         $id_drainase = $this->input->post('id');
         $hasil = $this->drainase_model->update_status_tidak_dilaksanakan($id_drainase);
         //message berhasil loncat
@@ -373,7 +352,7 @@ class Drainase_managements extends CI_Controller {
         redirect('admin/drainase_managements/index/2');
     }
 
-# Upload Foto
+    # Upload Foto
 
     function upload_foto($ket, $tahun_usulan, $rw, $alamat) {
         $this->load->library('upload');
@@ -402,7 +381,7 @@ class Drainase_managements extends CI_Controller {
         return $image_foto;
     }
 
-# Upload Dokumen
+    # Upload Dokumen
 
     function upload_dokumen($ket, $tahun_usulan, $rw, $alamat) {
         $this->load->library('upload');

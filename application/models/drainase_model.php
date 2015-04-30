@@ -33,13 +33,13 @@ class Drainase_model extends CI_Model {
 
     //select
     public function select_all_sedang_dilaksanakan() {
-        $sql = "select * from drainase where status_sudah_dilaksanakan='0'";
+        $sql = "select * from drainase where status_sudah_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sudah_dilaksanakan() {
-        $sql = "select * from drainase where status_sudah_dilaksanakan='1'";
+        $sql = "select * from drainase where status_sudah_dilaksanakan='1' and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 

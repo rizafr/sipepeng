@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','session','form_validation','image_lib','upload','pagination');
+$autoload['libraries'] = array('database','session','form_validation','image_lib','upload','pagination','access_lib','googlemaps');
 
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array('home_model');
 
 
 /* End of file autoload.php */

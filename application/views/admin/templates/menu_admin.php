@@ -61,7 +61,7 @@
                 <li class="sub-menu">
                     <a  href="<?php echo base_url() ?>admin/user_managements">
                         <i class="icon-tasks"></i>
-                        <span>Sedang Dilaksanakan</span>
+                        <span>Sedang / akan dilaksanakan</span>
                     </a>
                     <ul class="sub">
     <?php foreach ($menu_list as $row) { ?>
