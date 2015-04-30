@@ -37,12 +37,16 @@
                                                 <tr>
                                                     <th>No</th>
 													<th>Nama Pemilik</th>
+													<th>Alamat</th>
 													<th>Rt</th>
 													<th>Rw</th>
-													<th>Alamat</th>
 													<th>Kelurahan</th>
 													<th>No Telepon</th>
 													<th>SP Agen</th>
+													<th>Quantity</th>
+													<th>Latitude</th>
+													<th>Longitude</th>
+													<th>No. Ijin</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -57,12 +61,16 @@
                                                         <tr>
                                                             <td><?php echo $no++ ?></td>
                                                             <td><?php echo $row->nama_pemilik ?></td> 
+															<td><?php echo $row->alamat ?></td>
 															<td><?php echo $row->rt ?></td>
 															<td><?php echo $row->rw ?></td>
-															<td><?php echo $row->alamat ?></td>
 															<td><?php echo $row->kelurahan ?></td>									                                                            
 															<td><?php echo $row->telp ?></td>                                                             
 															<td><?php echo $row->sp_agen?></td>
+															<td><?php echo $row->qty?></td>
+															<td><?php echo $row->lat?></td>
+															<td><?php echo $row->long?></td>
+															<td><?php echo $row->no_ijin?></td>
 															<td>
                                                                 <a href="<?php echo base_url() . 'admin/gas_managements/gotoForm/edit/' . $row->id_gas ?>"><button class = "btn btn-primary" title="Edit"><i class = "icon-pencil"></i></button></a>
                                                                 <a href="<?php echo base_url() . 'admin/gas_managements/delete/' . $row->id_gas ?>" onclick="return confirm('Are you sure want to delete this?');"><button class = "btn btn-danger" title="Delete"><i class = "icon-trash "></i></button></a>
@@ -77,14 +85,17 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Rt</th>
-                                                    <th>Rw</th>
-                                                    <th>Alamat</th>
-                                                    <th>Sumber Data</th>
-                                                    <th>Tahun Usulan</th>
-                                                    <th>Keterangan</th>
-                                                    <th>status</th>
-                                                    <th>Aksi</th>
+													<th>Nama Pemilik</th>
+													<th>Alamat</th>
+													<th>Rt</th>
+													<th>Rw</th>
+													<th>Kelurahan</th>
+													<th>No Telepon</th>
+													<th>SP Agen</th>
+													<th>Quantity</th>
+													<th>Latitude</th>
+													<th>Longitude</th>
+													<th>No. Ijin</th>
                                                 </tr>
                                             </tfoot>
                                         </table>

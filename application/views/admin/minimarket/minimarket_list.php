@@ -44,6 +44,10 @@
 													<th>Nama Pemilik</th>
 													<th>Jumlah Pekerja</th>
 													<th>Jam Kerja</th>
+													<th>Status Tanah</th>
+													<th>Luas Bangunan</th>
+													<th>Luas Ruang Usaha</th>
+													<th>No. Ijin</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -65,6 +69,10 @@
 															<td><?php echo $row->nama_pemilik ?></td>
 															<td><?php echo $row->jml_pekerja ?></td>									                                                            
 															<td><?php echo $row->jam_kerja ?></td>		
+															<td><?php echo $row->status_tanah ?></td>		
+															<td><?php echo $row->luas_bangunan ?></td>		
+															<td><?php echo $row->luas_ruang_usaha ?></td>		
+															<td><?php echo $row->no_ijin ?></td>		
 															<td>
                                                                 <a href="<?php echo base_url() . 'admin/minimarket_managements/gotoForm/edit/' . $row->id_minimarket ?>"><button class = "btn btn-primary" title="Edit"><i class = "icon-pencil"></i></button></a>
                                                                 <a href="<?php echo base_url() . 'admin/minimarket_managements/delete/' . $row->id_minimarket ?>" onclick="return confirm('Are you sure want to delete this?');"><button class = "btn btn-danger" title="Delete"><i class = "icon-trash "></i></button></a>
@@ -87,6 +95,10 @@
 													<th>Nama Pemilik</th>
 													<th>Jumlah Pekerja</th>
 													<th>Jam Kerja</th>
+													<th>Status Tanah</th>
+													<th>Luas Bangunan</th>
+													<th>Luas Ruang Usaha</th>
+													<th>No. Ijin</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </tfoot>
