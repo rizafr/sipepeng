@@ -19,8 +19,6 @@ class Umkm_model extends CI_Model {
 		return $this->db->query($sql);
 	}
 	
-	
-	
 	public function search_all($keyword) {
 		$sql = "select * from ekonomi_umkm where nama_perusahaan like '%" . $keyword . "%'";
 		return $this->db->query($sql);
@@ -44,7 +42,6 @@ class Umkm_model extends CI_Model {
 		, 'prov_tempat_lahir_pengusaha' => $data['prov_tempat_lahir_pengusaha']
 		, 'kota_tempat_lahir_pengusaha' => $data['kota_tempat_lahir_pengusaha']
 		, 'bentuk_badan_hukum' 		=> $data['bentuk_badan_hukum']
-		, 'tahun_mulai_operasi' 	=> $data['tahun_mulai_operasi']
 		, 'tahun_mulai_operasi' 	=> $data['tahun_mulai_operasi']
 		, 'gabung_paguyuban' 		=> $data['gabung_paguyuban']
 		, 'bermitra' 				=> $data['bermitra']
@@ -79,7 +76,6 @@ class Umkm_model extends CI_Model {
 		, 'kota_tempat_lahir_pengusaha' => $this->input->post('kota_tempat_lahir_pengusaha')
 		, 'bentuk_badan_hukum' 		=> $this->input->post('bentuk_badan_hukum')
 		, 'tahun_mulai_operasi' 	=> $this->input->post('tahun_mulai_operasi')
-		, 'tahun_mulai_operasi' 	=> $this->input->post('tahun_mulai_operasi')
 		, 'gabung_paguyuban' 		=> $this->input->post('gabung_paguyuban')
 		, 'bermitra' 				=> $this->input->post('bermitra')
 		, 'bentuk_kemitraan' 		=> $this->input->post('bentuk_kemitraan')
@@ -93,6 +89,16 @@ class Umkm_model extends CI_Model {
 		
 		$this->db->where('id_umkm', $id_umkm);
 		return $this->db->update('ekonomi_umkm', $data);
+	}
+	
+	public function getUmkmById($id_umkm) {
+		$this->db->select('*');
+		$this->db->where('id_umkm', $id_umkm);
+		$query = $this->db->get('ekonomi_umkm', 1);
+		
+		if ($query->num_rows() == 1) {
+			return $query->row_array();
+		}
 	}
 	
 	public function getekonomi_umkmById($id_umkm) {
