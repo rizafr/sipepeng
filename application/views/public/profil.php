@@ -115,102 +115,151 @@
                     </div>
 					<!--end Struktur Organisasi-->
 					
-					<!--Program-->
-					<div class="panel panel-default">
+					<!--Tugas Pokok, Fungsi dan Kewenangan-->
+					  <div class="panel panel-default">
 						<div class="panel-heading">
 						  <h3 class="panel-title">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseProgram">
-							  <b>Program dan Kegiatan</b>
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTupoksi">
+							  <b>Tugas Pokok, Fungsi dan Kewenangan</b>
 							  <i class="fa fa-angle-right pull-right"></i>
 							</a>
 						  </h3>
 						</div>
-						<div id="collapseProgram" class="panel-collapse collapse">
+						<div id="collapseTupoksi" class="panel-collapse collapse">
 						  <div class="panel-body">
-						  <h3>
-						  Prioritas dan program kegiatan disesuaikan dengan prioritas Pembangunan Daerah Kota Cimahi dan tingkat 
-						  permasalahan serta tuntutan masyarakat yang disampaikan pada Musyawarah Perencanaan Pembangunan (Musrenbang) di tingkat kelurahan. 
-						  Dengan demikian Kelurahan Leuwigajah pada Tahun 2015 menyusun urutan prioritas program dan kegiatan pembangunan berjumlah  11 (sebelas) program 
-						  dan 32 (tiga dua) kegiatan, seperti tercantum  berikut ini :
-						  <h4>Urusan Wajib</h4>
-						  <ol>
-							<li>PERENCANAAN PEMBANGUNAN
-								<ul> 
-								<li>Program Perencanaan Pembangunan Daerah</li>
-								<li>Kegiatan Pelaksanaan Musyawarah Pembangunan Desa</li>
+							<h3>
+							<ol>
+							<li><b>Tugas Pokok</b>
+								<p>Berdasarkan Peraturan Daerah Kota Cimahi Nomor 5 Tahun 2012 bahwa Kelurahan merupakan Perangkat Daerah yang  berkedudukan di wilayah kecamatan. 
+								Kelurahan dipimpin oleh Lurah yang berada di bawah Camat dan bertanggung jawab kepada Walikota melalui Camat. Lurah mempunyai tugas pokok menyelenggarakan urusan pemerintahan, 
+								pembangunan dan kemasyarakatan serta melaksanakan urusan pemerintahan yang dilimpahkan oleh Walikota.
+							</li>
+							
+							<li><b>Fungsi</b>
+								<p>Lurah sebagai pimpinan SOPD Kelurahan memiliki fungsi sebagai berikut:
+								<ul>
+									<li>Pelaksanaan kegiatan pemerintahan kelurahan</li>
+									<li>Pelaksanaan kegiatan ekonomi dan pembangunan</li>
+									<li>Pelaksanaan kegiatan pemberdayaan masyarakat dan kesejahteraan rakyat</li>
+									<li>Penyelenggaraan kentraman dan ketertiban umum</li>
+									<li>Pelaksanaan kegiatan ke-Tata Usahaan</li>
+									<li>Pelaksanaan tugas lain yang diberikan oleh atasan sesuai dengan tugas dan fungsinya</li>
 								</ul>
 							</li>
-							<li>PROGRAM PENINGKATAN SISTEM PENGAWASAN INTERNAL DAN PENGENDALIAN PELAKSANAAN KEBIJAKAN KDH
+							
+							
+							<li><b>Kewenangan/Urusan</b>
+								<p>Kewenangan Walikota yang dilimpahkan kepada lurah mencakup beberapa Bidang Kewenangan sesuai dengan Keputusan Walikota Cimahi Nomor 782/Kep 58 a-Pem/2004 Tanggal 19 April 2004 adalah sebagai berikut :
 								<ul>
-								<li>Kegiatan Pengendalian Manajemen Pelaksanaan Kebijakan KDH</li>
-								</ul>
-							</li>
-							<li>PEMBERDAYAAN MASYARAKAT DAN DESA
-								<ul>
-									<li>Program Peningkatan Keberdayaan Masyarakat</li>
+									<li><b>Bidang Pekerjaan Umum :</b>
 										<ul>
-											<li>Kegiatan Pemberdayaan Lembaga dan Organisasi Masyarakat Perdesaan</li>
-											<li>Peningkatan Pelaksanaan Pembangunan Daerah</li>
-										</ul>
-								</ul>
-							</li>
-							<li>KESATUAN BANGSA DAN POLITIK DALAM NEGERI
-								<ul>
-									<li>Program Pengembangan Wawasan Kebangsaan, dengan Kegiatan Pelaksanaan PHBA dan PHBN.</li>
-									<li>Program Peningkatan Keamanan dan Kenyamanan Lingkungan, dengan Kegiatan Pembinaan Linmas</li>
-								</ul>
-							</li>
-							<li>OTDA, PEMERINTAHAN UMUM, ADM. KEUANGAN DAERAH, PERANGKAT DAERAH, KEPEGAWAIAN, DAN PERSANDIAN
-								<ul>
-									<li>Program Pelayanan Administrasi Perkantoran, dengan kegiatan sebagai berikut :
-										<ul>
-											<li>Penyediaan Jasa Surat Menyurat</li>
-											<li>Penyediaan Jasa Komunikasi, Sumber Daya Air dan Listrik</li>
-											<li>Penyediaan Jasa Jaminan Barang Milik Daerah</li>
-											<li>Penyediaan Jasa Pemeliharaan dan Perizinan Kendaraan Dinas/Operasional.</li>
-											<li>Penyediaan Jasa Administrasi Keuangan</li>
-											<li>Penyediaan Jasa Kebersihan Kantor</li>
-											<li>Penyediaan Jasa Perbaikan Peralatan Kerja</li>
-											<li>Penyediaan Alat Tulis Kantor</li>
-											<li>Penyediaan Barang Cetakan dan Penggandaan</li>
-											<li>Penyediaan Komponen Instlasi Listrik/Penerangan Bangunan Kantor</li>
-											<li>Penyediaan Bahan Bacaan dan Peraturan Perundang-undangan</li>
-											<li>Penyediaan Makanan Minuman</li>
-											<li>Rapat-rapat Koordinasi dan Konsultasi ke Luar Daerah</li>
-											<li>Penyediaan Jasa Pengamanan Kantor dan Rumah Dinas</li>
+											<li>Pendataan titik jalan penerangan jalan umum dan penataan serta  pemasangan lampu-lampu di lingkungan;</li>
+											<li>Memfasilitasi pengawasan pembangunan sarana Pemerintah;</li>
+											<li>Melaporkan pemanfaatan bangunan;</li>
+											<li>Pendataan bangunan;</li>
+											<li>Pendataan pengendalian bantaran sungai;</li>
+											<li>Pembangunan dan pemeliharaan taman lingkungan dan jalur hijau lingkungan;</li>
+											<li>Pendataan, pengawasan dan pengendalan tanah milik Pemerintah Kota;</li>
 										</ul>
 									</li>
-									<li>Program Pelayanan Administrasi Perkantoran, dengan kegiatan sebagai berikut :
+									<li><b>Bidang Kesehatan :</b>
 										<ul>
-											<li>Pengadaan Meubeleur</li>
-											<li>Peningkatan Sarana dan Prasarana Aparatur</li>
-											<li>Pemeliharaan Rutin/Berkala Gedung Kantor</li>
-											<li>Pemeliharaan Rutin/Berkala Kendaraan Dinas/Operasional</li>										
+											<li>Pengawasan Pelayanan Kesehatan Masyarakat; </li>
+											<li>Pembinaan Kegiatan GSI (Gerakan Sayang Ibu), SKPG (Sistim Kewaspadaan Pangan dan Gizi), Komite Penanggulangan AIDS, Gerdunas (Gerakan Terpadu Nasional TBC), JPS-BK (Jaringan Pengaman Sosial Bidang Kesehatan);</li>
+											<li>Penanganan/Koordinator Kejadian (KLB) yang bersumber penyakit.</li>
 										</ul>
 									</li>
-									<li>Program Peningkatan Pengembangan Sistem Pelaporan Capaian Kinerja dan Keuangan, dengan kegiatan sebagai berikut :
+									<li><b>Bidang Penanaman Modal :</b>
 										<ul>
-											<li>Penyusunan Laporan Capaian Kinerja dan Ikhtisar Realisasi Kinerja SKPD</li>
-											<li>Penyusunan Laporan Keuangan Semesteran</li>
-											<li>Penyusunan Pelaporan Keuangan Akhir Tahun</li>
-											<li>Program Peningkatan Kapasitas Sumberdaya Aparatur, dengan  kegiatan Pembinaan Pegawai</li>											
+											<li>a.	Pendataan dan pengawasan Usaha Kecil dan Menengah (UKM) dalam rangka promosi produk unggulan/andalan.</li>
 										</ul>
 									</li>
-									<li>Program Peningkatan Disiplin Aparatur, dengan kegiatan sebagai berikut :
+									<li><b>Bidang Lingkungan Hidup :</b>
 										<ul>
-											<li>Pengadaan Pakaian Dinas beserta Perlengkapannya</li>
-											<li>Pengadaan Pakaian KORPRI</li>
-											<li>Pengadaan Pakaian Khusus Hari-hari Tertentu</li>
+											<li>Pengkoordinasian penyediaan sarana dan prasarana kebersihan lingkungan masyarakat;</li>
+											<li>Inventarisasi mengenai pohon-pohon lahan kritis, pelindung dan hias;</li>
+											<li>Penertiban pembuangan sampah di sungai dan saluran;</li>
+											<li>Pemasyarakatan pembuatan sumur resapan;</li>
+											<li>Pengawasan dan penyampaian informasi mengenai Taman dan PJU;</li>
+											<li>Melaksanakan Sosialisasi mengenai pengelolaan persampahan pada masyarakat;</li>
+											<li>Pengawasan limbah industri;</li>
+										</ul>
+									</li>
+									<li><b>Bidang Pertanahan :</b>
+										<ul>
+											<li>Pelaporan, pengawasan dan pengendalian tanah milik/asset pemerintah;</li>
+											<li>Monitoring dan pelaporan peralihan hak atas tanah dan bangunan maupun peruntukannya.</li>
+										</ul>
+									</li>
+									<li><b>Bidang Koperasi dan Usaha Kecil Menengah :</b>
+										<ul>
+											<li>Pelaksanaan Monitoring kegiatan Koperasi dan Pengusaha Kecil Menengah (PKM).</li>
+										</ul>
+									</li>
+									<li><b>Bidang Kependudukan dan Catatan Sipil :</b>
+										<ul>
+											<li>Pelayanan pembuatan KK (Kartu Keluarga), KTP (Kartu Tanda Penduduk) dan Kartu NIK, Surat Keterangan Lahir dan Surat Keterangan Susunan Ahli Waris;</li>
+											<li>Penandatangan dan penerbitan Surat Keterangan Kematian, Surat Keterangan Pindah antar Kelurahan dan Kecamatan;</li>
+											<li>Pelayanan penerbitan Surat Keterangan Perkawinan;</li>
+											<li>Pelayanan penerbitan Surat Bukti Pendaftaran Tamu;</li>
+											<li>Pendataan identitas penduduk musiman;</li>
+											<li>Pelayanan penerbitan Surat Keterangan jaminan bertempat tinggal;</li>
+											<li>Pelayanan penerbitan Surat Keterangan berpenghasilan bagi wiraswasta;</li>
+											<li>Pelayanan penerbitan Surat Pengantar pindah antar daerah kota/kabupaten;</li>
+											<li>Pelaksanaan penyuluhan kependudukan dan catatan sipil;</li>
+											<li>Monitoring dan evaluasi kependudukan.</li>
+										</ul>
+									</li>
+									<li><b>Bidang Pengembangan Otonomi Daerah :</b>
+										<ul>
+											<li>Pelaksanaan pembinaan penyelenggaraan Pemerintahan Kelurahan;</li>
+											<li>Pembinaan pendataan monografi Kelurahan;</li>
+											<li>Pembinaan pengisian buku administrasi Pemerintahan Kelurahan;</li>
+											<li>Fasilitas pemberhentian, pemilihan, pelantikan dan pengesahan Ketua RT/RW;</li>
+											<li>Membina kehidupan masyarakat dan penanganan masalah kemasyarakatan.</li>
+										</ul>
+									</li>
+									<li><b>Bidang Pendapatan Daerah :</b>
+										<ul>
+											<li>Monitoring pembayaran PBB (Pajak Bumi Bangunan) dari Masyarakat ke Bank;</li>
+											<li>Inventarisasi NJOP (NIlai Jual Objek Pajak).</li>
+										</ul>
+									</li>
+									<li><b>Bidang Hukum dan Perundang-undangan :</b>
+										<ul>
+											<li>Fasilitasi sosialisasi peraturan perundang-undangan dari produk hukum daerah;</li>
+											<li>Fasilitasi monitoring pelaksanaan dan penegakan peraturan daerah.</li>
+										</ul>
+									</li>
+									<li><b>Bidang Politik Dalam Negeri dan Administrasi Publik ::</b>
+										<ul>
+											<li>Membantu penyelenggaraan Pemilu;</li>
+											<li>Pembinaan ketentraman dan ketertiban sesuai dengan kebijaksanaan yang telah ditetapkan;</li>
+											<li>Penerbitan rekomendasi atas permohonan ijin keamanan;</li>
+											<li>Penerbitan rekomendasi SKKB (Surat Keterangan Kelakuan Baik).</li>
+										</ul>
+									</li>
+									<li><b>Bidang Sosial :</b>
+										<ul>
+											<li>Pelaksanaan usaha-usaha preventif dan respresif apabila terjadi atau diperkirakan terjadi bencana alam;</li>
+											<li>Penyaluran bantuan bagi korban bencana alam;</li>
+											<li>Pendataan Keluarga Pra KS;</li>
+										</ul>
+									</li>
+									<li><b>Bidang Pendidikan dan Kebudayaan  :</b>
+										<ul>
+											<li>Pendataan dan pembinaan pendidikan luar sekolah;</li>
+											<li>Pendataan dan pembinaan sarana dan prasarana pendidikan dasar, pemuda dan wanita.</li>
 										</ul>
 									</li>
 								</ul>
 							</li>
-						  </ol>
-						  </h3>
-						 </div>						 
+							</ol>
+							</h3>
+						  </div>
+						</div>
 					  </div>
-					</div>
-					<!--end Program-->
+					  <!--end Tugas Pokok, Fungsi dan Kewenangan-->
 					
 					</div>
                 </div><!--/.services-->
