@@ -22,8 +22,9 @@
                                 <?
 								   $judul = array("1" => "Perencanaan", "3" => "Pelaksanaan", "4" => "Hasil");
 								   $judul = $judul[$status];
+								   $rw = isset($rw) ? $rw : '';
                                 ?>
-                                <span class="hidden-sm wht-color">Laporan <? echo $judul; ?> </span>
+                                <span class="hidden-sm wht-color">Laporan <? echo $judul ." ".$kegiatan ." RW ".$rw; ?> </span>
                             </header>
                             <div class="panel-body">
                                 <div class="adv-table">
@@ -39,6 +40,8 @@
                                                     <th>Alamat</th>
                                                     <th>Rt</th>
                                                     <th>Rw</th>
+                                                    <th>Panjang</th>
+                                                    <th>Lebar</th>
                                                     <th>Ketersediaan Lahan</th>
                                                     <th>Sumber Data</th>
                                                     <th>Tahun Usulan</th>
@@ -59,6 +62,8 @@
                                                             <td><?php echo $row->alamat ?></td>
                                                             <td><?php echo $row->rt ?></td>
                                                             <td><?php echo $row->rw ?></td>
+                                                             <td><?php echo isset($row->panjang) ? $row->panjang : '-';  ?></td>
+															<td><?php echo isset($row->lebar) ? $row->lebar : '-';  ?></td>
                                                             <td><?php echo $row->ketersediaan_lahan ?></td>
                                                             <td><?php echo $row->sumber_data ?></td>
                                                             <td><?php echo $row->tahun_usulan ?></td>
@@ -75,6 +80,8 @@
                                                     <th>No</th>
                                                     <th>Rt</th>
                                                     <th>Rw</th>
+													 <th>Panjang</th>
+                                                    <th>Lebar</th>
                                                     <th>Alamat</th>
                                                     <th>Sumber Data</th>
                                                     <th>Tahun Usulan</th>
@@ -88,8 +95,10 @@
                                 </div>
 								<div class="form-group">
                                         <div class="col-lg-10">    
+											
 										<?php $rw = (empty($rw)) ? '0' : $rw; ?>
-                                            <a href="<?php echo base_url('admin/laporan_managements/cetak'); echo "/".$rw."/".$kegiatan."/".$status ?>" ><button type=submit class="btn btn-primary">Cetak</button></a>
+											<button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
+                                            <a href="<?php echo base_url('admin/laporan_managements/cetak'); echo "/".$rw."/".$kegiatan."/".$status ?>" ><button type=submit class="btn btn-warning"><i class=" icon-print"></i> Cetak</button></a>
 										  </div>
                                     </div><!--end control-group-->
                             </div>
