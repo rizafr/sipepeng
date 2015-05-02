@@ -18,11 +18,11 @@
 			<div class="navbar-header">
 				<a href="#" class="navbar-brand visible-lg visible-md">
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 20px;display: inline-block;vertical-align: top;" alt="">
-					<strong>SIPEPENG</strong> ·Sistem Informasi Pembangunan Daerah
+					<strong>SIPEPENG</strong> ·Sistem Informasi Pemetaan Pembangunan
 				</a>
 				<a href="<?php echo base_url(); ?>admin/homes" class="navbar-brand visible-sm">
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 20px;display: inline-block;vertical-align: top;" alt="">
-					Sistem Informasi Pembangunan Daerah
+					Sistem Informasi Pemetaan Pembangunan
 				</a>
 				<a href="<?php echo base_url(); ?>admin/homes" class="navbar-brand visible-xs">
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
@@ -85,7 +85,7 @@
 	<div class="container" id="main">
 		<!-- will be used to show any messages -->
         <div style="display: block;" class="row row-item">
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+			<div class="col-xs-4 col-sm-6 col-md-6 col-lg-3 panel-item">
                 <a href="<?php echo base_url() ?>admin/user_managements">
 					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/user_managements">
 						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/user.png" class="img-responsive"></div>
@@ -101,7 +101,7 @@
                 
 			</div>
 			
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+			<div class="col-xs-4 col-sm-6 col-md-6 col-lg-3 panel-item">
                 <a href="<?php echo base_url() ?>admin/user_managements">
 					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/user_managements">
 						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/pembangunan.png" class="img-responsive"></div>
@@ -116,7 +116,7 @@
 				</div>
                 
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+			<div class="col-xs-4 col-sm-6 col-md-6 col-lg-3 panel-item">
                 <a href="<?php echo base_url() ?>admin/minimarket_managements/index">
 					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/minimarket_managements/index">
 						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/ekonomi.png" class="img-responsive"></div>
@@ -131,7 +131,7 @@
 				</div>
                 
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+			<div class="col-xs-4 col-sm-6 col-md-6 col-lg-3 panel-item">
                 <a href="<?php echo base_url(); ?>admin/dashboards">
 					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url(); ?>admin/dashboards">
 						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/statistik.png" class="img-responsive"></div>
@@ -146,7 +146,7 @@
 				</div>
                 
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
+			<div class="col-xs-4 col-sm-6 col-md-6 col-lg-3 panel-item">
                 <a href="<?php echo base_url() ?>admin/laporan_managements/index/1">
 					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/laporan_managements/index/1">
 						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/report.png" class="img-responsive"></div>
