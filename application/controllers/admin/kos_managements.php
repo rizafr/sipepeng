@@ -3,14 +3,14 @@
 	if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 	
-	class Umkm_managements extends CI_Controller {
+	class Kos_managements extends CI_Controller {
 		
 		var $gallery_path;
 		var $gallery_path_url;
 		
 		function __construct() {
 			parent::__construct();
-			$this->load->model('umkm_model');
+			$this->load->model('kos_model');
 			$this->load->model('menu_model');
 			$this->load->model('home_model');
 			$this->load->helper(array('form', 'url', 'pemberitahuan'));
@@ -34,9 +34,9 @@
 					$data['menu_list'] = $this->menu_model->select_pu()->result();
 				}
 				
-				$data['title'] = "DAFTAR UMKM - SIPEPENG";
-				$data['data_list'] = $this->umkm_model->select_all()->result();
-				$this->load->view('admin/umkm/umkm_list', $data);
+				$data['title'] = "DAFTAR RUMAH KOS DAN TOKO JAMU  - SIPEPENG";
+				$data['data_list'] = $this->kos_model->select_all()->result();
+				$this->load->view('admin/kos/kos_list', $data);
 				} else {
 				redirect('public/homes');
 			}
@@ -48,13 +48,13 @@
 			
 			if ($data['aksi'] == 'edit') {
 				//mengambil uri aksi
-				$id_umkm = $this->uri->segment(5);
-				$data['umkm_list'] = $this->umkm_model->getUmkmById($id_umkm);
+				$id_kos = $this->uri->segment(5);
+				$data['kos_list'] = $this->kos_model->getKosById($id_kos);
 			}
 			
-			$data['judulForm'] = "Data Umkm";
-			$data['title'] = "DAFTAR UMKM - SIPEPENG";
-			$this->load->view('admin/umkm/umkm_olahdata', $data);		 
+			$data['judulForm'] = "Data Rumah Kos dan Toko Jamu";
+			$data['title'] = "DAFTAR RUMAH KOS DAN TOKO JAMU - SIPEPENG";
+			$this->load->view('admin/kos/kos_olahdata', $data);		 
 		}
 		
 		public function process() {
@@ -76,50 +76,32 @@
 			
 			$aksi = $this->input->post('aksi');
 			$data['aksi'] = $aksi;
-			$id_umkm = $this->input->post('id_umkm');
-			$this->form_validation->set_rules('rt', 'RT', 'trim|required|number');
+			$id_kos = $this->input->post('id_kos');
 			$this->form_validation->set_rules('rw', 'RW', 'trim|required|number');
 			
 			$this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
 			
 			if ($this->form_validation->run() == TRUE) {
-				$data['kota'] = $this->input->post('kota');
-				$data['kecamatan'] = $this->input->post('kecamatan');
-				$data['kelurahan'] = $this->input->post('kelurahan');
-				$data['nbs'] = $this->input->post('nbs');
+				$data['nama_pemilik'] = $this->input->post('nama_pemilik');
+				$data['alamat_pemilik'] = $this->input->post('alamat_pemilik');
 				$data['rw'] = $this->input->post('rw');
-				$data['rt'] = $this->input->post('rt');
-				$data['klasifikasi_perusahaan'] = $this->input->post('klasifikasi_perusahaan');
-				$data['nama_perusahaan'] = $this->input->post('nama_perusahaan');
-				$data['alamat_perusahaan'] = $this->input->post('alamat_perusahaan');
-				$data['kegiatan_utama'] = $this->input->post('kegiatan_utama');
-				$data['jenis_usaha'] = $this->input->post('jenis_usaha');
-				$data['jk_pengusaha'] = $this->input->post('jk_pengusaha');
-				$data['prov_tempat_lahir_pengusaha'] = $this->input->post('prov_tempat_lahir_pengusaha');
-				$data['kota_tempat_lahir_pengusaha'] = $this->input->post('kota_tempat_lahir_pengusaha');
-				$data['bentuk_badan_hukum'] = $this->input->post('bentuk_badan_hukum');
-				$data['tahun_mulai_operasi'] = $this->input->post('tahun_mulai_operasi');
-				$data['gabung_paguyuban'] = $this->input->post('gabung_paguyuban');
-				$data['bermitra'] = $this->input->post('bermitra');
-				$data['bentuk_kemitraan'] = $this->input->post('bentuk_kemitraan');
-				$data['pembinaan_pemerintah'] = $this->input->post('pembinaan_pemerintah');
-				$data['pemberi_pembinaan'] = $this->input->post('pemberi_pembinaan');
-				$data['eksport'] = $this->input->post('eksport');
-				$data['persentase_eksport'] = $this->input->post('persentase_eksport');
-				$data['import'] = $this->input->post('import');
-				$data['persentase_import'] = $this->input->post('persentase_import');
-								
+				$data['jml_kamar'] = $this->input->post('jml_kamar');
+				$data['jml_orang_perkamar'] = $this->input->post('jml_orang_perkamar');
+				$data['ijin_usaha'] = $this->input->post('ijin_usaha');
+				$data['harga_sewa'] = $this->input->post('harga_sewa');
+				$data['ket'] = $this->input->post('ket');
+				
 				//mengecek aksi
 				# jika tambah
 				if ($aksi == 'add') {
 					//proses menginput ke model
-					$hasil = $this->umkm_model->add($data);
+					$hasil = $this->kos_model->add($data);
 					$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil ditambah </div>');
 				}
 				# jika edit
 				if ($aksi == 'edit') {
 					//proses menginput ke model
-					$hasil = $this->umkm_model->update($id_umkm);
+					$hasil = $this->kos_model->update($id_kos);
 					if ($hasil == TRUE) {
 						$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
 						} else {
@@ -128,25 +110,25 @@
 				}
 				
 				$data['username'] = $this->session->userdata('username');
-				redirect('admin/umkm_managements/index', $data);
+				redirect('admin/kos_managements/index', $data);
 				} else {
-					$data['judulForm'] = "Data Umkm";
-					$data['title'] = "DAFTAR UMKM - SIPEPENG";
+					$data['judulForm'] = "Data Rumah Kos dan Toko Jamu";
+					$data['title'] = "DAFTAR RUMAH KOS DAN TOKO JAMU - SIPEPENG";
 					$data['username'] = $this->session->userdata('username');
-					$data['umkm_list'] = $this->umkm_model->getUmkmById($id_umkm);
-					$this->load->view('admin/umkm/umkm_olahdata', $data);
+					$data['kos_list'] = $this->kos_model->getKosById($id_kos);
+					$this->load->view('admin/kos/kos_olahdata', $data);
 			}
 		}
 		
 		function delete() {
-			$id_umkm = $this->uri->segment(4);
-			if (empty($id_umkm)) {
+			$id_kos = $this->uri->segment(4);
+			if (empty($id_kos)) {
 				$this->session->set_flashdata('message', 'Error Invalid');
-				redirect('admin/umkm_managements/index');
+				redirect('admin/kos_managements/index');
 			} else {
-				$this->umkm_model->delete($id_umkm);
+				$this->kos_model->delete($id_kos);
 				$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil Dihapus </div>');
-				redirect('admin/umkm_managements/index');
+				redirect('admin/kos_managements/index');
 			}
     }
 	}

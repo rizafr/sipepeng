@@ -32,9 +32,34 @@ class Laporan_managements extends CI_Controller {
 		 
 		 $data['title'] = "Laporan | SIPEPENG";
 		 //model
-		 $hasil = $this->laporan_model->pilih($data)->result();
-		 $data['hasil']= $hasil;
-		 $this->load->view('admin/laporan/laporan_view', $data);
+		 //jika kegiatan diisi, maka tampilkan berdasarkan kegiatan
+		 if($data['kegiatan']!=NULL){
+			$hasil = $this->laporan_model->pilih($data)->result();
+			$data['hasil']= $hasil;
+			$this->load->view('admin/laporan/laporan_view', $data);
+		}else{ // jika kegiatan kosong, maka tampilkan data berdasarkan rw di seluruh kegiatan
+			$artesis = $this->laporan_model->artesis($data)->result();
+			$drainase = $this->laporan_model->drainase($data)->result();
+			$jalan = $this->laporan_model->jalan($data)->result();
+			$kirmir = $this->laporan_model->kirmir($data)->result();
+			$mck = $this->laporan_model->mck($data)->result();
+			$septictank = $this->laporan_model->septictank($data)->result();
+			$septictank_komunal = $this->laporan_model->septictank_komunal($data)->result();
+			$sumur_dangkal = $this->laporan_model->sumur_dangkal($data)->result();
+			$sumur_resapan = $this->laporan_model->sumur_resapan($data)->result();
+			
+			$data['artesis']= $artesis;
+			$data['drainase']= $drainase;
+			$data['jalan']= $jalan;
+			$data['kirmir']= $kirmir;
+			$data['mck']= $mck;
+			$data['septictank']= $septictank;
+			$data['septictank_komunal']= $septictank_komunal;
+			$data['sumur_dangkal']= $sumur_dangkal;
+			$data['sumur_resapan']= $sumur_resapan;
+			$this->load->view('admin/laporan/laporan_view_rw', $data);
+		}
+		 
 	}
 	
 	public function cetak() {
@@ -43,10 +68,34 @@ class Laporan_managements extends CI_Controller {
 		 $data['status'] = $this->uri->segment(6);
 		 
 		 $data['title'] = "Laporan | SIPEPENG";
-		 //model
-		 $hasil = $this->laporan_model->cetak($data)->result();
-		 $data['hasil']= $hasil;
-		 $this->load->view('admin/laporan/laporan_cetak', $data);
+		//model
+		 //jika kegiatan diisi, maka tampilkan berdasarkan kegiatan
+		 if($data['kegiatan']!= NULL) {
+			$hasil = $this->laporan_model->cetak($data)->result();
+			$data['hasil']= $hasil;
+			$this->load->view('admin/laporan/laporan_cetak', $data);
+		}else{ // jika kegiatan kosong, maka tampilkan data berdasarkan rw di seluruh kegiatan
+			$artesis = $this->laporan_model->artesis($data)->result();
+			$drainase = $this->laporan_model->drainase($data)->result();
+			$jalan = $this->laporan_model->jalan($data)->result();
+			$kirmir = $this->laporan_model->kirmir($data)->result();
+			$mck = $this->laporan_model->mck($data)->result();
+			$septictank = $this->laporan_model->septictank($data)->result();
+			$septictank_komunal = $this->laporan_model->septictank_komunal($data)->result();
+			$sumur_dangkal = $this->laporan_model->sumur_dangkal($data)->result();
+			$sumur_resapan = $this->laporan_model->sumur_resapan($data)->result();
+			
+			$data['artesis']= $artesis;
+			$data['drainase']= $drainase;
+			$data['jalan']= $jalan;
+			$data['kirmir']= $kirmir;
+			$data['mck']= $mck;
+			$data['septictank']= $septictank;
+			$data['septictank_komunal']= $septictank_komunal;
+			$data['sumur_dangkal']= $sumur_dangkal;
+			$data['sumur_resapan']= $sumur_resapan;
+			$this->load->view('admin/laporan/laporan_cetak_rw', $data);
+		}
 	}
     
 

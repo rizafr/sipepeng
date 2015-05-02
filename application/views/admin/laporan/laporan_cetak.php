@@ -1,4 +1,6 @@
 <?php
+	$judul = array("1" => "DIRENCANAKAN", "3" => "SEDANG DILAKSANAKAN", "4" => "TELAH TEREALISASI");
+   $judul = $judul[$status];
 //Format Tanggal Berbahasa Indonesia 
 
 	// Array Hari
@@ -15,7 +17,7 @@
 	//Format Tahun 
 	$tahun = date('Y');
 
-$nama_file= "Laporan Cetak_".date('Y').".xls";
+$nama_file= "Laporan Cetak ". $judul ." ".date('Y').".xls";
 ?>
 
 <?php
@@ -24,12 +26,25 @@ $nama_file= "Laporan Cetak_".date('Y').".xls";
 	header("Pragma: no-cache");
 	header("Expires: 0");
 ?>
+	<h2 align="center"> PEMERINTAH KOTA CIMAHI	<br />					
+KECAMATAN CIMAHI SELATAN	<br />						
+KELURAHAN LEUWIGAJAH		<br />					
+Jl. Sadarmanah No. 11 RT.01 RW.05 Telp/Fax 022-6672995 Cimahi 40532						
+  </h2>
+  <hr>
+  <br />	
+  <br />	
+  
+ <h3 align="center"> DATA KEGIATAN DAN PEMBANGUNAN YANG TELAH <?php echo $judul ?> TAHUN ANGGARAN <?php echo date('Y')?></h3>					
+
   <table style="border-top:3px solid #004D66; border-bottom:3px solid #004D66;" >
   <tr align ="center" style="background-color:#004D66;color: #fff ">
 		<th>No</th>
 		<th>Alamat</th>
 		<th>Rt</th>
 		<th>Rw</th>
+		 <th>Panjang</th>
+        <th>Lebar</th>
 		<th>Ketersediaan Lahan</th>
 		<th>Sumber Data</th>
 		<th>Tahun Usulan</th>
@@ -38,7 +53,6 @@ $nama_file= "Laporan Cetak_".date('Y').".xls";
    </tr>	
 		<?php
 		$no = 1;
-
 		$jum = count(@$hasil);
 		if ($jum > 0) {
 			foreach ($hasil as $row) {
@@ -48,6 +62,8 @@ $nama_file= "Laporan Cetak_".date('Y').".xls";
 					<td><?php echo $row->alamat ?></td>
 					<td><?php echo $row->rt ?></td>
 					<td><?php echo $row->rw ?></td>
+					 <td><?php echo isset($row->panjang) ? $row->panjang : '-';  ?></td>
+                     <td><?php echo isset($row->lebar) ? $row->lebar : '-';  ?></td>
 					<td><?php echo $row->ketersediaan_lahan ?></td>
 					<td><?php echo $row->sumber_data ?></td>
 					<td><?php echo $row->tahun_usulan ?></td>
