@@ -1,7 +1,9 @@
 <!--footer start-->
 <footer class="site-footer">
     <div class="text-center">
-        2015 &copy; SIPEPENG.
+          <p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
+						Proyek Perubahan Diklatpim IV - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
+						<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
         <a href="#" class="go-top">
             <i class="icon-angle-up"></i>
         </a>

@@ -66,8 +66,7 @@
             , 'alamat' => $data['alamat']
             , 'panjang' => $data['panjang']
             , 'lebar' => $data['lebar']
-            , 'kedalaman' => $data['kedalaman']
-            , 'ketersediaan_lahan' => $data['ketersediaan_lahan']
+            , 'kategori_jalan' => $data['kategori_jalan']
 			, 'lat_awal' => $data['lat_awal']
             , 'lat_akhir' => $data['lat_akhir']
 			, 'long_awal' => $data['long_awal']
@@ -97,8 +96,7 @@
 			, 'alamat' => $this->input->post('alamat')
 			, 'panjang' => $this->input->post('panjang')
 			, 'lebar' => $this->input->post('lebar')
-			, 'kedalaman' => $this->input->post('kedalaman')
-			, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
+			, 'kategori_jalan' => $this->input->post('kategori_jalan')
 			, 'long_awal' => $data['long_awal']
 			, 'long_akhir' => $data['long_akhir']
 			, 'lat_awal' => $data['lat_awal']
@@ -187,6 +185,16 @@
 			return $this->db->update('jalan', $data);
 		}
 		
+		# update data verifikasi menjadi tidak dilaksanakan   
+		public function update_status_tidak_dilaksanakan($id_drainase) {
+			$data = array(
+				'status_tidak_dilaksanakan' => "1"
+				,'ket' => $this->input->post('ket')
+			);
+
+			$this->db->where('id_drainase', $id_drainase);
+			return $this->db->update('drainase', $data);
+		}
 			
 	
 	

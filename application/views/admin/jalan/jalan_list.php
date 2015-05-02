@@ -96,8 +96,10 @@
                                                                 if ($status == '2') {
                                                                     ?>
                                                                     <a href="<?php echo base_url() . 'admin/jalan_managements/update_status_verifikasi/' . $row->id_jalan ?>"><button class = "btn btn-success" data-toggle="tooltip" title="Progress" data-placemen="bottom"><i class = "icon-ok"></i></button></a>
-                                                                    <a href="<?php echo base_url() . 'admin/jalan_managements/update_status_tidak_dilaksanakan/' . $row->id_jalan ?>"><button class = "btn btn-danger" data-toggle="tooltip" title="Tolak" data-placemen="bottom"><i class = "icon-remove-circle"></i></button></a>
-                                                                <?
+																	 <a class="tolak btn btn-warning" data-toggle="modal" data-id="<?php echo $row->id_jalan ?>" href="#tolak">
+																		 <i class = "icon-remove"></i>
+																	</a>
+																  <?
                                                                 }
                                                                 if ($status == '3') {
                                                                     ?>
@@ -141,3 +143,37 @@
         </section>
         <!--main content end-->
 <?php $this->load->view('admin/templates/footer'); ?>		
+
+
+		<!-- Modal -->
+		<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="tolak" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+						<h4 class="modal-title">Alasan di tolak</h4>
+					</div>
+					<div class="modal-body">
+						<form method="post" action="<?php echo base_url() . 'admin/drainase_managements/update_status_tidak_dilaksanakan/' ?>" role="form">
+							<div class="form-group">
+								<label class="sr-only" for="alasan">Alasan</label>
+								 <input type="hidden" name="id" id="id" value=""/>
+								 <textarea class="wysihtml5 form-control" name="ket" rows="5" cols="75"></textarea>
+							</div>                                                  
+							<button type="submit" class="btn btn-default">OK</button>
+						</form>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	<!-- modal -->	
+	
+	<script>
+		$(document).on("click", ".tolak", function () {
+		 var id = $(this).data('id');
+		 $(".modal-body #id").val( id );
+	});
+	</script>

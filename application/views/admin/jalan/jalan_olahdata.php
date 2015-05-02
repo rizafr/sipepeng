@@ -69,7 +69,7 @@
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang"  data-validation="number" value="<?php echo set_value('panjang', isset($jalan_list['panjang']) ? $jalan_list['panjang'] : ''); ?>">
+                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang"  data-validation="number" data-validation-allowing="float" data-validation-help="satuan dalam meter,gunakan titik misalnya 0.3" value="<?php echo set_value('panjang', isset($jalan_list['panjang']) ? $jalan_list['panjang'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('panjang'); ?></span>
 										</div>
 									</div><!--end control-group-->
@@ -77,7 +77,7 @@
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lebar">Lebar: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lebar" name="lebar"  onchange="javascript:autoKet();" placeholder="Lebar" value="<?php echo set_value('lebar', isset($jalan_list['lebar']) ? $jalan_list['lebar'] : ''); ?>" data-validation="number" data-validation-allowing="range[0;100],float" data-validation-help="Silakan masukan dalam satuan meter">
+                                            <input type="text" class="form-control" id="lebar" name="lebar"  onchange="javascript:autoKet();" placeholder="Lebar" value="<?php echo set_value('lebar', isset($jalan_list['lebar']) ? $jalan_list['lebar'] : ''); ?>" data-validation="number" data-validation-allowing="float" data-validation-help="satuan dalam meter,gunakan titik misalnya 0.3">
                                             <span class="help-inline"><?php echo form_error('lebar'); ?></span>
 										</div>
 									</div><!--end control-group-->
@@ -90,13 +90,7 @@
 										</div>
 									</div><!--end control-group-->
 									
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" data-validation="number" placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($jalan_list['ketersediaan_lahan']) ? $jalan_list['ketersediaan_lahan'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
-										</div>
-									</div><!--end control-group-->
+                                   
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>
@@ -106,40 +100,39 @@
 												echo $map; 
 											?>
 										</div>
-									</div><!--end control-group--> 
+									</div><!--end control-group--> 									
 									
-									
-									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude Awal: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long_awal" name="long_awal" placeholder="Longitude Awal" value="<?php echo set_value('long_awal', isset($jalan_list['long_awal']) ? $jalan_list['long_awal'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('long_awal'); ?></span>
-										</div>
-									</div><!--end control-group-->
-									
-                                    <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_akhir', isset($jalan_list['long_akhir']) ? $jalan_list['long_akhir'] : ''); ?>">
-                                            <span class="help-inline"><?php echo form_error('long_akhir'); ?></span>
-										</div>
-									</div><!--end control-group-->
-									
-                                    <div class="form-group">
+									 <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude Awal: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lat_awal" name="lat_awal" placeholder="Latitude Awal" value="<?php echo set_value('lat_awal', isset($jalan_list['lat_awal']) ? $jalan_list['lat_awal'] : ''); ?>">
+                                            <input type="text" class="form-control" id="lat_awal" name="lat_awal" placeholder="Latitude Awal" value="<?php echo set_value('lat_awal', isset($drainase_list['lat_awal']) ? $drainase_list['lat_awal'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('lat_awal'); ?></span>
-										</div>
-									</div><!--end control-group-->
-									
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude Awal: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="long_awal" name="long_awal" placeholder="Longitude Awal" value="<?php echo set_value('long_awal', isset($drainase_list['long_awal']) ? $drainase_list['long_awal'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('long_awal'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_akhir">Latitude Akhir: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="lat_akhir" name="lat_akhir" placeholder="Latitude Akhir" value="<?php echo set_value('lat_akhir', isset($drainase_list['lat_akhir']) ? $drainase_list['lat_akhir'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('lat_akhir'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->                                    
+
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_akhir">Longitude Akhir: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_akhir', isset($jalan_list['long_akhir']) ? $jalan_list['long_akhir'] : ''); ?>">
+                                            <input type="text" class="form-control" id="long_akhir" name="long_akhir" placeholder="Longitude Akhir" value="<?php echo set_value('long_akhir', isset($drainase_list['long_akhir']) ? $drainase_list['long_akhir'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('long_akhir'); ?></span>
-										</div>
-									</div><!--end control-group-->
+                                        </div>
+                                    </div><!--end control-group-->
 									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
@@ -233,15 +226,30 @@
 		<script>
 			function autoKet(){
 				lebar = document.getElementById('lebar').value;
-				if(lebar>=2){
+				if(lebar>=0 && lebar < 2){
 					document.getElementById('kategori_jalan').value= 'Jalan Setapak';
 				}
-				if(lebar>3.5){
+				if(lebar>=2 && lebar < 4){
 					document.getElementById('kategori_jalan').value= 'Jalan Lingkungan';
 				}
-				if(lebar>=4.5){
+				if(lebar>=4 && lebar <= 12){
 					document.getElementById('kategori_jalan').value= 'Jalan Lebar';
 				}
 			}
 			
 		</script>		
+		
+		 <script type="text/javascript">
+        //FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
+        function getLokasi(newLat, newLng)
+        {
+            document.getElementById('lat_awal').value = newLat;
+            document.getElementById('long_awal').value = newLng;
+        }
+
+        function getLokasiAkhir(newLat, newLng)
+        {
+            document.getElementById('lat_akhir').value = newLat;
+            document.getElementById('long_akhir').value = newLng;
+        }
+        </script>

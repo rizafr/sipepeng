@@ -3,9 +3,9 @@
 	if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 	
-	class Sumur_dangkal_model extends CI_Model{
+	class Artesis_model extends CI_Model{
 		
-		var $table = 'sumur_dangkal';
+		var $table = 'artesis';
 		// var $jenis_pengguna_level = 'jenis_pengguna'; //Tabel jenis_pengguna
 		
 		public function __construct() {
@@ -14,39 +14,37 @@
 		
 		//select 
 		public function select_all_data_awal() {
-			$sql = "select * from sumur_dangkal where status_verifikasi='0' ";
+			$sql = "select * from artesis where status_verifikasi='0' ";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_verifikasi() {
-			$sql = "select * from sumur_dangkal where status_sedang_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+			$sql = "select * from artesis where status_sedang_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_sedang_dilaksanakan() {
-			$sql = "select * from sumur_dangkal where status_sudah_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+			$sql = "select * from artesis where status_sudah_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
 		//select
 		public function select_all_sudah_dilaksanakan() {
-			$sql = "select * from sumur_dangkal where status_sudah_dilaksanakan='1' and status_tidak_dilaksanakan='0'";
+			$sql = "select * from artesis where status_sudah_dilaksanakan='1' and status_tidak_dilaksanakan='0'";
 			return $this->db->query($sql);
 		}
 		
-		//select
+		 //select
 		public function select_all_tidak_dilaksanakan() {
-			$sql = "select * from sumur_dangkal where status_tidak_dilaksanakan='1'";
+			$sql = "select * from artesis where status_tidak_dilaksanakan='1'";
 			return $this->db->query($sql);
 		}
-		
-		
 		
 		//search
-		public function select_by_id($id_sumur_dangkal) {
-			$sql = " select * from dra where id_sumur_dangkal=" . $id_sumur_dangkal;
+		public function select_by_id($id_artesis) {
+			$sql = " select * from dra where id_artesis=" . $id_artesis;
 			$query = $this->db->query($sql);
 			return $query;
 		}
@@ -78,36 +76,36 @@
             , 'status_sudah_dilaksanakan' => '0'
             , 'status_tidak_dilaksanakan' => '0'
 			);
-			return $this->db->insert('sumur_dangkal', $data);
+			return $this->db->insert('artesis', $data);
 		}
 		
 		
 		
 		//update user    
-		public function update($id_sumur_dangkal) {	
-			$data = array(
-			'rt' => $this->input->post('rt')
-			, 'rw' => $this->input->post('rw')
-			, 'alamat' => $this->input->post('alamat')
-			, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
-			, 'long' => $this->input->post['long']
-			, 'lat' => $this->input->post['lat']
-			, 'anggaran' =>  $this->input->post('anggaran')
-			, 'sumber_data' =>  $this->input->post('sumber_data')
-			, 'tahun_usulan' => $this->input->post('tahun_usulan')
-			, 'persetujuan_warga' => $this->input->post('persetujuan_warga')
-			, 'ket' => $this->input->post('ket')
-			);
+		public function update($id_artesis) {	
+				$data = array(
+					'rt' => $this->input->post('rt')
+					, 'rw' => $this->input->post('rw')
+					, 'alamat' => $this->input->post('alamat')
+					, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
+					, 'long' => $this->input->post('long')
+					, 'lat' => $this->input->post('lat')
+					, 'anggaran' =>  $this->input->post('anggaran')
+					, 'sumber_data' =>  $this->input->post('sumber_data')
+					, 'tahun_usulan' => $this->input->post('tahun_usulan')
+					, 'persetujuan_warga' => $this->input->post('persetujuan_warga')
+					, 'ket' => $this->input->post('ket')
+				);
 			
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
+			$this->db->where('id_artesis', $id_artesis);
+			return $this->db->update('artesis', $data);
 		}
 		
 		
-		public function getSumurDangkalById($id_sumur_dangkal) {
+		public function getArtesisById($id_artesis) {
 			$this->db->select('*');
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			$query = $this->db->get('sumur_dangkal', 1);
+			$this->db->where('id_artesis', $id_artesis);
+			$query = $this->db->get('artesis', 1);
 			
 			if ($query->num_rows() == 1) {
 				return $query->row_array();
@@ -116,9 +114,9 @@
 			
 		
 		//delete
-		public function delete($id_sumur_dangkal) {
-			$this->db->where('id_sumur_dangkal',$id_sumur_dangkal);
-			$query = $this->db->get('sumur_dangkal');
+		public function delete($id_artesis) {
+			$this->db->where('id_artesis',$id_artesis);
+			$query = $this->db->get('artesis');
 			$row = $query->row();
 			
 			//menghapus file
@@ -138,7 +136,7 @@
 			unlink($image);
 			unlink($document);
 			
-			$this->db->delete('sumur_dangkal', array('id_sumur_dangkal' => $id_sumur_dangkal));
+			$this->db->delete('artesis', array('id_artesis' => $id_artesis));
 			
 		}
 		///////////////////////////////////////////////////////////////////////
@@ -147,46 +145,45 @@
 		
 		
 		# update data awal menjadi verifikasi   
-		public function update_status_data_awal($id_sumur_dangkal) {	
+		public function update_status_data_awal($id_artesis) {	
 			$data = array(
 			'status_verifikasi' => "1"			
 			);
 			
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
+			$this->db->where('id_artesis', $id_artesis);
+			return $this->db->update('artesis', $data);
 		}
 	
 		# update data verifikasi menjadi sedang dilaksanakan   
-		public function update_status_verifikasi($id_sumur_dangkal) {	
+		public function update_status_verifikasi($id_artesis) {	
 			$data = array(
 			'status_sedang_dilaksanakan' => "1"			
 			);
 			
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
+			$this->db->where('id_artesis', $id_artesis);
+			return $this->db->update('artesis', $data);
 		}
 		
 		# update data verifikasi menjadi sedang dilaksanakan   
-		public function update_status_sedang_dilaksanakan($id_sumur_dangkal) {	
+		public function update_status_sedang_dilaksanakan($id_artesis) {	
 			$data = array(
 			'status_sudah_dilaksanakan' => "1"			
 			);
 			
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
+			$this->db->where('id_artesis', $id_artesis);
+			return $this->db->update('artesis', $data);
 		}
 		
-		# update data verifikasi menjadi tidak dilaksanakan   
-		public function update_status_tidak_dilaksanakan($id_sumur_dangkal) {
+		# update data verifikasi menjadi sedang dilaksanakan   
+		public function update_status_tidak_dilaksanakan($id_artesis) {
 			$data = array(
 				'status_tidak_dilaksanakan' => "1"
 				,'ket' => $this->input->post('ket')
 			);
 
-			$this->db->where('id_sumur_dangkal', $id_sumur_dangkal);
-			return $this->db->update('sumur_dangkal', $data);
-		}
-	
+			$this->db->where('id_artesis', $id_artesis);
+			return $this->db->update('artesis', $data);
+		}	
 	
 	
 	
