@@ -5,7 +5,10 @@
         <div class="container">
 			
             <div class="get-started center wow fadeInDown">
-                <h2>DAFTAR PANGKALAN GAS LPG</h2>
+                <h2>DATA PANGKALAN GAS LPG <br />											
+					KELURAHAN LEUWIGAJAH <br />							
+					KECAMATAN CIMAHI SELATAN											
+				</h2>
 			</div>
 			<div class="get-started wow fadeInDown">
 				<div class="adv-table">

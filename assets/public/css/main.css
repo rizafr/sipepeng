@@ -1482,6 +1482,7 @@ ul.social_icons li  a i{
 	position: relative;
 	margin-bottom: 18px;
 	margin-top: 60px;
+	border-bottom: 5px solid #595959;
 }
 
 .get-started h2 {

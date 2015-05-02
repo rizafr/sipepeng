@@ -5,7 +5,9 @@
         <div class="container">
 			
             <div class="get-started center wow fadeInDown">
-                <h2>Data UMKM</h2>
+                <h2>DIREKTORI BISNIS PRODUKSI KOTA CIMAHI <br />																									
+					KELURAHAN LEUWIGAJAH																									
+				</h2>
 			</div>
 			<div class="get-started wow fadeInDown">
 				<div class="adv-table">
