@@ -61,6 +61,7 @@ class Homes extends CI_Controller {
         $config['map_height'] = '650px';
         $config['zoom'] = 'auto';
         $config['sensor'] = TRUE;
+		$config['kmlLayerURL'] =  'http://sipepeng/assets/kml/cimahi.kml';
         $this->googlemaps->initialize($config);
 
         #tampilkan data koordinat artesis
