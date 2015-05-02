@@ -121,28 +121,19 @@ class Dashboards extends CI_Controller {
             $config['sensor'] = TRUE;
             $this->googlemaps->initialize($config);
 
-            #tampilkan data koordinat artesis
-            foreach ($artesis_list as $row) {
+            // #tampilkan data koordinat artesis
+            // foreach ($artesis_list as $row) {
 
-                #ambil fotonya jika ada
-                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+                 // $path = base_url();
+                // #ambil fotonya jika ada
+                // $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
 
-                $polyline = array();
-                $polyline['points'] = array($row->lat_awal . "," . $row->long_awal, $row->lat_akhir . "," . $row->long_akhir);
-                $this->googlemaps->add_polyline($polyline);
-
-                $marker = array();
-                $marker['position'] = $row->lat_awal . "," . $row->long_awal;
-                $marker['infowindow_content'] = "Drainase <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
-                $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
-                $this->googlemaps->add_marker($marker);
-
-                $marker = array();
-                $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
-                $marker['infowindow_content'] = "Drainase <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-                $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
-                $this->googlemaps->add_marker($marker);
-            }
+                // $marker = array();
+                // $marker['position'] = $row->lat . "," . $row->long;
+                // $marker['infowindow_content'] = "MCK <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                // $marker['icon'] = base_url() . "assets/public/map-icon/mck.png";
+                // $this->googlemaps->add_marker($marker);
+            // }
             #end tampilkan data koordinat artesis 
             #tampilkan data koordinat drainase
             foreach ($drainase_list as $row) {

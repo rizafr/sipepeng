@@ -24,10 +24,23 @@ class Jalan_managements extends CI_Controller {
     public function index() {
         //check sudah login atau belum
         if ($this->session->userdata('is_login')) {
-            //menampilkan menu
-            $data['menu_list'] = $this->menu_model->select_all()->result();
+            
             $data['title'] = "Jalan | SIPEPENG";
             $data['username'] = $this->session->userdata('username');
+			
+			/////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 
             //mengambil uri status
             $status = $this->uri->segment(4);
@@ -68,15 +81,27 @@ class Jalan_managements extends CI_Controller {
     public function gotoForm() {
         //check sudah login atau belum
         if ($this->session->userdata('is_login')) {
-            //menampilkan menu..wajib ada
-            $data['menu_list'] = $this->menu_model->select_all()->result();
-            // end menampilkan menu..wajib ada
+           
             $data['title'] = "Data Awal Jalan | SIPEPENG";
             $data['judulForm'] = "Data Awal Jalan";
             $data['username'] = $this->session->userdata('username');
 
             //mengambil uri aksi
             $data['aksi'] = $this->uri->segment(4);
+			
+			/////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 
             #ratih kopi paste dari sini
             #google map yg bisa di klik otomatis dapetin koordinatnya
@@ -119,9 +144,19 @@ class Jalan_managements extends CI_Controller {
     }
 
     public function process() {
-        //menampilkan menu..wajib ada
-        $data['menu_list'] = $this->menu_model->select_all()->result();
-        // end menampilkan menu..wajib ada
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 
         $aksi = $this->input->post('aksi');
         $data['aksi'] = $aksi;
@@ -132,8 +167,6 @@ class Jalan_managements extends CI_Controller {
         $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
         $this->form_validation->set_rules('panjang', 'Panjang', 'trim|required');
         $this->form_validation->set_rules('lebar', 'Lebar', 'trim|required');
-        $this->form_validation->set_rules('kedalaman', 'Kedalaman', 'trim|required');
-        $this->form_validation->set_rules('ketersediaan_lahan', 'Ketersediaan Lahan', 'trim|required');
 
 
         //$this->form_validation->set_error_delimiters('', '<br/>');
@@ -145,8 +178,7 @@ class Jalan_managements extends CI_Controller {
             $data['alamat'] = $this->input->post('alamat');
             $data['panjang'] = $this->input->post('panjang');
             $data['lebar'] = $this->input->post('lebar');
-            $data['kedalaman'] = $this->input->post('kedalaman');
-            $data['ketersediaan_lahan'] = $this->input->post('ketersediaan_lahan');
+            $data['kategori_jalan'] = $this->input->post('kategori_jalan');
             $data['anggaran'] = $this->input->post('anggaran');
             $data['sumber_data'] = $this->input->post('sumber_data');
             $data['tahun_usulan'] = $this->input->post('tahun_usulan');
@@ -214,9 +246,19 @@ class Jalan_managements extends CI_Controller {
 
     //fungsi menampilkan berdasarkan id yg dipilih
     public function view($id_jalan) {
-        //menampilkan menu..wajib ada
-        $data['menu_list'] = $this->menu_model->select_all()->result();
-        // end menampilkan menu..wajib ada
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
         $data['id_jalan'] = $id_jalan;
         $data['title'] = "View Data Jalan | SIPEPENG";
         $data['judulForm'] = "Detail Jalan";

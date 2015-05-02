@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
-						Proyek Perubahan Diklatpim V - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
+						Proyek Perubahan Diklatpim IV - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
 						<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
                 </div>                
             </div>

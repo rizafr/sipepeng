@@ -68,7 +68,7 @@ if (strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="panjang">Panjang: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang"  data-validation="number" value="<?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : ''); ?>">
+                                            <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang"  data-validation="number" data-validation-allowing="float" data-validation-help="satuan dalam meter,gunakan titik misalnya 0.3"  value="<?php echo set_value('panjang', isset($drainase_list['panjang']) ? $drainase_list['panjang'] : ''); ?>">
                                             <span class="help-inline"><?php echo form_error('panjang'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -76,7 +76,7 @@ if (strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="lebar">Lebar: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="lebar" name="lebar" placeholder="Lebar" value="<?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : ''); ?>" data-validation="number" data-validation-allowing="range[0;3]" data-validation-help="Silakan masukan dalam satuan meter">
+                                            <input type="text" class="form-control" id="lebar" name="lebar" placeholder="Lebar" value="<?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : ''); ?>" data-validation="number" data-validation-allowing="float" data-validation-help="satuan dalam meter,gunakan titik misalnya 0.3">
                                             <span class="help-inline"><?php echo form_error('lebar'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -84,7 +84,7 @@ if (strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="kedalaman">Kedalaman: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="kedalaman" name="kedalaman" placeholder="Kedalaman" data-validation="number" value="<?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : ''); ?>">
+                                            <input type="text" class="form-control" id="kedalaman" name="kedalaman" placeholder="Kedalaman" data-validation="number"data-validation="number" data-validation-allowing="float" data-validation-help="satuan dalam meter,gunakan titik misalnya 0.3" value="<?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : ''); ?>">
                                             <p class="help-block"><?php echo form_error('kedalaman'); ?></p>
                                         </div>
                                     </div><!--end control-group-->
@@ -92,7 +92,7 @@ if (strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan"  placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : ''); ?>">
+                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan"  placeholder="Kedalaman" value=" <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : ''); ?>" data-validation="number" data-validation-allowing="float" data-validation-help="satuan dalam meter,gunakan titik misalnya 0.3">
                                             <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
                                         </div>
                                     </div><!--end control-group-->

@@ -22,6 +22,21 @@ class Laporan_managements extends CI_Controller {
 		$data['title'] = "Laporan | SIPEPENG";
 		$data['rw'] = $this->laporan_model->get_dropdown_rw();
 		$data['kegiatan'] = $this->laporan_model->get_dropdown_kegiatan();
+		
+		/////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+			
 		$this->load->view('admin/laporan/laporan_list',$data);
     }
 	
@@ -31,6 +46,20 @@ class Laporan_managements extends CI_Controller {
 		 $data['status'] = $this->input->post('status');
 		 
 		 $data['title'] = "Laporan | SIPEPENG";
+		 
+		 /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 		 //model
 		 //jika kegiatan diisi, maka tampilkan berdasarkan kegiatan
 		 if($data['kegiatan']!=NULL){

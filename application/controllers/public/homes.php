@@ -64,28 +64,28 @@ class Homes extends CI_Controller {
 		$config['kmlLayerURL'] =  'http://sipepeng/assets/kml/cimahi.kml';
         $this->googlemaps->initialize($config);
 
-        #tampilkan data koordinat artesis
-        foreach ($artesis_list as $row) {
+        // #tampilkan data koordinat artesis
+        // foreach ($artesis_list as $row) {
 
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+            // #ambil fotonya jika ada
+            // $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
 
-            $polyline = array();
-            $polyline['points'] = array($row->lat_awal . "," . $row->long_awal, $row->lat_akhir . "," . $row->long_akhir);
-            $this->googlemaps->add_polyline($polyline);
+            // $polyline = array();
+            // $polyline['points'] = array($row->lat_awal . "," . $row->long_awal, $row->lat_akhir . "," . $row->long_akhir);
+            // $this->googlemaps->add_polyline($polyline);
 
-            $marker = array();
-            $marker['position'] = $row->lat_awal . "," . $row->long_awal;
-            $marker['infowindow_content'] = "Drainase <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
-            $this->googlemaps->add_marker($marker);
+            // $marker = array();
+            // $marker['position'] = $row->lat_awal . "," . $row->long_awal;
+            // $marker['infowindow_content'] = "Drainase <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
+            // $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+            // $this->googlemaps->add_marker($marker);
 
-            $marker = array();
-            $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
-            $marker['infowindow_content'] = "Drainase <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
-            $this->googlemaps->add_marker($marker);
-        }
+            // $marker = array();
+            // $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
+            // $marker['infowindow_content'] = "Drainase <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+            // $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+            // $this->googlemaps->add_marker($marker);
+        // }
         #end tampilkan data koordinat artesis 
         #tampilkan data koordinat drainase
         foreach ($drainase_list as $row) {
@@ -107,6 +107,33 @@ class Homes extends CI_Controller {
             $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
             $marker['infowindow_content'] = "Drainase <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
             $marker['icon'] = base_url() . "assets/public/map-icon/drainase.png";
+            $this->googlemaps->add_marker($marker);
+        }
+        #end tampilkan data koordinat drainase 
+		 #tampilkan data koordinat drainase
+        foreach ($jalan_list as $row) {
+
+            #ambil fotonya jika ada
+            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+
+            $polyline = array();
+            $polyline['strokeColor'] = #FF8000;
+            $polyline['strokeWeight'] = 5;
+            $polyline['points'] = array($row->lat_awal . "," . $row->long_awal, $row->lat_akhir . "," . $row->long_akhir);
+            $this->googlemaps->add_polyline($polyline);
+
+            $marker = array();
+			$polyline['strokeColor'] = #FF8000;
+            $polyline['strokeWeight'] = 5;
+            $marker['position'] = $row->lat_awal . "," . $row->long_awal;
+            $marker['infowindow_content'] = "Jalan <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
+            $marker['icon'] = base_url() . "assets/public/map-icon/icy_road.png";
+            $this->googlemaps->add_marker($marker);
+
+            $marker = array();
+            $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
+            $marker['infowindow_content'] = "Jalan <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+            $marker['icon'] = base_url() . "assets/public/map-icon/icy_road.png";
             $this->googlemaps->add_marker($marker);
         }
         #end tampilkan data koordinat drainase 
