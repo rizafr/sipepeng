@@ -25,7 +25,7 @@
                                  <!--<li <? $page='perusahaan'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/perusahaan">Daftar Perusahaan</a></li-->
                                  <li <? $page='minimarket'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/minimarket">Minimarket</a></li>
                                  <li <? $page='gas'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/gas">Pangkalan Gas LPG</a></li>
-                                 <li <? $page='kos'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/peraturan">Rumah Kos</a></li>
+                                 <li <? $page='kos'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/kos">Rumah Kos</a></li>
                                  <li <? $page='umkm'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/umkm">UMKM</a></li>
 							</ul>
                         </li>

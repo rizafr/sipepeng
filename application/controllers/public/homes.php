@@ -190,6 +190,13 @@ class Homes extends CI_Controller {
         $data['data_list'] = $this->minimarket_model->select_all()->result();
         $this->load->view('public/minimarket', $data);
     }
+	
+	#halaman kos
+    public function kos() {
+        $data['title'] = "DATA PEMILIK RUMAH KOS - SIPEPENG";
+        $data['data_list'] = $this->minimarket_model->select_all()->result();
+        $this->load->view('public/kos', $data);
+    }
 
 }
 
