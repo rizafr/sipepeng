@@ -20,14 +20,13 @@
 							<thead>
 								<tr>
 									<th>No</th>
-									<th>NAMA PERUSAHAAN </th>
-									<th>BENTUK PERUSAHAAN  </th>
-									<th>Rt</th>
+									<th>Nama Pemilik</th>
+									<th>Alamat Pemilik</th>
 									<th>Rw</th>
-									<th>Alamat</th>
-									<th>NAMA PEMILIK</th>
-									<th>JUMLAH PEKERJA</th>
-									<th>JAM KERJA /PELAYANAN</th>
+									<th>Jumlah Kamar</th>
+									<th>Jumlah Orang per Kamar</th>
+									<th>Harga Sewa</th>
+									<th>Keterangan</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -40,14 +39,13 @@
 										?>
 										<tr>
 											<td><?php echo $no++ ?></td>
-											<td><?php echo $row->nama_perusahaan ?></td> 
-											<td><?php echo $row->bentuk_perusahaan ?></td> 
-											<td><?php echo $row->rt ?></td>
+											<td><?php echo $row->nama_pemilik ?></td> 
+											<td><?php echo $row->alamat_pemilik ?></td>
 											<td><?php echo $row->rw ?></td>
-											<td><?php echo $row->alamat ?></td>
-											<td><?php echo $row->nama_pemilik ?></td>									                                                            
-											<td><?php echo $row->jml_pekerja ?></td>                                                             
-											<td><?php echo $row->jam_kerja?></td>                                                                  
+											<td><?php echo $row->jml_kamar ?></td>									                                                            
+											<td><?php echo $row->jml_orang_perkamar ?></td>  
+											<td><?php echo $row->harga_sewa?></td>
+											<td><?php echo $row->ket?></td>
 											
 										</tr>
 										<?php
@@ -58,14 +56,13 @@
 							<tfoot>
 								<tr>
 									<th>No</th>
-									<th>NAMA PERUSAHAAN </th>
-									<th>BENTUK PERUSAHAAN  </th>
-									<th>Rt</th>
+									<th>Nama Pemilik</th>
+									<th>Alamat Pemilik</th>
 									<th>Rw</th>
-									<th>Alamat</th>
-									<th>NAMA PEMILIK</th>
-									<th>JUMLAH PEKERJA</th>
-									<th>JAM KERJA /PELAYANAN</th>
+									<th>Jumlah Kamar</th>
+									<th>Jumlah Orang per Kamar</th>
+									<th>Harga Sewa</th>
+									<th>Keterangan</th>
 								</tr>
 							</tfoot>
 						</table>
@@ -75,5 +72,6 @@
 				
 			</div><!--/.container-->
 		</section><!--/#feature-->
-	
-	<?php $this->load->view('public/templates/footer'); ?> 
+		
+		<?php $this->load->view('public/templates/footer'); ?> 
+		

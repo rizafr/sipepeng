@@ -12,6 +12,7 @@ class Homes extends CI_Controller {
         $this->load->model('perusahaan_model');
         $this->load->model('gas_model');
         $this->load->model('minimarket_model');
+        $this->load->model('kos_model');
         # menampilkan google map
         $this->load->library('googlemaps');
     }
@@ -222,7 +223,7 @@ class Homes extends CI_Controller {
 	#halaman kos
     public function kos() {
         $data['title'] = "DATA PEMILIK RUMAH KOS - SIPEPENG";
-        $data['data_list'] = $this->minimarket_model->select_all()->result();
+        $data['data_list'] = $this->kos_model->select_all()->result();
         $this->load->view('public/kos', $data);
     }
 
