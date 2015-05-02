@@ -88,10 +88,10 @@
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 panel-item">
                 <a href="<?php echo base_url() ?>admin/user_managements">
 					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/user_managements">
-						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/pembangunan.png" class="img-responsive"></div>
+						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/user.png" class="img-responsive"></div>
 						</a><div class="panel-body"><a href="<?php echo base_url() ?>admin/user_managements">
 							<h3 class="item-title">
-								DATA PEMBANGUNAN
+								USER MANAGEMENT
 							</h3>
 							</a><div class="btn-group" role="group" aria-label="aksi"><a href="<?php echo base_url() ?>admin/user_managements">
 							</a><a href="<?php echo base_url() ?>admin/user_managements" class="btn btn-primary"><i class="fa fa-eye" style="color: white;"></i> Lihat</a>
