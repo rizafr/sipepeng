@@ -308,6 +308,38 @@ class Drainase_managements extends CI_Controller {
 
         $this->load->view('admin/drainase/drainase_view', $data);
     }
+	
+	public function cetak($id_drainase) {
+		$data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
+
+        # menampilkan google map ke dalam view berdasarkan koordinat didalam database
+        $config['center'] = '-6.900282, 107.530010';
+        $config['zoom'] = '16';
+        $this->googlemaps->initialize($config);
+
+        #garis di google map
+        $polyline = array();
+        $polyline['points'] = array($data['drainase_list']['lat_awal'] . "," . $data['drainase_list']['long_awal'], $data['drainase_list']['lat_akhir'] . "," . $data['drainase_list']['long_akhir']);
+        $this->googlemaps->add_polyline($polyline);
+
+        #marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['drainase_list']['lat_awal'] . "," . $data['drainase_list']['long_awal'];
+        $marker['infowindow_content'] = "RW : " . $data['drainase_list']['rw'] . " <br /> Alamat:  " . $data['drainase_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+        #marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['drainase_list']['lat_akhir'] . "," . $data['drainase_list']['long_akhir'];
+        $marker['infowindow_content'] = "RW : " . $data['drainase_list']['rw'] . " <br /> Alamat:  " . $data['drainase_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+        #buat peta google map
+        $data['map'] = $this->googlemaps->create_map();
+		 $this->load->view('admin/drainase/drainase_cetak',$data);
+	}
 
     function update_status_data_awal() {
         $id_drainase = $this->uri->segment(4);

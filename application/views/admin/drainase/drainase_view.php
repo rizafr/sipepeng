@@ -179,7 +179,7 @@
 
                                     <div class="form-group">
                                         <div class="col-lg-10">                                           
-                                            <button type="button" class="btn btn-info " onclick="cetak();"><i class=" icon-print"></i> <a class="no-print" href="javascript:printDiv('area-1');">Print</a></button>
+                                            <button type="button" class="btn btn-info "><i class=" icon-print"></i> <a class="no-print" href="<?php echo base_url() . 'admin/drainase_managements/cetak/'.$drainase_list['id_drainase']?>">Print</a></button>
                                             <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
                                         </div>
                                     </div><!--end control-group-->

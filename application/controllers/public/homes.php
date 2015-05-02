@@ -127,13 +127,13 @@ class Homes extends CI_Controller {
             $polyline['strokeWeight'] = 5;
             $marker['position'] = $row->lat_awal . "," . $row->long_awal;
             $marker['infowindow_content'] = "Jalan <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
-            $marker['icon'] = base_url() . "assets/public/map-icon/icy_road.png";
+            $marker['icon'] = base_url() . "assets/public/map-icon/jalan.png";
             $this->googlemaps->add_marker($marker);
 
             $marker = array();
             $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
             $marker['infowindow_content'] = "Jalan <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = base_url() . "assets/public/map-icon/icy_road.png";
+            $marker['icon'] = base_url() . "assets/public/map-icon/jalan.png";
             $this->googlemaps->add_marker($marker);
         }
         #end tampilkan data koordinat drainase 
