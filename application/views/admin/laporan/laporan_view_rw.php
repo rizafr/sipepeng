@@ -19,10 +19,10 @@
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
-                                <?
-								   $judul = array("1" => "Perencanaan", "3" => "Pelaksanaan", "4" => "Hasil");
-								   $judul = $judul[$status];
-                                ?>
+                               <?
+                                $judul = array("1" => "Perencanaan", "3" => "Pelaksanaan", "4" => "Hasil", "5" => "Tidak Dilaksanakan");
+                                $judul = $judul[$status];
+                              ?>
                                 <span class="hidden-sm wht-color">Laporan <? echo $judul ." Per RW ".$rw; ?> </span>
                             </header>
                             <div class="panel-body">

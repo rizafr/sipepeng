@@ -61,6 +61,10 @@ class Laporan_model extends CI_Model {
 			$this->db->where('status_sedang_dilaksanakan', '1');			
 		}
 		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
+		}
+		
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
 			$this->db->where('rw', $data['rw']);
 		}
@@ -82,7 +86,9 @@ class Laporan_model extends CI_Model {
 		if($data['status'] == 4){
 			$this->db->where('status_sedang_dilaksanakan', '1');			
 		}
-		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
+		}
 		if($data['rw']!=0){
 			$this->db->where('rw', $data['rw']);
 		}
@@ -107,7 +113,9 @@ class Laporan_model extends CI_Model {
 		if($data['status'] == 4){
 			$this->db->where('status_sedang_dilaksanakan', '1');			
 		}
-		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
+		}
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
 			$this->db->where('rw', $data['rw']);
 		}
@@ -129,6 +137,9 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 4){
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+		}
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
 		
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
@@ -152,6 +163,9 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 4){
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+		}
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
 		
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
@@ -177,6 +191,10 @@ class Laporan_model extends CI_Model {
 			$this->db->where('status_sedang_dilaksanakan', '1');			
 		}
 		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
+		}
+		
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
 			$this->db->where('rw', $data['rw']);
 		}
@@ -199,7 +217,9 @@ class Laporan_model extends CI_Model {
 		if($data['status'] == 4){
 			$this->db->where('status_sedang_dilaksanakan', '1');			
 		}
-		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
+		}
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
 			$this->db->where('rw', $data['rw']);
 		}
@@ -221,6 +241,10 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 4){
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+		}
+		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
 		
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
@@ -246,6 +270,10 @@ class Laporan_model extends CI_Model {
 			$this->db->where('status_sedang_dilaksanakan', '1');			
 		}
 		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
+		}
+		
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
 			$this->db->where('rw', $data['rw']);
 		}
@@ -268,7 +296,9 @@ class Laporan_model extends CI_Model {
 		if($data['status'] == 4){
 			$this->db->where('status_sedang_dilaksanakan', '1');			
 		}
-		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
+		}
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw
 			$this->db->where('rw', $data['rw']);
 		}
@@ -290,6 +320,10 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 4){
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+		}
+		
+		if($data['status'] == 5){
+			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
 		
 		if($data['rw']!=NULL){ //jika rw dipilih maka tampilkan berdasarkan rw

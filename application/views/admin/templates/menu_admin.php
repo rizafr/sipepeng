@@ -103,6 +103,7 @@
 							<a  href="<?php echo base_url() ?>admin/laporan_managements/index/1" >Perencanaan</a>
 							<a  href="<?php echo base_url() ?>admin/laporan_managements/index/3" >Pelaksanaan</a>
 							<a  href="<?php echo base_url() ?>admin/laporan_managements/index/4" >Hasil</a>
+							<a  href="<?php echo base_url() ?>admin/laporan_managements/index/5" >Tidak Dilaksanakan</a>
 						</li>
                     </ul>
                 </li>

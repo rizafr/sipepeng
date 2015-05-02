@@ -1,5 +1,5 @@
 <?
-	$judul = array("1" => "DIRENCANAKAN", "3" => "SEDANG DILAKSANAKAN", "4" => "TELAH TEREALISASI");
+	$judul = array("1" => "DIRENCANAKAN", "3" => "SEDANG DILAKSANAKAN", "4" => "TELAH TEREALISASI","5" => "TIDAK DILAKSANAKAN");
    $judul = $judul[$status];
 ?>
 <?php
