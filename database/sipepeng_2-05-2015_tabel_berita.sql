@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 27 Apr 2015 pada 06.11
+-- Waktu pembuatan: 02 Mei 2015 pada 12.05
 -- Versi Server: 5.5.27
 -- Versi PHP: 5.4.7
 
@@ -51,6 +51,28 @@ CREATE TABLE IF NOT EXISTS `artesis` (
   `status_sudah_dilaksanakan` int(3) NOT NULL,
   `status_tidak_dilaksanakan` int(3) NOT NULL,
   PRIMARY KEY (`id_artesis`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data untuk tabel `artesis`
+--
+
+INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 4, 3, 'jalan cimahi', '3.2', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 3, '    -', NULL, NULL, 1, 1, 0, 0, 0, 0),
+(2, 4, 3, 'jalan vimshi', '1.2', '107.52995635581965', '-6.9015707843011365', 3000, 'masyarakat', 2015, 'Tidak', 3, ' -', NULL, NULL, 1, 1, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `berita`
+--
+
+CREATE TABLE IF NOT EXISTS `berita` (
+  `id_berita` int(11) NOT NULL AUTO_INCREMENT,
+  `judul_berita` varchar(250) NOT NULL,
+  `isi_berita` text NOT NULL,
+  `tgl_berita` date NOT NULL,
+  PRIMARY KEY (`id_berita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -85,15 +107,16 @@ CREATE TABLE IF NOT EXISTS `drainase` (
   `status_sudah_dilaksanakan` int(3) NOT NULL,
   `status_tidak_dilaksanakan` int(3) NOT NULL,
   PRIMARY KEY (`id_drainase`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `drainase`
 --
 
 INSERT INTO `drainase` (`id_drainase`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kedalaman`, `ketersediaan_lahan`, `long_awal`, `long_akhir`, `lat_awal`, `lat_akhir`, `anggaran`, `sumber_data`, `tahun_usulan`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 3, 3, 'cimahi jalan', '3', '3', '4', '3', '107.52990271163935', '107.53018154480947', '-6.90024272397706', '-6.900368467526406', 33333, 'musrenbang', 2015, '  data awal', NULL, NULL, 2, 1, 1, 1, 1, 0),
-(2, 4, 4, 'jalan cimahi', '3', '3', '4', '3', '107.52990271173935', '107.53018154490947', '-6.90024272398706', '-6.900368467626406', 33333, 'musrenbang', 2015, '  data awal', NULL, NULL, 2, 1, 1, 1, 1, 0);
+(1, 3, 3, 'cimahi jalan', '3', '3', '4', '3', '107.52990271163935', '107.53018154480947', '-6.90024272397706', '-6.900368467526406', 33333, 'musrenbang', 2015, '  data awal', 'mck__2015_01_cimahi_cibeber.jpg', NULL, 2, 1, 1, 1, 1, 0),
+(2, 4, 4, 'jalan cimahi', '3', '3', '4', '3', '107.52990271173935', '107.53018154490947', '-6.90024272398706', '-6.900368467626406', 33333, 'musrenbang', 2015, '  data awal', 'mck__2015_01_cimahi_cibeber.jpg', NULL, 2, 1, 1, 1, 1, 0),
+(3, 4, 4, 'jalan cimahi', '3', '3', '4', '3', '107.52990271173935', '107.53018154490947', '-6.90024272398706', '-6.900368467626406', 33333, 'musrenbang', 2015, 'mahal', 'mck__2015_01_cimahi_cibeber.jpg', NULL, 2, 1, 1, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_gas` (
   `long` varchar(30) NOT NULL,
   `no_ijin` varchar(20) NOT NULL,
   PRIMARY KEY (`id_gas`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data untuk tabel `ekonomi_gas`
@@ -134,7 +157,9 @@ INSERT INTO `ekonomi_gas` (`id_gas`, `nama_pemilik`, `alamat`, `rt`, `rw`, `kelu
 (10, 'EEN SUMIATI', 'KERKOF NO.06', '4', '5', 'LEUWIGAJAH', '8121453386', 'PT BUANA FAJAR RAYA', 1050, '', '', ''),
 (11, 'SAMSUDIN', 'JL SADARMANAH', '', '3', 'LEUWIGAJAH', '81322212230', 'PT BUANA FAJAR RAYA', 910, '', '', ''),
 (12, 'PUJO', 'BAROS PASAR NO.3 KAV 1', '', '1', 'LEUWIGAJAH', '226630503', 'PT MUTIARA CAHAYA ASIH', 1200, '', '', ''),
-(13, 'ASMAN SIMANJUNTAK', 'JL RAYA BHAKTI', '4', '11', 'LEUWIGAJAH', '226670351', 'PT CIMAHI BARIBATALI LESTARI', 320, '', '', '');
+(13, 'ASMAN SIMANJUNTAK', 'JL RAYA BHAKTI', '4', '11', 'LEUWIGAJAH', '226670351', 'PT CIMAHI BARIBATALI LESTARI', 320, '', '', ''),
+(14, 'riza fauzi', 'cimahi jalan', '8', '8', 'LEUWIGAJAH', '9999', '9999', 99, '999', '99', '99'),
+(15, 'riza', 'cimahi jalan', '8', '8', 'LEUWIGAJAH', '9999', '9999', 99, '999', '99', '99');
 
 -- --------------------------------------------------------
 
@@ -143,16 +168,139 @@ INSERT INTO `ekonomi_gas` (`id_gas`, `nama_pemilik`, `alamat`, `rt`, `rw`, `kelu
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_kos` (
-  `id_kos` int(11) NOT NULL,
+  `id_kos` int(11) NOT NULL AUTO_INCREMENT,
   `nama_pemilik` varchar(100) NOT NULL,
   `alamat_pemilik` text NOT NULL,
   `rw` varchar(5) NOT NULL,
   `jml_kamar` int(5) NOT NULL,
   `jml_orang_perkamar` int(5) NOT NULL,
   `ijin_usaha` varchar(30) NOT NULL,
-  `harga sewa` int(10) NOT NULL,
-  `ket` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `harga_sewa` int(10) NOT NULL,
+  `ket` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_kos`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=121 ;
+
+--
+-- Dumping data untuk tabel `ekonomi_kos`
+--
+
+INSERT INTO `ekonomi_kos` (`id_kos`, `nama_pemilik`, `alamat_pemilik`, `rw`, `jml_kamar`, `jml_orang_perkamar`, `ijin_usaha`, `harga_sewa`, `ket`) VALUES
+(1, 'UDU', 'CIBOGO RW 07 RT 01', '7', 6, 3, '', 2400000, ''),
+(2, 'EUNTI', 'CIBOGO RW 07 RT 01', '7', 3, 2, '', 6000000, ''),
+(3, 'H. OMAS ISKANDAR', 'KOMP. CIBOGO P. RT02/14', '14', 20, 3, '', 1050000, ''),
+(4, 'HJ. NURSYAM', 'KOMP. CIBOGO P. RT03/14', '14', 10, 3, '', 1050000, ''),
+(5, 'Dr. HSYUN', 'KOMP. CIBOGO P. RT 03/14', '14', 10, 3, '', 900000, ''),
+(6, 'YULISTIONO', 'KOMP. CIBOGO P. RT 03/14', '14', 4, 3, '', 1200000, ''),
+(7, 'WAWAN IRIAWAN', 'KOMP. CIBOGO P. RT03/14', '14', 4, 3, '', 900000, ''),
+(8, 'H. OMAN', 'RT03 RW 11 / RT 01 RW 11', '11', 4, 0, '', 3600000, ''),
+(9, 'EDI KRISNA', 'RT 08 RW 11/ RT 04 RW 11', '11', 19, 0, '', 4800000, ''),
+(10, 'H. ALO', 'CIGUGUR', '', 38, 0, '', 3600000, ''),
+(11, 'TOTO', 'GUNUNG BATU', '', 8, 0, '', 4800000, ''),
+(12, 'RUSMIN', 'JL KERKOF RT 01 RW 09', '9', 10, 0, '', 4800000, ''),
+(13, 'ENDANG KUSWANDI', 'JL KERKOF RT 01 RW 09', '9', 4, 0, '', 4200000, ''),
+(14, 'EULIS WANDAWATI', 'JL KERKOF RT 01 RW 09', '9', 7, 0, '', 3000000, ''),
+(15, 'SUROSO', 'JL. GANG WARGA RT 02 RW 9', '9', 18, 0, '', 3600000, ''),
+(16, 'KARYO', 'JL. GANG WARGA RT 02 RW 9', '9', 12, 0, '', 2600000, ''),
+(17, 'JAUHARI', 'JL. GANG WARGA RT 02 RW 9', '9', 1, 0, '', 2600000, ''),
+(18, 'ERWIN', 'JL. GANG WARGA RT 02 RW 9', '9', 10, 0, '', 2600000, ''),
+(19, 'LILI', 'JL. GANG WARGA RT 02 RW 9', '9', 20, 0, '', 2600000, ''),
+(20, 'HAGIMAN', 'JL. GANG WARGA RT 02 RW 9', '9', 16, 0, '', 2600000, ''),
+(21, 'TUTI', 'JL. GANG WARGA RT 02 RW 9', '9', 7, 0, '', 2600000, ''),
+(22, 'H. IDI', 'JL. GANG WARGA RT 02 RW 9', '9', 11, 0, '', 2600000, ''),
+(23, 'PARJO', 'JL. GANG WARGA RT 02 RW 9', '9', 3, 0, '', 2600000, ''),
+(24, 'IMAS', 'JL. GANG WARGA RT 02 RW 9', '9', 4, 0, '', 2600000, ''),
+(25, 'IPUL', 'JL. GANG WARGA RT 02 RW 9', '9', 2, 0, '', 2600000, ''),
+(26, 'SUNARYA', 'JL. GANG WARGA RT 02 RW 9', '9', 2, 0, '', 2600000, ''),
+(27, 'VANI A', 'JL. GANG WARGA RT 02 RW 9', '9', 10, 0, '', 2600000, ''),
+(28, 'VANI B', 'JL. GANG WARGA RT 02 RW 9', '9', 2, 0, '', 2600000, ''),
+(29, 'M. HAMID', 'KP. KIHAPIT TIMUR 08/08', '', 10, 0, '', 4200000, ''),
+(30, 'SANIYO', 'KP. KIHAPIT TIMUR 08/08', '', 5, 0, '', 4200000, ''),
+(31, 'ETTY YURITA', 'KP. KIHAPIT TIMUR 08/08', '', 4, 0, '', 4200000, ''),
+(32, 'GUNAWAN', 'KOM CIBOGO PERMAI RW 14', '', 2, 0, '', 4200000, ''),
+(33, 'SANTI SANTIKA', 'KP. KIHAPIT TIMUR 08/08', '', 3, 0, '', 4200000, ''),
+(34, 'MIEZA', 'TMN BUKIT CIBOGO 07/17', '', 3, 0, '', 4200000, ''),
+(35, 'YAYAT RUHIYAT', 'TMN BUKIT CIBOGO 07/17', '', 2, 0, '', 4200000, ''),
+(36, 'LATIF', 'CIBIRU', '', 9, 0, '', 1800000, ''),
+(37, 'KARNASEP', 'KIHAPIT', '', 5, 1, '', 2040000, ''),
+(38, 'SUMARNA', 'KIHAPIT', '', 1, 0, '', 1440000, ''),
+(39, 'MISNA', 'KIHAPIT', '', 2, 0, '', 1440000, ''),
+(40, 'WILSON SINAGA', 'CIBABAT', '', 1, 0, '', 1440000, ''),
+(41, 'ADE KUSYONO', 'KIHAPIT', '', 1, 0, '', 1440000, ''),
+(42, 'SALPA', 'CIBOGO PERMAI', '', 4, 0, '', 1440000, ''),
+(43, 'GINI MARGARETA', 'KIHAPIT TIMUR RT 01/08', '', 8, 0, '', 1440000, ''),
+(44, 'ASEP SUPRIATNAkp', 'KIHAPIT TIMUR RT 05/08', '', 3, 0, '', 1200000, ''),
+(45, 'SURMAN', 'TANGERANG/ RTO5/08', '', 4, 0, '', 3000000, ''),
+(46, 'SLAMET', 'RT 01 RW 01', '', 10, 0, '', 2400000, ''),
+(47, 'H.R. SUMARNO', 'RT 01 RW 01', '', 3, 0, '', 2400000, ''),
+(48, 'TRI NARTO', 'RT 01 RW 01', '', 4, 0, '', 2400000, ''),
+(49, 'SRI', 'RT 02 RW 01', '', 10, 0, '', 2400000, ''),
+(50, 'RADI KP', 'RT 02 RW 01', '', 9, 0, '', 2400000, ''),
+(51, 'MARIUS', 'RT 02 RW 01', '', 8, 0, '', 2400000, ''),
+(52, 'IRI', 'RT 02 RW 01', '', 16, 0, '', 4800000, ''),
+(53, 'OTEN', 'RT 02 RW 01', '', 10, 0, '', 4800000, ''),
+(54, 'S. LUPIYO', 'RT 02 RW 01', '', 6, 0, '', 4800000, ''),
+(55, 'H. OO SANTOSO', 'RT 02 RW 01', '', 8, 0, '', 4800000, ''),
+(56, 'SUWARTONO', 'RT03 RW 01', '', 1, 0, '', 4800000, ''),
+(57, 'KAPI KUSTONO', 'RT 03 RW 01', '', 1, 0, '', 4000000, ''),
+(58, 'TUA SIAGIAN', 'RT 04 RW 01', '', 100, 0, '', 20000000, ''),
+(59, 'DEDY', 'RT 04 RW 01', '', 10, 0, '', 4800000, ''),
+(60, 'TITIN', 'RT 04 RW 01', '', 10, 0, '', 4800000, ''),
+(61, 'HADI KURNIAWATI', 'RT 04 RW 01', '', 6, 0, '', 4800000, ''),
+(62, 'DEDI ROSADI', 'KIHAPIT TIMUR 09/08', '', 6, 0, '', 1920000, ''),
+(63, 'USMAN', 'KIHAPIT RT 06/08', '', 9, 0, '', 1800000, ''),
+(64, 'H. KANDA', 'KAMP. SARADAN RTO1 RW 02', '', 6, 3, '', 3600000, ''),
+(65, 'UDIN SAEPUDIN', 'KAMP. SARADAN RTO1 RW 02', '', 3, 3, '', 3600000, ''),
+(66, 'MARZUKI', 'KAMP. SARADAN RTO1 RW 02', '', 5, 3, '', 3600000, ''),
+(67, 'H. BANDI', 'KAMP. SARADAN RTO1 RW 02', '', 5, 3, '', 3600000, ''),
+(68, 'SUKAYA', 'KIHAPIT RT 04 RW 09', '', 19, 0, '', 3000000, ''),
+(69, 'EROS', 'KP. SARADAN RT 03/03', '', 2, 7, '', 3500000, ''),
+(70, 'IPAH', 'KP. SARADAN RT 03/02', '', 4, 12, '', 5000000, ''),
+(71, 'MAHMUDIN', 'KP. SARADAN RT 03/03', '', 3, 13, '', 8000000, ''),
+(72, 'LILIS', 'KP. SARADAN RT 03/02', '', 3, 7, '', 2800000, ''),
+(73, 'BASUKI', 'KP. SARADAN RT 03/03', '', 3, 9, '', 15000000, ''),
+(74, 'SUDARSONO', 'KP. SARADAN RT 03/08', '', 1, 0, '', 3600000, ''),
+(75, 'PANJAITAN', 'KP. SARADAN RT 03/02', '', 6, 0, '', 15000000, ''),
+(76, 'AKIB', 'KP. SARADAN RT 03/02', '', 1, 0, '', 4000000, ''),
+(77, 'DEWI/SUBARI', 'KP. SARADAN RT 03/02', '', 1, 0, '', 4000000, ''),
+(78, 'ALI GARDA', 'KP. SARADAN RT 03/02', '', 1, 0, '', 4500000, ''),
+(79, 'KOMALA', 'KP. SARADAN RT 03/02', '', 1, 0, '', 4800000, ''),
+(80, 'N SITI KOMARIAH', 'KP. SARADAN RT 03/02', '', 1, 0, '', 3000000, ''),
+(81, 'ABDUL ROHMAN', 'KP. SARADAN RT 03/02', '', 1, 0, '', 3500000, ''),
+(82, 'SUNMANTO', 'KP. SARADAN RT 03/02', '', 1, 0, '', 3500000, ''),
+(83, 'UDIN SAEPUDIN', 'KP. SARADAN RT 03/02', '', 2, 8, '', 600000, ''),
+(84, 'HARNINGSIH', 'KP. SARADAN RT 03/02', '', 5, 10, '', 1250000, ''),
+(85, 'TASMIDI', 'KP. SARADAN RT 03/02', '', 2, 3, '', 9640000, ''),
+(86, 'ASEP DARYADI', 'KP. SARADAN RT 03/02', '', 3, 6, '', 21000000, ''),
+(87, 'KANDA', 'KP. SARADAN RT 03/02', '', 1, 4, '', 12000000, ''),
+(88, 'DIAH', 'KP. SARADAN RT 03/02', '', 1, 5, '', 3000000, ''),
+(89, 'NUNUNG', 'KP. SARADAN RT 03/02', '', 1, 5, '', 8000000, ''),
+(90, 'UJANG SUKARNA', 'KP. SARADAN RT 04/02', '', 4, 4, '', 3000000, ''),
+(91, 'AHAH', 'KP. SARADAN RT 04/02', '', 2, 4, '', 3600000, ''),
+(92, 'HIDAYAT', 'KP. SARADAN RT 04/02', '', 4, 4, '', 2400000, ''),
+(93, 'CUCU LASWATI', 'KP. SARADAN RT 05/02', '', 3, 2, '', 3600000, ''),
+(94, 'NURAENI', 'KP. SARADAN RT 05/02', '', 2, 3, '', 3000000, ''),
+(95, 'UJAT', 'KP. SARADAN RT 05/02', '', 2, 2, '', 2600000, ''),
+(96, 'SOLIHAT', 'KP. SARADAN RT 05/02', '', 2, 2, '', 2600000, ''),
+(97, 'LISDA', 'KP. SARADAN RT 05/02', '', 6, 2, '', 2600000, ''),
+(98, 'DEDEN', 'KP. SARADAN RT 05/02', '', 2, 2, '', 3000000, ''),
+(99, 'KOMKOM KOMARIAH', 'KP. SARADAN RT 05/02', '', 4, 2, '', 3000000, ''),
+(100, 'MAE', 'KP. SARADAN RT 05/02', '', 2, 2, '', 3000000, ''),
+(101, 'WIWI WARTINI', 'KP. SARADAN RT 05/02', '', 2, 2, '', 3000000, ''),
+(102, 'H. BANDI', 'KP. SARADAN RT 06/02', '', 6, 3, '', 4800000, ''),
+(103, 'IYA', 'KP. SARADAN RT 06/02', '', 6, 4, '', 1800000, ''),
+(104, 'KANDA', 'KP. SARADAN RT 06/02', '', 3, 3, '', 2100000, ''),
+(105, 'UDIN', 'KP. SARADAN RT 06/02', '', 1, 3, '', 5000000, ''),
+(106, 'IPAH', 'KP. SARADAN RT 06/02', '', 2, 1, '', 3000000, ''),
+(107, 'WISNU', 'KP. SARADAN RT 06/02', '', 1, 3, '', 2100000, ''),
+(108, 'JUNU', 'KP. SARADAN RT 06/02', '', 2, 2, '', 3000000, ''),
+(109, 'RUSTANDI', 'KP. SARADAN RT 06/02', '', 1, 3, '', 5000000, ''),
+(110, 'KAYA', 'KP. SARADAN RT 06/02', '', 1, 5, '', 3000000, ''),
+(111, 'DENI', 'KP. SARADAN RT 07/02', '', 1, 0, '', 1800000, ''),
+(112, 'RUKMA', 'KP. SARADAN RT 07/02', '', 1, 0, '', 2000000, ''),
+(113, 'SITI JUBAEDAH', 'KP. SARADAN RT 08/02', '', 2, 0, '', 3000000, ''),
+(114, 'H AWANG', 'KP. SARADAN RT 08/02', '', 1, 0, '', 3000000, ''),
+(115, 'SURYATI', 'KP. SARADAN RT 08/02', '', 1, 0, '', 3000000, ''),
+(116, 'HENI', 'KP. SARADAN RT 08/02', '', 1, 0, '', 4000000, '');
 
 -- --------------------------------------------------------
 
@@ -494,6 +642,7 @@ CREATE TABLE IF NOT EXISTS `jalan` (
   `alamat` text NOT NULL,
   `panjang` varchar(10) NOT NULL,
   `lebar` varchar(10) NOT NULL,
+  `kategori_jalan` varchar(25) NOT NULL,
   `ketersediaan_lahan` varchar(10) NOT NULL,
   `long_awal` varchar(50) NOT NULL,
   `long_akhir` varchar(50) NOT NULL,
@@ -512,7 +661,14 @@ CREATE TABLE IF NOT EXISTS `jalan` (
   `status_sudah_dilaksanakan` int(3) NOT NULL,
   `status_tidak_dilaksanakan` int(3) NOT NULL,
   PRIMARY KEY (`id_jalan`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `jalan`
+--
+
+INSERT INTO `jalan` (`id_jalan`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kategori_jalan`, `ketersediaan_lahan`, `long_awal`, `long_akhir`, `lat_awal`, `lat_akhir`, `anggaran`, `sumber_data`, `tahun_usulan`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 3, 3, 'cimahi jalan', '3.3', '3.3', 'Jalan Lingkungan', '33', '107.53183725489134', '107.53357051589978', '-6.901968203132459', '-6.902138547634187', 2121, 'masyarakat', 2014, '33', NULL, NULL, 0, 1, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -594,6 +750,46 @@ CREATE TABLE IF NOT EXISTS `kirmir` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `lain`
+--
+
+CREATE TABLE IF NOT EXISTS `lain` (
+  `id_lain` int(11) NOT NULL AUTO_INCREMENT,
+  `rt` int(5) NOT NULL,
+  `rw` int(5) NOT NULL,
+  `nama_kegiatan` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `ketersediaan_lahan` varchar(10) NOT NULL,
+  `long` varchar(50) NOT NULL,
+  `lat` varchar(50) NOT NULL,
+  `anggaran` int(100) NOT NULL,
+  `sumber_data` text NOT NULL,
+  `tahun_usulan` int(7) NOT NULL,
+  `persetujuan_warga` varchar(10) NOT NULL,
+  `jml_pemakai` int(10) NOT NULL,
+  `ket` text NOT NULL,
+  `foto` varchar(200) DEFAULT NULL,
+  `dokumen` varchar(200) DEFAULT NULL,
+  `id_kategori` int(5) NOT NULL,
+  `status_data_awal` int(3) NOT NULL,
+  `status_verifikasi` int(3) NOT NULL,
+  `status_sedang_dilaksanakan` int(3) NOT NULL,
+  `status_sudah_dilaksanakan` int(3) NOT NULL,
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_lain`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data untuk tabel `lain`
+--
+
+INSERT INTO `lain` (`id_lain`, `rt`, `rw`, `nama_kegiatan`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 4, 3, 'Bedah sawah', 'jalan cimahi', '3.5', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 3, '     -', NULL, NULL, 1, 1, 1, 1, 1, 0),
+(2, 4, 3, 'Pembuatan Rumah Warga', 'jalan vimshi', '3.3', '107.53022055340762', '-6.900405819305251', 3000, 'masyarakat', 2015, 'Ada', 3, '  -', NULL, NULL, 1, 1, 0, 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `mck`
 --
 
@@ -626,7 +822,7 @@ CREATE TABLE IF NOT EXISTS `mck` (
 --
 
 INSERT INTO `mck` (`id_mck`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 10, 1, 'Cibeber Cimahi Selatan', '210', '107.52991271463935', '-6.90024294397706', 2300000, 'Masyarakat Sekitar', 2015, 'Ada', '  Biki WC umum', 'mck__2015_01_cimahi_cibeber.jpg', 'mck__2015_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
+(1, 10, 3, 'Cibeber Cimahi Selatan', '210', '107.52991271463935', '-6.90024294397706', 2300000, 'Masyarakat Sekitar', 2015, 'Ada', '  Biki WC umum', 'mck__2015_01_cimahi_cibeber.jpg', 'mck__2015_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -641,7 +837,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `nama_tabel` varchar(50) NOT NULL,
   `id_jenis_pengguna` int(15) NOT NULL,
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data untuk tabel `menu`
@@ -655,7 +851,8 @@ INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `nama_tabel`, `id_jenis_pen
 (10, 'Sumur Resapan', 'admin/sumur_resapan_managements', 'sumur_resapan', 2),
 (11, 'MCK', 'admin/mck_managements', 'mck', 2),
 (12, 'Septictank', 'admin/septictank_managements', 'septictank', 2),
-(13, 'Septictank Komunal', 'admin/septictank_komunal_managements', 'septictank_komunal', 2);
+(13, 'Septictank Komunal', 'admin/septictank_komunal_managements', 'septictank_komunal', 2),
+(14, 'Lain-Lain', 'admin/lain_managements', 'lain', 0);
 
 -- --------------------------------------------------------
 
@@ -760,8 +957,8 @@ CREATE TABLE IF NOT EXISTS `septictank` (
 --
 
 INSERT INTO `septictank` (`id_septictank`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 1, 10, 'cimahi cibeber no. 100', '120', '107.53018154480947', '-6.90024272397706', 3400000, 'dinas', 2015, 'Ada', '  tidak', 'septictank__2015_10_cimahi_cibeber.jpg', 'septictank__2015_10_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0),
-(2, 565, 5656, '65656565656565', '56565', '107.52992282820696', '-6.900260697750685', 5656, '56565', 2016, 'Ada', ' 565', NULL, NULL, 0, 1, 1, 0, 0, 0);
+(1, 1, 3, 'cimahi cibeber no. 100', '120', '107.53018154480947', '-6.90024272397706', 3400000, 'dinas', 2015, 'Ada', '  tidak', 'septictank__2015_10_cimahi_cibeber.jpg', 'septictank__2015_10_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0),
+(2, 2, 3, '65656565656565', '56565', '107.52992282820696', '-6.900260697750685', 5656, '56565', 2016, 'Ada', ' 565', NULL, NULL, 0, 1, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -799,7 +996,7 @@ CREATE TABLE IF NOT EXISTS `septictank_komunal` (
 --
 
 INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 10, 1, 'cibeber no 120 cimahi selatan', '22', '107.52994291163935', '-6.90024274697706', 3400000, 'iii', 2013, 'Ada', 34, '  ga da', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
+(1, 10, 3, 'cibeber no 120 cimahi selatan', '22', '107.52994291163935', '-6.90024274697706', 3400000, 'iii', 2013, 'Ada', 34, '  ga da', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -836,7 +1033,7 @@ CREATE TABLE IF NOT EXISTS `sumur_dangkal` (
 --
 
 INSERT INTO `sumur_dangkal` (`id_sumur_dangkal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 10, 4, 'Kp. Baru Gg. Nuryadi Cibeber Cimahi Selatan No. 80', '15', '', '', 5000000, 'Masyarakat Sekitar', 2014, 'Ada', '   -', NULL, NULL, 1, 1, 1, 1, 1, 0);
+(1, 2, 3, 'Kp. Baru Gg. Nuryadi Cibeber Cimahi Selatan No. 80', '15', '', '', 5000000, 'Masyarakat Sekitar', 2014, 'Ada', '   -', NULL, NULL, 1, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
