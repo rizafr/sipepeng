@@ -3,16 +3,18 @@
 
 <body class="homepage">
 	<?php $this->load->view('public/templates/menu'); ?> 
-	<div class="container-fluid">
-		<div class="row">
-			<?php echo $map['html']; ?>
+	<section id="peraturan" >
+		<div class="container>
+			 <div class="row">
+				<?php echo $map['html']; ?>
+			</div>
 		</div>
-	</div>
+	</section>
 	
 	
 	<script type="text/javascript">
 		function getLokasi(newLat, newLng)
 		{			
-				alert(newLat);
+			alert(newLat);
 		}
 	</script>

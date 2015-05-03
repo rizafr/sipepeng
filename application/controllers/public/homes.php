@@ -226,6 +226,12 @@ class Homes extends CI_Controller {
         $data['data_list'] = $this->kos_model->select_all()->result();
         $this->load->view('public/kos', $data);
     }
+	
+	#halaman kontak
+    public function kontak() {
+        $data['title'] = "KONTAK - SIPEPENG";
+        $this->load->view('public/kontak', $data);
+    }
 
 }
 
