@@ -184,66 +184,65 @@
         </a>
     </section><!--/#main-slider-->
 
-    <section id="feature" >
-        <div class="container">
-           <div class="center wow fadeInDown">
-                <h2>Features</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </div>
+   <section id="blog" class="container">
+        <div class="center">
+            <h2>Berita Terbaru</h2>
+            <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+        </div>
 
+        <div class="blog">
             <div class="row">
-                <div class="features">
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-bullhorn"></i>
-                            <h2>Fresh and Clean</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
+                 <div class="col-md-12">
+                    <div class="blog-item">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-2 text-center">
+                                <div class="entry-meta">
+                                    <span id="publish_date">07  NOV</span>
+                                    <span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
+                                    <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                    <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                </div>
+                            </div>
+                                
+                            <div class="col-xs-12 col-sm-10 blog-content">
+                                <a href="#"><img class="img-responsive img-blog" src="<?php echo base_url() ?>assets/public/images/slider/slide3.jpg" width="100%" alt="" /></a>
+                                <h2><a href="blog-item.html">Consequat bibendum quam liquam viverra</a></h2>
+                                <h3>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</h3>
+                                <a class="btn btn-primary readmore" href="blog-item.html">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>    
+                    </div><!--/.blog-item-->
+                        
+                    <div class="blog-item">
+                        <div class="row">
+                             <div class="col-sm-2 text-center">
+                                <div class="entry-meta"> 
+                                    <span id="publish_date">07  NOV</span>
+                                    <span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
+                                    <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                    <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-10 blog-content">
+                                <a href=""><img class="img-responsive img-blog" src="<?php echo base_url() ?>assets/public/images/slider/slide3.jpg" width="100%" alt="" /></a>
+                                <h2><a href="blog-item.html">Consequat bibendum quam liquam viverra</a></h2>
+                                <h3>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</h3>
+                                <a class="btn btn-primary readmore" href="blog-item.html">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>    
+                    </div><!--/.blog-item-->
+                        
+                    
+                </div><!--/.col-md-8-->
 
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-comments"></i>
-                            <h2>Retina ready</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
+                       </div>                     
+                    </div><!--/.recent comments-->
+                     
 
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-cloud-download"></i>
-                            <h2>Easy to customize</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-                
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-leaf"></i>
-                            <h2>Adipisicing elit</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-cogs"></i>
-                            <h2>Sed do eiusmod</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-heart"></i>
-                            <h2>Labore et dolore</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-                </div><!--/.services-->
-            </div><!--/.row-->    
-        </div><!--/.container-->
-    </section><!--/#feature-->
+                    
+            </div><!--/.row-->
+        </div>
+    </section><!--/#blog-->
 
     <section id="recent-works">
         <div class="container">
@@ -277,31 +276,30 @@
                     </div>
                 </div> 
 
-                <div class="col-xs-12 col-sm-4 col-md-3">
+               <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="<?php echo base_url() ?>assets/public/images/portfolio/recent/item3.png" alt="">
+                        <img class="img-responsive" src=" <?php echo base_url() ?>assets/public/images/slider/slide2.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Business theme </a></h3>
-                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/portfolio/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">Business theme</a></h3>
+                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/slider/slide2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
-                </div>   
+                </div> 
 
-                <div class="col-xs-12 col-sm-4 col-md-3">
+               <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="<?php echo base_url() ?>assets/public/images/portfolio/recent/item4.png" alt="">
+                        <img class="img-responsive" src=" <?php echo base_url() ?>assets/public/images/slider/slide2.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Business theme </a></h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/portfolio/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">Business theme</a></h3>
+                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/slider/slide2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
-                </div>   
-                
+                </div> 
+				
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
                         <img class="img-responsive" src="<?php echo base_url() ?>assets/public/images/portfolio/recent/item5.png" alt="">
@@ -315,44 +313,42 @@
                     </div>
                 </div>   
 
-                <div class="col-xs-12 col-sm-4 col-md-3">
+               <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="images/portfolio/recent/item6.png" alt="">
+                        <img class="img-responsive" src=" <?php echo base_url() ?>assets/public/images/slider/slide2.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Business theme </a></h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="images/portfolio/full/item6.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">Business theme</a></h3>
+                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/slider/slide2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
                 </div> 
 
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                <<div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="images/portfolio/recent/item7.png" alt="">
+                        <img class="img-responsive" src=" <?php echo base_url() ?>assets/public/images/slider/slide2.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Business theme </a></h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="images/portfolio/full/item7.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">Business theme</a></h3>
+                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/slider/slide2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
-                </div>   
+                </div> 
 
-                <div class="col-xs-12 col-sm-4 col-md-3">
+              <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="images/portfolio/recent/item8.png" alt="">
+                        <img class="img-responsive" src=" <?php echo base_url() ?>assets/public/images/slider/slide2.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">Business theme </a></h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="images/portfolio/full/item8.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <h3><a href="#">Business theme</a></h3>
+                                <a class="preview" href="<?php echo base_url() ?>assets/public/images/slider/slide2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
-                </div>   
+                </div> 
+				
             </div><!--/.row-->
         </div><!--/.container-->
     </section><!--/#recent-works-->
