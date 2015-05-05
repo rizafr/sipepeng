@@ -122,6 +122,10 @@
 						</li>
                     </ul>
                 </li>
+				
+				<li class="sub-menu" >
+                    <a  href="<?php echo base_url() ?>admin/berita_managements/index" >Berita</a>							
+                </li>
 
             </ul>
             <!-- sidebar menu end-->
