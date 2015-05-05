@@ -58,25 +58,27 @@
 		}
 		
 		public function process() {
-			//menampilkan menu..wajib ada
-			#menampilkan menu sesuai hak ases
-            #admin
-            if ($this->session->userdata('id_jenis_pengguna') == 1) {
-                $data['menu_list'] = $this->menu_model->select_all()->result();
-			}
-            #dkp
-            if ($this->session->userdata('id_jenis_pengguna') == 2) {
-                $data['menu_list'] = $this->menu_model->select_dkp()->result();
-			}
-            #pu
-            if ($this->session->userdata('id_jenis_pengguna') == 3) {
-                $data['menu_list'] = $this->menu_model->select_pu()->result();
-			}
-			// end menampilkan menu..wajib ada
+			 /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            #menampilkan menu
+            #menampilkan menu sesuai hak ases				
+            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+            $data['menu_list'] = $akses;
+            #end menampilkan menu sesuai hak ases	
+            #jumlah status menu
+            #drainase
+            $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+            $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+            $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+            $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 			
 			$aksi = $this->input->post('aksi');
 			$data['aksi'] = $aksi;
 			$id_berita = $this->input->post('id_berita');
+			
+			  $this->form_validation->set_rules('judul_berita', 'RT', 'trim|required');
+			//$this->form_validation->set_error_delimiters('', '<br/>');
+			$this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
 			
 			if ($this->form_validation->run() == TRUE) {
 				$data['judul_berita'] = $this->input->post('judul_berita');

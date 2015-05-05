@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `berita` (
   `id_berita` int(11) NOT NULL AUTO_INCREMENT,
   `judul_berita` varchar(250) NOT NULL,
   `isi_berita` text NOT NULL,
-  `tgl_berita` date NOT NULL,
+  `tgl_berita` varchar(250)  NULL,
   PRIMARY KEY (`id_berita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 

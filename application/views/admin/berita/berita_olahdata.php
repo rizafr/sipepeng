@@ -62,7 +62,7 @@ if (strtolower($aksi) == 'add') {
                                         <label class="col-lg-2 col-sm-2 control-label" for="tgl_berita">Tanggal Berita: <span class="text-error">*</span></label>
                                         <div class="col-md-3 col-xs-11">
                                         <div class="input-group date form_datetime-component">
-                                        <input type="text" class="form-control" id="tgl_berita" name="tgl_berita" placeholder="Tanggal Berita" value="<?php echo set_value('tgl_berita', isset($artesis_list['tgl_berita']) ? $artesis_list['tgl_berita'] : ''); ?>" readonly>
+                                        <input type="text" class="form-control" id="tgl_berita" name="tgl_berita" placeholder="Tanggal Berita" value="<?php echo set_value('tgl_berita', isset($berita_list['tgl_berita']) ? $berita_list['tgl_berita'] : ''); ?>" readonly>
                                             <span class="help-inline"><?php echo form_error('tgl_berita'); ?></span>
                                               <span class="input-group-btn add-on">
                                                 <button class="btn btn-danger date-set" type="button"><i class="icon-calendar"></i></button>
@@ -76,7 +76,7 @@ if (strtolower($aksi) == 'add') {
                                             <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
                                             <button type="submit" class="btn btn-primary"><? echo $namaform ?></button>
                                             <button type="reset" class="btn btn-primary">Reset</button>										 
-                                        </div>
+											</div>
                                     </div><!--end control-group-->
 
                                 </form><!--end form-->
