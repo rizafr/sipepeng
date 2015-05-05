@@ -8,19 +8,38 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo base_url();?>">
-						 <img src="<?php echo base_url() ?>assets/public/images/logo.png"/>
+                    <a href="#" class="navbar-brand visible-lg visible-md">
+					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
+					<strong>SIPEPENG</strong> 
 					</a>
+					<a href="<?php echo base_url(); ?>admin/homes" class="navbar-brand visible-sm">
+					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
+					SIPEPENG
+				</a>
+				<a href="<?php echo base_url(); ?>admin/homes" class="navbar-brand visible-xs">
+					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
+					<small><strong>SIPEPENG</strong></small>
+				</a>
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li <? $page=''; $url=$this->uri->segment(2); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>">Beranda</a></li>
                         <li <? $page='profil'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/profil">Profil</a></li>
-                        <li <? $page='peta'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/peta">Peta</a></li>
-                        <li <? $page='peraturan'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/peraturan">Peraturan</a></li>
+                        <li <? $page='peta'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/peta">Peta Pembangunan</a></li>
+                       <!--  <li <? $page='peraturan'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/peraturan">Peraturan</a></li>-->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Ekonomi <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                 <!--<li <? $page='perusahaan'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/perusahaan">Daftar Perusahaan</a></li-->
+                                 <li <? $page='minimarket'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/minimarket">Minimarket</a></li>
+                                 <li <? $page='gas'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/gas">Pangkalan Gas LPG</a></li>
+                                 <li <? $page='kos'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/kos">Rumah Kos</a></li>
+                                 <li <? $page='umkm'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/umkm">UMKM</a></li>
+							</ul>
+                        </li>
+						<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hasil Pembangunan <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                  <!--<li <? $page='perusahaan'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/perusahaan">Daftar Perusahaan</a></li-->
                                  <li <? $page='minimarket'; $url=$this->uri->segment(3); echo ($page==$url ? " class='active' " : '') ?>><a href="<?php echo base_url();?>public/homes/minimarket">Minimarket</a></li>
