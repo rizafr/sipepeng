@@ -84,7 +84,22 @@
 				$data['judul_berita'] = $this->input->post('judul_berita');
 				$data['isi_berita'] = $this->input->post('isi_berita');
 				$data['tgl_berita'] = $this->input->post('tgl_berita');
+				$ket = "Berita";
 				
+				//mengecek apakah foto di upload
+				if($_FILES['foto']['name'] != "")
+				{
+					$foto = $this->upload_foto($ket, $data['judul_berita']);
+				}
+				 $data['foto'] = $foto;
+				 
+				 //mengecek apakah dokumen di upload
+				if($_FILES['dokumen']['name'] != "")
+				{
+					$dokumen = $this->upload_dokumen($ket, $data['judul_berita']);
+				}
+					$data['dokumen'] = $dokumen;
+					
 				//mengecek aksi
 				# jika tambah
 				if ($aksi == 'add') {
@@ -125,6 +140,49 @@
 				redirect('admin/berita_managements/index');
 			}
     }
+	
+	//fungsi menampilkan berdasarkan id yg dipilih
+		public function view($id_berita){
+			
+			$data['id_berita'] = $id_berita;
+			$data['title'] = "View Data Berita | SIPEPENG";
+			$data['judulForm'] = "Detail Berita";
+			$data['berita_list'] = $this->berita_model->getBeritaById($id_berita);
+			$data['username'] = $this->session->userdata('username');
+			
+			$this->load->view('admin/berita/berita_view',$data);
+		}
 	}
+	
+	# Upload Foto
+		function upload_foto($ket,$judul_berita)
+		{
+			$this->load->library('upload');
+			
+			$image_foto = "noimage.jpg";
+			$field_name = "foto";
+			$file_name = $_FILES['foto']['name'];
+			
+			if($file_name != "")
+			{
+				$config = array(
+					'file_name'		=> preg_replace("/[^A-Za-z0-9_-\s]/", "", $ket."_".$judul_berita),
+					'overwrite'		=> TRUE,
+					'remove_spaces'	=> TRUE,
+					'allowed_types' => 'jpg|JPG|jpeg|JPEG|gif|png',
+					'upload_path'	=> './assets/upload/foto',
+					'max_size' 		=> 5000
+				);
+				$this->upload->initialize($config);
+				
+				if($this->upload->do_upload($field_name))
+				{
+					$image_data = $this->upload->data();
+					$image_foto = $image_data['file_name'];
+				}
+			}
+			
+			return $image_foto;
+		}
 	
 ?>					

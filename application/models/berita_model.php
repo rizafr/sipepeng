@@ -45,6 +45,7 @@ class Berita_model extends CI_Model {
 		'judul_berita' 		=> $data['judul_berita']
 		, 'isi_berita' 		=> $data['isi_berita']
 		, 'tgl_berita' 		=> $data['tgl_berita']
+		, 'foto' =>  $data['foto']
 		);
 		return $this->db->insert('berita', $data);
 	}
@@ -56,6 +57,27 @@ class Berita_model extends CI_Model {
 	
 	//delete
 	public function delete($id_berita) {
+		$this->db->where('id_berita',$id_berita);
+		$query = $this->db->get('berita');
+		$row = $query->row();
+		
+		//menghapus file
+		$foto = $row->foto;
+		$dokumen = $row->dokumen;
+		// lokasi folder image
+		$map = $_SERVER['DOCUMENT_ROOT'];
+		
+		$pathImage = $map . '/assets/upload/foto/';
+		$pathDocument = $map . '/assets/upload/dokumen/';
+		
+		//lokasi gambar secara spesifik
+		$image = $pathImage.$foto;
+		$document = $pathDocument.$dokumen;
+		
+		//hapus image
+		unlink($image);
+		unlink($document);
+		
 		$this->db->delete('berita', array('id_berita' => $id_berita));
 	}
 	

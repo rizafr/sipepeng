@@ -56,7 +56,8 @@
 															<td><?php echo $row->isi_berita ?></td>
 															<td><?php echo $row->tgl_berita ?></td>
 															<td>
-                                                                <a href="<?php echo base_url() . 'admin/berita_managements/gotoForm/edit/' . $row->id_berita ?>"><button class = "btn btn-primary" title="Edit"><i class = "icon-pencil"></i></button></a>
+																<a href="<?php echo base_url() . 'admin/berita_managements/view/' . $row->id_berita ?>"><button class = "btn btn-info" data-toggle="tooltip" title="View" data-placemen="bottom"><i class = "icon-eye-open"></i></button></a>
+																<a href="<?php echo base_url() . 'admin/berita_managements/gotoForm/edit/' . $row->id_berita ?>"><button class = "btn btn-primary" title="Edit"><i class = "icon-pencil"></i></button></a>
                                                                 <a href="<?php echo base_url() . 'admin/berita_managements/delete/' . $row->id_berita ?>" onclick="return confirm('Are you sure want to delete this?');"><button class = "btn btn-danger" title="Delete"><i class = "icon-trash "></i></button></a>
                                                             </td>
 

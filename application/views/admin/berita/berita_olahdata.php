@@ -70,6 +70,15 @@ if (strtolower($aksi) == 'add') {
 										</div>
                                         </div>
                                     </div><!--end control-group-->
+									
+									<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
+													data-validation-max-size="512kb">
+                                            <span class="help-inline"><?php echo form_error('foto'); ?></span>
+                                        </div>
+                                    </div><!--end control-group-->
 
                                     <div class="form-group">
                                         <div class="col-lg-10"> 
