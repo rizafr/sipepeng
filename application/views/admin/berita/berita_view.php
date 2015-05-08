@@ -30,14 +30,14 @@
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="judul">Judul: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-											<?php echo set_value('judul', isset($berita_list['judul']) ? $berita_list['judul'] : 'Belum Ada'); ?>
+											<?php echo set_value('judul_berita', isset($berita_list['judul_berita']) ? $berita_list['judul_berita'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="berita">Berita: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('berita', isset($berita_list['berita']) ? $berita_list['berita'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('isi_berita', isset($berita_list['isi_berita']) ? $berita_list['isi_berita'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end form-group-->
 									
