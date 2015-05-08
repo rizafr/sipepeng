@@ -37,7 +37,14 @@
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="berita">Berita: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('isi_berita', isset($berita_list['isi_berita']) ? $berita_list['isi_berita'] : 'Belum Ada'); ?>
+                                            <?php echo htmlspecialchars_decode(set_value('isi_berita', isset($berita_list['isi_berita']) ? $berita_list['isi_berita'] : 'Belum Ada')); ?>
+										</div>
+									</div><!--end form-group-->
+									
+									<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="berita">Tanggal Berita: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <?php echo set_value('tgl_berita', isset($berita_list['tgl_berita']) ? $berita_list['tgl_berita'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end form-group-->
 									
@@ -52,18 +59,10 @@
 												$foto = $foto;
 											}
 											
-											
-											$dokumen = isset($berita_list['dokumen']) ? $berita_list['dokumen'] : 'NULL';
-											if($dokumen === NULL){
-												$dokumen = 'noimage.jpg';
-											}else{												
-												$dokumen = $dokumen;
-											}
-											
 										?>
 												<figure>
-													<img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
-													<a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
+													<img src="<?php echo base_url(); ?>assets/upload/berita/<?php echo $foto ?>"  alt="img03">
+													<a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/berita/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
 												</figure
 										</div>
 									</div><!--end control-group-->

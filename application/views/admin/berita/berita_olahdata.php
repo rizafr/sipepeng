@@ -53,7 +53,7 @@ if (strtolower($aksi) == 'add') {
 									<div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="isi_berita">Berita: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" id="isi_berita" name="isi_berita" data-validation="length" data-validation-length="min10"><?php echo set_value('isi_berita', isset($berita_list['isi_berita']) ? $berita_list['isi_berita'] : ''); ?></textarea>                                           
+                                            <textarea class="wysihtml5 form-control" id="isi_berita" name="isi_berita" data-validation="length" data-validation-length="min10"  rows="10"><?php echo set_value('isi_berita', isset($berita_list['isi_berita']) ? $berita_list['isi_berita'] : ''); ?></textarea>                                           
                                             <span class="help-inline"><?php echo form_error('isi_berita'); ?></span>
                                         </div>
                                     </div><!--end form-group-->
@@ -114,19 +114,5 @@ if (strtolower($aksi) == 'add') {
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
         <script src="<?php echo base_url(); ?>assets/admin/js/advanced-form-components.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-
-        <script type="text/javascript">
-        //FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
-        function getLokasi(newLat, newLng)
-        {
-            document.getElementById('lat_awal').value = newLat;
-            document.getElementById('long_awal').value = newLng;
-        }
-
-        function getLokasiAkhir(newLat, newLng)
-        {
-            document.getElementById('lat_akhir').value = newLat;
-            document.getElementById('long_akhir').value = newLng;
-        }
-        </script>
-
+		  <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>

@@ -166,6 +166,7 @@
 				$data['sumber_data'] = $this->input->post('sumber_data');
 				$data['tahun_usulan'] = $this->input->post('tahun_usulan');
 				$data['persetujuan_warga'] = $this->input->post('persetujuan_warga');
+				$data['jml_pemakai'] = $this->input->post('jml_pemakai');
 				$data['long'] = $this->input->post('long');
 				$data['lat'] = $this->input->post('lat');
 				$data['ket'] = $this->input->post('ket');

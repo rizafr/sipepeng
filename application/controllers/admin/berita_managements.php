@@ -170,7 +170,7 @@
 			'overwrite'		=> TRUE,
 			'remove_spaces'	=> TRUE,
 			'allowed_types' => 'jpg|JPG|jpeg|JPEG|gif|png',
-			'upload_path'	=> './assets/upload/foto',
+			'upload_path'	=> './assets/upload/berita',
 			'max_size' 		=> 5000
 			);
 			$this->upload->initialize($config);

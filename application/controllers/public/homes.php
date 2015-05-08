@@ -13,6 +13,7 @@ class Homes extends CI_Controller {
         $this->load->model('gas_model');
         $this->load->model('minimarket_model');
         $this->load->model('kos_model');
+        $this->load->model('berita_model');
         # menampilkan google map
         $this->load->library('googlemaps');
     }
@@ -21,9 +22,16 @@ class Homes extends CI_Controller {
 
     public function index() {
         $data['title'] = "Sistem Informasi Pemetaan Pembangunan - SIPEPENG";
-        $data['data_list'] = $this->public_model->select_all()->result();
+		$data['jum_artikel'] = $this->berita_model->jum_artikel();
+		$data['berita_list'] = $this->berita_model->artikel();
         $this->load->view('public/home', $data);
     }
+	#berita
+	function berita($offset)
+	{
+		$data['berita_list'] = $this->berita_model->artikel($offset);
+		$this->load->view('public/berita', $data);
+	}
 
     # halaman profil
 
