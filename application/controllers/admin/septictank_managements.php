@@ -167,6 +167,7 @@
 				$data['rw'] = $this->input->post('rw');
 				$data['alamat'] = $this->input->post('alamat');
 				$data['ketersediaan_lahan'] = $this->input->post('ketersediaan_lahan');
+				$data['jml_pemakai'] = $this->input->post('jml_pemakai');
 				$data['anggaran'] = $this->input->post('anggaran');
 				$data['sumber_data'] = $this->input->post('sumber_data');
 				$data['tahun_usulan'] = $this->input->post('tahun_usulan');

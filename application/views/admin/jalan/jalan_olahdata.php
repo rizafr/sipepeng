@@ -233,7 +233,7 @@
 					document.getElementById('kategori_jalan').value= 'Jalan Lingkungan';
 				}
 				if(lebar>=4 && lebar <= 12){
-					document.getElementById('kategori_jalan').value= 'Jalan Lebar';
+					document.getElementById('kategori_jalan').value= 'Jalan Utama';
 				}
 			}
 			

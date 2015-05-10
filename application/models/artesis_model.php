@@ -61,6 +61,7 @@
             , 'rw' => $data['rw']
             , 'alamat' => $data['alamat']
             , 'ketersediaan_lahan' => $data['ketersediaan_lahan']
+            , 'jml_pemakai' => $data['jml_pemakai']
 			, 'long' => $data['long']
 			, 'lat' => $data['lat']
 			, 'anggaran' => $data['anggaran']
@@ -80,7 +81,6 @@
 		}
 		
 		
-		
 		//update user    
 		public function update($id_artesis) {	
 				$data = array(
@@ -88,6 +88,7 @@
 					, 'rw' => $this->input->post('rw')
 					, 'alamat' => $this->input->post('alamat')
 					, 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
+					, 'jml_pemakai' => $this->input->post('jml_pemakai')
 					, 'long' => $this->input->post('long')
 					, 'lat' => $this->input->post('lat')
 					, 'anggaran' =>  $this->input->post('anggaran')
