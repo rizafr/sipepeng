@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2015 at 10:15 AM
+-- Generation Time: May 10, 2015 at 07:25 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `artesis` (
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
   `ketersediaan_lahan` varchar(10) NOT NULL,
+  `kontur_tanah` varchar(100) NOT NULL,
   `long` varchar(50) NOT NULL,
   `lat` varchar(50) NOT NULL,
   `anggaran` int(100) NOT NULL,
@@ -57,9 +58,9 @@ CREATE TABLE IF NOT EXISTS `artesis` (
 -- Dumping data for table `artesis`
 --
 
-INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 4, 3, 'jalan cimahi', 'Tidak', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 3, '     -', NULL, NULL, 1, 1, 0, 0, 0, 0),
-(2, 4, 3, 'jalan vimshi', 'Ada', '107.52995635581965', '-6.9015707843011365', 3000, 'masyarakat', 2015, 'Tidak', 3, '  -', NULL, NULL, 1, 1, 0, 0, 0, 0);
+INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `kontur_tanah`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 4, 3, 'jalan cimahi', 'Tidak', '', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 3, '     -', NULL, NULL, 1, 1, 0, 0, 0, 0),
+(2, 4, 3, 'jalan vimshi', 'Ada', '', '107.52995635581965', '-6.9015707843011365', 3000, 'masyarakat', 2015, 'Tidak', 3, '  -', NULL, NULL, 1, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `berita` (
   `foto` varchar(250) NOT NULL,
   `tgl_berita` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id_berita`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `berita`
@@ -189,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_kos` (
   `harga_sewa` int(10) NOT NULL,
   `ket` varchar(50) NOT NULL,
   PRIMARY KEY (`id_kos`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=121 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=117 ;
 
 --
 -- Dumping data for table `ekonomi_kos`
@@ -983,6 +984,7 @@ CREATE TABLE IF NOT EXISTS `septictank_komunal` (
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
   `ketersediaan_lahan` varchar(10) NOT NULL,
+  `kontur_tanah` varchar(100) NOT NULL,
   `long` varchar(50) NOT NULL,
   `lat` varchar(50) NOT NULL,
   `anggaran` int(100) NOT NULL,
@@ -1006,8 +1008,8 @@ CREATE TABLE IF NOT EXISTS `septictank_komunal` (
 -- Dumping data for table `septictank_komunal`
 --
 
-INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 10, 3, 'cibeber no 120 cimahi selatan', '22', '107.52994291163935', '-6.90024274697706', 3400000, 'iii', 2013, 'Ada', 34, '  ga da', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
+INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `kontur_tanah`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 10, 3, 'cibeber no 120 cimahi selatan', '22', '', '107.52994291163935', '-6.90024274697706', 3400000, 'iii', 2013, 'Ada', 34, '  ga da', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
