@@ -29,85 +29,92 @@
                                     <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Awal</legend>
                                     
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: </label>
                                         <div class="col-lg-10">
 											<?php echo set_value('rt', isset($artesis_list['rt']) ? $artesis_list['rt'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
                                     
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="rw">RW: </label>
                                         <div class="col-lg-10">
 											<?php echo set_value('rw', isset($artesis_list['rw']) ? $artesis_list['rw'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
                                     
 									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="alamat">Alamat: </label>
                                         <div class="col-lg-10">
                                             <?php echo set_value('alamat', isset($artesis_list['alamat']) ? $artesis_list['alamat'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end form-group-->
 									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: </label>
                                         <div class="col-lg-10">
                                             <?php echo set_value('ketersediaan_lahan', isset($artesis_list['ketersediaan_lahan']) ? $artesis_list['ketersediaan_lahan'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
+									<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Jumlah Pengguna: </label>
+                                        <div class="col-lg-10">
+                                            <?php echo set_value('jml_pemakai', isset($artesis_list['jml_pemakai']) ? $artesis_list['jml_pemakai'] : 'Belum Ada'); ?>
+										</div>
+									</div><!--end control-group-->
+									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude: </label>
                                         <div class="col-lg-10">
 											<?php echo set_value('long', isset($artesis_list['long']) ? $artesis_list['long'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="lat_awal">Latitude: </label>
                                         <div class="col-lg-10">
 											<?php echo set_value('lat', isset($artesis_list['lat']) ? $artesis_list['lat'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="anggaran">Anggaran: </label>
                                         <div class="col-lg-10">
                                             <?php echo set_value('anggaran', isset($artesis_list['anggaran']) ? $artesis_list['anggaran'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="sumber_data">Sumber Data: </label>
                                         <div class="col-lg-10">
 											<?php echo set_value('sumber_data', isset($artesis_list['sumber_data']) ? $artesis_list['sumber_data'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Tahun Usulan: </label>
                                         <div class="col-lg-10">
                                             <?php echo set_value('tahun_usulan', isset($artesis_list['tahun_usulan']) ? $artesis_list['tahun_usulan'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 
 									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Persetujuan Warga: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="tahun_usulan">Persetujuan Warga: </label>
                                         <div class="col-lg-10">
-                                            <?php echo set_value('tahun_usulan', isset($artesis_list['persetujuan_warga']) ? $artesis_list['persetujuan_warga'] : 'Belum Ada'); ?>
+                                            <?php echo set_value('persetujuan_warga', isset($artesis_list['persetujuan_warga']) ? $artesis_list['persetujuan_warga'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 								
 									
 									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="ket">Keterangan: </label>
                                         <div class="col-lg-10">
                                             <?php echo set_value('ket', isset($artesis_list['ket']) ? $artesis_list['ket'] : 'Belum Ada'); ?>
 										</div>
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: </label>
                                         <div class="col-lg-10">
 										<? 
 											$foto = isset($artesis_list['foto']) ? $artesis_list['foto'] : 'NULL';
@@ -134,14 +141,14 @@
 									</div><!--end control-group-->
 									
 									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: </label>
                                         <div class="col-lg-10">
 											<a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($artesis_list['dokumen']) ? $artesis_list['dokumen'] : 'Belum Ada'); ?></button></a>
                                             
 										</div>
 									</div><!--end control-group-->
 									<div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Peta: <span class="text-error">*</span></label>
+                                        <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Peta: </label>
                                         <div class="col-lg-10">
 											<?php echo $map['html']; ?>
 										</div>

@@ -68,11 +68,25 @@ if(strtolower($aksi) == 'add') {
 
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
+										<div class="col-md-3 col-xs-11">											
+											<?php  
+												$options = array(
+												'Ada'  => 'Ada',
+												'Tidak'    => 'Tidak'
+												);
+												
+											echo form_dropdown('ketersediaan_lahan', $options, set_value('ketersediaan_lahan', isset($septictank_list['ketersediaan_lahan']) ? $septictank_list['ketersediaan_lahan'] : ''), 'class="form-control m-bot15"'); ?>
+											<span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
+										</div>
+									</div><!--end control-group--> 
+									
+										<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="jml_pemakai">Jumlah Pengguna: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="ketersediaan_lahan" name="ketersediaan_lahan" placeholder="Ketersediaan Lahan" value=" <?php echo set_value('ketersediaan_lahan', isset($septictank_list['ketersediaan_lahan']) ? $septictank_list['ketersediaan_lahan'] : ''); ?>" data-validation="number" data-validation-allowing="float" data-validation-help="satuan dalam meter,gunakan titik misalnya 0.3">
-                                            <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
-                                        </div>
-                                    </div><!--end control-group-->
+                                            <input type="text" class="form-control" id="jml_pemakai" name="jml_pemakai" placeholder="Jumlah Pengguna" value=" <?php echo set_value('jml_pemakai', isset($artesis_list['jml_pemakai']) ? $artesis_list['jml_pemakai'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('jml_pemakai'); ?></span>
+										</div>
+									</div><!--end control-group-->
 
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>

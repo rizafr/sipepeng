@@ -2,10 +2,10 @@
 -- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Inang: 127.0.0.1
--- Waktu pembuatan: 02 Mei 2015 pada 12.05
--- Versi Server: 5.5.27
--- Versi PHP: 5.4.7
+-- Host: 127.0.0.1
+-- Generation Time: May 10, 2015 at 07:25 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `sipepeng`
+-- Database: `sipepeng`
 --
 CREATE DATABASE `sipepeng` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `sipepeng`;
@@ -25,7 +25,7 @@ USE `sipepeng`;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `artesis`
+-- Table structure for table `artesis`
 --
 
 CREATE TABLE IF NOT EXISTS `artesis` (
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `artesis` (
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
   `ketersediaan_lahan` varchar(10) NOT NULL,
+  `kontur_tanah` varchar(100) NOT NULL,
   `long` varchar(50) NOT NULL,
   `lat` varchar(50) NOT NULL,
   `anggaran` int(100) NOT NULL,
@@ -54,31 +55,42 @@ CREATE TABLE IF NOT EXISTS `artesis` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `artesis`
+-- Dumping data for table `artesis`
 --
 
-INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 4, 3, 'jalan cimahi', '3.2', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 3, '    -', NULL, NULL, 1, 1, 0, 0, 0, 0),
-(2, 4, 3, 'jalan vimshi', '1.2', '107.52995635581965', '-6.9015707843011365', 3000, 'masyarakat', 2015, 'Tidak', 3, ' -', NULL, NULL, 1, 1, 0, 0, 0, 0);
+INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `kontur_tanah`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 4, 3, 'jalan cimahi', 'Tidak', '', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 3, '     -', NULL, NULL, 1, 1, 0, 0, 0, 0),
+(2, 4, 3, 'jalan vimshi', 'Ada', '', '107.52995635581965', '-6.9015707843011365', 3000, 'masyarakat', 2015, 'Tidak', 3, '  -', NULL, NULL, 1, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `berita`
 --
 
 CREATE TABLE IF NOT EXISTS `berita` (
   `id_berita` int(11) NOT NULL AUTO_INCREMENT,
   `judul_berita` varchar(250) NOT NULL,
   `isi_berita` text NOT NULL,
-  `tgl_berita` varchar(250)  NULL,
+  `foto` varchar(250) NOT NULL,
+  `tgl_berita` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id_berita`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `berita`
+--
+
+INSERT INTO `berita` (`id_berita`, `judul_berita`, `isi_berita`, `foto`, `tgl_berita`) VALUES
+(1, 'Pemkot Cimahi Prioritaskan Pembangunan Infrastruktur', 'Wali Kota Cimahi <i>Atty Suharti</i> menjanjikan pembangunan infrastruktur menjadi hal prioritas yang akan dilakukan pada rencana pembangunan tahun 2016 di Kota Cimahi. Hal itu sesuai tuntutan masyarakat untuk lebih diperhatikan.\r\n\r\n"Prioritas pembangunan kota Cimahi tahun 2016 masih tetap kita arahkan untuk melanjutkan program-program yang belum selesai khususnya infrastruktur kota yang dibutuhkan masyarakat," ujarnya, dalam membuka Musyawarah Rencana Pembangunan (Musrenbang) Kota Cimahi di Pusdik Armed Jln. Baros Kota Cimahi.\r\n\r\nPrioritas pembangunan infrastruktur di antaranya sanitasi dan penataan drainase, perbaikan rumah tidak layak huni.\r\n\r\n"Termasuk masalah kemacetan lalu lintas harus diatasi diantaranya dengan membangun jalan fly over di Padasuka akan dilanjut di tahun 2016, harus diusulkan lagi di provinsi dan itu menjadi prioritas karena sarana jalan di Cimahi masih sangat minim dan belum cukup untuk memecahkan simpul kemacetan. Diharapkan jembatan layang Padasuka nantinya bisa mendukung pelaksanaan PON 19 yang diantaranya menggunakan Velodrom Munaif Saleh di Padasuka," ucapnya.\r\n\r\nMenurut Atty, Cimahi berada satu koridor dengan Kota Bandung, Kab. Bandung, dan Kab. Bandung Barat. "Merupakan kawasan compact urban vilages area yang sulit untuk menonjolkan batas wilayah masing masing, untuk itulah penanganan perbatasan menjadi sangat penting untuk dilakukan bersama daerah tetangga dengan urun rembug dari Gubernur Jabar bahkan Mendagri," tuturnya.\r\n\r\nKota Cimahi sangat terbatas wilayah untuk investasi baru, sedangkan kontribusi industri relatif optimal dengan tidak membuat pertumbuhan baru. <br><br>Sektor jasa yang berkontribusi masih sangat terbatas dengan pertumbuhan yang kecil, hal ini yang menjadikan tantangan bagi para pemikir dan stake holder, mencari formulasi rencana agar pembangunan menjadi stimulan bagi pembangunan lainnya.\r\n\r\nPembangunan pelayanan dasar dan infrastruktur kota yang harus menjadi efisien bagi pengeluaran warga, sehingga rakyat mampu untuk menyisihkan pendapatannya. Seperti halnya sanitasi untuk kesehatan masyarakat termasuk air bersih, serta ketertiban kota yang mendukung optimalisasi infrastruktur dan menjaga kapasitas dan daya dukung lingkungan hidup.\r\n\r\nBerbagai harapan tersebut dikemukakan sebagai energi bagi Pemkot Cimahi untuk memberi layanan masyarakat. "Sinergisitas antar sektor dan wilayah diperlukan untuk meningkaktan kualitas dan pemerataan pembangunan di Kota Cimahi," katanya (ahmad sadli)', 'pembangunan_drainase.jpg', '20 May 2015 - 13:20'),
+(2, 'Sewa Rusunawa Leuwigajah Dibatasi Tiga Tahun', 'CIMAHI-Sistem sewa hunian Rumah Susun Sederhana Sewa (Rusunawa) Leuwigajah, Kota Cimahi dibatasi maksimal tiga tahun. Hal itu diberlakukan untuk memotivasi masyarakat agar berusaha membeli rumah sendiri.\r\n\r\n“Dalam waktu tiga tahun ketika menyewa Rusunawa Leuwigajah, para penyewa bisa berupaya untuk memiliki rumah sendiri, karena tidak bisa menyewa Rusunawa lagi,” kata Walikota Cimahi, Hj. Atty Suharti pada Persemian Rusunawa Leuwigajah, Kecamatan Cimahi Selatan, Kota Cimahi kepada wartawan, Kamis (11/9).\r\n\r\nBerdasarkan pantauan jabarprov.go.id, Senin (15/9), baru sebanyak 48 kamar dari 300 kamar yang tersedia di Rusunawa Leuwigajah yang telah dihuni. <br><br>Para penghuni Rusunawa yang terletak di Jalan Kihapit Barat RW 09 Kelurahan Leuwigajah itu, semuanya warga Kota Cimahi.\r\n\r\nRusunawa Leuwigajah, Rusunawa ketiga yang ada di Kota Cimahi setelah Rusunawa Cigugur Tengah dan Rusunawa Melong, memang diperuntukkan bagi warga Kota Cimahi yang kurang mampu secara ekonomi.\r\n“Rusunawa Leuwigajah ini di bawah pengelolaan Unit Pelayanan Teknis Daerah (UPTD) Rusunawa Kota Cimahi,” kata Edi, salah seorang pegawai harian Rusunawa Leuwigajah yang ditugaskan UPTD Rusunawa Kota Cimahi untuk menerima pendaftaran Sewa Rusunawa Leuwigajah di kantornya kepada jabarprov.go.id, Senin (15/9).\r\n\r\nPersyaratan Pendaftaran Calon Penghuni Rusunawa Leuwigajah cukup mudah. Masyarakat yang berminat sebagai calon penghuni harus datang langsung untuk mengisi formulir yang disediakan dan melengkapi persyaratannya. Formulir yang harus diisi antara lain formulir pendaftaran, surat keterangan belum memiliki rumah atau tempat tinggal sendiri, surat keterangan penghasilan, surat pernyataan sanggup membayar administrasi/materai yang diperlukan dan bersedia membayar uang rekening untuk pembayaran pemakaian utilitas (air dan listrik).\r\n\r\nRusunawa Leuwigajah terdiri dari 3 blok hunian, masing-masing blok terdapat 100 hunian, sehingga totalnya 300 hunian.\r\n\r\nUang sewa Rusunawa Leuwigajah cukup terjangkau. Yaitu antara Rp 265.000 sampai Rp 310.000 perbulan per unit hunian, tergantung lokasi lantai bawah atau lantai atas. Uang sewa bulanan itu belum termasuk uang pembayaran listrik, air, uang kebersihan, uang keamanan dan uang parkir. (enal)', '210114rusunawa.jpg', '08 May 2015 - 09:45'),
+(3, 'CEGAH BANJIR 25 TITIK DRAINASE CIMAHI DIPERBAIKI', 'ANTARAJAWABARAT.com,7/11 - Dinas Pekerjaan Umum Kota Cimahi, Jawa Barat, akan menormalisasi 25 titik aliran sungai dan drainase yang ada di Cimahi guna mencegah bencana banjir.\r\n\r\nNomrmalisasi itu untuk mengurangi terjadinya bencana banjir yang diakibatkan kerusakan aliran sungai dan penyempitan drainase seperti yang selama ini dikeluhkan oleh warga, kata Kabid Bina Marga Dinas PU Kota Cimahi Achmad Nuryana kepada wartawan di Gedung DPRD Kota Cimahi, Senin.\r\n\r\n"Saya kira perbaikan drainase dan aliran sungai ini menjadi hal yang mendesak untuk kita lakukan di tahun 2011. Untuk perbaikan 25 titik drainase dan aliran sungai itu kita alokasikan anggaran sebesar Rp2 miliar," ujarnya.\r\n\r\nSalah satu drainase yang tengah diperbaiki itu adalah yang melintas Jalan Djulaeha Karmita. <br><br>Perbaikan drainase itu dilakukan dengan cara membuat lebih dalam dan lebar drainase yang dibangun. Dan sebelum melakukan penggalian itu, pihaknya telah menyampaikan surat pemberitahuan kepada Telkom dan PDAM.\r\n\r\n"Karena dikhawatirkan di beberapa titik yang akan kita gali justru menemukan ada pipa ataupun kabel milik salah satu operator telepon. Termasuk yang ada di dekat kantor DPRD Kota Cimahi, dimana pekerjanya secara tidak sengaja mencangkul pipa PDAM kami mohon maaf," ujarnya.\r\n\r\nDiakuinya, perlu ada evaluasi terhadap pelaksanaan proyek yang dilakukannya, diantaranya dengan membuat rambu agar para pengendara berhati-hati ketika melintasi jalan yang terdapat proyek perbaikan drainase. Apalagi, pemborong yang melaksanakan proyek itu cendrung terlalu ke tengah sehingga sedikit mengganggu jalannya lalu lintas.\r\n\r\n"Kita targetkan perbaikan ini akan selesai akhir bulan ini. Jadi, kami mohon pengertiannya dari warga masyarakat apabila kenyamannya terganggu," ujarnya.\r\n\r\nSebelumnya diberitakan, akibat terhantam cangkul penggali gorong-gorong, pipa PDAM Tirta Raharja Kabupaten Bandung yang melintasi Jalan Djulaeha Karmita bocor.\r\n\r\nPipa distribusi berukuran tiga inchi itu terus mengeluarkan air bersih yang diperuntukkan bagi 500 pelanggan PDAM. Selidik demi selidik ternyata, penanggungjawab perbaikan drainase yang telah membuat salah seorang pengendara sepeda motor itu terperosok adalah Dinas Pekerjaan Umum Kota Cimahi. PDAM sendiri mengaku bahwa penggalian itu sama sekali tidak berkoordinasi dengannya.***4***\r\nHedi A', 'walikota.jpg', '08 May 2015 - 09:45'),
+(4, 'Pemkot Cimahi Larang Warga Dirikan Bangunan di Atas Drainase', 'Cimahi - Pemerintah Kota Cimahi melarang warga untuk mendirikan bangunan di atas drainase karena akan menghambat aliran air yang dapat menyebabkan banjir.\r\n\r\n"Masyarakat diminta untuk tidak mendirikan bangunan di atas drainase dan tidak membuang sampah ke selokan, karena bisa menghambat aliran air," kata Wali Kota Cimahi Atty Suharti di Cimahi, Rabu (8/4/2015).\r\n\r\nIa mengatakan, kesadaran masyarakat menjaga lingkungan dan memelihara infrastruktur kota adalah penting untuk kebaikan bersama.\r\n\r\n"Kesadaran masyarakat harus dibangun dalam memelihara infrastruktur kota agar tetap berfungsi baik," katanya.\r\n\r\nIa mengakui, kondisi drainase di Kota Cimahi belum optimal, karena setiap kali turun hujan deras seringkali air meluap ke jalan.<br><br>&nbsp;Pihaknya berencana mengoptimalkan drainase agar berfungsi baik pada anggaran 2015.\r\n\r\n"Kita akan lakukan optimalisasi saluran drainase tahun ini," katanya.\r\n\r\nIa menegaskan, pengerjaan fisik ruas jalan maupun drainase akan dilakukan sesuai dengan aturan yang berlaku dan mengikuti spesifikasi yang diminta.\r\n\r\n"Aturan sekarang lebih ketat, harus mengikuti spesifikasi yang diminta, sesuai dengan pekerjaan di lapangan," katanya. (AY)', 'walikota.jpg', '08 May 2015 - 09:45');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `drainase`
+-- Table structure for table `drainase`
 --
 
 CREATE TABLE IF NOT EXISTS `drainase` (
@@ -110,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `drainase` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data untuk tabel `drainase`
+-- Dumping data for table `drainase`
 --
 
 INSERT INTO `drainase` (`id_drainase`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kedalaman`, `ketersediaan_lahan`, `long_awal`, `long_akhir`, `lat_awal`, `lat_akhir`, `anggaran`, `sumber_data`, `tahun_usulan`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -121,7 +133,7 @@ INSERT INTO `drainase` (`id_drainase`, `rt`, `rw`, `alamat`, `panjang`, `lebar`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ekonomi_gas`
+-- Table structure for table `ekonomi_gas`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_gas` (
@@ -141,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_gas` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
--- Dumping data untuk tabel `ekonomi_gas`
+-- Dumping data for table `ekonomi_gas`
 --
 
 INSERT INTO `ekonomi_gas` (`id_gas`, `nama_pemilik`, `alamat`, `rt`, `rw`, `kelurahan`, `telp`, `sp_agen`, `qty`, `lat`, `long`, `no_ijin`) VALUES
@@ -164,7 +176,7 @@ INSERT INTO `ekonomi_gas` (`id_gas`, `nama_pemilik`, `alamat`, `rt`, `rw`, `kelu
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ekonomi_kos`
+-- Table structure for table `ekonomi_kos`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_kos` (
@@ -178,10 +190,10 @@ CREATE TABLE IF NOT EXISTS `ekonomi_kos` (
   `harga_sewa` int(10) NOT NULL,
   `ket` varchar(50) NOT NULL,
   PRIMARY KEY (`id_kos`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=121 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=117 ;
 
 --
--- Dumping data untuk tabel `ekonomi_kos`
+-- Dumping data for table `ekonomi_kos`
 --
 
 INSERT INTO `ekonomi_kos` (`id_kos`, `nama_pemilik`, `alamat_pemilik`, `rw`, `jml_kamar`, `jml_orang_perkamar`, `ijin_usaha`, `harga_sewa`, `ket`) VALUES
@@ -305,7 +317,7 @@ INSERT INTO `ekonomi_kos` (`id_kos`, `nama_pemilik`, `alamat_pemilik`, `rw`, `jm
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ekonomi_minimarket`
+-- Table structure for table `ekonomi_minimarket`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_minimarket` (
@@ -326,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_minimarket` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data untuk tabel `ekonomi_minimarket`
+-- Dumping data for table `ekonomi_minimarket`
 --
 
 INSERT INTO `ekonomi_minimarket` (`id_minimarket`, `nama_perusahaan`, `bentuk_perusahaan`, `alamat`, `rt`, `rw`, `nama_pemilik`, `jml_pekerja`, `jam_kerja`, `status_tanah`, `luas_bangunan`, `luas_ruang_usaha`, `no_ijin`) VALUES
@@ -341,7 +353,7 @@ INSERT INTO `ekonomi_minimarket` (`id_minimarket`, `nama_perusahaan`, `bentuk_pe
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ekonomi_nama_perusahaan`
+-- Table structure for table `ekonomi_nama_perusahaan`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_nama_perusahaan` (
@@ -358,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_nama_perusahaan` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
--- Dumping data untuk tabel `ekonomi_nama_perusahaan`
+-- Dumping data for table `ekonomi_nama_perusahaan`
 --
 
 INSERT INTO `ekonomi_nama_perusahaan` (`id_nama_perusahaan`, `nama_perusahaan`, `nama_pemilik`, `jml_pegawai`, `bergerak_dibidang`, `telp`, `alamat`, `rt`, `rw`) VALUES
@@ -385,7 +397,7 @@ INSERT INTO `ekonomi_nama_perusahaan` (`id_nama_perusahaan`, `nama_perusahaan`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ekonomi_umkm`
+-- Table structure for table `ekonomi_umkm`
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_umkm` (
@@ -419,7 +431,7 @@ CREATE TABLE IF NOT EXISTS `ekonomi_umkm` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=205 ;
 
 --
--- Dumping data untuk tabel `ekonomi_umkm`
+-- Dumping data for table `ekonomi_umkm`
 --
 
 INSERT INTO `ekonomi_umkm` (`id_umkm`, `kota`, `kecamatan`, `kelurahan`, `nbs`, `rw`, `rt`, `klasifikasi_perusahaan`, `nama_perusahaan`, `alamat_perusahaan`, `kegiatan_utama`, `jenis_usaha`, `jk_pengusaha`, `prov_tempat_lahir_pengusaha`, `kota_tempat_lahir_pengusaha`, `bentuk_badan_hukum`, `tahun_mulai_operasi`, `gabung_paguyuban`, `bermitra`, `bentuk_kemitraan`, `pembinaan_pemerintah`, `pemberi_pembinaan`, `eksport`, `persentase_eksport`, `import`, `persentase_import`) VALUES
@@ -632,7 +644,7 @@ INSERT INTO `ekonomi_umkm` (`id_umkm`, `kota`, `kecamatan`, `kelurahan`, `nbs`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jalan`
+-- Table structure for table `jalan`
 --
 
 CREATE TABLE IF NOT EXISTS `jalan` (
@@ -664,7 +676,7 @@ CREATE TABLE IF NOT EXISTS `jalan` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data untuk tabel `jalan`
+-- Dumping data for table `jalan`
 --
 
 INSERT INTO `jalan` (`id_jalan`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kategori_jalan`, `ketersediaan_lahan`, `long_awal`, `long_akhir`, `lat_awal`, `lat_akhir`, `anggaran`, `sumber_data`, `tahun_usulan`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -673,7 +685,7 @@ INSERT INTO `jalan` (`id_jalan`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kate
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_pengguna`
+-- Table structure for table `jenis_pengguna`
 --
 
 CREATE TABLE IF NOT EXISTS `jenis_pengguna` (
@@ -683,7 +695,7 @@ CREATE TABLE IF NOT EXISTS `jenis_pengguna` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data untuk tabel `jenis_pengguna`
+-- Dumping data for table `jenis_pengguna`
 --
 
 INSERT INTO `jenis_pengguna` (`id_jenis_pengguna`, `jenis_pengguna`) VALUES
@@ -694,7 +706,7 @@ INSERT INTO `jenis_pengguna` (`id_jenis_pengguna`, `jenis_pengguna`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
@@ -704,7 +716,7 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `kategori`) VALUES
@@ -716,7 +728,7 @@ INSERT INTO `kategori` (`id_kategori`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kirmir`
+-- Table structure for table `kirmir`
 --
 
 CREATE TABLE IF NOT EXISTS `kirmir` (
@@ -750,7 +762,7 @@ CREATE TABLE IF NOT EXISTS `kirmir` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lain`
+-- Table structure for table `lain`
 --
 
 CREATE TABLE IF NOT EXISTS `lain` (
@@ -780,7 +792,7 @@ CREATE TABLE IF NOT EXISTS `lain` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `lain`
+-- Dumping data for table `lain`
 --
 
 INSERT INTO `lain` (`id_lain`, `rt`, `rw`, `nama_kegiatan`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -790,7 +802,7 @@ INSERT INTO `lain` (`id_lain`, `rt`, `rw`, `nama_kegiatan`, `alamat`, `ketersedi
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mck`
+-- Table structure for table `mck`
 --
 
 CREATE TABLE IF NOT EXISTS `mck` (
@@ -818,7 +830,7 @@ CREATE TABLE IF NOT EXISTS `mck` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data untuk tabel `mck`
+-- Dumping data for table `mck`
 --
 
 INSERT INTO `mck` (`id_mck`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -827,7 +839,7 @@ INSERT INTO `mck` (`id_mck`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -840,7 +852,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
--- Dumping data untuk tabel `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `nama_tabel`, `id_jenis_pengguna`) VALUES
@@ -857,7 +869,7 @@ INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `nama_tabel`, `id_jenis_pen
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengguna`
+-- Table structure for table `pengguna`
 --
 
 CREATE TABLE IF NOT EXISTS `pengguna` (
@@ -874,7 +886,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data untuk tabel `pengguna`
+-- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `id_jenis_pengguna`, `nama`, `nip`, `alamat`, `email`, `username`, `password`, `telp`) VALUES
@@ -887,7 +899,7 @@ INSERT INTO `pengguna` (`id_pengguna`, `id_jenis_pengguna`, `nama`, `nip`, `alam
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rw`
+-- Table structure for table `rw`
 --
 
 CREATE TABLE IF NOT EXISTS `rw` (
@@ -897,7 +909,7 @@ CREATE TABLE IF NOT EXISTS `rw` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
--- Dumping data untuk tabel `rw`
+-- Dumping data for table `rw`
 --
 
 INSERT INTO `rw` (`id_rw`, `rw`) VALUES
@@ -925,7 +937,7 @@ INSERT INTO `rw` (`id_rw`, `rw`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `septictank`
+-- Table structure for table `septictank`
 --
 
 CREATE TABLE IF NOT EXISTS `septictank` (
@@ -953,7 +965,7 @@ CREATE TABLE IF NOT EXISTS `septictank` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `septictank`
+-- Dumping data for table `septictank`
 --
 
 INSERT INTO `septictank` (`id_septictank`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -963,7 +975,7 @@ INSERT INTO `septictank` (`id_septictank`, `rt`, `rw`, `alamat`, `ketersediaan_l
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `septictank_komunal`
+-- Table structure for table `septictank_komunal`
 --
 
 CREATE TABLE IF NOT EXISTS `septictank_komunal` (
@@ -972,6 +984,7 @@ CREATE TABLE IF NOT EXISTS `septictank_komunal` (
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
   `ketersediaan_lahan` varchar(10) NOT NULL,
+  `kontur_tanah` varchar(100) NOT NULL,
   `long` varchar(50) NOT NULL,
   `lat` varchar(50) NOT NULL,
   `anggaran` int(100) NOT NULL,
@@ -992,16 +1005,16 @@ CREATE TABLE IF NOT EXISTS `septictank_komunal` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data untuk tabel `septictank_komunal`
+-- Dumping data for table `septictank_komunal`
 --
 
-INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 10, 3, 'cibeber no 120 cimahi selatan', '22', '107.52994291163935', '-6.90024274697706', 3400000, 'iii', 2013, 'Ada', 34, '  ga da', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
+INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `kontur_tanah`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
+(1, 10, 3, 'cibeber no 120 cimahi selatan', '22', '', '107.52994291163935', '-6.90024274697706', 3400000, 'iii', 2013, 'Ada', 34, '  ga da', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sumur_dangkal`
+-- Table structure for table `sumur_dangkal`
 --
 
 CREATE TABLE IF NOT EXISTS `sumur_dangkal` (
@@ -1029,7 +1042,7 @@ CREATE TABLE IF NOT EXISTS `sumur_dangkal` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data untuk tabel `sumur_dangkal`
+-- Dumping data for table `sumur_dangkal`
 --
 
 INSERT INTO `sumur_dangkal` (`id_sumur_dangkal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -1038,7 +1051,7 @@ INSERT INTO `sumur_dangkal` (`id_sumur_dangkal`, `rt`, `rw`, `alamat`, `ketersed
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sumur_resapan`
+-- Table structure for table `sumur_resapan`
 --
 
 CREATE TABLE IF NOT EXISTS `sumur_resapan` (
@@ -1066,7 +1079,7 @@ CREATE TABLE IF NOT EXISTS `sumur_resapan` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data untuk tabel `sumur_resapan`
+-- Dumping data for table `sumur_resapan`
 --
 
 INSERT INTO `sumur_resapan` (`id_sumur_resapan`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
@@ -1075,7 +1088,7 @@ INSERT INTO `sumur_resapan` (`id_sumur_resapan`, `rt`, `rw`, `alamat`, `ketersed
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users_status`
+-- Table structure for table `users_status`
 --
 
 CREATE TABLE IF NOT EXISTS `users_status` (
@@ -1085,7 +1098,7 @@ CREATE TABLE IF NOT EXISTS `users_status` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `users_status`
+-- Dumping data for table `users_status`
 --
 
 INSERT INTO `users_status` (`id_status`, `status`) VALUES
@@ -1095,7 +1108,7 @@ INSERT INTO `users_status` (`id_status`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users_tabel`
+-- Table structure for table `users_tabel`
 --
 
 CREATE TABLE IF NOT EXISTS `users_tabel` (
@@ -1120,7 +1133,7 @@ CREATE TABLE IF NOT EXISTS `users_tabel` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data untuk tabel `users_tabel`
+-- Dumping data for table `users_tabel`
 --
 
 INSERT INTO `users_tabel` (`id_user`, `id_status`, `user_email`, `user_password`, `confirm_password`, `user_name`, `first_address`, `second_address`, `user_phone`, `user_city`, `user_zip`, `id_state`, `id_country`, `user_agree`, `last_login`, `created`, `modified`) VALUES

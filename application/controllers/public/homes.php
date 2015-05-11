@@ -13,6 +13,7 @@ class Homes extends CI_Controller {
         $this->load->model('gas_model');
         $this->load->model('minimarket_model');
         $this->load->model('kos_model');
+        $this->load->model('berita_model');
         # menampilkan google map
         $this->load->library('googlemaps');
     }
@@ -21,9 +22,16 @@ class Homes extends CI_Controller {
 
     public function index() {
         $data['title'] = "Sistem Informasi Pemetaan Pembangunan - SIPEPENG";
-        $data['data_list'] = $this->public_model->select_all()->result();
+		$data['jum_artikel'] = $this->berita_model->jum_artikel();
+		$data['berita_list'] = $this->berita_model->artikel();
         $this->load->view('public/home', $data);
     }
+	#berita
+	function berita($offset)
+	{
+		$data['berita_list'] = $this->berita_model->artikel($offset);
+		$this->load->view('public/berita', $data);
+	}
 
     # halaman profil
 
@@ -231,6 +239,62 @@ class Homes extends CI_Controller {
     public function kontak() {
         $data['title'] = "KONTAK - SIPEPENG";
         $this->load->view('public/kontak', $data);
+    }
+	
+	#halaman artesis
+    public function artesis() {
+        $data['title'] = "DATA ARTESIS - SIPEPENG";
+       $data['data_list'] = $this->artesis_model->select_all_sudah_dilaksanakan()->result();
+        $this->load->view('public/artesis', $data);
+    }
+	
+	#halaman drainase
+    public function drainase() {
+        $data['title'] = "DATA DRAINASE - SIPEPENG";
+       $data['data_list'] = $this->drainase_model->select_all_sudah_dilaksanakan()->result();
+        $this->load->view('public/drainase', $data);
+    }
+	
+	#halaman jalan
+    public function jalan() {
+        $data['title'] = "DATA JALAN - SIPEPENG";
+       $data['data_list'] = $this->jalan_model->select_all_sudah_dilaksanakan()->result();
+        $this->load->view('public/jalan', $data);
+    }
+	
+	#halaman mck
+    public function mck() {
+        $data['title'] = "DATA MCK - SIPEPENG";
+       $data['data_list'] = $this->mck_model->select_all_sudah_dilaksanakan()->result();
+        $this->load->view('public/mck', $data);
+    }
+	
+	#halaman septictank
+    public function septictank() {
+        $data['title'] = "DATA SEPTICTANK - SIPEPENG";
+       $data['data_list'] = $this->septictank_model->select_all_sudah_dilaksanakan()->result();
+        $this->load->view('public/septictank', $data);
+    }
+	
+	#halaman septictank_komunal
+    public function septictank_komunal() {
+        $data['title'] = "DATA SEPTICTANK - SIPEPENG";
+       $data['data_list'] = $this->septictank_komunal_model->select_all_sudah_dilaksanakan()->result();
+        $this->load->view('public/septictank_komunal', $data);
+    }
+	
+	#halaman sumur_dangkal
+    public function sumur_dangkal() {
+        $data['title'] = "DATA SUMUR DANGKAL - SIPEPENG";
+       $data['data_list'] = $this->sumur_dangkal_komunal_model->select_all_sudah_dilaksanakan()->result();
+        $this->load->view('public/sumur_dangkal', $data);
+    }
+	
+	#halaman sumur_resapan
+    public function sumur_resapan() {
+        $data['title'] = "DATA SUMUR RESAPAN - SIPEPENG";
+       $data['data_list'] = $this->sumur_resapan->select_all_sudah_dilaksanakan()->result();
+        $this->load->view('public/sumur_resapan', $data);
     }
 
 }

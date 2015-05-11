@@ -46,6 +46,7 @@
                                                     <th>Rw</th>
                                                     <th>Alamat</th>
                                                     <th>Lahan</th>
+                                                    <th>Jumlah Pengguna</th>
                                                     <th>Sumber Data</th>
                                                     <th>Tahun Usulan</th>
                                                     <th>Keterangan</th>
@@ -66,6 +67,7 @@
 															<td><?php echo $row->rw ?></td>
 															<td><?php echo $row->alamat ?></td>
 															<td><?php echo $row->ketersediaan_lahan ?></td>
+															<td><?php echo $row->jml_pemakai ?></td>
 															<td><?php echo $row->sumber_data ?></td>
 															<td><?php echo $row->tahun_usulan ?></td>
 															<td><?php echo $row->ket ?></td>                                                             
@@ -115,11 +117,12 @@
 											</tbody>
                                             <tfoot>
                                                 <tr>
-													 <th>No</th>
+                                                    <th>No</th>
                                                     <th>Rt</th>
                                                     <th>Rw</th>
                                                     <th>Alamat</th>
                                                     <th>Lahan</th>
+                                                    <th>Jumlah Pengguna</th>
                                                     <th>Sumber Data</th>
                                                     <th>Tahun Usulan</th>
                                                     <th>Keterangan</th>
