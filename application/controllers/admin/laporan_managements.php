@@ -91,7 +91,7 @@ class Laporan_managements extends CI_Controller {
 		 
 	}
 	
-	public function cetak() {
+	public function cetak($rw,$kegiatan,$status) {
 		 $data['rw'] = $this->uri->segment(4); 
 		 $data['kegiatan'] = $this->uri->segment(5);
 		 $data['status'] = $this->uri->segment(6);
@@ -99,11 +99,8 @@ class Laporan_managements extends CI_Controller {
 		 $data['title'] = "Laporan | SIPEPENG";
 		//model
 		 //jika kegiatan diisi, maka tampilkan berdasarkan kegiatan
-		 if($data['kegiatan']!= NULL) {
-			$hasil = $this->laporan_model->cetak($data)->result();
-			$data['hasil']= $hasil;
-			$this->load->view('admin/laporan/laporan_cetak', $data);
-		}else{ // jika kegiatan kosong, maka tampilkan data berdasarkan rw di seluruh kegiatan
+		
+		 if($kegiatan == '0') { // jika kegiatan kosong, maka tampilkan data berdasarkan rw di seluruh kegiatan
 			$artesis = $this->laporan_model->artesis($data)->result();
 			$drainase = $this->laporan_model->drainase($data)->result();
 			$jalan = $this->laporan_model->jalan($data)->result();
@@ -124,6 +121,10 @@ class Laporan_managements extends CI_Controller {
 			$data['sumur_dangkal']= $sumur_dangkal;
 			$data['sumur_resapan']= $sumur_resapan;
 			$this->load->view('admin/laporan/laporan_cetak_rw', $data);
+		}else  {
+			$hasil = $this->laporan_model->cetak($data)->result();
+			$data['hasil']= $hasil;
+			$this->load->view('admin/laporan/laporan_cetak', $data);
 		}
 	}
     
