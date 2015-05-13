@@ -309,7 +309,7 @@
                                         <div class="col-lg-10">    
 										<?php 
 											$rw = (empty($rw)) ? '0' : $rw;
-											$kegiatan = (empty($kegiatan)) ? 'NULL' : $kegiatan;
+											$kegiatan = (empty($kegiatan)) ? '0' : $kegiatan;
 										?>
 											 <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
                                             <a href="<?php echo base_url('admin/laporan_managements/cetak'); echo "/".$rw."/".$kegiatan."/".$status ?>" ><button type=submit class="btn btn-warning"><i class=" icon-print"></i> Cetak</button></a>
