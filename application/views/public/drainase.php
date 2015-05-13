@@ -5,7 +5,7 @@
         <div class="container">
 			
             <div class="get-started center wow fadeInDown">
-                <h2>DATA HASIL PEMBANGUNAN ARTESIS		 <BR />										
+                <h2>DATA HASIL PEMBANGUNAN DRAINASE		 <BR />										
 					KELURAHAN LEUWIGAJAH			<BR />									
 					KECAMATAN CIMAHI SELATAN												
 				</h2>
@@ -24,8 +24,6 @@
 									<th>Rt</th>
 									<th>Rw</th>
 									<th>Alamat</th>
-									<th>Lahan</th>
-									<th>Jumlah Pengguna</th>
 									<th>Sumber Data</th>
 									<th>Tahun Usulan</th>
 									<th>Keterangan</th>
@@ -40,15 +38,13 @@
 										foreach ($data_list as $row) {
 										?>
 										<tr>
-											<td><?php echo $no++?></td>
+											<td><?php echo $no++ ?></td>
 											<td><?php echo $row->rt ?></td>
 											<td><?php echo $row->rw ?></td>
 											<td><?php echo $row->alamat ?></td>
-											<td><?php echo $row->ketersediaan_lahan ?></td>
-											<td><?php echo $row->jml_pemakai ?></td>
 											<td><?php echo $row->sumber_data ?></td>
 											<td><?php echo $row->tahun_usulan ?></td>
-											<td><?php echo $row->ket ?></td>                                                             
+											<td><?php echo $row->ket ?></td>                                                          
 											
 											
 										</tr>
@@ -63,8 +59,6 @@
 									<th>Rt</th>
 									<th>Rw</th>
 									<th>Alamat</th>
-									<th>Lahan</th>
-									<th>Jumlah Pengguna</th>
 									<th>Sumber Data</th>
 									<th>Tahun Usulan</th>
 									<th>Keterangan</th>
@@ -74,9 +68,9 @@
 					</section>
 				</div>
 				
-				
+			
 			</div><!--/.container-->
-		</section><!--/#feature-->
-		
-	<?php $this->load->view('public/templates/footer'); ?> 
-		
+			</section><!--/#feature-->
+			
+			<?php $this->load->view('public/templates/footer'); ?> 
+						

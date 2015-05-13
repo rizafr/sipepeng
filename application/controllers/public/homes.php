@@ -14,6 +14,16 @@ class Homes extends CI_Controller {
         $this->load->model('minimarket_model');
         $this->load->model('kos_model');
         $this->load->model('berita_model');
+		
+        $this->load->model('artesis_model');
+        $this->load->model('drainase_model');
+        $this->load->model('jalan_model');
+        $this->load->model('mck_model');
+        $this->load->model('septictank_model');
+        $this->load->model('septictank_komunal_model');
+        $this->load->model('sumur_dangkal_model');
+        $this->load->model('sumur_resapan_model');
+		
         # menampilkan google map
         $this->load->library('googlemaps');
     }
@@ -24,6 +34,38 @@ class Homes extends CI_Controller {
         $data['title'] = "Sistem Informasi Pemetaan Pembangunan - SIPEPENG";
 		$data['jum_artikel'] = $this->berita_model->jum_artikel();
 		$data['berita_list'] = $this->berita_model->artikel();
+		
+		//grafik kegiatan perencanaan
+		 $data['artesis_awal'] = count($this->artesis_model->select_all_data_awal()->result());
+		 $data['drainase_awal'] = count($this->drainase_model->select_all_data_awal()->result());
+		 $data['mck_awal'] = count($this->mck_model->select_all_data_awal()->result());
+		 $data['jalan_awal'] = count($this->jalan_model->select_all_data_awal()->result());
+		 $data['septictank_awal'] = count($this->septictank_model->select_all_data_awal()->result());
+		 $data['septictank_komunal_awal'] = count($this->septictank_komunal_model->select_all_data_awal()->result());
+		 $data['sumur_dangkal_awal'] = count($this->sumur_dangkal_model->select_all_data_awal()->result());
+		 $data['sumur_resapan_awal'] = count($this->sumur_resapan_model->select_all_data_awal()->result());
+		 
+		 
+		//grafik kegiatan dilaksanakan
+		 $data['artesis_dilaksanakan'] = count($this->artesis_model->select_all_sudah_dilaksanakan()->result());
+		 $data['drainase_dilaksanakan'] = count($this->drainase_model->select_all_sudah_dilaksanakan()->result());
+		 $data['mck_dilaksanakan'] = count($this->mck_model->select_all_sudah_dilaksanakan()->result());
+		 $data['jalan_dilaksanakan'] = count($this->jalan_model->select_all_sudah_dilaksanakan()->result());
+		 $data['septictank_dilaksanakan'] = count($this->septictank_model->select_all_sudah_dilaksanakan()->result());
+		 $data['septictank_komunal_dilaksanakan'] = count($this->septictank_komunal_model->select_all_sudah_dilaksanakan()->result());
+		 $data['sumur_dangkal_dilaksanakan'] = count($this->sumur_dangkal_model->select_all_sudah_dilaksanakan()->result());
+		 $data['sumur_resapan_dilaksanakan'] = count($this->sumur_resapan_model->select_all_sudah_dilaksanakan()->result());
+		 
+		 //grafik kegiatan tidak dilaksanakan
+		 $data['artesis_tidak_dilaksanakan'] = count($this->artesis_model->select_all_tidak_dilaksanakan()->result());
+		 $data['drainase_tidak_dilaksanakan'] = count($this->drainase_model->select_all_tidak_dilaksanakan()->result());
+		 $data['mck_tidak_dilaksanakan'] = count($this->mck_model->select_all_tidak_dilaksanakan()->result());
+		 $data['jalan_tidak_dilaksanakan'] = count($this->jalan_model->select_all_tidak_dilaksanakan()->result());
+		 $data['septictank_tidak_dilaksanakan'] = count($this->septictank_model->select_all_tidak_dilaksanakan()->result());
+		 $data['septictank_komunal_tidak_dilaksanakan'] = count($this->septictank_komunal_model->select_all_tidak_dilaksanakan()->result());
+		 $data['sumur_dangkal_tidak_dilaksanakan'] = count($this->sumur_dangkal_model->select_all_tidak_dilaksanakan()->result());
+		 $data['sumur_resapan_tidak_dilaksanakan'] = count($this->sumur_resapan_model->select_all_tidak_dilaksanakan()->result());
+		 
         $this->load->view('public/home', $data);
     }
 	#berita
@@ -286,14 +328,14 @@ class Homes extends CI_Controller {
 	#halaman sumur_dangkal
     public function sumur_dangkal() {
         $data['title'] = "DATA SUMUR DANGKAL - SIPEPENG";
-       $data['data_list'] = $this->sumur_dangkal_komunal_model->select_all_sudah_dilaksanakan()->result();
+       $data['data_list'] = $this->sumur_dangkal_model->select_all_sudah_dilaksanakan()->result();
         $this->load->view('public/sumur_dangkal', $data);
     }
 	
 	#halaman sumur_resapan
     public function sumur_resapan() {
         $data['title'] = "DATA SUMUR RESAPAN - SIPEPENG";
-       $data['data_list'] = $this->sumur_resapan->select_all_sudah_dilaksanakan()->result();
+       $data['data_list'] = $this->sumur_resapan_model->select_all_sudah_dilaksanakan()->result();
         $this->load->view('public/sumur_resapan', $data);
     }
 

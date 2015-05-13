@@ -28,6 +28,14 @@
 			return $this->db->count_all('drainase');
 		}
 		
+		#data usulan
+		public function getJumlahDrainaseAwal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('drainase');
+			return $this->db->count_all_results();
+		}
+		
 		#belum diverifikasi
 		public function getJumlahDrainaseVerifikasi() {
 			$this->db->where('status_verifikasi', '0');
@@ -50,7 +58,22 @@
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('drainase');
 			return $this->db->count_all_results();
-		}		
+		}	
+		
+		# selesai
+		public function getJumlahDrainaseSelesai() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('drainase');
+			return $this->db->count_all_results();
+		}	
+		
+		# tidak terlaksana
+		public function getJumlahDrainaseTidakDilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
+			$this->db->from('drainase');
+			return $this->db->count_all_results();
+		}	
 		/////////////// END DRAINASE /////////////////////////////
 		
 		/////////////// JALAN /////////////////////////////
@@ -58,6 +81,14 @@
 		
 		public function getJumlahJalan() {
 			return $this->db->count_all('jalan');
+		}
+		
+		#data usulan
+		public function getJumlahJalanAwal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('jalan');
+			return $this->db->count_all_results();
 		}
 		
 		#belum diverifikasi
@@ -83,6 +114,21 @@
 			$this->db->from('jalan');
 			return $this->db->count_all_results();
 		}		
+		
+		# selesai
+		public function getJumlahJalanSelesai() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('jalan');
+			return $this->db->count_all_results();
+		}	
+		
+		# tidak terlaksana
+		public function getJumlahJalanTidakDilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
+			$this->db->from('jalan');
+			return $this->db->count_all_results();
+		}
 		/////////////// END JALAN /////////////////////////////
 		
 		
@@ -117,6 +163,21 @@
 			$this->db->from('kirmir');
 			return $this->db->count_all_results();
 		}		
+		
+		# selesai
+		public function getJumlahKirmirSelesai() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('kirmir');
+			return $this->db->count_all_results();
+		}	
+		
+		# tidak terlaksana
+		public function getJumlahKirmirTidakDilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
+			$this->db->from('kirmir');
+			return $this->db->count_all_results();
+		}
 		/////////////// END KIRMIR /////////////////////////////
 		
 		/////////////// MCK /////////////////////////////

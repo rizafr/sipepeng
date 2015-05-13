@@ -1,7 +1,31 @@
 <?
 	$judul = array("1" => "DIRENCANAKAN", "3" => "SEDANG DILAKSANAKAN", "4" => "TELAH TEREALISASI","5" => "TIDAK DILAKSANAKAN");
-   $judul = $judul[$status];
+	$judul = $judul[$status];
 ?>
+<style>
+	.post-container {
+    margin: 20px 20px 0 0;  
+    border: 5px solid #333;
+    overflow: auto
+	}
+	.post-thumb {
+    float: left
+	}
+	.post-thumb img {
+    display: block
+	}
+	.post-content {
+    margin-left: 210px;
+	margin-top: -20px;
+	}
+	.post-title {
+    font-weight: bold;
+    font-size: 200%
+	}
+	
+	
+	
+</style>
 <?php
 	//Format Tanggal Berbahasa Indonesia 
 	
@@ -28,18 +52,18 @@
 	header("Pragma: no-cache");
 	header("Expires: 0");
 ?>
-<h2 align="center"> PEMERINTAH KOTA CIMAHI	<br />					
-KECAMATAN CIMAHI SELATAN	<br />						
-KELURAHAN LEUWIGAJAH		<br />					
-Jl. Sadarmanah No. 11 RT.01 RW.05 Telp/Fax 022-6672995 Cimahi 40532						
-  </h2>
-  <hr>
-  <br />	
-  <br />	
-  
- <h3 align="center"> DATA KEGIATAN DAN PEMBANGUNAN YANG TELAH <?php echo $judul ?> TAHUN ANGGARAN <?php echo date('Y')?></h3>					
 
-<table border="1" style="border-top:3px solid #004D66; border-bottom:3px solid #004D66;" >
+<p style="text-align: center;">
+	<img src="<?php echo base_url() ?>assets/public/images/cimahi.png" alt="cimahi" width="120" height="120" style="float:left;margin:0 10px 0 0;" />
+	<strong>	PEMERINTAH KOTA CIMAHI</strong> <br />
+	<strong>KECAMATAN CIMAHI SELATAN</strong><br />
+	<strong>KELURAHAN LEUWIGAJAH </strong><br />
+Jln. Sadarmanah No. 11 Telp. 022-6672995 Cimahi 40532</p>
+
+<hr />
+<h4 align="center"> DATA KEGIATAN DAN PEMBANGUNAN YANG TELAH <?php echo $judul ?> TAHUN ANGGARAN <?php echo date('Y')?></h4>					
+
+<table border="1" style="border-top:3px solid #004D66; ">
 	<tr style="background-color:#004D66;color: #fff ; border:1px solid #eee ; align:center;">
 		<th>No</th>
 		<th>Kegiatan</th>

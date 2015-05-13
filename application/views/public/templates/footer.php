@@ -11,16 +11,22 @@
 </footer><!--/#footer-->
 
 <script src="<?php echo base_url() ?>assets/public/js/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>assets/public/js/highcharts.js" ></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>assets/public/js/exporting.js" ></script>
 <script src="<?php echo base_url() ?>assets/public/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url() ?>assets/public/js/jquery.prettyPhoto.js"></script>
 <script src="<?php echo base_url() ?>assets/public/js/jquery.isotope.min.js"></script>
 <script src="<?php echo base_url() ?>assets/public/js/main.js"></script>
 <script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>
 
-<script src="<?php echo base_url(); ?>assets/admin/js/jquery.js"></script>
 <script src="<?php echo base_url(); ?>assets/admin/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/data-tables/jquery.dataTables.js"></script>
 <script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<!--/chart-->
+	<script src="<?php echo base_url(); ?>assets/admin/js/jquery-1.8.3.min.js"></script>
+
+<!--/#chart-->
+
 </body>
 </html>
 <script>
