@@ -10,12 +10,10 @@
                 <li data-target="#main-slider" data-slide-to="3"></li>
                 <li data-target="#main-slider" data-slide-to="4"></li>
                 <li data-target="#main-slider" data-slide-to="5"></li>
-                <li data-target="#main-slider" data-slide-to="6"></li>
-                <li data-target="#main-slider" data-slide-to="7"></li>
 			</ol>
             <div class="carousel-inner">
 				
-                <div class="item active" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/slide1.jpg)">
+                <div class="item active" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/gajah.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -36,7 +34,7 @@
 					</div>
 				</div><!--/.item-->
 				
-                <div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/slide2.jpg)">
+                <div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/kerkof.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -57,7 +55,7 @@
 					</div>
 				</div><!--/.item-->
 				
-                <div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/slide3.jpg)">
+                <div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/kuburan.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -76,7 +74,7 @@
 					</div>
 				</div><!--/.item-->
 				
-				<div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/slide4.jpg)">
+				<div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/cireundeu.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -133,47 +131,6 @@
 					</div>
 				</div><!--/.item-->
 				
-				<div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/slide7.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                                    <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
-								</div>
-							</div>
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img">
-                                    <img src="<?php echo base_url() ?>assets/public/images/slider/chima_batik.png" class="img-responsive">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!--/.item-->
-				
-				<div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/slide8.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                                    <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
-								</div>
-							</div>
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img">
-                                    <img src="<?php echo base_url() ?>assets/public/images/slider/chima_batik.png" class="img-responsive">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!--/.item-->
-				
-				
-				
-				
 			</div><!--/.carousel-inner-->
 		</div><!--/.carousel-->
         <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
@@ -193,16 +150,16 @@
         <div class="blog">
             <div class="row">
 				<div class="col-md-12">
-				<div id="main_content">
-					<?php
-						$no = 1;
-						
-						$jum = count(@$berita_list);
-						if ($jum > 0) {
-							foreach ($berita_list as $row) {
-								
-							?>
+					<div id="main_content">
+						<?php
+							$no = 1;
 							
+							$jum = count(@$berita_list);
+							if ($jum > 0) {
+								foreach ($berita_list as $row) {
+									
+								?>
+								
 								<div class="blog-item wow fadeInDown">
 									<div class="row">
 										<div class="col-xs-12 col-sm-2 text-center">
@@ -229,12 +186,12 @@
 										</div>
 									</div>    
 								</div><!--/.blog-item-->
-							
-							<?php 
+								
+								<?php 
+								}
 							}
-						}
-						
-					?>
+							
+						?>
 					</div>
 					<a id="more_button" class="btn btn-primary">
 						more
@@ -357,229 +314,303 @@
 	</section><!--/#recent-works-->
 	
 	
-	<section id="middle">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 wow fadeInDown">
-					<div class="skill">
-						<h2>Our Skills</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						
-						<div class="progress-wrap">
-							<h3>Graphic Design</h3>
-							<div class="progress">
-								<div class="progress-bar  color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
-									<span class="bar-width">85%</span>
-								</div>
-								
-							</div>
-						</div>
-						
-						<div class="progress-wrap">
-							<h3>HTML</h3>
-							<div class="progress">
-								<div class="progress-bar color2" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-									<span class="bar-width">95%</span>
-								</div>
-							</div>
-						</div>
-						
-						<div class="progress-wrap">
-							<h3>CSS</h3>
-							<div class="progress">
-								<div class="progress-bar color3" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									<span class="bar-width">80%</span>
-								</div>
-							</div>
-						</div>
-						
-						<div class="progress-wrap">
-							<h3>Wordpress</h3>
-							<div class="progress">
-								<div class="progress-bar color4" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-									<span class="bar-width">90%</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div><!--/.col-sm-6-->
-				
-				<div class="col-sm-6 wow fadeInDown">
-					<div class="accordion">
-						<h2>Why People like us?</h2>
-						<div class="panel-group" id="accordion1">
-							<div class="panel panel-default">
-								<div class="panel-heading active">
-									<h3 class="panel-title">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
-											VISI
-											<i class="fa fa-angle-right pull-right"></i>
-										</a>
-									</h3>
-								</div>
-								
-								<div id="collapseOne1" class="panel-collapse collapse in">
-									<div class="panel-body">
-										<div class="media accordion-inner">
-											<div class="pull-left">
-												<img class="img-responsive" src="images/accordion1.png">
-											</div>
-											<div class="media-body">
-												<h4>Adipisicing elit</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
-											Lorem ipsum dolor sit amet
-											<i class="fa fa-angle-right pull-right"></i>
-										</a>
-									</h3>
-								</div>
-								<div id="collapseTwo1" class="panel-collapse collapse">
-									<div class="panel-body">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
-											<b>Struktur Organisasi Dan Pejabat Struktural </b>
-											<i class="fa fa-angle-right pull-right"></i>
-										</a>
-									</h3>
-								</div>
-								<div id="collapseThree1" class="panel-collapse collapse">
-									<div class="panel-body">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h3 class="panel-title">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
-											Lorem ipsum dolor sit amet
-											<i class="fa fa-angle-right pull-right"></i>
-										</a>
-									</h3>
-								</div>
-								<div id="collapseFour1" class="panel-collapse collapse">
-									<div class="panel-body">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
-									</div>
-								</div>
-							</div>
-						</div><!--/#accordion1-->
-					</div>
-				</div>
-				
-			</div><!--/.row-->
-		</div><!--/.container-->
-	</section><!--/#middle-->
-	
 	<section id="content">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-8 wow fadeInDown">
+				<div class="col-xs-12 col-sm-12 wow fadeInDown">
 					<div class="tab-wrap"> 
 						<div class="media">
 							<div class="parrent pull-left">
 								<ul class="nav nav-tabs nav-stacked">
-									<li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Responsive Web Design</a></li>
-									<li class="active"><a href="#tab2" data-toggle="tab" class="analistic-02">Premium Plugin Included</a></li>
-									<li class=""><a href="#tab3" data-toggle="tab" class="tehnical">Predefine Layout</a></li>
-									<li class=""><a href="#tab4" data-toggle="tab" class="tehnical">Our Philosopy</a></li>
-									<li class=""><a href="#tab5" data-toggle="tab" class="tehnical">What We Do?</a></li>
+									<li class="active"><a href="#tabPerencanaan" data-toggle="tab" class="analistic-03">Grafik Kegiatan Perencanaan</a></li>
+									<li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Grafik Kegiatan Terealisasi</a></li>
+									<li class=""><a href="#tab2" data-toggle="tab" class="analistic-02">Grafik Kegiatan Tidak Terealisasi</a></li>
+									<li class=""><a href="#tabKegiatan" data-toggle="tab" class="analistic-02">Grafik Per Kegiatan</a></li>
+									
 								</ul>
 							</div>
 							
 							<div class="parrent media-body">
 								<div class="tab-content">
-									<div class="tab-pane fade" id="tab1">
+									<div class="tab-pane fade active in" id="tabPerencanaan">
 										<div class="media">
-											<div class="pull-left">
-												<img class="img-responsive" src="images/tab2.png">
-											</div>
 											<div class="media-body">
-												<h2>Adipisicing elit</h2>
-												<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use.</p>
+												<h2>Grafik Kegiatan Perencanaan</h2>
+												<div id="grafikPerencanaan" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
 											</div>
 										</div>
 									</div>
 									
-									<div class="tab-pane fade active in" id="tab2">
+									<div class="tab-pane fade " id="tab1">
 										<div class="media">
-											<div class="pull-left">
-												<img class="img-responsive" src="images/tab1.png">
-											</div>
 											<div class="media-body">
-												<h2>Adipisicing elit</h2>
-												<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use.
-												</p>
+												<h2>Grafik Kegiatan Terealisasi</h2>
+												<div id="grafikTerelisasi" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
 											</div>
 										</div>
 									</div>
 									
-									<div class="tab-pane fade" id="tab3">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+									<div class="tab-pane fade " id="tab2">
+										<div class="media">
+											<div class="media-body">
+												<h2>Grafik Kegiatan Tidak Terealisasi</h2>
+												<div id="grafikTidakTerelisasi" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+											</div>
+										</div>
 									</div>
 									
-									<div class="tab-pane fade" id="tab4">
-										<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words</p>
+									<div class="tab-pane fade " id="tabKegiatan">
+										<div class="media">
+											<div class="media-body">
+												<h2>Grafik Perkegiatan</h2>
+												<div id="grafikKegiatan" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+											</div>
+										</div>
 									</div>
 									
-									<div class="tab-pane fade" id="tab5">
-										<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures,</p>
-									</div>
+									
 								</div> <!--/.tab-content-->  
 							</div> <!--/.media-body--> 
 						</div> <!--/.media-->     
 					</div><!--/.tab-wrap-->               
 				</div><!--/.col-sm-6-->
 				
-				<div class="col-xs-12 col-sm-4 wow fadeInDown">
-					<div class="testimonial">
-						<h2>Testimonials</h2>
-						<div class="media testimonial-inner">
-							<div class="pull-left">
-								<img class="img-responsive img-circle" src="images/testimonials1.png">
-							</div>
-							<div class="media-body">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-								<span><strong>-John Doe/</strong> Director of corlate.com</span>
-							</div>
-						</div>
-						
-						<div class="media testimonial-inner">
-							<div class="pull-left">
-								<img class="img-responsive img-circle" src="images/testimonials1.png">
-							</div>
-							<div class="media-body">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-								<span><strong>-John Doe/</strong> Director of corlate.com</span>
-							</div>
-						</div>
-						
-					</div>
-				</div>
+				
 				
 			</div><!--/.row-->
 		</div><!--/.container-->
 	</section><!--/#content-->
+	<script src="<?php echo base_url() ?>assets/public/js/jquery.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/highcharts.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/exporting.js"></script>
 	
-	<?php $this->load->view('public/templates/footer'); 
+	<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+	<script type="text/javascript">
+		$(function () {
+			
+			$(document).ready(function () {
+				
+				// GRAFIK AWAL
+				$('#grafikPerencanaan').highcharts({
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: 'Grafik Perbandingan Kegiatan Perencanaan '
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+					series: [{
+						type: 'pie',
+						name: 'Kegiatan',
+						data: [
+						['Artesis',   <?php echo $artesis_awal ?>],
+						['Drainase',   <?php echo $drainase_awal ?>],
+						{
+							name: 'MCK',
+							y: <?php echo $mck_awal ?>,
+							sliced: true,
+							selected: true
+						},
+						['Jalan',   <?php echo $jalan_awal ?>],
+						['Septictank',     <?php echo $septictank_awal ?>],
+						['Septictank Komunal',    <?php echo $septictank_komunal_awal ?>],
+						['Sumur Dangkal',    <?php echo $sumur_dangkal_awal ?>],
+						['Sumur Resapan',  <?php echo $sumur_resapan_awal ?>]
+						]
+					}]
+				});
+				//END GRAFIK TEREALISASI
+				
+				// GRAFIK TEREALISASI
+				$('#grafikTerelisasi').highcharts({
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: 'Grafik Perbandingan Kegiatan Terealisasi '
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+					series: [{
+						type: 'pie',
+						name: 'Kegiatan',
+						data: [
+						['Artesis',   <?php echo $artesis_dilaksanakan ?>],
+						['Drainase',   <?php echo $drainase_dilaksanakan ?>],
+						{
+							name: 'MCK',
+							y: <?php echo $mck_dilaksanakan ?>,
+							sliced: true,
+							selected: true
+						},
+						['Jalan',   <?php echo $jalan_dilaksanakan ?>],
+						['Septictank',     <?php echo $septictank_dilaksanakan ?>],
+						['Septictank Komunal',    <?php echo $septictank_komunal_dilaksanakan ?>],
+						['Sumur Dangkal',    <?php echo $sumur_dangkal_dilaksanakan ?>],
+						['Sumur Resapan',  <?php echo $sumur_resapan_dilaksanakan ?>]
+						]
+					}]
+				});
+				//END GRAFIK TEREALISASI
+				
+				// GRAFIK TIDAK TEREALISASI
+				$('#grafikTidakTerelisasi').highcharts({
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: 'Grafik Perbandingan Kegiatan Tidak Terealisasi '
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+					series: [{
+						type: 'pie',
+						name: 'Kegiatan',
+						data: [
+						['Artesis',   <?php echo $artesis_tidak_dilaksanakan ?>],
+						['Drainase',   <?php echo $drainase_tidak_dilaksanakan ?>],
+						{
+							name: 'MCK',
+							y: <?php echo $mck_tidak_dilaksanakan ?>,
+							sliced: true,
+							selected: true
+						},
+						['Jalan',   <?php echo $jalan_tidak_dilaksanakan ?>],
+						['Septictank',     <?php echo $septictank_tidak_dilaksanakan ?>],
+						['Septictank Komunal',    <?php echo $septictank_komunal_tidak_dilaksanakan ?>],
+						['Sumur Dangkal',    <?php echo $sumur_dangkal_tidak_dilaksanakan ?>],
+						['Sumur Resapan',  <?php echo $sumur_resapan_tidak_dilaksanakan ?>]
+						]
+					}]
+				});
+				//END GRAFIK TIDAK TEREALISASI
+				
+				// GRAFIK TIDAK TEREALISASI
+				$('#grafikKegiatan').highcharts({
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: 'Grafik Per Kegiatan'
+					},
+					xAxis: {
+						categories: [
+						'Perencanaan',
+						'Pelaksanaan',
+						'Tidak Terealisasi'
+						],
+						crosshair: true
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Jumlah Kegiatan'
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+						'<td style="padding:0"><b>{point.y:.f} </b></td></tr>',
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: [{
+						name: 'Artesis',
+						data: [<?php echo $artesis_awal ?>, <?php echo $artesis_dilaksanakan ?>, <?php echo $artesis_tidak_dilaksanakan ?>]
+						
+						}, {
+						name: 'Drainase',
+						data: [<?php echo $drainase_awal ?>, <?php echo $drainase_dilaksanakan ?>, <?php echo $drainase_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'MCK',
+						data: [<?php echo $mck_awal ?>, <?php echo $mck_dilaksanakan ?>, <?php echo $mck_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Jalan',
+						data: [<?php echo $jalan_awal ?>, <?php echo $jalan_dilaksanakan ?>, <?php echo $jalan_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Septictank',
+						data: [<?php echo $septictank_awal ?>, <?php echo $septictank_dilaksanakan ?>, <?php echo $septictank_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Septictank Komunal',
+						data: [<?php echo $septictank_komunal_awal ?>, <?php echo $septictank_komunal_dilaksanakan ?>, <?php echo $septictank_komunal_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Sumur Dangkal',
+						data: [<?php echo $sumur_dangkal_awal ?>, <?php echo $sumur_dangkal_dilaksanakan ?>, <?php echo $sumur_dangkal_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Sumur Resapan',
+						data: [<?php echo $sumur_resapan_awal ?>, <?php echo $sumur_resapan_dilaksanakan ?>, <?php echo $sumur_resapan_tidak_dilaksanakan ?>]
+					
+						
+					}]
+					});
+					//END GRAFIK TIDAK TEREALISASI
+					
+				});
+				
+		});
+		
+		
+	</script>
+	<?php 
 		
 		function limitChar($content, $limit) {
 			if (strlen($content) <= $limit) {
@@ -609,3 +640,22 @@
 			})
 		})
 	</script>			
+	
+	<footer id="footer" class="midnight-blue">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
+						Proyek Perubahan Diklatpim IV - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
+					<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
+				</div>                
+			</div>
+		</div>
+	</footer><!--/#footer-->
+	
+	
+	<script src="<?php echo base_url() ?>assets/public/js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/jquery.prettyPhoto.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/jquery.isotope.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/main.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>

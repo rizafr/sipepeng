@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2015 at 07:25 AM
+-- Generation Time: May 13, 2015 at 09:18 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -59,8 +59,8 @@ CREATE TABLE IF NOT EXISTS `artesis` (
 --
 
 INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `kontur_tanah`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 4, 3, 'jalan cimahi', 'Tidak', '', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 3, '     -', NULL, NULL, 1, 1, 0, 0, 0, 0),
-(2, 4, 3, 'jalan vimshi', 'Ada', '', '107.52995635581965', '-6.9015707843011365', 3000, 'masyarakat', 2015, 'Tidak', 3, '  -', NULL, NULL, 1, 1, 0, 0, 0, 0);
+(1, 4, 3, 'jalan cimahi', 'Tidak', '', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 30, '      -', NULL, NULL, 1, 1, 0, 0, 0, 0),
+(2, 4, 3, 'jalan vimshi', 'Ada', '', '107.52995635581965', '-6.9015707843011365', 3000, 'masyarakat', 2015, 'Tidak', 23, '   -', NULL, NULL, 1, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 

@@ -86,88 +86,88 @@
 															<? }?></td>                                                             
 															<td>
 																<? 
-																	if($status=='1'){
-																	?>
-																	<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_data_awal/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Verifikasi" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
-																	<? }
-																	if($status=='2'){
-																	?>
-																	<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_verifikasi/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Progress" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
-																	<a class="tolak btn btn-warning" data-toggle="modal" data-id="<?php echo $row->id_sumur_dangkal ?>" href="#tolak">
-																		<i class = "icon-remove"></i>
-																	</a>
-																	<? }
-																	if($status=='3'){
-																	?>
-																	<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_sedang_dilaksanakan/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Sudah Dilaksanakan" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
-																	<? }
-																	?>		
+																if($status=='1'){
+																?>
+																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_data_awal/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Verifikasi" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																<? }
+																if($status=='2'){
+																?>
+																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_verifikasi/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Progress" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																<a class="tolak btn btn-warning" data-toggle="modal" data-id="<?php echo $row->id_sumur_dangkal ?>" href="#tolak">
+																<i class = "icon-remove"></i>
+																</a>
+																<? }
+																if($status=='3'){
+																?>
+																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_sedang_dilaksanakan/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-warning" data-toggle="tooltip" title="Sudah Dilaksanakan" data-placemen="bottom"><i class = "icon-ok-sign"></i></button></a>
+																<? }
+																?>		
 																
 																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/view/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-info" data-toggle="tooltip" title="View" data-placemen="bottom"><i class = "icon-eye-open"></i></button></a>
 																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/gotoForm/edit/' . $row->id_sumur_dangkal ?>"><button class = "btn btn-success" title="Edit"><i class = "icon-pencil"></i></button></a>
 																<a href="<?php echo base_url() . 'admin/sumur_dangkal_managements/delete/' . $row->id_sumur_dangkal.'/'.$status ?>" onclick="return confirm('Are you sure want to delete this?');"><button class = "btn btn-danger" title="Delete"><i class = "icon-trash "></i></button></a>
-															</td>
-															
-														</tr>
-														<?php } //end foreach
-													} // end if
-												?>
-											</tbody>
-                                            <tfoot>
-                                                <tr>
-													 <th>No</th>
-                                                    <th>Rt</th>
-                                                    <th>Rw</th>
-                                                    <th>Alamat</th>
-                                                    <th>Lahan</th>
-                                                    <th>Sumber Data</th>
-                                                    <th>Tahun Usulan</th>
-                                                    <th>Keterangan</th>
-                                                    <th>status</th>
-                                                    <th>Aksi</th>
-												</tr>
-											</tfoot>
-										</table>
-									</section>
-								</div>
-							</div>
-						</section>
-					</div>
-				</div>
-                <!-- page end-->
-			</section>
-		</section>
-        <!--main content end-->
-	<?php $this->load->view('admin/templates/footer'); ?>		
-	<!-- Modal -->
-		<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="tolak" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-						<h4 class="modal-title">Alasan di tolak</h4>
-					</div>
-					<div class="modal-body">
-						<form method="post" action="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_tidak_dilaksanakan/' ?>" role="form">
-							<div class="form-group">
-								<label class="sr-only" for="alasan">Alasan</label>
-								 <input type="hidden" name="id" id="id" value=""/>
-								 <textarea class="wysihtml5 form-control" name="ket" rows="5" cols="75"></textarea>
-							</div>                                                  
-							<button type="submit" class="btn btn-default">OK</button>
-						</form>
-						
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-	<!-- modal -->	
-	
-	<script>
-		$(document).on("click", ".tolak", function () {
-		 var id = $(this).data('id');
-		 $(".modal-body #id").val( id );
-	});
-	</script>
+																</td>
+																
+																</tr>
+																<?php } //end foreach
+																} // end if
+																?>
+																</tbody>
+																<tfoot>
+																<tr>
+																<th>No</th>
+																<th>Rt</th>
+																<th>Rw</th>
+																<th>Alamat</th>
+																<th>Lahan</th>
+																<th>Sumber Data</th>
+																<th>Tahun Usulan</th>
+																<th>Keterangan</th>
+																<th>status</th>
+																<th>Aksi</th>
+																</tr>
+																</tfoot>
+																</table>
+																</section>
+																</div>
+																</div>
+																</section>
+																</div>
+																</div>
+																<!-- page end-->
+																</section>
+																</section>
+																<!--main content end-->
+																<?php $this->load->view('admin/templates/footer'); ?>		
+																<!-- Modal -->
+																<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="tolak" class="modal fade">
+																<div class="modal-dialog">
+																<div class="modal-content">
+																<div class="modal-header">
+																<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+																<h4 class="modal-title">Alasan di tolak</h4>
+																</div>
+																<div class="modal-body">
+																<form method="post" action="<?php echo base_url() . 'admin/sumur_dangkal_managements/update_status_tidak_dilaksanakan/' ?>" role="form">
+																<div class="form-group">
+																<label class="sr-only" for="alasan">Alasan</label>
+																<input type="hidden" name="id" id="id" value=""/>
+																<textarea class="wysihtml5 form-control" name="ket" rows="5" cols="75"></textarea>
+																</div>                                                  
+																<button type="submit" class="btn btn-default">OK</button>
+																</form>
+																
+																</div>
+																
+																</div>
+																</div>
+																</div>
+																
+																<!-- modal -->	
+																
+																<script>
+																$(document).on("click", ".tolak", function () {
+																var id = $(this).data('id');
+																$(".modal-body #id").val( id );
+																});
+																</script>																
