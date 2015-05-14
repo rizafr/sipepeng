@@ -12,37 +12,7 @@
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
-                <!--state overview start-->
-                <div class="row state-overview">
-                    <div class="col-lg-3 col-sm-6">
-                        <section class="panel">
-                            <div class="symbol terques">
-                                <i class="icon-user"></i>
-                            </div>
-                            <div class="value">
-                                <h1 class="count">
-                                   0
-                                </h1>
-                                <p>Pengguna</p>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <section class="panel">
-                            <div class="symbol red">
-                                <i class="icon-tags"></i>
-                            </div>
-                            <div class="value">
-                                <h1 class=" count2">
-                                    0
-                                </h1>
-                                <p>Data</p>
-                            </div>
-                        </section>
-                    </div>
-                    
-                </div>
-                <!--state overview end-->
+                
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -51,7 +21,7 @@
                             <h3>Grafik Perencanaan</h3>
 							
                         </div>
-                        <div id="grafikPerencanaan" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+                        <div id="grafikPerencanaan" ></div>
                         <!--custom chart end-->
                     </div>
                    
@@ -64,7 +34,7 @@
                             <h3>Grafik Terelisasi</h3>
 							
                         </div>
-                        <div id="grafikTerelisasi" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+                        <div id="grafikTerelisasi" ></div>
                        
                         <!--custom chart end-->
                     </div>
@@ -78,7 +48,7 @@
                             <h3>Grafik Tidak Terelisasi</h3>
 							
                         </div>
-                        	<div id="grafikTidakTerelisasi" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+                        	<div id="grafikTidakTerelisasi" ></div>
                         
                        
                         <!--custom chart end-->
@@ -93,7 +63,7 @@
                             <h3>Grafik Kegiatan</h3>
 							
                         </div>
-                        	<div id="grafikKegiatan" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+                        	<div id="grafikKegiatan" ></div>
                        
                         <!--custom chart end-->
                     </div>
@@ -103,6 +73,10 @@
                 
                <div class="container-fluid">
 					<div class="row">
+					<div class="border-head">
+                            <h3>Peta Pembangunan</h3>
+							
+                        </div>
 						<?php echo $map['html']; ?>
 					</div>
 				</div>
