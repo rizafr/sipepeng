@@ -67,6 +67,9 @@ class Homes extends CI_Controller {
 		 $data['sumur_dangkal_tidak_dilaksanakan'] = count($this->sumur_dangkal_model->select_all_tidak_dilaksanakan()->result());
 		 $data['sumur_resapan_tidak_dilaksanakan'] = count($this->sumur_resapan_model->select_all_tidak_dilaksanakan()->result());
 		 
+		 $data['getJumlahKlasifikasiPerusahaan'] = ($this->home_model->getJumlahKlasifikasiPerusahaan()->result());
+		 $data['getJumlahJenisKelamin'] = ($this->home_model->getJumlahJenisKelamin()->result());
+		 
         $this->load->view('public/home', $data);
     }
 	#berita

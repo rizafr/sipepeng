@@ -257,10 +257,18 @@
 			return $this->db->count_all('sumur_dangkal');
 		}
 		
-		#jumlah sumur_resapan
 		
-		public function getJumlahSumurResapan() {
-			return $this->db->count_all('sumur_resapan');
+		
+		#getJumlahJenisKelamin
+		public function getJumlahJenisKelamin() {
+			$sql = "SELECT jk_pengusaha, count(jk_pengusaha) as jumlah FROM `ekonomi_umkm` group by jk_pengusaha";
+			return $this->db->query($sql);
+		}
+		
+		#getJumlahKlasifikasiPerusahaan
+		public function getJumlahKlasifikasiPerusahaan() {
+			$sql = "SELECT klasifikasi_perusahaan, count(klasifikasi_perusahaan) as jumlah FROM `ekonomi_umkm` group by klasifikasi_perusahaan";
+			return $this->db->query($sql);
 		}
 		
 		//select
@@ -268,6 +276,8 @@
 			$sql = "select * from product_categories";
 			return $this->db->query($sql);
 		}
+		
+		
 		
 		function getCategories() {
 			$sql = "SELECT * FROM product_categories";

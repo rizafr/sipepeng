@@ -326,6 +326,8 @@
 									<li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Grafik Kegiatan Terealisasi</a></li>
 									<li class=""><a href="#tab2" data-toggle="tab" class="analistic-02">Grafik Kegiatan Tidak Terealisasi</a></li>
 									<li class=""><a href="#tabKegiatan" data-toggle="tab" class="analistic-02">Grafik Per Kegiatan</a></li>
+									<li class=""><a href="#tabKlasifikasi" data-toggle="tab" class="analistic-02">Grafik Klasifikasi Perusahaan</a></li>
+									<li class=""><a href="#tabGender" data-toggle="tab" class="analistic-02">Grafik Klasifikasi Perusahaan Berdasarkan Gender</a></li>
 									
 								</ul>
 							</div>
@@ -364,6 +366,23 @@
 											<div class="media-body">
 												<h2>Grafik Perkegiatan</h2>
 												<div id="grafikKegiatan" ></div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="tab-pane fade " id="tabKlasifikasi">
+										<div class="media">
+											<div class="media-body">
+												<h2>Grafik Klasifikasi Perusahaan</h2>
+												<div id="grafikJumlahKlasifikasiPerusahaan" ></div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="tab-pane fade " id="tabGender">
+										<div class="media">
+											<div class="media-body">
+												<div id="grafikJumlahJenisKelamin" ></div>
 											</div>
 										</div>
 									</div>
@@ -604,6 +623,133 @@
 				});
 				//END GRAFIK TIDAK TEREALISASI
 				
+				// GRAFIK KLASIFIKASI PERUSAHAAN
+				$('#grafikJumlahKlasifikasiPerusahaan').highcharts({
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: 'GRAFIK KLASIFIKASI PERUSAHAAN'
+					},
+					xAxis: {
+						categories: [
+						<?php
+							
+							$jum = count($getJumlahKlasifikasiPerusahaan);
+							if ($jum > 0) {
+								foreach ($getJumlahKlasifikasiPerusahaan as $row) {
+								?>
+								'<?php echo $row->klasifikasi_perusahaan ?>',
+								<?php 
+								}
+							}
+							
+						?>
+						],
+						crosshair: true
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Jumlah Perusahaan'
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.f}</b><br/>'
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: [
+					<?php
+						$jum = count($getJumlahKlasifikasiPerusahaan);
+						if ($jum > 0) {
+							foreach ($getJumlahKlasifikasiPerusahaan as $row) {
+							?>
+							
+							{
+								name: '<?php echo $row->klasifikasi_perusahaan ?>',
+								data: [<?php echo $row->jumlah ?>]
+								
+							}, 
+							<?php 
+							}
+						}
+						
+					?>
+					]
+				});
+				//END GRAFIK TIDAK TEREALISASI
+				
+				// GRAFIK KLASIFIKASI PERUSAHAAN BERDASARKAN GENDER
+				$('#grafikJumlahJenisKelamin').highcharts({
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: 'GRAFIK KLASIFIKASI PERUSAHAAN BERDASARKAN GENDER'
+					},
+					xAxis: {
+						categories: [
+						<?php
+							
+							$jum = count($getJumlahJenisKelamin);
+							if ($jum > 0) {
+								foreach ($getJumlahJenisKelamin as $row) {
+								?>
+								'<?php echo $row->jk_pengusaha ?>',
+								<?php 
+								}
+							}
+							
+						?>
+						],
+						crosshair: true
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Jumlah Perusahaan'
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.f}</b><br/>'
+					},
+					plotOptions: {
+                    series: {
+                        borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.y:.f}'
+                        }
+                    }
+                },
+					series: [
+					<?php
+						$jum = count($getJumlahJenisKelamin);
+						if ($jum > 0) {
+							foreach ($getJumlahJenisKelamin as $row) {
+							?>
+							
+							{
+								name: '<?php echo $row->jk_pengusaha ?>',
+								data: [<?php echo $row->jumlah ?>]
+								
+							}, 
+							<?php 
+							}
+						}
+						
+					?>
+					]
+				});
+				//END GRAFIK KLASIFIKASI PERUSAHAAN BERDASARKAN GENDER
+				
 			});
 			
 		});
@@ -644,74 +790,74 @@
 	<footer id="footer" class="midnight-blue">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
-					<p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
-						Proyek Perubahan Diklatpim IV - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
-					<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
-				</div>                
+			<div class="col-sm-12">
+			<p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
+			Proyek Perubahan Diklatpim IV - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
+			<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
+			</div>                
 			</div>
-		</div>
-	</footer><!--/#footer-->
-	
-	
-	<script src="<?php echo base_url() ?>assets/public/js/bootstrap.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/public/js/jquery.prettyPhoto.js"></script>
-	<script src="<?php echo base_url() ?>assets/public/js/jquery.isotope.min.js"></script>
-	<script src="<?php echo base_url() ?>assets/public/js/main.js"></script>
-	<script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>
-	
-	<!-- Modal -->
-	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="readmore" class="modal fade">
-		<div class="modal-dialog">
+			</div>
+			</footer><!--/#footer-->
+			
+			
+			<script src="<?php echo base_url() ?>assets/public/js/bootstrap.min.js"></script>
+			<script src="<?php echo base_url() ?>assets/public/js/jquery.prettyPhoto.js"></script>
+			<script src="<?php echo base_url() ?>assets/public/js/jquery.isotope.min.js"></script>
+			<script src="<?php echo base_url() ?>assets/public/js/main.js"></script>
+			<script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>
+			
+			<!-- Modal -->
+			<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="readmore" class="modal fade">
+			<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-					<h4 class="modal-title"><p id="judul"></p></h4>
-				</div>
-				<div class="modal-body">
-					<div class="blog-item wow fadeInDown">
-						<div class="row">
-							<div class="col-xs-12 col-sm-2 text-center">
-								<div class="entry-meta">
-									<p id="tanggal"></p>
-									<span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
-								</div>
-							</div>
-							
-							<div class="col-xs-12 col-sm-10 blog-content">
-								<p id="foto"></p>
-								<h2><a href="blog-item.html"> <p id="judul"></p></a></h2>
-								<h3> <p id="isi"></p>.</h3>
-							</div>
-						</div>    
-					</div><!--/.blog-item-->
-					
-				</div>
-				
+			<div class="modal-header">
+			<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+			<h4 class="modal-title"><p id="judul"></p></h4>
 			</div>
-		</div>
-	</div>
-	
-	<!-- modal -->	
-	
-	<script>
-		$(document).on("click", ".readmore", function () {
+			<div class="modal-body">
+			<div class="blog-item wow fadeInDown">
+			<div class="row">
+			<div class="col-xs-12 col-sm-2 text-center">
+			<div class="entry-meta">
+			<p id="tanggal"></p>
+			<span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
+			</div>
+			</div>
+			
+			<div class="col-xs-12 col-sm-10 blog-content">
+			<p id="foto"></p>
+			<h2><a href="blog-item.html"> <p id="judul"></p></a></h2>
+			<h3> <p id="isi"></p>.</h3>
+			</div>
+			</div>    
+			</div><!--/.blog-item-->
+			
+			</div>
+			
+			</div>
+			</div>
+			</div>
+			
+			<!-- modal -->	
+			
+			<script>
+			$(document).on("click", ".readmore", function () {
 			var id = $(this).data('id');
 			$(".modal-body #id").val( id );
 			
 			$.post('<?php echo base_url() ?>admin/berita_managements/readmore/' +id, function(result)
 			{
-				var status = result.split("|");
-				$("#judul").html("<font color='green'>"+status[0]+"</font>");
-				$("#isi").html(status[1]);
-				$("#tanggal").html(status[2]);
-				$("#foto").html("<img class='img-responsive img-blog' src='<?php echo base_url() ?>assets/upload/berita/"+status[3]+"'width='100%' /></img>");
-				});
+			var status = result.split("|");
+			$("#judul").html("<font color='green'>"+status[0]+"</font>");
+			$("#isi").html(status[1]);
+			$("#tanggal").html(status[2]);
+			$("#foto").html("<img class='img-responsive img-blog' src='<?php echo base_url() ?>assets/upload/berita/"+status[3]+"'width='100%' /></img>");
+			});
 			
-		});
-	</script>
-<style>
-		.modal-dialog {
+			});
+			</script>
+			<style>
+			.modal-dialog {
 			width: 75% !important;
-	}
-</style>
+			}
+			</style>			
