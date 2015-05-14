@@ -1,5 +1,5 @@
 <header id="header">
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="banner">
+	<nav class="navbar navbar-inverse navbar-fixed-top animated fadeIn normal" role="navigation" id="top-nav">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

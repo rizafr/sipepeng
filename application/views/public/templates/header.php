@@ -11,6 +11,7 @@
 		<link href="<?php echo base_url() ?>assets/public/css/bootstrap.min.css" rel="stylesheet">
 		<link href="<?php echo base_url() ?>assets/public/css/font-awesome.min.css" rel="stylesheet">
 		<link href="<?php echo base_url() ?>assets/public/css/animate.min.css" rel="stylesheet">
+		<link href="<?php echo base_url() ?>assets/public/css/animate.css" rel="stylesheet">
 		<link href="<?php echo base_url() ?>assets/public/css/prettyPhoto.css" rel="stylesheet">
 		<link href="<?php echo base_url() ?>assets/public/css/main.css" rel="stylesheet">
 		<link href="<?php echo base_url() ?>assets/public/css/responsive.css" rel="stylesheet">

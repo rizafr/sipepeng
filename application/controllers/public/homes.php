@@ -14,6 +14,7 @@ class Homes extends CI_Controller {
         $this->load->model('minimarket_model');
         $this->load->model('kos_model');
         $this->load->model('berita_model');
+        $this->load->model('menu_model');
 		
         $this->load->model('artesis_model');
         $this->load->model('drainase_model');
@@ -87,10 +88,15 @@ class Homes extends CI_Controller {
 
     public function peta() {
         $data['title'] = "Peta - SIPEPENG";
-
+		
+		$data['menu_list'] = $this->menu_model->select_all()->result();
+		
+		$kegiatan = $this->uri->segment(3);
+		
         //ambil koordinator artesis_list
         $artesis_list = $this->public_model->artesis_all()->result();
         //ambil koordinator drainase_list
+	
         $drainase_list = $this->public_model->drainase_all()->result();
         //ambil koordinator jalan_list
         $jalan_list = $this->public_model->jalan_all()->result();
@@ -139,6 +145,7 @@ class Homes extends CI_Controller {
         // }
         #end tampilkan data koordinat artesis 
         #tampilkan data koordinat drainase
+			
         foreach ($drainase_list as $row) {
 
             #ambil fotonya jika ada
@@ -159,7 +166,8 @@ class Homes extends CI_Controller {
             $marker['infowindow_content'] = "Drainase <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
             $marker['icon'] = base_url() . "assets/public/map-icon/drainase.png";
             $this->googlemaps->add_marker($marker);
-        }
+        	}
+		
         #end tampilkan data koordinat drainase 
 		 #tampilkan data koordinat drainase
         foreach ($jalan_list as $row) {
@@ -186,6 +194,7 @@ class Homes extends CI_Controller {
             $marker['infowindow_content'] = "Jalan <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
             $marker['icon'] = base_url() . "assets/public/map-icon/jalan.png";
             $this->googlemaps->add_marker($marker);
+        
         }
         #end tampilkan data koordinat drainase 
         #tampilkan data koordinat mck

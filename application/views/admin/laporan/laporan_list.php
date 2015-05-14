@@ -20,7 +20,7 @@
                         <section class="panel">
                             <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
                               <?
-                                $judul = array("1" => "Perencanaan", "3" => "Pelaksanaan", "4" => "Hasil", "5" => "Tidak Dilaksanakan");
+                                $judul = array("1" => "Perencanaan", "3" => "Pelaksanaan", "4" => "Hasil", "5" => "Tidak Dilaksanakan", "6" => "Keseluruhan");
                                 $judul = $judul[$status];
                               ?>
                                 <span class="hidden-sm wht-color">Laporan <? echo $judul; ?></span>
@@ -28,6 +28,15 @@
                             <div class="panel-body">
 							<form method="post" action="<?php echo base_url('admin/laporan_managements/process'); ?>" class="form-horizontal" id="validation-events" role="form" enctype="multipart/form-data">
 								<input type="hidden" name="status" value="<?php echo $status?>">
+								<?php if($status== 6){?>
+								<div class="form-group">
+                                        <div class="col-lg-10">    
+                                            <button type="submit" class="btn btn-primary">Tampilkan Semua</button>
+										  </div>
+                                    </div><!--end control-group-->
+								
+								<?php } else{?>
+								
                                 <div class="form-group">
 									<div class="col-lg-2 col-sm-2 control-label">RW : <span class="text-error"></span></div>
 									<div class="col-lg-10">
@@ -49,6 +58,7 @@
                                             <button type="submit" class="btn btn-primary">OK</button>
 										  </div>
                                     </div><!--end control-group-->
+								<?php } ?>
 							</form>
                             </div>
                         </section>

@@ -17,20 +17,21 @@
 <script src="<?php echo base_url() ?>assets/public/js/main.js"></script>
 <script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>
 
+
 <script src="<?php echo base_url(); ?>assets/admin/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/data-tables/jquery.dataTables.js"></script>
 <script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>assets/admin/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
 
 
-</body>
-</html>
 <script>
-	$(window).scroll(function() {
-		if ($(document).scrollTop() > 75) {
-			$('nav').addClass('small-height');
-			} else {
-			$('nav').removeClass('small-height');
-		}
+	$(document).ready(function() {
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 50) {
+				$('nav').addClass('shrink');
+				} else {
+				$('nav').removeClass('shrink');
+			}
+		});
 	});
 	
 </script>
@@ -48,4 +49,8 @@
 	} );
 	
 </script>
+
+
+</body>
+</html>
 
