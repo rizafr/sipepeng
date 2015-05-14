@@ -27,6 +27,14 @@
 			if ($query->num_rows() == 1) {
 				return $query->row_array();
 			}
+		}
+		
+		public function readmore($id_berita) {
+			$this->db->select('*');
+			$this->db->where('id_berita', $id_berita);
+			$query = $this->db->get('berita', 1);
+			
+			return $query;
 		}	
 		
 		public function update($id_berita) {

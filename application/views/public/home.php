@@ -180,9 +180,9 @@
 												
 											?>
 											<a class="preview" href="<?php echo base_url() ?>assets/upload/berita/<?php echo $foto ?>" rel="prettyPhoto"><img class="img-responsive img-blog" src="<?php echo base_url() ?>assets/upload/berita/<?php echo $foto ?>" width="100%" alt="" /></a>
-											<h2><a href="blog-item.html"> <?php echo $row->judul_berita; ?></a></h2>
+											<h2> <?php echo $row->judul_berita; ?></h2>
 											<h3> <?php echo limitChar($row->isi_berita,500) ?>.</h3>
-											<a class="btn btn-primary readmore" href="blog-item.html">Selengkapnya <i class="fa fa-angle-right"></i></a>
+											<a class="btn btn-primary readmore" data-toggle="modal" data-id="<?php echo $row->id_berita ?>" href="#readmore">Selengkapnya <i class="fa fa-angle-right"></i></a>
 										</div>
 									</div>    
 								</div><!--/.blog-item-->
@@ -568,44 +568,44 @@
 						}, {
 						name: 'Drainase',
 						data: [<?php echo $drainase_awal ?>, <?php echo $drainase_dilaksanakan ?>, <?php echo $drainase_tidak_dilaksanakan ?>]
-					
+						
 						
 						}, {
 						name: 'MCK',
 						data: [<?php echo $mck_awal ?>, <?php echo $mck_dilaksanakan ?>, <?php echo $mck_tidak_dilaksanakan ?>]
-					
+						
 						
 						}, {
 						name: 'Jalan',
 						data: [<?php echo $jalan_awal ?>, <?php echo $jalan_dilaksanakan ?>, <?php echo $jalan_tidak_dilaksanakan ?>]
-					
+						
 						
 						}, {
 						name: 'Septictank',
 						data: [<?php echo $septictank_awal ?>, <?php echo $septictank_dilaksanakan ?>, <?php echo $septictank_tidak_dilaksanakan ?>]
-					
+						
 						
 						}, {
 						name: 'Septictank Komunal',
 						data: [<?php echo $septictank_komunal_awal ?>, <?php echo $septictank_komunal_dilaksanakan ?>, <?php echo $septictank_komunal_tidak_dilaksanakan ?>]
-					
+						
 						
 						}, {
 						name: 'Sumur Dangkal',
 						data: [<?php echo $sumur_dangkal_awal ?>, <?php echo $sumur_dangkal_dilaksanakan ?>, <?php echo $sumur_dangkal_tidak_dilaksanakan ?>]
-					
+						
 						
 						}, {
 						name: 'Sumur Resapan',
 						data: [<?php echo $sumur_resapan_awal ?>, <?php echo $sumur_resapan_dilaksanakan ?>, <?php echo $sumur_resapan_tidak_dilaksanakan ?>]
-					
+						
 						
 					}]
-					});
-					//END GRAFIK TIDAK TEREALISASI
-					
 				});
+				//END GRAFIK TIDAK TEREALISASI
 				
+			});
+			
 		});
 		
 		
@@ -659,3 +659,59 @@
 	<script src="<?php echo base_url() ?>assets/public/js/jquery.isotope.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/public/js/main.js"></script>
 	<script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>
+	
+	<!-- Modal -->
+	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="readmore" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+					<h4 class="modal-title"><p id="judul"></p></h4>
+				</div>
+				<div class="modal-body">
+					<div class="blog-item wow fadeInDown">
+						<div class="row">
+							<div class="col-xs-12 col-sm-2 text-center">
+								<div class="entry-meta">
+									<p id="tanggal"></p>
+									<span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
+								</div>
+							</div>
+							
+							<div class="col-xs-12 col-sm-10 blog-content">
+								<p id="foto"></p>
+								<h2><a href="blog-item.html"> <p id="judul"></p></a></h2>
+								<h3> <p id="isi"></p>.</h3>
+							</div>
+						</div>    
+					</div><!--/.blog-item-->
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<!-- modal -->	
+	
+	<script>
+		$(document).on("click", ".readmore", function () {
+			var id = $(this).data('id');
+			$(".modal-body #id").val( id );
+			
+			$.post('<?php echo base_url() ?>admin/berita_managements/readmore/' +id, function(result)
+			{
+				var status = result.split("|");
+				$("#judul").html("<font color='green'>"+status[0]+"</font>");
+				$("#isi").html(status[1]);
+				$("#tanggal").html(status[2]);
+				$("#foto").html("<img class='img-responsive img-blog' src='<?php echo base_url() ?>assets/upload/berita/"+status[3]+"'width='100%' /></img>");
+				});
+			
+		});
+	</script>
+<style>
+		.modal-dialog {
+			width: 75% !important;
+	}
+</style>

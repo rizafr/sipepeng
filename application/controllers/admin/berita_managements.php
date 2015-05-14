@@ -153,6 +153,13 @@
 		$this->load->view('admin/berita/berita_view',$data);
 	}
 	
+	//fungsi menampilkan berdasarkan id yg dipilih
+	public function readmore($id_berita){
+		
+		$berita_list = $this->berita_model->readmore($id_berita)->row();
+		echo $berita_list->judul_berita."|".$berita_list->isi_berita."|".$berita_list->tgl_berita."|".$berita_list->foto;
+	}
+	
 	
 	# Upload Foto
 	function upload_foto($ket,$judul_berita)
