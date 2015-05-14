@@ -1,7 +1,7 @@
 <?php $this->load->view('public/templates/header'); ?> 
-<body class="homepage">
+<body>
 	<?php $this->load->view('public/templates/menu'); ?> 
-   <section id="feature" class="transparent-bg">
+    <section id="about-us">
         <div class="container">
            <div class="center wow fadeInDown">
                 <h2>Profil Kelurahan Leuwigajah</h2>

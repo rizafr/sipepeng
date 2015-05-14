@@ -204,14 +204,14 @@
 		</div>
 	</section><!--/#blog-->
 	
-	<section id="recent-works">
+	<section id="gallery">
 		<div class="container">
 			<div class="center wow fadeInDown">
 				<h2>Galeri</h2>
 				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
 			</div>
 			
-			<div class="row">
+			<div class="row wow fadeInDown">
 				<div class="col-xs-12 col-sm-4 col-md-3">
 					<div class="recent-work-wrap">
 						<img class="img-responsive" src=" <?php echo base_url() ?>assets/public/images/slider/slide3.jpg" alt="">
@@ -314,7 +314,7 @@
 	</section><!--/#recent-works-->
 	
 	
-	<section id="content">
+	<section id="middle">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 wow fadeInDown">
