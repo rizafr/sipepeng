@@ -336,7 +336,7 @@
 										<div class="media">
 											<div class="media-body">
 												<h2>Grafik Kegiatan Perencanaan</h2>
-												<div id="grafikPerencanaan" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+												<div id="grafikPerencanaan" ></div>
 											</div>
 										</div>
 									</div>
@@ -345,7 +345,7 @@
 										<div class="media">
 											<div class="media-body">
 												<h2>Grafik Kegiatan Terealisasi</h2>
-												<div id="grafikTerelisasi" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+												<div id="grafikTerelisasi" ></div>
 											</div>
 										</div>
 									</div>
@@ -354,7 +354,7 @@
 										<div class="media">
 											<div class="media-body">
 												<h2>Grafik Kegiatan Tidak Terealisasi</h2>
-												<div id="grafikTidakTerelisasi" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+												<div id="grafikTidakTerelisasi" ></div>
 											</div>
 										</div>
 									</div>
@@ -363,7 +363,7 @@
 										<div class="media">
 											<div class="media-body">
 												<h2>Grafik Perkegiatan</h2>
-												<div id="grafikKegiatan" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+												<div id="grafikKegiatan" ></div>
 											</div>
 										</div>
 									</div>

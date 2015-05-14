@@ -12,6 +12,15 @@
 			$this->load->model('public_model');
 			# menampilkan google map
 			$this->load->library('googlemaps');
+			
+			$this->load->model('artesis_model');
+        $this->load->model('drainase_model');
+        $this->load->model('jalan_model');
+        $this->load->model('mck_model');
+        $this->load->model('septictank_model');
+        $this->load->model('septictank_komunal_model');
+        $this->load->model('sumur_dangkal_model');
+        $this->load->model('sumur_resapan_model');
 		}
 		
 		public function index() {
@@ -37,38 +46,37 @@
 					$data['menu_list'] = $this->menu_model->select_pu()->result();
 				}
 				
-				#rekap data
-				$data['jumPengguna'] = $this->home_model->getJumlahPengguna();
-				#jumlah semua data
-				$data['jumArtesis'] = $this->home_model->getJumlahArtesis();
-				$data['jumDrainase'] = $this->home_model->getJumlahDrainase();
-				$data['jumJalan'] = $this->home_model->getJumlahJalan();
-				$data['jumKirmir'] = $this->home_model->getJumlahKirmir();
-				$data['jumMck'] = $this->home_model->getJumlahMck();
-				$data['jumSeptictank'] = $this->home_model->getJumlahSeptictank();
-				$data['jumSeptictankKomunal'] = $this->home_model->getJumlahSeptictankKomunal();
-				$data['jumSumurDangkal'] = $this->home_model->getJumlahSumurDangkal();
-				$data['jumSumurResapan'] = $this->home_model->getJumlahSumurResapan();
-				$data['jumlahData'] = $data['jumArtesis'] + $data['jumDrainase'] + $data['jumJalan'] + $data['jumKirmir'] + $data['jumMck'] + $data['jumSeptictank'] + $data['jumSeptictankKomunal'] + $data['jumSumurDangkal'] + $data['jumSumurResapan'];
-				
-				#persentasi jumlah semua data
-				$data['persenArtesis'] = ($data['jumArtesis'] / $data['jumlahData'] ) * 100;
-				$data['persenDrainase'] = ($data['jumDrainase'] / $data['jumlahData'] ) * 100;
-				$data['persenJalan'] = ($data['jumJalan'] / $data['jumlahData'] ) * 100;
-				$data['persenKirmir'] = ($data['jumKirmir'] / $data['jumlahData'] ) * 100;
-				$data['persenMck'] = ($data['jumMck'] / $data['jumlahData'] ) * 100;
-				$data['persenSeptictank'] = ($data['jumSeptictank'] / $data['jumlahData'] ) * 100;
-				$data['persenSeptictankKomunal'] = ($data['jumSeptictankKomunal'] / $data['jumlahData'] ) * 100;
-				$data['persenSumurDangkal'] = ($data['jumSumurDangkal'] / $data['jumlahData'] ) * 100;
-				$data['persenSumurResapan'] = ($data['jumSumurResapan'] / $data['jumlahData'] ) * 100;
-				
-				#jumlah status menu
-				#drainase
-				$data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
-				$data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
-				$data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
-				$data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
-				
+				//grafik kegiatan perencanaan
+		 $data['artesis_awal'] = count($this->artesis_model->select_all_data_awal()->result());
+		 $data['drainase_awal'] = count($this->drainase_model->select_all_data_awal()->result());
+		 $data['mck_awal'] = count($this->mck_model->select_all_data_awal()->result());
+		 $data['jalan_awal'] = count($this->jalan_model->select_all_data_awal()->result());
+		 $data['septictank_awal'] = count($this->septictank_model->select_all_data_awal()->result());
+		 $data['septictank_komunal_awal'] = count($this->septictank_komunal_model->select_all_data_awal()->result());
+		 $data['sumur_dangkal_awal'] = count($this->sumur_dangkal_model->select_all_data_awal()->result());
+		 $data['sumur_resapan_awal'] = count($this->sumur_resapan_model->select_all_data_awal()->result());
+		 
+		 
+		//grafik kegiatan dilaksanakan
+		 $data['artesis_dilaksanakan'] = count($this->artesis_model->select_all_sudah_dilaksanakan()->result());
+		 $data['drainase_dilaksanakan'] = count($this->drainase_model->select_all_sudah_dilaksanakan()->result());
+		 $data['mck_dilaksanakan'] = count($this->mck_model->select_all_sudah_dilaksanakan()->result());
+		 $data['jalan_dilaksanakan'] = count($this->jalan_model->select_all_sudah_dilaksanakan()->result());
+		 $data['septictank_dilaksanakan'] = count($this->septictank_model->select_all_sudah_dilaksanakan()->result());
+		 $data['septictank_komunal_dilaksanakan'] = count($this->septictank_komunal_model->select_all_sudah_dilaksanakan()->result());
+		 $data['sumur_dangkal_dilaksanakan'] = count($this->sumur_dangkal_model->select_all_sudah_dilaksanakan()->result());
+		 $data['sumur_resapan_dilaksanakan'] = count($this->sumur_resapan_model->select_all_sudah_dilaksanakan()->result());
+		 
+		 //grafik kegiatan tidak dilaksanakan
+		 $data['artesis_tidak_dilaksanakan'] = count($this->artesis_model->select_all_tidak_dilaksanakan()->result());
+		 $data['drainase_tidak_dilaksanakan'] = count($this->drainase_model->select_all_tidak_dilaksanakan()->result());
+		 $data['mck_tidak_dilaksanakan'] = count($this->mck_model->select_all_tidak_dilaksanakan()->result());
+		 $data['jalan_tidak_dilaksanakan'] = count($this->jalan_model->select_all_tidak_dilaksanakan()->result());
+		 $data['septictank_tidak_dilaksanakan'] = count($this->septictank_model->select_all_tidak_dilaksanakan()->result());
+		 $data['septictank_komunal_tidak_dilaksanakan'] = count($this->septictank_komunal_model->select_all_tidak_dilaksanakan()->result());
+		 $data['sumur_dangkal_tidak_dilaksanakan'] = count($this->sumur_dangkal_model->select_all_tidak_dilaksanakan()->result());
+		 $data['sumur_resapan_tidak_dilaksanakan'] = count($this->sumur_resapan_model->select_all_tidak_dilaksanakan()->result());
+		 
 				//ambil koordinator artesis_list
 				$artesis_list = $this->public_model->artesis_all()->result();
 				//ambil koordinator drainase_list

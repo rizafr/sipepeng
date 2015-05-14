@@ -45,246 +45,62 @@
                 <!--state overview end-->
 
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <!--custom chart start-->
                         <div class="border-head">
-                            <h3>Rekapitulasi Data</h3>
+                            <h3>Grafik Perencanaan</h3>
 							
                         </div>
-                        <div class="custom-bar-chart">
-                            <ul class="y-axis">                                
-                              <li><span>100</span></li>
-                              <li><span>80</span></li>
-                              <li><span>60</span></li>
-                              <li><span>40</span></li>
-                              <li><span>20</span></li>
-                              <li><span>0</span></li>
-                            </ul>
-							<div class="bar ">
-                                <div class="title">ARTESIS</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenArtesis,2);?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenArtesis?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">DRAINASE</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenDrainase,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenDrainase ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">JALAN</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenJalan,2)?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenJalan ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">Kirmir</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenKirmir,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenKirmir ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">Mck</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenMck,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenMck ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">Septictank</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenSeptictank,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenSeptictank ?>%</div>
-                            </div>
-                            
-							<div class="bar">
-                                <div class="title">Komunal    </div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenSeptictankKomunal,2)?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenSeptictankKomunal ?>%</div>
-                            </div>
-                           
-						   <div class="bar">
-                                <div class="title">Dangkal</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenSumurDangkal,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenSumurDangkal ?>%</div>
-                            </div>
-                           
-						   <div class="bar">
-                                <div class="title">Resapan</div>
-                                <div class="value tooltips" data-original-title="<?php echo number_format($persenSumurResapan,2) ?>%" data-toggle="tooltip" data-placement="top"><?php echo $persenSumurResapan ?>%</div>
-                            </div>
-                            
-                            
-                        </div>
+                        <div id="grafikPerencanaan" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
                         <!--custom chart end-->
                     </div>
-                    <div class="col-lg-4">
-                        <!--new earning start-->
-                        <div class="panel terques-chart">
-                            <div class="panel-body chart-texture">
-                                <div class="chart">
-                                    <div class="heading">
-                                        <span>Friday</span>
-                                        <strong>$ 57,00 | 15%</strong>
-                                    </div>
-                                    <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
-                                </div>
-                            </div>
-                            <div class="chart-tittle">
-                                <span class="title">New Earning</span>
-                                <span class="value">
-                                    <a href="#" class="active">Market</a>
-                                    |
-                                    <a href="#">Referal</a>
-                                    |
-                                    <a href="#">Online</a>
-                                </span>
-                            </div>
-                        </div>
-                        <!--new earning end-->
-
-                        <!--total earning start-->
-                        <div class="panel green-chart">
-                            <div class="panel-body">
-                                <div class="chart">
-                                    <div class="heading">
-                                        <span>June</span>
-                                        <strong>23 Days | 65%</strong>
-                                    </div>
-                                    <div id="barchart"></div>
-                                </div>
-                            </div>
-                            <div class="chart-tittle">
-                                <span class="title">Total Earning</span>
-                                <span class="value">$, 76,54,678</span>
-                            </div>
-                        </div>
-                        <!--total earning end-->
-                    </div>
+                   
                 </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <!--user info table start-->
-                        <section class="panel">
-                            <div class="panel-body">
-                                <a href="#" class="task-thumb">
-                                    <img src="<?php echo base_url();?>assets/admin/img/avatar1.jpg" alt="">
-                                </a>
-                                <div class="task-thumb-details">
-                                    <h1><a href="#"><?php echo $this->session->userdata('nama')?></a></h1>
-                                    <p><?php echo $this->session->userdata('jenis_pengguna')?></p>
-                                </div>
-                            </div>
-                            <table class="table table-hover personal-task">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <i class=" icon-tasks"></i>
-                                        </td>
-                                        <td>New Task Issued</td>
-                                        <td> 02</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <i class="icon-warning-sign"></i>
-                                        </td>
-                                        <td>Task Pending</td>
-                                        <td> 14</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <i class="icon-envelope"></i>
-                                        </td>
-                                        <td>Inbox</td>
-                                        <td> 45</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <i class=" icon-bell-alt"></i>
-                                        </td>
-                                        <td>New Notification</td>
-                                        <td> 09</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                        <!--user info table end-->
+				
+				<div class="row">
+                    <div class="col-lg-12">
+                        <!--custom chart start-->
+                        <div class="border-head">
+                            <h3>Grafik Terelisasi</h3>
+							
+                        </div>
+                        <div id="grafikTerelisasi" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+                       
+                        <!--custom chart end-->
                     </div>
-                    <div class="col-lg-8">
-                        <!--work progress start-->
-                        <section class="panel">
-                            <div class="panel-body progress-panel">
-                                <div class="task-progress">
-                                    <h1>Work Progress</h1>
-                                    <p>Anjelina Joli</p>
-                                </div>
-                                <div class="task-option">
-                                    <select class="styled">
-                                        <option>Anjelina Joli</option>
-                                        <option>Tom Crouse</option>
-                                        <option>Jhon Due</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <table class="table table-hover personal-task">
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            Target Sell
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-important">75%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress1"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>
-                                            Product Delivery
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-success">43%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress2"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>
-                                            Payment Collection
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-info">67%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress3"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>
-                                            Work Progress
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-warning">30%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress4"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>
-                                            Delivery Pending
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-primary">15%</span>
-                                        </td>
-                                        <td>
-                                            <div id="work-progress5"></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                        <!--work progress end-->
-                    </div>
+                   
                 </div>
+				
+				<div class="row">
+                    <div class="col-lg-12">
+                        <!--custom chart start-->
+                        <div class="border-head">
+                            <h3>Grafik Tidak Terelisasi</h3>
+							
+                        </div>
+                        	<div id="grafikTidakTerelisasi" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+                        
+                       
+                        <!--custom chart end-->
+                    </div>
+                   
+                </div>
+				
+					<div class="row">
+                    <div class="col-lg-12">
+                        <!--custom chart start-->
+                        <div class="border-head">
+                            <h3>Grafik Kegiatan</h3>
+							
+                        </div>
+                        	<div id="grafikKegiatan" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+                       
+                        <!--custom chart end-->
+                    </div>
+                   
+                </div>
+				
+                
                <div class="container-fluid">
 					<div class="row">
 						<?php echo $map['html']; ?>
@@ -345,3 +161,232 @@ function countUp2(count)
 countUp2(<? echo $jumlahData ?>);
 		
 </script>
+	<script src="<?php echo base_url() ?>assets/public/js/jquery.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/highcharts.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/exporting.js"></script>
+	
+	<script type="text/javascript">
+		$(function () {
+			
+			$(document).ready(function () {
+				
+				// GRAFIK AWAL
+				$('#grafikPerencanaan').highcharts({
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: 'Grafik Perbandingan Kegiatan Perencanaan '
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+					series: [{
+						type: 'pie',
+						name: 'Kegiatan',
+						data: [
+						['Artesis',   <?php echo $artesis_awal ?>],
+						['Drainase',   <?php echo $drainase_awal ?>],
+						{
+							name: 'MCK',
+							y: <?php echo $mck_awal ?>,
+							sliced: true,
+							selected: true
+						},
+						['Jalan',   <?php echo $jalan_awal ?>],
+						['Septictank',     <?php echo $septictank_awal ?>],
+						['Septictank Komunal',    <?php echo $septictank_komunal_awal ?>],
+						['Sumur Dangkal',    <?php echo $sumur_dangkal_awal ?>],
+						['Sumur Resapan',  <?php echo $sumur_resapan_awal ?>]
+						]
+					}]
+				});
+				//END GRAFIK TEREALISASI
+				
+				// GRAFIK TEREALISASI
+				$('#grafikTerelisasi').highcharts({
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: 'Grafik Perbandingan Kegiatan Terealisasi '
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+					series: [{
+						type: 'pie',
+						name: 'Kegiatan',
+						data: [
+						['Artesis',   <?php echo $artesis_dilaksanakan ?>],
+						['Drainase',   <?php echo $drainase_dilaksanakan ?>],
+						{
+							name: 'MCK',
+							y: <?php echo $mck_dilaksanakan ?>,
+							sliced: true,
+							selected: true
+						},
+						['Jalan',   <?php echo $jalan_dilaksanakan ?>],
+						['Septictank',     <?php echo $septictank_dilaksanakan ?>],
+						['Septictank Komunal',    <?php echo $septictank_komunal_dilaksanakan ?>],
+						['Sumur Dangkal',    <?php echo $sumur_dangkal_dilaksanakan ?>],
+						['Sumur Resapan',  <?php echo $sumur_resapan_dilaksanakan ?>]
+						]
+					}]
+				});
+				//END GRAFIK TEREALISASI
+				
+				// GRAFIK TIDAK TEREALISASI
+				$('#grafikTidakTerelisasi').highcharts({
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: 'Grafik Perbandingan Kegiatan Tidak Terealisasi '
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+					series: [{
+						type: 'pie',
+						name: 'Kegiatan',
+						data: [
+						['Artesis',   <?php echo $artesis_tidak_dilaksanakan ?>],
+						['Drainase',   <?php echo $drainase_tidak_dilaksanakan ?>],
+						{
+							name: 'MCK',
+							y: <?php echo $mck_tidak_dilaksanakan ?>,
+							sliced: true,
+							selected: true
+						},
+						['Jalan',   <?php echo $jalan_tidak_dilaksanakan ?>],
+						['Septictank',     <?php echo $septictank_tidak_dilaksanakan ?>],
+						['Septictank Komunal',    <?php echo $septictank_komunal_tidak_dilaksanakan ?>],
+						['Sumur Dangkal',    <?php echo $sumur_dangkal_tidak_dilaksanakan ?>],
+						['Sumur Resapan',  <?php echo $sumur_resapan_tidak_dilaksanakan ?>]
+						]
+					}]
+				});
+				//END GRAFIK TIDAK TEREALISASI
+				
+				// GRAFIK TIDAK TEREALISASI
+				$('#grafikKegiatan').highcharts({
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: 'Grafik Per Kegiatan'
+					},
+					xAxis: {
+						categories: [
+						'Perencanaan',
+						'Pelaksanaan',
+						'Tidak Terealisasi'
+						],
+						crosshair: true
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Jumlah Kegiatan'
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+						'<td style="padding:0"><b>{point.y:.f} </b></td></tr>',
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: [{
+						name: 'Artesis',
+						data: [<?php echo $artesis_awal ?>, <?php echo $artesis_dilaksanakan ?>, <?php echo $artesis_tidak_dilaksanakan ?>]
+						
+						}, {
+						name: 'Drainase',
+						data: [<?php echo $drainase_awal ?>, <?php echo $drainase_dilaksanakan ?>, <?php echo $drainase_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'MCK',
+						data: [<?php echo $mck_awal ?>, <?php echo $mck_dilaksanakan ?>, <?php echo $mck_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Jalan',
+						data: [<?php echo $jalan_awal ?>, <?php echo $jalan_dilaksanakan ?>, <?php echo $jalan_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Septictank',
+						data: [<?php echo $septictank_awal ?>, <?php echo $septictank_dilaksanakan ?>, <?php echo $septictank_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Septictank Komunal',
+						data: [<?php echo $septictank_komunal_awal ?>, <?php echo $septictank_komunal_dilaksanakan ?>, <?php echo $septictank_komunal_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Sumur Dangkal',
+						data: [<?php echo $sumur_dangkal_awal ?>, <?php echo $sumur_dangkal_dilaksanakan ?>, <?php echo $sumur_dangkal_tidak_dilaksanakan ?>]
+					
+						
+						}, {
+						name: 'Sumur Resapan',
+						data: [<?php echo $sumur_resapan_awal ?>, <?php echo $sumur_resapan_dilaksanakan ?>, <?php echo $sumur_resapan_tidak_dilaksanakan ?>]
+					
+						
+					}]
+					});
+					//END GRAFIK TIDAK TEREALISASI
+					
+				});
+				
+		});
+		
+		
+	</script>
