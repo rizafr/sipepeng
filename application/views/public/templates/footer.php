@@ -11,8 +11,6 @@
 </footer><!--/#footer-->
 
 <script src="<?php echo base_url() ?>assets/public/js/jquery.js"></script>
-	<script type="text/javascript" src="<?php echo base_url() ?>assets/public/js/highcharts.js" ></script>
-	<script type="text/javascript" src="<?php echo base_url() ?>assets/public/js/exporting.js" ></script>
 <script src="<?php echo base_url() ?>assets/public/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url() ?>assets/public/js/jquery.prettyPhoto.js"></script>
 <script src="<?php echo base_url() ?>assets/public/js/jquery.isotope.min.js"></script>
