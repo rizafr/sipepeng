@@ -34,53 +34,10 @@
 				
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse1">
-				 <form class="navbar-form pull-right">
-					<div class="input-group" style="max-width:470px;">
-                    <input type="text" class="form-control input-md" placeholder="Pencarian" name="srch-term" id="srch-term">
-                    <div class="input-group-btn">
-					<button class="btn btn-default btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                    </div>
-					</div>
-				</form> 
 			</div>
 		</div>
 	</nav>
-	<!--<div class="navbar navbar-default" id="subnav"> 
-		<div class="col-md-12">
-			<div class="navbar-header">
-				<a style="margin-left:15px; margin-top: 8px" class="navbar-btn btn btn-default btn-primary" href="<?php echo base_url(); ?>"><i class="fa fa-home"></i></a>
-				<a href="#" class="navbar-btn btn btn-default btn-primary dropdown-toggle" data-toggle="dropdown">
-					<i class="fa fa-bars"></i>
-					E-Katalog
-					<small>
-						<i class="glyphicon glyphicon-chevron-down"></i>
-					</small>
-				</a>
-				<a href="http://play.google.com/" target="_blank" class="hidden-xs">
-					<img src="<?php echo base_url(); ?>assets/home/playstore.png" alt="Unduh Aplikasi di Play Store" style="height: 38px;">
-				</a>
-				<a href="http://play.google.com/" target="_blank" class="hidden-sm hidden-md hidden-lg hidden-xl">
-					<img src="<?php echo base_url(); ?>assets/home/playstore_small.png" alt="Unduh Aplikasi di Play Store" style="height: 38px;">
-				</a>
-				<ul class="nav dropdown-menu">
-					<li><a href="http://puskim.pu.go.id/Aplikasi/ekatalog/public/page/1">Profil Puslitbang</a></li>
-					<li><a href="http://puskim.pu.go.id/Aplikasi/ekatalog/public/contact">Hubungi Kami</a></li>					
-				</ul>
-				
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse2">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#" class="navbar-btn btn btn-default btn-primary ">
-					<i class="fa fa-bars"></i>
-						TENTANG
-					<small>
-						<i class="glyphicon glyphicon-chevron-down"></i>
-					</small>
-				</a></li>
-			</ul>
-		</div>
-	</div>
-</div>-->
+	
 <div class="container" id="main">
 	<div class="container" id="main">
 		<!-- will be used to show any messages -->
@@ -170,128 +127,22 @@
 	</div>
 	
 </div>
-
-<footer id="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
+<!--/footer-->
+  <footer class="footer hidden-xs">
+    <div class="container">
+        <div >
+           <p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
 					Proyek Perubahan Diklatpim V - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
 				<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
-			</div>                
-		</div>
-	</div>
-</footer><!--/#footer-->
+        </div>
+       
+    </div>
+</footer>
+
+<!--/#footer-->
 
 
-<!--login modal-->
-<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h2 class="text-center">Masuk</h2>
-			</div>
-            <div class="modal-body">
-                <form method="POST" action="http://puskim.pu.go.id/Aplikasi/ekatalog/public/login" accept-charset="UTF-8" class="form col-md-12 center-block"><input name="_token" value="hymiy96oFAyoCr7MKUKk9uzI7MfG4xUl49g4b7jO" type="hidden">
-                    <div class="form-group">
-                        <input name="name" class="form-control input-lg" placeholder="Nama Pengguna" type="text">
-					</div>
-                    <div class="form-group">
-                        <input name="password" class="form-control input-lg" placeholder="Kata Sandi" type="password">
-					</div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Masuk</button>
-					</div>
-				</form>
-			</div>
-            <div class="modal-footer">
-                <div class="col-md-12">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Batalkan</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<!--register modal-->
-<div id="registerModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h2 class="text-center">Daftar</h2>
-			</div>
-            <div class="modal-body">
-                <form method="POST" action="http://puskim.pu.go.id/Aplikasi/ekatalog/public/register" accept-charset="UTF-8" class="form col-md-12 center-block"><input name="_token" value="hymiy96oFAyoCr7MKUKk9uzI7MfG4xUl49g4b7jO" type="hidden">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <input name="full_name" id="full_name" class="form-control input-lg" placeholder="Nama Lengkap" tabindex="2" type="text">
-							</div>
-						</div>
-					</div>
-                    <div class="form-group">
-                        <input name="name" id="name" class="form-control input-lg" placeholder="Nama Pengguna" tabindex="3" type="text">
-					</div>
-                    <div class="form-group">
-                        <input name="email" id="email" class="form-control input-lg" placeholder="Alamat Surel" tabindex="4" type="email">
-					</div>
-                    <div class="form-group">
-                        <input name="phone" id="phone" class="form-control input-lg" placeholder="Nomor Telepon" tabindex="4" type="text">
-					</div>
-                    <div class="form-group">
-                        <label for="file">Foto Profil</label>
-                        <input name="file" id="file" class="form-control input-lg" placeholder="Unggah Foto" tabindex="4" type="file">
-					</div>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input name="password" id="password" class="form-control input-lg" placeholder="Sandi" tabindex="5" type="password">
-							</div>
-						</div>
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Ulang Sandi" tabindex="6" type="password">
-							</div>
-						</div>
-					</div>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-12"><input value="Daftar" class="btn btn-primary btn-block btn-lg" tabindex="7" type="submit"></div>
-					</div>
-				</form>
-			</div>
-            <div class="modal-footer">
-                <div class="col-md-12"><br>
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Batalkan</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!--about modal-->
-<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h2 class="text-center">About</h2>
-			</div>
-            <div class="modal-body">
-                <div class="col-md-12 text-center">
-                    <a href="http://www.bootply.com/DwnjTNuvVt">This Bootstrap Template</a><br>was made with <i class="glyphicon glyphicon-heart"></i> by <a href="http://bootply.com/templates">Bootply</a>
-                    <br><br>
-                    <a href="https://github.com/iatek/bootstrap-google-plus">GitHub Fork</a>
-				</div>
-			</div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">OK</button>
-			</div>
-		</div>
-	</div>
-</div>
+<
 <script src="<?php echo base_url(); ?>assets/home/jquery.js"></script>
 <script src="<?php echo base_url(); ?>assets/home/bootstrap.js"></script>
 <script>
@@ -329,20 +180,4 @@
 		}
 	});
 </script>
-<!---
-	<script src="http://puskim.pu.go.id/Aplikasi/ekatalog/public/bower_resources/masonry/dist/masonry.pkgd.min.js"></script>
-	<script src="http://puskim.pu.go.id/Aplikasi/ekatalog/public/bower_resources/imagesloaded/imagesloaded.js"></script>
-	<script>
-	imagesLoaded( document.querySelector('.row-item'), function( instance ) {
-    var $container = $('.row-item');
-	// initialize
-	$container.masonry({
-	itemSelector: '.panel-item'
-	});
-    $('.panel-item').fadeIn();
-	});
-	</script>
---->
-
-
 </body></html>
