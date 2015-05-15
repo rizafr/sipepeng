@@ -14,7 +14,7 @@
 	
 	header("Content-Type: application/vnd.ms-word; name='word'");
 	
-	header("Content-disposition: attachment; filename=SURAT USULAN DRAINASE.doc");
+	header("Content-disposition: attachment; filename=SURAT_USULAN_DRAINASE.doc");
 	
 	
 	//Format Tanggal Berbahasa Indonesia 

@@ -26,7 +26,10 @@
                             <div class="panel-body">
                                 <form class="form-horizontal" role="form">
 									
-                                    <legend>&nbsp;&nbsp;&nbsp;&nbsp;1. Data Awal</legend>
+                                    <legend><?php
+										$message = $this->session->flashdata('message');
+										echo $message == '' ? '' : '<p id="message">' . $message . '</p>';
+									?></legend>
                                     
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="rt">RT: <span class="text-error">*</span></label>
@@ -177,7 +180,8 @@
 									</div><!--end control-group-->
 									
                                     <div class="form-group">
-                                        <div class="col-lg-10">                                           
+                                        <div class="col-lg-10">  
+											<a href="<?php echo base_url() . 'admin/jalan_managements/cetak/'.$jalan_list['id_jalan']?>"><button type="button" class="btn btn-info "><i class=" icon-print"></i>Print</button></a>
 											<button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
 										</div>
 									</div><!--end control-group-->

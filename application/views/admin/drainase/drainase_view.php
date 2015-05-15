@@ -25,7 +25,10 @@
                             </header>
                             <div class="panel-body">
                                 <form class="form-horizontal" role="form">
-
+									<legend><?php
+										$message = $this->session->flashdata('message');
+										echo $message == '' ? '' : '<p id="message">' . $message . '</p>';
+									?></legend>
                                     <div id="area-1">
                                         <!--area print-->
                                         <div class="form-group">
@@ -179,7 +182,7 @@
 
                                     <div class="form-group">
                                         <div class="col-lg-10">                                           
-                                            <button type="button" class="btn btn-info "><i class=" icon-print"></i> <a class="no-print" href="<?php echo base_url() . 'admin/drainase_managements/cetak/'.$drainase_list['id_drainase']?>">Print</a></button>
+                                            <a href="<?php echo base_url() . 'admin/drainase_managements/cetak/'.$drainase_list['id_drainase']?>"><button type="button" class="btn btn-info "><i class=" icon-print"></i>Print</button></a>
                                             <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
                                         </div>
                                     </div><!--end control-group-->
@@ -194,18 +197,3 @@
         </section>
         <!--main content end-->
         <?php $this->load->view('admin/templates/footer'); ?>	
-
-        <textarea id="printing-css" style="display:none;">.no-print{display:none}</textarea>
-        <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"></iframe>
-        <script type="text/javascript">
-            //<![CDATA[
-            function printDiv(elementId) {
-                var a = document.getElementById('printing-css').value;
-                var b = document.getElementById(elementId).innerHTML;
-                window.frames["print_frame"].document.title = document.title;
-                window.frames["print_frame"].document.body.innerHTML = '<style>' + a + '</style>' + b;
-                window.frames["print_frame"].window.focus();
-                window.frames["print_frame"].window.print();
-            }
-            //]]>
-        </script>
