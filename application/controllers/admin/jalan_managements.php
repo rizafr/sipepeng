@@ -330,12 +330,15 @@ public function cetak($id_jalan) {
 	$document->setValue('rw', $data['jalan_list']['rw'] );
 	$document->setValue('alamat',$data['jalan_list']['alamat'] );
 	
+	$path = 'C:SIPEPENG';
+	if (!file_exists($path)) {
+		mkdir($path , 0777, true);
+	}
+	
+	$document->save($path.'/SURAT USULAN JALAN RT '.$data['jalan_list']['rt'].' RW '.$data['jalan_list']['rw'].'_'.$tanggal .' '. $bulan .' '. $tahun.'.docx');
 	
 	
-	$document->save('G:SIPEPENG/SURAT USULAN JALAN RT '.$data['jalan_list']['rt'].' RW '.$data['jalan_list']['rw'].'_'.$tanggal .' '. $bulan .' '. $tahun.'.docx');
-	
-	
-	$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil Didownload </div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success">Surat Usulan Berhasil Didownload. Silakan lihat di C:SIPEPENG</div>');
 	redirect('admin/jalan_managements/view/'.$id_jalan);
 }
 

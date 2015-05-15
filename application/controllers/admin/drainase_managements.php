@@ -337,12 +337,15 @@ public function cetak($id_drainase) {
 	$document->setValue('alamat',$data['drainase_list']['alamat'] );
 	$document->setValue('kegiatan','Drainase' );
 	
-
+	$path = 'C:SIPEPENG';
+	if (!file_exists($path)) {
+		mkdir($path , 0777, true);
+	}
 	
-	$document->save('G:SIPEPENG/SURAT USULAN DRAINASE RT '.$data['drainase_list']['rt'].' RW '.$data['drainase_list']['rw'].'_'.$tanggal .' '. $bulan .' '. $tahun.'.docx');
+	$document->save($path.'/SURAT USULAN DRAINASE RT '.$data['drainase_list']['rt'].' RW '.$data['drainase_list']['rw'].'_'.$tanggal .' '. $bulan .' '. $tahun.'.docx');
 	
 	
-	$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil Didownload </div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success">Surat Usulan Berhasil Didownload. Silakan lihat di C:SIPEPENG </div>');
 	redirect('admin/drainase_managements/view/'.$id_drainase);
 }
 
