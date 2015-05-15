@@ -337,6 +337,15 @@ public function cetak($id_jalan) {
 	
 	$document->save($path.'/SURAT USULAN JALAN RT '.$data['jalan_list']['rt'].' RW '.$data['jalan_list']['rw'].'_'.$tanggal .' '. $bulan .' '. $tahun.'.docx');
 	
+	// $file = "SURAT USULAN JALAN RT " .$data['jalan_list']['rt']." RW ".$data['jalan_list']['rw']."_".$tanggal ." ". $bulan ." ". $tahun.".docx";
+	// header('Content-Description: File Transfer');
+    // header('Content-Type: application/octet-stream');
+    // header('Content-Disposition: attachment; filename="'.basename($file).'"' );
+    // header('Content-Transfer-Encoding: binary');
+    // header('Expires: 0');
+    // header('Cache-Control: must-revalidate');
+    // header('Pragma: public');
+    // header('Content-Length: ' . filesize($file));
 	
 	$this->session->set_flashdata('message', '<div class="alert alert-success">Surat Usulan Berhasil Didownload. Silakan lihat di C:SIPEPENG</div>');
 	redirect('admin/jalan_managements/view/'.$id_jalan);
@@ -444,4 +453,4 @@ function update_status_tidak_dilaksanakan() {
 	
 	}
 	
-	?>				
+	?>					
