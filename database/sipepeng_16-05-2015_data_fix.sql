@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2015 at 07:31 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: May 16, 2015 at 10:55 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,52 +17,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `simple_crud`
---
-CREATE DATABASE IF NOT EXISTS `simple_crud` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `simple_crud`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `lagu`
---
-
-CREATE TABLE IF NOT EXISTS `lagu` (
-`id` int(11) NOT NULL,
-  `judul` varchar(255) NOT NULL,
-  `penyanyi` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `lagu`
---
-
-INSERT INTO `lagu` (`id`, `judul`, `penyanyi`) VALUES
-(1, 'apa', 'dodo');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `lagu`
---
-ALTER TABLE `lagu`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `lagu`
---
-ALTER TABLE `lagu`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;--
 -- Database: `sipepeng`
 --
-CREATE DATABASE IF NOT EXISTS `sipepeng` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE `sipepeng` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `sipepeng`;
 
 -- --------------------------------------------------------
@@ -72,7 +29,7 @@ USE `sipepeng`;
 --
 
 CREATE TABLE IF NOT EXISTS `artesis` (
-`id_artesis` int(11) NOT NULL,
+  `id_artesis` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -93,7 +50,8 @@ CREATE TABLE IF NOT EXISTS `artesis` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_artesis`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
@@ -101,8 +59,6 @@ CREATE TABLE IF NOT EXISTS `artesis` (
 --
 
 INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `kontur_tanah`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 4, 3, 'jalan cimahi', 'Tidak', '', '107.52976323677058', '-6.900174157352922', 3, 'masyarakat', 2015, 'Tidak', 30, '      -', NULL, NULL, 1, 1, 0, 0, 0, 0),
-(2, 4, 3, 'jalan vimshi', 'Ada', '', '107.52995635581965', '-6.9015707843011365', 3000, 'masyarakat', 2015, 'Tidak', 23, '   -', NULL, NULL, 1, 1, 0, 0, 0, 0),
 (3, 7, 9, ' ARTESIS HAUR NGAMBANG', 'ADA', '', '107.57325', '-6.906208', 0, 'USULAN WARGA', 2014, 'ADA', 105, '', NULL, NULL, 0, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -112,11 +68,12 @@ INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`,
 --
 
 CREATE TABLE IF NOT EXISTS `berita` (
-`id_berita` int(11) NOT NULL,
+  `id_berita` int(11) NOT NULL AUTO_INCREMENT,
   `judul_berita` varchar(250) NOT NULL,
   `isi_berita` text NOT NULL,
   `foto` varchar(250) NOT NULL,
-  `tgl_berita` varchar(250) DEFAULT NULL
+  `tgl_berita` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id_berita`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
@@ -136,7 +93,7 @@ INSERT INTO `berita` (`id_berita`, `judul_berita`, `isi_berita`, `foto`, `tgl_be
 --
 
 CREATE TABLE IF NOT EXISTS `drainase` (
-`id_drainase` int(11) NOT NULL,
+  `id_drainase` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -159,7 +116,8 @@ CREATE TABLE IF NOT EXISTS `drainase` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_drainase`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
@@ -167,10 +125,10 @@ CREATE TABLE IF NOT EXISTS `drainase` (
 --
 
 INSERT INTO `drainase` (`id_drainase`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kedalaman`, `ketersediaan_lahan`, `long_awal`, `long_akhir`, `lat_awal`, `lat_akhir`, `anggaran`, `sumber_data`, `tahun_usulan`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 4, 4, 'CURUG LEUNGSING / GG PERTAMINA', '583', '1.5', '1,5', '', '-107.532917', '107.531447', '-6.900274', '-6.901030', 0, 'USULAN WARGA', 2014, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
+(1, 4, 4, 'CURUG LEUNGSING / GG PERTAMINA', '583', '1.5', '1.5', 'Ada', '107.532917', '107.531447', '-6.900274', '-6.901030', 0, 'USULAN WARGA', 2014, ' ', NULL, NULL, 0, 1, 0, 0, 0, 0),
 (2, 2, 5, 'SALURAN KERKOF', '200', '1.2', '1', '', '107.534157', '107.532266', '-6.903548', '-6.903620', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
 (3, 2, 7, 'CIBOGO', '167', '1.2', '1', '', '107.531374', '107.532132', '-6.913383', '-6.912180', 0, 'MUSRENBANG', 2014, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
-(4, 2, 8, 'KIHAPIT TIMUR', '170', '0.4', '0.5', '', '107.525313', '107.524581', '-6.902274', '-6.907468', 0, 'MUSRENBANG', 2014, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
+(4, 2, 8, 'KIHAPIT TIMUR', '170', '0.4', '0.5', 'Ada', '107.52447392059321', '107.52477287033093', '-6.907679148105071', '-6.9078048896783', 0, 'MUSRENBANG', 2014, '  ', NULL, NULL, 0, 1, 0, 0, 0, 0),
 (5, 9, 9, 'KIHAPIT BARAT', '60', '0.4', '0.5', '', '107.520538', '107.521332', '-6.903636', '-6.904973', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
 (6, 5, 9, 'PORAL KIHAPIT BARAT', '700', '0.4', '0.5', '', '107.5206622', '107.522668', '-6.903684', '-6.9030119', 0, 'USULAN WARGA', 2014, '', NULL, NULL, 0, 1, 0, 0, 0, 0);
 
@@ -181,7 +139,7 @@ INSERT INTO `drainase` (`id_drainase`, `rt`, `rw`, `alamat`, `panjang`, `lebar`,
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_gas` (
-`id_gas` int(11) NOT NULL,
+  `id_gas` int(11) NOT NULL AUTO_INCREMENT,
   `nama_pemilik` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
   `rt` varchar(5) NOT NULL,
@@ -192,7 +150,8 @@ CREATE TABLE IF NOT EXISTS `ekonomi_gas` (
   `qty` int(5) NOT NULL,
   `lat` varchar(30) NOT NULL,
   `long` varchar(30) NOT NULL,
-  `no_ijin` varchar(20) NOT NULL
+  `no_ijin` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_gas`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
@@ -223,7 +182,7 @@ INSERT INTO `ekonomi_gas` (`id_gas`, `nama_pemilik`, `alamat`, `rt`, `rw`, `kelu
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_kos` (
-`id_kos` int(11) NOT NULL,
+  `id_kos` int(11) NOT NULL AUTO_INCREMENT,
   `nama_pemilik` varchar(100) NOT NULL,
   `alamat_pemilik` text NOT NULL,
   `rw` varchar(5) NOT NULL,
@@ -231,7 +190,8 @@ CREATE TABLE IF NOT EXISTS `ekonomi_kos` (
   `jml_orang_perkamar` int(5) NOT NULL,
   `ijin_usaha` varchar(30) NOT NULL,
   `harga_sewa` int(10) NOT NULL,
-  `ket` varchar(50) NOT NULL
+  `ket` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_kos`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=117 ;
 
 --
@@ -363,7 +323,7 @@ INSERT INTO `ekonomi_kos` (`id_kos`, `nama_pemilik`, `alamat_pemilik`, `rw`, `jm
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_minimarket` (
-`id_minimarket` int(11) NOT NULL,
+  `id_minimarket` int(11) NOT NULL AUTO_INCREMENT,
   `nama_perusahaan` varchar(50) NOT NULL,
   `bentuk_perusahaan` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
@@ -375,7 +335,8 @@ CREATE TABLE IF NOT EXISTS `ekonomi_minimarket` (
   `status_tanah` varchar(50) NOT NULL,
   `luas_bangunan` int(10) NOT NULL,
   `luas_ruang_usaha` int(10) NOT NULL,
-  `no_ijin` varchar(50) NOT NULL
+  `no_ijin` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_minimarket`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
@@ -398,7 +359,7 @@ INSERT INTO `ekonomi_minimarket` (`id_minimarket`, `nama_perusahaan`, `bentuk_pe
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_nama_perusahaan` (
-`id_nama_perusahaan` int(11) NOT NULL,
+  `id_nama_perusahaan` int(11) NOT NULL AUTO_INCREMENT,
   `nama_perusahaan` varchar(100) NOT NULL,
   `nama_pemilik` varchar(100) NOT NULL,
   `jml_pegawai` int(5) NOT NULL,
@@ -406,7 +367,8 @@ CREATE TABLE IF NOT EXISTS `ekonomi_nama_perusahaan` (
   `telp` varchar(15) NOT NULL,
   `alamat` text NOT NULL,
   `rt` varchar(5) NOT NULL,
-  `rw` varchar(5) NOT NULL
+  `rw` varchar(5) NOT NULL,
+  PRIMARY KEY (`id_nama_perusahaan`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
@@ -441,7 +403,7 @@ INSERT INTO `ekonomi_nama_perusahaan` (`id_nama_perusahaan`, `nama_perusahaan`, 
 --
 
 CREATE TABLE IF NOT EXISTS `ekonomi_umkm` (
-`id_umkm` int(11) NOT NULL,
+  `id_umkm` int(11) NOT NULL AUTO_INCREMENT,
   `kota` varchar(50) NOT NULL,
   `kecamatan` varchar(50) NOT NULL,
   `kelurahan` varchar(30) NOT NULL,
@@ -466,7 +428,8 @@ CREATE TABLE IF NOT EXISTS `ekonomi_umkm` (
   `eksport` varchar(10) NOT NULL,
   `persentase_eksport` varchar(10) NOT NULL,
   `import` varchar(10) NOT NULL,
-  `persentase_import` varchar(10) NOT NULL
+  `persentase_import` varchar(10) NOT NULL,
+  PRIMARY KEY (`id_umkm`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=205 ;
 
 --
@@ -687,7 +650,7 @@ INSERT INTO `ekonomi_umkm` (`id_umkm`, `kota`, `kecamatan`, `kelurahan`, `nbs`, 
 --
 
 CREATE TABLE IF NOT EXISTS `jalan` (
-`id_jalan` int(11) NOT NULL,
+  `id_jalan` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -710,25 +673,20 @@ CREATE TABLE IF NOT EXISTS `jalan` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_jalan`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `jalan`
 --
 
 INSERT INTO `jalan` (`id_jalan`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kategori_jalan`, `ketersediaan_lahan`, `long_awal`, `long_akhir`, `lat_awal`, `lat_akhir`, `anggaran`, `sumber_data`, `tahun_usulan`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 3, 3, 'cimahi jalan', '3.3', '3.3', 'Jalan Lingkungan', '33', '107.53183725489134', '107.53357051589978', '-6.901968203132459', '-6.902138547634187', 2121, 'masyarakat', 2014, '33', NULL, NULL, 0, 1, 1, 1, 0, 0),
-(2, 4, 2, 'PASANTREN I', '100', '1.5', '', '', '-6.900259', '107.530175', '-6.899477', '107.530405', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
-(3, 3, 9, 'KIHAPIT TIMUR', '100', '1', '', '', '-6.905528', '107.524190', '-6.906237', '107.524616', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
-(4, 5, 9, 'GAJAH JAYA', '230', '4', '', '', '-6.903846', '107.521847', '-6.903319', '107.523439', 0, 'USULAN WARGA', 2014, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
-(5, 7, 9, 'HAUR NGAMBANG', '500', '4', '', '', '-6.906195', '107.520755', '-6.906184', '107.516876', 0, 'USULAN WARGA', 2014, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
-(6, 1, 18, 'GG NYEYEREAN', '62', '1', '', '', '-6.899021', '107.525866', '-6.898537', '107.525996', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 1, 0, 0, 0, 0),
-(7, 4, 2, 'PASANTREN I', '100', '1.5', '', '', '-6.900259', '107.530175', '-6.899477', '107.530405', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 0, 0, 0, 0, 0),
-(8, 3, 9, 'KIHAPIT TIMUR', '100', '1', '', '', '-6.905528', '107.524190', '-6.906237', '107.524616', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 0, 0, 0, 0, 0),
-(9, 5, 9, 'GAJAH JAYA', '230', '4', '', '', '-6.903846', '107.521847', '-6.903319', '107.523439', 0, 'USULAN WARGA', 2014, '', NULL, NULL, 0, 0, 0, 0, 0, 0),
-(10, 7, 9, 'HAUR NGAMBANG', '500', '4', '', '', '-6.906195', '107.520755', '-6.906184', '107.516876', 0, 'USULAN WARGA', 2014, '', NULL, NULL, 0, 0, 0, 0, 0, 0),
-(11, 1, 18, 'GG NYEYEREAN', '62', '1', '', '', '-6.899021', '107.525866', '-6.898537', '107.525996', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 0, 0, 0, 0, 0);
+(1, 4, 2, 'PASANTREN I', '100', '1.5', '', '', '107.530405', '107.530175', '-6.899477', '-6.900259', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 0, 0, 0, 0, 0),
+(2, 3, 9, 'KIHAPIT TIMUR', '100', '1', '', '', '107.524616', '107.524190', '-6.906237', '-6.905528', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 0, 0, 0, 0, 0),
+(3, 5, 9, 'GAJAH JAYA', '230', '4', '', '', '107.523439', '107.521847', '-6.903319', '-6.903846', 0, 'USULAN WARGA', 2014, '', NULL, NULL, 0, 0, 0, 0, 0, 0),
+(4, 7, 9, 'HAUR NGAMBANG', '500', '4', '', '', '107.516876', '107.520755', '-6.906184', '-6.906195', 0, 'USULAN WARGA', 2014, '', NULL, NULL, 0, 0, 0, 0, 0, 0),
+(5, 1, 18, 'GG NYEYEREAN', '62', '1', '', '', '107.525996', '107.525866', '-6.898537', '-6.899021', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -737,8 +695,9 @@ INSERT INTO `jalan` (`id_jalan`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kate
 --
 
 CREATE TABLE IF NOT EXISTS `jenis_pengguna` (
-`id_jenis_pengguna` int(11) NOT NULL,
-  `jenis_pengguna` varchar(100) NOT NULL
+  `id_jenis_pengguna` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_pengguna` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_jenis_pengguna`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
@@ -757,8 +716,9 @@ INSERT INTO `jenis_pengguna` (`id_jenis_pengguna`, `jenis_pengguna`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
-`id_kategori` int(11) NOT NULL,
-  `kategori` varchar(150) NOT NULL
+  `id_kategori` int(11) NOT NULL AUTO_INCREMENT,
+  `kategori` varchar(150) NOT NULL,
+  PRIMARY KEY (`id_kategori`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
@@ -778,7 +738,7 @@ INSERT INTO `kategori` (`id_kategori`, `kategori`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `kirmir` (
-`id_kirmir` int(11) NOT NULL,
+  `id_kirmir` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -801,7 +761,8 @@ CREATE TABLE IF NOT EXISTS `kirmir` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_kirmir`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -811,7 +772,7 @@ CREATE TABLE IF NOT EXISTS `kirmir` (
 --
 
 CREATE TABLE IF NOT EXISTS `lain` (
-`id_lain` int(11) NOT NULL,
+  `id_lain` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `nama_kegiatan` varchar(100) NOT NULL,
@@ -832,7 +793,8 @@ CREATE TABLE IF NOT EXISTS `lain` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_lain`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
@@ -850,7 +812,7 @@ INSERT INTO `lain` (`id_lain`, `rt`, `rw`, `nama_kegiatan`, `alamat`, `ketersedi
 --
 
 CREATE TABLE IF NOT EXISTS `mck` (
-`id_mck` int(11) NOT NULL,
+  `id_mck` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -869,15 +831,9 @@ CREATE TABLE IF NOT EXISTS `mck` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_mck`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `mck`
---
-
-INSERT INTO `mck` (`id_mck`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 10, 3, 'Cibeber Cimahi Selatan', '210', '107.52991271463935', '-6.90024294397706', 2300000, 'Masyarakat Sekitar', 2015, 'Ada', '  Biki WC umum', 'mck__2015_01_cimahi_cibeber.jpg', 'mck__2015_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -886,11 +842,12 @@ INSERT INTO `mck` (`id_mck`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`,
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
-`id_menu` int(11) NOT NULL,
+  `id_menu` int(11) NOT NULL AUTO_INCREMENT,
   `menu` varchar(100) NOT NULL,
   `controller` varchar(100) NOT NULL,
   `nama_tabel` varchar(50) NOT NULL,
-  `id_jenis_pengguna` int(15) NOT NULL
+  `id_jenis_pengguna` int(15) NOT NULL,
+  PRIMARY KEY (`id_menu`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
@@ -915,7 +872,7 @@ INSERT INTO `menu` (`id_menu`, `menu`, `controller`, `nama_tabel`, `id_jenis_pen
 --
 
 CREATE TABLE IF NOT EXISTS `pengguna` (
-`id_pengguna` int(11) NOT NULL,
+  `id_pengguna` int(11) NOT NULL AUTO_INCREMENT,
   `id_jenis_pengguna` int(15) NOT NULL,
   `nama` varchar(200) NOT NULL,
   `nip` varchar(15) NOT NULL,
@@ -923,7 +880,8 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `email` varchar(100) NOT NULL,
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
-  `telp` varchar(15) NOT NULL
+  `telp` varchar(15) NOT NULL,
+  PRIMARY KEY (`id_pengguna`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
@@ -944,8 +902,9 @@ INSERT INTO `pengguna` (`id_pengguna`, `id_jenis_pengguna`, `nama`, `nip`, `alam
 --
 
 CREATE TABLE IF NOT EXISTS `rw` (
-`id_rw` int(11) NOT NULL,
-  `rw` varchar(5) NOT NULL
+  `id_rw` int(11) NOT NULL AUTO_INCREMENT,
+  `rw` varchar(5) NOT NULL,
+  PRIMARY KEY (`id_rw`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
@@ -981,7 +940,7 @@ INSERT INTO `rw` (`id_rw`, `rw`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `septictank` (
-`id_septictank` int(11) NOT NULL,
+  `id_septictank` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -1000,16 +959,9 @@ CREATE TABLE IF NOT EXISTS `septictank` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_septictank`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `septictank`
---
-
-INSERT INTO `septictank` (`id_septictank`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 1, 3, 'cimahi cibeber no. 100', '120', '107.53018154480947', '-6.90024272397706', 3400000, 'dinas', 2015, 'Ada', '  tidak', 'septictank__2015_10_cimahi_cibeber.jpg', 'septictank__2015_10_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0),
-(2, 2, 3, '65656565656565', '56565', '107.52992282820696', '-6.900260697750685', 5656, '56565', 2016, 'Ada', ' 565', NULL, NULL, 0, 1, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1018,7 +970,7 @@ INSERT INTO `septictank` (`id_septictank`, `rt`, `rw`, `alamat`, `ketersediaan_l
 --
 
 CREATE TABLE IF NOT EXISTS `septictank_komunal` (
-`id_septictank_komunal` int(11) NOT NULL,
+  `id_septictank_komunal` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -1039,15 +991,9 @@ CREATE TABLE IF NOT EXISTS `septictank_komunal` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_septictank_komunal`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `septictank_komunal`
---
-
-INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `kontur_tanah`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 10, 3, 'cibeber no 120 cimahi selatan', '22', '', '107.52994291163935', '-6.90024274697706', 3400000, 'iii', 2013, 'Ada', 34, '  ga da', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 'septictank_komunal__2013_01_cimahi_cibeber.jpg', 0, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1056,7 +1002,7 @@ INSERT INTO `septictank_komunal` (`id_septictank_komunal`, `rt`, `rw`, `alamat`,
 --
 
 CREATE TABLE IF NOT EXISTS `sumur_dangkal` (
-`id_sumur_dangkal` int(11) NOT NULL,
+  `id_sumur_dangkal` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -1076,7 +1022,8 @@ CREATE TABLE IF NOT EXISTS `sumur_dangkal` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_sumur_dangkal`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
@@ -1094,7 +1041,7 @@ INSERT INTO `sumur_dangkal` (`id_sumur_dangkal`, `rt`, `rw`, `alamat`, `ketersed
 --
 
 CREATE TABLE IF NOT EXISTS `sumur_resapan` (
-`id_sumur_resapan` int(11) NOT NULL,
+  `id_sumur_resapan` int(11) NOT NULL AUTO_INCREMENT,
   `rt` int(5) NOT NULL,
   `rw` int(5) NOT NULL,
   `alamat` text NOT NULL,
@@ -1113,15 +1060,9 @@ CREATE TABLE IF NOT EXISTS `sumur_resapan` (
   `status_verifikasi` int(3) NOT NULL,
   `status_sedang_dilaksanakan` int(3) NOT NULL,
   `status_sudah_dilaksanakan` int(3) NOT NULL,
-  `status_tidak_dilaksanakan` int(3) NOT NULL
+  `status_tidak_dilaksanakan` int(3) NOT NULL,
+  PRIMARY KEY (`id_sumur_resapan`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `sumur_resapan`
---
-
-INSERT INTO `sumur_resapan` (`id_sumur_resapan`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 1, 3, 'Cibeber Cimahi Selatan No. 80', '100', '', '', 5600000, 'Masyarakat Sekitar', 2009, 'Ada', '  Apa aja yaa', 'sumur_resapan__2009_03_Cibeber_Cimahi_Selatan.jpg', 'no_image.jpg', 0, 1, 1, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1130,8 +1071,9 @@ INSERT INTO `sumur_resapan` (`id_sumur_resapan`, `rt`, `rw`, `alamat`, `ketersed
 --
 
 CREATE TABLE IF NOT EXISTS `users_status` (
-`id_status` int(11) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `id_status` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_status`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
@@ -1149,7 +1091,7 @@ INSERT INTO `users_status` (`id_status`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `users_tabel` (
-`id_user` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `id_status` int(11) NOT NULL,
   `user_email` varchar(100) NOT NULL,
   `user_password` varchar(100) NOT NULL,
@@ -1165,7 +1107,8 @@ CREATE TABLE IF NOT EXISTS `users_tabel` (
   `user_agree` tinyint(1) NOT NULL,
   `last_login` datetime NOT NULL,
   `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
@@ -1177,267 +1120,6 @@ INSERT INTO `users_tabel` (`id_user`, `id_status`, `user_email`, `user_password`
 (2, 2, 'dkp@gmail.com', 'dkp', 'dkp', 'DKP', 'Cimahi', '', '085720264347', 'Cimahi', '40615', '1', '1', 1, '2015-02-05 00:19:41', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 2, 'pu@gmail.com', 'pu', 'pu', 'Dinas PU', 'Cimahi', 'Jalan Manglayang Bawah No 457 Cilengkrang II', '085720264349', 'Cimahi', '40614', '1', '1', 1, '2015-02-05 01:21:43', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `artesis`
---
-ALTER TABLE `artesis`
- ADD PRIMARY KEY (`id_artesis`);
-
---
--- Indexes for table `berita`
---
-ALTER TABLE `berita`
- ADD PRIMARY KEY (`id_berita`);
-
---
--- Indexes for table `drainase`
---
-ALTER TABLE `drainase`
- ADD PRIMARY KEY (`id_drainase`);
-
---
--- Indexes for table `ekonomi_gas`
---
-ALTER TABLE `ekonomi_gas`
- ADD PRIMARY KEY (`id_gas`);
-
---
--- Indexes for table `ekonomi_kos`
---
-ALTER TABLE `ekonomi_kos`
- ADD PRIMARY KEY (`id_kos`);
-
---
--- Indexes for table `ekonomi_minimarket`
---
-ALTER TABLE `ekonomi_minimarket`
- ADD PRIMARY KEY (`id_minimarket`);
-
---
--- Indexes for table `ekonomi_nama_perusahaan`
---
-ALTER TABLE `ekonomi_nama_perusahaan`
- ADD PRIMARY KEY (`id_nama_perusahaan`);
-
---
--- Indexes for table `ekonomi_umkm`
---
-ALTER TABLE `ekonomi_umkm`
- ADD PRIMARY KEY (`id_umkm`);
-
---
--- Indexes for table `jalan`
---
-ALTER TABLE `jalan`
- ADD PRIMARY KEY (`id_jalan`);
-
---
--- Indexes for table `jenis_pengguna`
---
-ALTER TABLE `jenis_pengguna`
- ADD PRIMARY KEY (`id_jenis_pengguna`);
-
---
--- Indexes for table `kategori`
---
-ALTER TABLE `kategori`
- ADD PRIMARY KEY (`id_kategori`);
-
---
--- Indexes for table `kirmir`
---
-ALTER TABLE `kirmir`
- ADD PRIMARY KEY (`id_kirmir`);
-
---
--- Indexes for table `lain`
---
-ALTER TABLE `lain`
- ADD PRIMARY KEY (`id_lain`);
-
---
--- Indexes for table `mck`
---
-ALTER TABLE `mck`
- ADD PRIMARY KEY (`id_mck`);
-
---
--- Indexes for table `menu`
---
-ALTER TABLE `menu`
- ADD PRIMARY KEY (`id_menu`);
-
---
--- Indexes for table `pengguna`
---
-ALTER TABLE `pengguna`
- ADD PRIMARY KEY (`id_pengguna`);
-
---
--- Indexes for table `rw`
---
-ALTER TABLE `rw`
- ADD PRIMARY KEY (`id_rw`);
-
---
--- Indexes for table `septictank`
---
-ALTER TABLE `septictank`
- ADD PRIMARY KEY (`id_septictank`);
-
---
--- Indexes for table `septictank_komunal`
---
-ALTER TABLE `septictank_komunal`
- ADD PRIMARY KEY (`id_septictank_komunal`);
-
---
--- Indexes for table `sumur_dangkal`
---
-ALTER TABLE `sumur_dangkal`
- ADD PRIMARY KEY (`id_sumur_dangkal`);
-
---
--- Indexes for table `sumur_resapan`
---
-ALTER TABLE `sumur_resapan`
- ADD PRIMARY KEY (`id_sumur_resapan`);
-
---
--- Indexes for table `users_status`
---
-ALTER TABLE `users_status`
- ADD PRIMARY KEY (`id_status`);
-
---
--- Indexes for table `users_tabel`
---
-ALTER TABLE `users_tabel`
- ADD PRIMARY KEY (`id_user`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `artesis`
---
-ALTER TABLE `artesis`
-MODIFY `id_artesis` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `berita`
---
-ALTER TABLE `berita`
-MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `drainase`
---
-ALTER TABLE `drainase`
-MODIFY `id_drainase` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `ekonomi_gas`
---
-ALTER TABLE `ekonomi_gas`
-MODIFY `id_gas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `ekonomi_kos`
---
-ALTER TABLE `ekonomi_kos`
-MODIFY `id_kos` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=117;
---
--- AUTO_INCREMENT for table `ekonomi_minimarket`
---
-ALTER TABLE `ekonomi_minimarket`
-MODIFY `id_minimarket` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `ekonomi_nama_perusahaan`
---
-ALTER TABLE `ekonomi_nama_perusahaan`
-MODIFY `id_nama_perusahaan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
---
--- AUTO_INCREMENT for table `ekonomi_umkm`
---
-ALTER TABLE `ekonomi_umkm`
-MODIFY `id_umkm` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=205;
---
--- AUTO_INCREMENT for table `jalan`
---
-ALTER TABLE `jalan`
-MODIFY `id_jalan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `jenis_pengguna`
---
-ALTER TABLE `jenis_pengguna`
-MODIFY `id_jenis_pengguna` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `kategori`
---
-ALTER TABLE `kategori`
-MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `kirmir`
---
-ALTER TABLE `kirmir`
-MODIFY `id_kirmir` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `lain`
---
-ALTER TABLE `lain`
-MODIFY `id_lain` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `mck`
---
-ALTER TABLE `mck`
-MODIFY `id_mck` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `menu`
---
-ALTER TABLE `menu`
-MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT for table `pengguna`
---
-ALTER TABLE `pengguna`
-MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `rw`
---
-ALTER TABLE `rw`
-MODIFY `id_rw` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
---
--- AUTO_INCREMENT for table `septictank`
---
-ALTER TABLE `septictank`
-MODIFY `id_septictank` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `septictank_komunal`
---
-ALTER TABLE `septictank_komunal`
-MODIFY `id_septictank_komunal` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `sumur_dangkal`
---
-ALTER TABLE `sumur_dangkal`
-MODIFY `id_sumur_dangkal` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `sumur_resapan`
---
-ALTER TABLE `sumur_resapan`
-MODIFY `id_sumur_resapan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `users_status`
---
-ALTER TABLE `users_status`
-MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `users_tabel`
---
-ALTER TABLE `users_tabel`
-MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
