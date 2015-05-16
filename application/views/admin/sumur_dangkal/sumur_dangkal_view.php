@@ -56,6 +56,13 @@
 										</div>
 									</div><!--end control-group-->
 									
+									<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Jumlah Pengguna: </label>
+                                        <div class="col-lg-10">
+                                            <?php echo set_value('jml_pemakai', isset($sumur_dangkal_list['jml_pemakai']) ? $sumur_dangkal_list['jml_pemakai'] : 'Belum Ada'); ?>
+										</div>
+									</div><!--end control-group-->
+									
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Longitude: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">

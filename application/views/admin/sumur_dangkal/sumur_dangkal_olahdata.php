@@ -79,6 +79,14 @@ if(strtolower($aksi) == 'add') {
 											<span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
 										</div>
 									</div><!--end control-group--> 
+									
+									<div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label" for="jml_pemakai">Jumlah Pengguna: <span class="text-error">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="jml_pemakai" name="jml_pemakai" placeholder="Jumlah Pengguna" value=" <?php echo set_value('jml_pemakai', isset($sumur_dangkal_list['jml_pemakai']) ? $sumur_dangkal_list['jml_pemakai'] : ''); ?>">
+                                            <span class="help-inline"><?php echo form_error('jml_pemakai'); ?></span>
+										</div>
+									</div><!--end control-group-->
 
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>
