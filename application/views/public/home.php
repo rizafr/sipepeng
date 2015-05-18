@@ -16,15 +16,21 @@
                 <div class="item active" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/gajah.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
-                            <div class="col-sm-6">
+                            <div class="col-sm-10">
+							<?php
+							$no = 1;
+							
+							$jum = count(@$berita_list);
+							// var_dump($berita_list);
+							?>
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                                    <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                    <!--<h1 class="animation animated-item-1"></h1>-->
+                                     <!--<h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
 							
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="col-sm-2 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
                                     <img src="<?php echo base_url() ?>assets/public/images/slider/chima.png" class="img-responsive">
 								</div>
@@ -37,15 +43,15 @@
                 <div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/kerkof.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
-                            <div class="col-sm-6">
+                            <div class="col-sm-10">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                                    <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                    <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
+                                    <!-- <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
 							
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="col-sm-2 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
                                     <img src="<?php echo base_url() ?>assets/public/images/slider/cimahi.png" class="img-responsive">
 								</div>
@@ -58,14 +64,14 @@
                 <div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/kuburan.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
-                            <div class="col-sm-6">
+                            <div class="col-sm-10">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                                    <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                    <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
+                                    <!-- <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="col-sm-2 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
                                     <img src="<?php echo base_url() ?>assets/public/images/slider/chima_batik.png" class="img-responsive">
 								</div>
@@ -77,14 +83,14 @@
 				<div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/cireundeu.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
-                            <div class="col-sm-6">
+                            <div class="col-sm-10">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                                    <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                  <!--   <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
+                                   <!--  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="col-sm-2 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
                                     <img src="<?php echo base_url() ?>assets/public/images/slider/chima_batik.png" class="img-responsive">
 								</div>
@@ -96,14 +102,14 @@
 				<div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/slide5.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
-                            <div class="col-sm-6">
+                            <div class="col-sm-10">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                                    <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                    <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
+                                   <!--  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="col-sm-2 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
                                     <img src="<?php echo base_url() ?>assets/public/images/slider/chima_batik.png" class="img-responsive">
 								</div>
@@ -115,14 +121,14 @@
 				<div class="item" style="background-image: url(<?php echo base_url() ?>assets/public/images/slider/slide6.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
-                            <div class="col-sm-6">
+                            <div class="col-sm-10">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                                    <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                    <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>  -->
+                                    <!-- <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2> 
+                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="col-sm-2 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
                                     <img src="<?php echo base_url() ?>assets/public/images/slider/chima_batik.png" class="img-responsive">
 								</div>
