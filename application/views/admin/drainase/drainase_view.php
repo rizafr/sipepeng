@@ -25,10 +25,10 @@
                             </header>
                             <div class="panel-body">
                                 <form class="form-horizontal" role="form">
-									<legend><?php
-										$message = $this->session->flashdata('message');
-										echo $message == '' ? '' : '<p id="message">' . $message . '</p>';
-									?></legend>
+                                    <legend><?php
+                                        $message = $this->session->flashdata('message');
+                                        echo $message == '' ? '' : '<p id="message">' . $message . '</p>';
+                                        ?></legend>
                                     <div id="area-1">
                                         <!--area print-->
                                         <div class="form-group">
@@ -182,7 +182,7 @@
 
                                     <div class="form-group">
                                         <div class="col-lg-10">                                           
-                                            <a href="<?php echo base_url() . 'admin/drainase_managements/cetak/'.$drainase_list['id_drainase']?>"><button type="button" class="btn btn-info "><i class=" icon-print"></i>Print</button></a>
+                                            <a href="<?php echo base_url() . 'admin/drainase_managements/cetak/' . $drainase_list['id_drainase'] ?>"><button type="button" class="btn btn-info "><i class=" icon-print"></i>Print</button></a>
                                             <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
                                         </div>
                                     </div><!--end control-group-->

@@ -89,19 +89,20 @@ if (strtolower($aksi) == 'add') {
                                         </div>
                                     </div><!--end control-group-->
 
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="ketersediaan_lahan">Ketersediaan Lahan: <span class="text-error">*</span></label>
-										<div class="col-md-3 col-xs-11">											
-											<?php  
-												$options = array(
-												'Ada'  => 'Ada',
-												'Tidak'    => 'Tidak'
-												);
-												
-											echo form_dropdown('ketersediaan_lahan', $options, set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : ''), 'class="form-control m-bot15"'); ?>
-											<span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
-										</div>
-									</div><!--end control-group--> 
+                                        <div class="col-md-3 col-xs-11">											
+                                            <?php
+                                            $options = array(
+                                                'Ada' => 'Ada',
+                                                'Tidak' => 'Tidak'
+                                            );
+
+                                            echo form_dropdown('ketersediaan_lahan', $options, set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : ''), 'class="form-control m-bot15"');
+                                            ?>
+                                            <span class="help-inline"><?php echo form_error('ketersediaan_lahan'); ?></span>
+                                        </div>
+                                    </div><!--end control-group--> 
 
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>
@@ -184,17 +185,40 @@ if (strtolower($aksi) == 'add') {
 
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
-                                                   data-validation-max-size="512kb">
-                                            <span class="help-inline"><?php echo form_error('foto'); ?></span>
+                                        <div class="col-lg-8">
+                                            <?
+                                            $foto = isset($drainase_list['foto']) ? $drainase_list['foto'] : 'NULL';
+                                            if ($foto === NULL) {
+                                                $foto = 'noimage.jpg';
+                                            } else {
+                                                $foto = $foto;
+                                            }
+
+
+                                            $dokumen = isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'NULL';
+                                            if ($dokumen === NULL) {
+                                                $dokumen = 'noimage.jpg';
+                                            } else {
+                                                $dokumen = $dokumen;
+                                            }
+                                            ?>
+                                            <figure>
+                                                <img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
+                                                <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
+                                            </figure
+                                            <div class="col-lg-8">
+                                                <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value=""  data-validation="mime size" data-validation-allowing="jpg, png, gif" 
+                                                       data-validation-max-size="512kb">
+                                                <span class="help-inline"><?php echo form_error('foto'); ?></span>
+                                            </div>
                                         </div>
                                     </div><!--end control-group-->
 
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="file" class="form-control" id="dokumen" name="dokumen" placeholder="Dokumen" value="<?php echo set_value('dokumen'); ?>">
+                                            <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'Belum Ada'); ?></button></a>
+                                            <input type="file" class="form-control" id="dokumen" name="dokumen" placeholder="Dokumen" value="" data-validation="required">
                                             <span class="help-inline"><?php echo form_error('dokumen'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -237,17 +261,17 @@ if (strtolower($aksi) == 'add') {
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
 
         <script type="text/javascript">
-        //FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
-        function getLokasi(newLat, newLng)
-        {
-            document.getElementById('lat_awal').value = newLat;
-            document.getElementById('long_awal').value = newLng;
-        }
+                                                //FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
+                                                function getLokasi(newLat, newLng)
+                                                {
+                                                    document.getElementById('lat_awal').value = newLat;
+                                                    document.getElementById('long_awal').value = newLng;
+                                                }
 
-        function getLokasiAkhir(newLat, newLng)
-        {
-            document.getElementById('lat_akhir').value = newLat;
-            document.getElementById('long_akhir').value = newLng;
-        }
+                                                function getLokasiAkhir(newLat, newLng)
+                                                {
+                                                    document.getElementById('lat_akhir').value = newLat;
+                                                    document.getElementById('long_akhir').value = newLng;
+                                                }
         </script>
 

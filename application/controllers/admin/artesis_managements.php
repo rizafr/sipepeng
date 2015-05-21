@@ -193,7 +193,7 @@ class Artesis_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->artesis_model->update($id_artesis, $data);
+                $hasil = $this->artesis_model->update($data,$id_artesis);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {

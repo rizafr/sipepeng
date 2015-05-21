@@ -91,23 +91,25 @@ class Drainase_model extends CI_Model {
     }
 
     //update user    
-    public function update($id_drainase) {
+    public function update($data, $id_drainase) {
         $data = array(
-            'rt' => $this->input->post('rt')
-            , 'rw' => $this->input->post('rw')
-            , 'alamat' => $this->input->post('alamat')
-            , 'panjang' => $this->input->post('panjang')
-            , 'lebar' => $this->input->post('lebar')
-            , 'kedalaman' => $this->input->post('kedalaman')
-            , 'ketersediaan_lahan' => $this->input->post('ketersediaan_lahan')
-            , 'lat_awal' => $this->input->post('lat_awal')
-            , 'long_awal' => $this->input->post('long_awal')
-            , 'lat_akhir' => $this->input->post('lat_akhir')
-            , 'long_akhir' => $this->input->post('long_akhir')
-            , 'anggaran' => $this->input->post('anggaran')
-            , 'sumber_data' => $this->input->post('sumber_data')
-            , 'tahun_usulan' => $this->input->post('tahun_usulan')
-            , 'ket' => $this->input->post('ket')
+            'rt' => $data['rt']
+            , 'rw' => $data['rw']
+            , 'alamat' => $data['alamat']
+            , 'panjang' => $data['panjang']
+            , 'lebar' => $data['lebar']
+            , 'kedalaman' => $data['kedalaman']
+            , 'ketersediaan_lahan' => $data['ketersediaan_lahan']
+            , 'lat_awal' => $data['lat_awal']
+            , 'lat_akhir' => $data['lat_akhir']
+            , 'long_awal' => $data['long_awal']
+            , 'long_akhir' => $data['long_akhir']
+            , 'anggaran' => $data['anggaran']
+            , 'sumber_data' => $data['sumber_data']
+            , 'tahun_usulan' => $data['tahun_usulan']
+            , 'ket' => $data['ket']
+            , 'foto' => $data['foto']
+            , 'dokumen' => $data['dokumen']
         );
 
         $this->db->where('id_drainase', $id_drainase);
@@ -185,11 +187,12 @@ class Drainase_model extends CI_Model {
         return $this->db->update('drainase', $data);
     }
 
-	# update data verifikasi menjadi tidak dilaksanakan   
+    # update data verifikasi menjadi tidak dilaksanakan   
+
     public function update_status_tidak_dilaksanakan($id_drainase) {
         $data = array(
             'status_tidak_dilaksanakan' => "1"
-            ,'ket' => $this->input->post('ket')
+            , 'ket' => $this->input->post('ket')
         );
 
         $this->db->where('id_drainase', $id_drainase);
