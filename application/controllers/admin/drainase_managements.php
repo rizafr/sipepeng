@@ -59,38 +59,38 @@
                 $data['drainase_list'] = $this->drainase_model->select_all_sedang_dilaksanakan()->result();
 			}
 			
-            //status 4 = data sudah dilaksanakan
-            if ($status == '4') {
-                $data['drainase_list'] = $this->drainase_model->select_all_sudah_dilaksanakan()->result();
+			//status 4 = data sudah dilaksanakan
+			if ($status == '4') {
+				$data['drainase_list'] = $this->drainase_model->select_all_sudah_dilaksanakan()->result();
 			}
 			
-            //status 5 = data tidak dilaksanakan
-            if ($status == '5') {
-                $data['drainase_list'] = $this->drainase_model->select_all_tidak_dilaksanakan()->result();
+			//status 5 = data tidak dilaksanakan
+			if ($status == '5') {
+				$data['drainase_list'] = $this->drainase_model->select_all_tidak_dilaksanakan()->result();
 			}
 			
-            $data['status'] = $status;
+			$data['status'] = $status;
 			
 			
-            $this->load->view('admin/drainase/drainase_list', $data);
+			$this->load->view('admin/drainase/drainase_list', $data);
 			} else {
-            redirect('public/homes');
+			redirect('public/homes');
 		}
 	}
 	
-    public function gotoForm() {
+	public function gotoForm() {
         //check sudah login atau belum
         if ($this->session->userdata('is_login')) {
 			
-            $data['title'] = "Data Awal Drainase | SIPEPENG";
-            $data['judulForm'] = "Data Awal Drainase";
-            $data['username'] = $this->session->userdata('username');
+			$data['title'] = "Data Awal Drainase | SIPEPENG";
+			$data['judulForm'] = "Data Awal Drainase";
+			$data['username'] = $this->session->userdata('username');
 			
-            /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
-            #menampilkan menu
-            #menampilkan menu sesuai hak ases				
-            $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
-            $data['menu_list'] = $akses;
+			/////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+			#menampilkan menu
+			#menampilkan menu sesuai hak ases				
+			$akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+			$data['menu_list'] = $akses;
 		#end menampilkan menu sesuai hak ases	
 		#jumlah status menu
 		#drainase
@@ -242,7 +242,7 @@ function delete() {
 	if (empty($id_drainase)) {
 		$this->session->set_flashdata('message', 'Error Invalid');
 		redirect('admin/drainase_managements/index/' . $status);
-        } else {
+		} else {
 		$this->drainase_model->delete($id_drainase);
 		$this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil Dihapus </div>');
 		redirect('admin/drainase_managements/index/' . $status);
@@ -310,146 +310,146 @@ $this->load->view('admin/drainase/drainase_view', $data);
 }
 
 public function cetak($id_drainase) {
-	//Format Tanggal Berbahasa Indonesia 
-	
-	// Array Hari
-	$array_hari = array(1=>'Senin','Selasa','Rabu','Kamis','Jumat', 'Sabtu','Minggu');
-	$hari = $array_hari[date('N')];
-	
-	//Format Tanggal 
-	$tanggal = date ('j');
-	
-	//Array Bulan 
-	$array_bulan = array(1=>'Januari','Februari','Maret', 'April', 'Mei', 'Juni','Juli','Agustus','September','Oktober', 'November','Desember'); 
-	$bulan = $array_bulan[date('n')];
-	
-	//Format Tahun 
-	$tahun = date('Y');
-	
-	$data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
-	
-	$this->load->library('Word');
-	$document = $this->word->loadTemplate('etc/data/template/DrainaseTemplate.docx');
-	
-	$document->setValue('tanggalSurat', $tanggal ." ". $bulan ." ". $tahun);
-	$document->setValue('rt', $data['drainase_list']['rt'] );
-	$document->setValue('rw', $data['drainase_list']['rw'] );
-	$document->setValue('alamat',$data['drainase_list']['alamat'] );
-	$document->setValue('kegiatan','Drainase' );
-	
-	$path = 'C:SIPEPENG';
-	if (!file_exists($path)) {
-		mkdir($path , 0777, true);
-	}
-	
-	$document->save($path.'/SURAT USULAN DRAINASE RT '.$data['drainase_list']['rt'].' RW '.$data['drainase_list']['rw'].'_'.$tanggal .' '. $bulan .' '. $tahun.'.docx');
-	
-	
-	$this->session->set_flashdata('message', '<div class="alert alert-success">Surat Usulan Berhasil Didownload. Silakan lihat di C:SIPEPENG </div>');
-	redirect('admin/drainase_managements/view/'.$id_drainase);
+//Format Tanggal Berbahasa Indonesia 
+
+// Array Hari
+$array_hari = array(1=>'Senin','Selasa','Rabu','Kamis','Jumat', 'Sabtu','Minggu');
+$hari = $array_hari[date('N')];
+
+//Format Tanggal 
+$tanggal = date ('j');
+
+//Array Bulan 
+$array_bulan = array(1=>'Januari','Februari','Maret', 'April', 'Mei', 'Juni','Juli','Agustus','September','Oktober', 'November','Desember'); 
+$bulan = $array_bulan[date('n')];
+
+//Format Tahun 
+$tahun = date('Y');
+
+$data['drainase_list'] = $this->drainase_model->getDrainaseById($id_drainase);
+
+$this->load->library('Word');
+$document = $this->word->loadTemplate('etc/data/template/DrainaseTemplate.docx');
+
+$document->setValue('tanggalSurat', $tanggal ." ". $bulan ." ". $tahun);
+$document->setValue('rt', $data['drainase_list']['rt'] );
+$document->setValue('rw', $data['drainase_list']['rw'] );
+$document->setValue('alamat',$data['drainase_list']['alamat'] );
+$document->setValue('kegiatan','Drainase' );
+
+$path = 'C:SIPEPENG';
+if (!file_exists($path)) {
+mkdir($path , 0777, true);
+}
+
+$document->save($path.'/SURAT USULAN DRAINASE RT '.$data['drainase_list']['rt'].' RW '.$data['drainase_list']['rw'].'_'.$tanggal .' '. $bulan .' '. $tahun.'.docx');
+
+
+$this->session->set_flashdata('message', '<div class="alert alert-success">Surat Usulan Berhasil Didownload. Silakan lihat di C:SIPEPENG </div>');
+redirect('admin/drainase_managements/view/'.$id_drainase);
 }
 
 function update_status_data_awal() {
-	$id_drainase = $this->uri->segment(4);
-	$hasil = $this->drainase_model->update_status_data_awal($id_drainase);
-	//message berhasil loncat
-	$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diverifikasi. <br /> Klik menu Data Verifikasi </div>');
-	redirect('admin/drainase_managements/index/1');
+$id_drainase = $this->uri->segment(4);
+$hasil = $this->drainase_model->update_status_data_awal($id_drainase);
+//message berhasil loncat
+$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diverifikasi. <br /> Klik menu Data Verifikasi </div>');
+redirect('admin/drainase_managements/index/1');
 }
 
 function update_status_verifikasi() {
-	$id_drainase = $this->uri->segment(4);
-	$hasil = $this->drainase_model->update_status_verifikasi($id_drainase);
-	//message berhasil loncat
-	$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Sedang dilaksanakan </div>');
-	
-	redirect('admin/drainase_managements/index/2');
+$id_drainase = $this->uri->segment(4);
+$hasil = $this->drainase_model->update_status_verifikasi($id_drainase);
+//message berhasil loncat
+$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil diproses. <br /> Klik menu Data Sedang dilaksanakan </div>');
+
+redirect('admin/drainase_managements/index/2');
 }
 
 function update_status_sedang_dilaksanakan() {
-	$id_drainase = $this->uri->segment(4);
-	$hasil = $this->drainase_model->update_status_sedang_dilaksanakan($id_drainase);
-	//message berhasil loncat
-	$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data Sudah Dilaksanakan </div>');
-	
-	redirect('admin/drainase_managements/index/3');
+$id_drainase = $this->uri->segment(4);
+$hasil = $this->drainase_model->update_status_sedang_dilaksanakan($id_drainase);
+//message berhasil loncat
+$this->session->set_flashdata('message', '<div class="alert alert-success"> Data berhasil dilaksanakan. <br /> Klik menu Data Sudah Dilaksanakan </div>');
+
+redirect('admin/drainase_managements/index/3');
 }
 
 function update_status_sudah_dilaksanakan() {
-	$id_drainase = $this->uri->segment(4);
-	$hasil = $this->drainase_model->update_status_data_awal($id_drainase);
-	
-	redirect('admin/drainase_managements/index/4');
+$id_drainase = $this->uri->segment(4);
+$hasil = $this->drainase_model->update_status_data_awal($id_drainase);
+
+redirect('admin/drainase_managements/index/4');
 }
 
 function update_status_tidak_dilaksanakan() {
-	
-	$id_drainase = $this->input->post('id');
-	$hasil = $this->drainase_model->update_status_tidak_dilaksanakan($id_drainase);
-	//message berhasil loncat
-	$this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Dilaksanakan </div>');
-	
-	redirect('admin/drainase_managements/index/2');
-    }
-	
-    # Upload Foto
-	
-    function upload_foto($ket, $tahun_usulan, $rw, $alamat) {
-	$this->load->library('upload');
-	
-	$image_foto = "noimage.jpg";
-	$field_name = "foto";
-	$file_name = $_FILES['foto']['name'];
-	
-	if ($file_name != "") {
-	$config = array(
-	'file_name' => preg_replace("/[^A-Za-z0-9_-\s]/", "", $ket . "_" . $tahun_usulan . "_" . $rw . "_" . $alamat),
-	'overwrite' => TRUE,
-	'remove_spaces' => TRUE,
-	'allowed_types' => 'jpg|JPG|jpeg|JPEG|gif|png',
-	'upload_path' => './assets/upload/foto',
-	'max_size' => 5000
-	);
-	$this->upload->initialize($config);
-	
-	if ($this->upload->do_upload($field_name)) {
-	$image_data = $this->upload->data();
-	$image_foto = $image_data['file_name'];
-	}
-	}
-	
-	return $image_foto;
-    }
-	
-    # Upload Dokumen
-	
-    function upload_dokumen($ket, $tahun_usulan, $rw, $alamat) {
-	$this->load->library('upload');
-	
-	$image_dokumen = "no_image.jpg";
-	$field_name = "dokumen";
-	$file_name = $_FILES['dokumen']['name'];
-	
-	if ($file_name != "") {
-	$config = array(
-	'file_name' => preg_replace("/[^A-Za-z0-9_-\s]/", "", $ket . "_" . $tahun_usulan . "_" . $rw . "_" . $alamat),
-	'overwrite' => TRUE,
-	'remove_spaces' => TRUE,
-	'allowed_types' => 'jpg|JPG|jpeg|JPEG|gif|png',
-	'upload_path' => './assets/upload/dokumen',
-	'max_size' => 5000
-	);
-	$this->upload->initialize($config);
-	
-	if ($this->upload->do_upload($field_name)) {
-	$image_data = $this->upload->data();
-	$image_dokumen = $image_data['file_name'];
-	}
-	}
-	
-	return $image_dokumen;
-    }
-	
-	}
-	
-	?>						
+
+$id_drainase = $this->input->post('id');
+$hasil = $this->drainase_model->update_status_tidak_dilaksanakan($id_drainase);
+//message berhasil loncat
+$this->session->set_flashdata('message', '<div class="alert alert-success"> Data permintaan ditolak. <br /> Klik menu Data Tidak Dilaksanakan </div>');
+
+redirect('admin/drainase_managements/index/2');
+}
+
+# Upload Foto
+
+function upload_foto($ket, $tahun_usulan, $rw, $alamat) {
+$this->load->library('upload');
+
+$image_foto = "noimage.jpg";
+$field_name = "foto";
+$file_name = $_FILES['foto']['name'];
+
+if ($file_name != "") {
+$config = array(
+'file_name' => preg_replace("/[^A-Za-z0-9_-\s]/", "", $ket . "_" . $tahun_usulan . "_" . $rw . "_" . $alamat),
+'overwrite' => TRUE,
+'remove_spaces' => TRUE,
+'allowed_types' => 'jpg|JPG|jpeg|JPEG|gif|png',
+'upload_path' => './assets/upload/foto',
+'max_size' => 5000
+);
+$this->upload->initialize($config);
+
+if ($this->upload->do_upload($field_name)) {
+$image_data = $this->upload->data();
+$image_foto = $image_data['file_name'];
+}
+}
+
+return $image_foto;
+}
+
+# Upload Dokumen
+
+function upload_dokumen($ket, $tahun_usulan, $rw, $alamat) {
+$this->load->library('upload');
+
+$image_dokumen = "no_image.jpg";
+$field_name = "dokumen";
+$file_name = $_FILES['dokumen']['name'];
+
+if ($file_name != "") {
+$config = array(
+'file_name' => preg_replace("/[^A-Za-z0-9_-\s]/", "", $ket . "_" . $tahun_usulan . "_" . $rw . "_" . $alamat),
+'overwrite' => TRUE,
+'remove_spaces' => TRUE,
+'allowed_types' => 'jpg|JPG|jpeg|JPEG|gif|png',
+'upload_path' => './assets/upload/dokumen',
+'max_size' => 5000
+);
+$this->upload->initialize($config);
+
+if ($this->upload->do_upload($field_name)) {
+$image_data = $this->upload->data();
+$image_dokumen = $image_data['file_name'];
+}
+}
+
+return $image_dokumen;
+}
+
+}
+
+?>										
