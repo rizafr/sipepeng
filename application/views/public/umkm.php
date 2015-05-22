@@ -22,10 +22,9 @@
 									<th>No</th>
 									<th>Rt</th>
 									<th>Rw</th>
-									<th>Kelurahan</th>
-									<th>Kecamatan</th>
-									<th>Kota</th>
 									<th>Klasifikasi Perusahaan</th>
+									<th>Nama Perusahaan</th>
+									<th>Alamat Perusahaan</th>
 									<th>Kegiatan Utama</th>
 									<th>Jenis Usaha</th>
 									<th>Bentuk Badan Hukum</th>
@@ -44,10 +43,9 @@
 											<td><?php echo $no++ ?></td>
 											<td><?php echo $row->rt ?></td>
 											<td><?php echo $row->rw ?></td>
-											<td><?php echo $row->kelurahan ?></td>
-											<td><?php echo $row->kecamatan ?></td>
-											<td><?php echo $row->kota ?></td>
-											<td><?php echo $row->klasifikasi_perusahaan ?></td>                                                             
+											<td><?php echo $row->klasifikasi_perusahaan ?></td>    
+											<td><?php echo $row->nama_perusahaan ?></td>
+											<td><?php echo $row->alamat_perusahaan ?></td>
 											<td><?php echo $row->kegiatan_utama ?></td>                                                             
 											<td><?php echo $row->jenis_usaha ?></td>                                                             
 											<td><?php echo $row->bentuk_badan_hukum ?></td>                                                             
@@ -60,14 +58,14 @@
 								?>
 							</tbody>
 							<tfoot>
+								
 								<tr>
 									<th>No</th>
 									<th>Rt</th>
 									<th>Rw</th>
-									<th>Kelurahan</th>
-									<th>Kecamatan</th>
-									<th>Kota</th>
 									<th>Klasifikasi Perusahaan</th>
+									<th>Nama Perusahaan</th>
+									<th>Alamat Perusahaan</th>
 									<th>Kegiatan Utama</th>
 									<th>Jenis Usaha</th>
 									<th>Bentuk Badan Hukum</th>

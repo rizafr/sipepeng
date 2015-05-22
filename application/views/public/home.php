@@ -18,16 +18,16 @@
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-9">
-							<?php
-							$no = 1;
-							
-							$jum = count(@$berita_list);
-							// var_dump($berita_list);
-							?>
+								<?php
+									$no = 1;
+									
+									$jum = count(@$berita_list);
+									// var_dump($berita_list);
+								?>
                                 <div class="carousel-content">
                                     <!--<h1 class="animation animated-item-1"></h1>-->
-                                     <!--<h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
+									<!--<h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+									<a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
 							
@@ -48,7 +48,7 @@
                                 <div class="carousel-content">
                                     <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
                                     <!-- <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
+									<a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
 							
@@ -69,7 +69,7 @@
                                 <div class="carousel-content">
                                     <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
                                     <!-- <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
+									<a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
                             <div class="col-sm-3 hidden-xs animation animated-item-4">
@@ -86,9 +86,9 @@
                         <div class="row slide-margin">
                             <div class="col-sm-9">
                                 <div class="carousel-content">
-                                  <!--   <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
-                                   <!--  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
+									<!--   <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
+									<!--  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+									<a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
                             <div class="col-sm-3 hidden-xs animation animated-item-4">
@@ -106,8 +106,8 @@
                             <div class="col-sm-9">
                                 <div class="carousel-content">
                                     <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>-->
-                                   <!--  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
+									<!--  <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2>
+									<a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
                             <div class="col-sm-3 hidden-xs animation animated-item-4">
@@ -126,7 +126,7 @@
                                 <div class="carousel-content">
                                     <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>  -->
                                     <!-- <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2> 
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
+									<a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
                             <div class="col-sm-3 hidden-xs animation animated-item-4">
@@ -145,7 +145,7 @@
                                 <div class="carousel-content">
                                     <!-- <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>  -->
                                     <!-- <h2 class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</h2> 
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
+									<a class="btn-slide animation animated-item-3" href="#">Read More</a>-->
 								</div>
 							</div>
                             <div class="col-sm-3 hidden-xs animation animated-item-4">
@@ -170,7 +170,6 @@
 	<section id="blog" class="container">
         <div class="center">
             <h2>Berita Terbaru</h2>
-            <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
 		</div>
 		
         <div class="blog">
@@ -747,14 +746,14 @@
 						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.f}</b><br/>'
 					},
 					plotOptions: {
-                    series: {
-                        borderWidth: 0,
-                        dataLabels: {
-                            enabled: true,
-                            format: '{point.y:.f}'
-                        }
-                    }
-                },
+						series: {
+							borderWidth: 0,
+							dataLabels: {
+								enabled: true,
+								format: '{point.y:.f}'
+							}
+						}
+					},
 					series: [
 					<?php
 						$jum = count($getJumlahJenisKelamin);
@@ -816,74 +815,74 @@
 	<footer id="footer" class="midnight-blue">
 		<div class="container">
 			<div class="row">
-			<div class="col-sm-12">
-			<p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
-			Proyek Perubahan Diklatpim IV - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
-			<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
-			</div>                
+				<div class="col-sm-12">
+					<p align="center">SIPEPENG | Sistem Informasi Pemetaan Pembangunan <br />
+						Proyek Perubahan Diklatpim IV - DEVI JANUAR HADI, S.Si, M.Si  <br /> 
+					<small><i>Developed by Ratih Pujihati dan  Riza Fauzi Rahman</i> </small> </p>
+				</div>                
 			</div>
-			</div>
-			</footer><!--/#footer-->
-			
-			
-			<script src="<?php echo base_url() ?>assets/public/js/bootstrap.min.js"></script>
-			<script src="<?php echo base_url() ?>assets/public/js/jquery.prettyPhoto.js"></script>
-			<script src="<?php echo base_url() ?>assets/public/js/jquery.isotope.min.js"></script>
-			<script src="<?php echo base_url() ?>assets/public/js/main.js"></script>
-			<script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>
-			
-			<!-- Modal -->
-			<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="readmore" class="modal fade">
-			<div class="modal-dialog">
+		</div>
+	</footer><!--/#footer-->
+	
+	
+	<script src="<?php echo base_url() ?>assets/public/js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/jquery.prettyPhoto.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/jquery.isotope.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/main.js"></script>
+	<script src="<?php echo base_url() ?>assets/public/js/wow.min.js"></script>
+	
+	<!-- Modal -->
+	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="readmore" class="modal fade">
+		<div class="modal-dialog">
 			<div class="modal-content">
-			<div class="modal-header">
-			<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-			<h4 class="modal-title"><p id="judul"></p></h4>
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+					<h4 class="modal-title"><p id="judul"></p></h4>
+				</div>
+				<div class="modal-body">
+					<div class="blog-item wow fadeInDown">
+						<div class="row">
+							<div class="col-xs-12 col-sm-2 text-center">
+								<div class="entry-meta">
+									<p id="tanggal"></p>
+									<span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
+								</div>
+							</div>
+							
+							<div class="col-xs-12 col-sm-10 blog-content">
+								<p id="foto"></p>
+								<h2><a href="blog-item.html"> <p id="judul"></p></a></h2>
+								<h3> <p id="isi"></p>.</h3>
+							</div>
+						</div>    
+					</div><!--/.blog-item-->
+					
+				</div>
+				
 			</div>
-			<div class="modal-body">
-			<div class="blog-item wow fadeInDown">
-			<div class="row">
-			<div class="col-xs-12 col-sm-2 text-center">
-			<div class="entry-meta">
-			<p id="tanggal"></p>
-			<span><i class="fa fa-user"></i> <a href="#">Admin</a></span>
-			</div>
-			</div>
-			
-			<div class="col-xs-12 col-sm-10 blog-content">
-			<p id="foto"></p>
-			<h2><a href="blog-item.html"> <p id="judul"></p></a></h2>
-			<h3> <p id="isi"></p>.</h3>
-			</div>
-			</div>    
-			</div><!--/.blog-item-->
-			
-			</div>
-			
-			</div>
-			</div>
-			</div>
-			
-			<!-- modal -->	
-			
-			<script>
-			$(document).on("click", ".readmore", function () {
+		</div>
+	</div>
+	
+	<!-- modal -->	
+	
+	<script>
+		$(document).on("click", ".readmore", function () {
 			var id = $(this).data('id');
 			$(".modal-body #id").val( id );
 			
 			$.post('<?php echo base_url() ?>admin/berita_managements/readmore/' +id, function(result)
 			{
-			var status = result.split("|");
-			$("#judul").html("<font color='green'>"+status[0]+"</font>");
-			$("#isi").html(status[1]);
-			$("#tanggal").html(status[2]);
-			$("#foto").html("<img class='img-responsive img-blog' src='<?php echo base_url() ?>assets/upload/berita/"+status[3]+"'width='100%' /></img>");
+				var status = result.split("|");
+				$("#judul").html("<font color='green'>"+status[0]+"</font>");
+				$("#isi").html(status[1]);
+				$("#tanggal").html(status[2]);
+				$("#foto").html("<img class='img-responsive img-blog' src='<?php echo base_url() ?>assets/upload/berita/"+status[3]+"'width='100%' /></img>");
 			});
 			
-			});
-			</script>
-			<style>
-			.modal-dialog {
-			width: 75% !important;
-			}
-			</style>			
+		});
+	</script>
+	<style>
+		.modal-dialog {
+		width: 75% !important;
+		}
+	</style>				
