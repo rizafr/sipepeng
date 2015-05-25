@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2015 at 03:54 AM
+-- Generation Time: May 25, 2015 at 06:11 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `artesis` (
 --
 
 INSERT INTO `artesis` (`id_artesis`, `rt`, `rw`, `alamat`, `ketersediaan_lahan`, `kontur_tanah`, `long`, `lat`, `anggaran`, `sumber_data`, `tahun_usulan`, `persetujuan_warga`, `jml_pemakai`, `ket`, `foto`, `dokumen`, `id_kategori`, `status_data_awal`, `status_verifikasi`, `status_sedang_dilaksanakan`, `status_sudah_dilaksanakan`, `status_tidak_dilaksanakan`) VALUES
-(1, 7, 9, 'ARTESIS HAUR NGAMBANG', 'ADA', NULL, '107.57325', '-6.906208', NULL, 'USULAN WARGA', 2014, 'ADA', 105, 'OK', '7_9_artesis_pelakasanaan 2.JPG', NULL, NULL, 1, 1, 1, 0, 0);
+(1, 7, 9, 'ARTESIS HAUR NGAMBANG', 'Ada', NULL, '107.51794005943293', '-6.906331800008785', 0, 'USULAN WARGA', 2014, 'Ada', 105, ' OK', 'artesis_2014_9_ARTESIS_HAUR_NGAMBANG.JPG', 'artesis_2014_9_ARTESIS_HAUR_NGAMBANG.JPG', NULL, 1, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -157,7 +157,7 @@ INSERT INTO `drainase` (`id_drainase`, `rt`, `rw`, `alamat`, `panjang`, `lebar`,
 (25, 2, 7, 'CIBOGO LEUWIGAJAH', '70', '1', '1', '', '107.531860', '107.532132', '-6.911797', '-6.912180', 0, 'MUSREN', 2014, 'OK', '7_drainase_hasil.jpg', NULL, 0, 1, 1, 1, 1, 0),
 (26, 8, 8, 'KIHAPIT TIMUR', '20', '1', '1', '', '107.527180', '107.527327', '-6.907936', '-6.908109', 0, 'USULAN WARGA', 2014, '', '8_drainase_hasil.jpg', NULL, 0, 1, 1, 1, 1, 0),
 (27, 2, 18, 'NYEYEREAN SADARMANAH', '148', '1.2', '1', '', '107.525614', '107.526971', '-6.897606', '-6.898032', 0, 'MUSREN', 2012, '', '18_drainase_hasil.JPG', NULL, 0, 1, 1, 1, 1, 0),
-(28, 6, 20, 'JL KIHAPIT TIMUR', '300', '0,5', '0,8', '', '107.526510', '107.524549', '-6.901784', '-6.901320', 0, 'MUSRENBANG', 2014, '', '20_drainase_hasil.jpg', NULL, 0, 1, 1, 1, 1, 0),
+(28, 6, 20, 'JL KIHAPIT TIMUR', '300', '0.5', '0.8', 'Ada', '107.52704615903849', '107.52765892723096', '-6.9048513103235765', '-6.905568183820638', 0, 'MUSRENBANG', 2014, ' ', '20_drainase_hasil.jpg', NULL, 0, 1, 1, 1, 1, 0),
 (29, 4, 4, 'CURUG LEUNGSING / GG PERTAMINA', '583', '1.5', '1,5', '', '107.531447', '107.532917', '-6.901030', '-6.900274', 0, 'USULAN WARGA', 2014, 'OK', NULL, NULL, 0, 1, 1, 1, 0, 0),
 (30, 2, 5, 'SALURAN KERKOF', '200', '1.2', '1', '', '107.532266', '107.534157', '-6.903620', '-6.903548', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 1, 1, 1, 0, 0),
 (31, 2, 7, 'CIBOGO', '167', '1.2', '1', '', '107.532132', '107.531374', '-6.912180', '-6.913383', 0, 'MUSRENBANG', 2014, 'OK', NULL, NULL, 0, 1, 1, 1, 0, 0),
@@ -732,8 +732,8 @@ INSERT INTO `jalan` (`id_jalan`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kate
 (15, 3, 14, 'KOMP CIBOGO PERMAI', '396', '5', '', '', '107.527742', '107.528581', '-6.909623', '-6.909686', 0, 'MUSRENBANG', 2015, 'OK', '14_jalan_awal.JPG', NULL, 0, 1, 1, 0, 0, 0),
 (16, 1, 15, 'JL UTAMA KOMP LEUWIGAJAH PERMAI', '325', '6', '', '', '107.523362', '107.522701', '-6.898806', '-6.900496', 0, 'MUSRENBANG', 2015, 'OK', '15_jalan_awal.JPG', NULL, 0, 1, 1, 0, 0, 0),
 (17, 1, 16, 'JL BLOK A KOMP CIPTA MAS', '260', '7', '', '', '107.526662', '107.526803', '-6.904712', '-6.901999', 0, 'MUSRENBANG', 2015, '', '16_jalan_awal.JPG', NULL, 0, 1, 1, 0, 0, 0),
-(18, 5, 16, 'JL BLOK B4 KOMP CIPTA MAS', '600', '3.5', '', '', '107.525472', '107.524334', '-6.902556', '-6.902381', 0, 'MUSRENBANG', 2015, '', '5_16_jalan_awal.JPG', NULL, 0, 1, 1, 0, 0, 0),
-(19, 6, 16, 'JL BLOK B6 KOMP CIPTA MAS', '84', '6.5', '', '', '107.524827', '107.525536', '-6.901778', '-6.901790', 0, 'MUSRENBANG', 2015, '', NULL, NULL, 0, 1, 1, 0, 0, 0),
+(18, 5, 16, 'JL BLOK B4 KOMP CIPTA MAS', '600', '3.5', '', '', '107.525472', '107.524334', '-6.902556', '-6.902381', 0, 'MUSRENBANG', 2015, '', '5_16_jalan_awal_b6.JPG', NULL, 0, 1, 1, 0, 0, 0),
+(19, 6, 16, 'JL BLOK B6 KOMP CIPTA MAS', '84', '6.5', '', '', '107.524827', '107.525536', '-6.901778', '-6.901790', 0, 'MUSRENBANG', 2015, '', '5_16_jalan_awal_b6.JPG', NULL, 0, 1, 1, 0, 0, 0),
 (20, 3, 17, 'JL KOMP BUKIT CIBOGO', '228', '3', '', '', '107.524407', '107.526363', '-6.909827', '-6.910504', 0, 'MUSRENBANG', 2015, '', '228_3_17_jalan_awal.JPG', NULL, 0, 1, 1, 0, 0, 0),
 (21, 2, 17, 'JL KOMP BUKIT CIBOGO', '32', '3', '', '', '107.526363', '107.526443', '-6.910504', '-6.910256', 0, 'MUSRENBANG', 2015, '', '2_17_jalan_awal.JPG', NULL, 0, 1, 1, 0, 0, 0),
 (22, 3, 17, 'JL KOMP BUKIT CIBOGO', '37', '3', '', '', '107.525424', '107.525093', '-6.909861', '-6.909741', 0, 'MUSRENBANG', 2015, '', '3_17_jalan_awal.JPG', NULL, 0, 1, 1, 0, 0, 0),
@@ -749,9 +749,9 @@ INSERT INTO `jalan` (`id_jalan`, `rt`, `rw`, `alamat`, `panjang`, `lebar`, `kate
 (32, 8, 11, 'JALAN ANEKA BHAKTI', '1300', '3', '', '', '107.526491', '107.526067', '-6.899265', '-6.900676', 0, 'MUSRENBANG', 2012, 'OK', '11_jalan_hasil 2.JPG', NULL, 0, 1, 1, 1, 1, 0),
 (33, 5, 12, 'JL KOMP SUAKA', '700', '3', '', '', '107.528205', '107.529439', '-6.902577', '-6.902777', 0, 'ASPIRASI DEWAN', 2014, 'OK', '5_12_jalan_hasil.JPG', NULL, 0, 1, 1, 1, 1, 0),
 (34, 8, 12, 'JL KOMP SUAKA', '625', '4', '', '', '107.529361', '107.529527', '-6.903147', '-6.902172', 0, 'ASPIRASI DEWAN', 2014, 'OK', '8_12_jalan_hasil.JPG', NULL, 0, 1, 1, 1, 1, 0),
-(35, 3, 16, 'JL KOMP CIPTA MAS', '135', '4', '', '', '107.526338', '107.526526', '-6.902854', '-6.901776', 0, 'MUSRENBANG', 2013, 'OK', NULL, NULL, 0, 1, 1, 1, 1, 0),
-(36, 4, 16, 'JL KOMP CIPTA MAS', '250', '4', '', '', '107.526510', '107.524549', '-6.901784', '-6.901320', 0, 'MUSRENBANG', 2014, 'OK', NULL, NULL, 0, 1, 1, 1, 1, 0),
-(37, 6, 20, 'JL KIHAPIT TIMUR', '450', '4', '', '', '107.526510', '107.524549', '-6.901784', '-6.901320', 0, 'MUSRENBANG', 2014, 'OK', '20_jalan_hasil.JPG', NULL, 0, 1, 1, 1, 1, 0),
+(35, 3, 16, 'JL KOMP CIPTA MAS', '135', '4', '', '', '107.526338', '107.526526', '-6.902854', '-6.901776', 0, 'MUSRENBANG', 2013, 'OK', '16_jalan_hasil_2.jpg', NULL, 0, 1, 1, 1, 1, 0),
+(36, 4, 16, 'JL KOMP CIPTA MAS', '250', '4', '', '', '107.526510', '107.524549', '-6.901784', '-6.901320', 0, 'MUSRENBANG', 2014, 'OK', '16_jalan_hasil_2.jpg', NULL, 0, 1, 1, 1, 1, 0),
+(37, 6, 16, 'JL. PONDOK CIPTA MAS', '450', '4', '', '', '107.526510', '107.524549', '-6.901784', '-6.901320', 0, 'MUSRENBANG', 2014, 'OK', '16_jalan_hasil_1.jpg', NULL, 0, 1, 1, 1, 1, 0),
 (38, 4, 2, 'PASANTREN I', '100', '1.5', '', '', '107.530175', '107.530405', '-6.900259', '-6.899477', 0, 'MUSRENBANG', 2015, 'OK', '2_jalan_pelaksanaan 2.JPG', NULL, 0, 1, 1, 1, 0, 0),
 (39, 3, 9, 'KIHAPIT TIMUR', '100', '1', '', '', '107.524190', '107.524616', '-6.905528', '-6.906237', 0, 'MUSRENBANG', 2015, 'OK', '3_9_jalan_pelaksanaan 4.JPG', NULL, 0, 1, 1, 1, 0, 0),
 (40, 8, 9, 'GAJAH JAYA', '230', '4', '', '', '107.521847', '107.523439', '-6.903846', '-6.903319', 0, 'USULAN WARGA', 2014, 'OK', '8_9_jalan_pelaksanaan.JPG', NULL, 0, 1, 1, 1, 0, 0),
