@@ -17,117 +17,111 @@
 		
 		#jumlah artesis
 		
-		public function getJumlahArtesis() {
-			return $this->db->count_all('artesis');
+		#data usulan
+		public function artesis_awal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->from('artesis');
+			return $this->db->get();
+		}
+		
+				
+		# selesai
+		public function artesis_dilaksanakan() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('artesis');
+			return $this->db->get();
+		}	
+		
+		# tidak terlaksana
+		public function artesis_tidak_dilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
+			$this->db->from('artesis');
+			return $this->db->get();
 		}
 		
 		/////////////// DRAINASE /////////////////////////////
 		#jumlah drainase
 		
-		public function getJumlahDrainase() {
-			return $this->db->count_all('drainase');
-		}
-		
 		#data usulan
-		public function getJumlahDrainaseAwal() {
+		public function drainase_awal() {
 			$this->db->where('status_data_awal', '1');
-			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('drainase');
-			return $this->db->count_all_results();
+			return $this->db->get(); 
 		}
 		
-		#belum diverifikasi
+		#data verifikasi
 		public function getJumlahDrainaseVerifikasi() {
+			$this->db->where('status_data_awal', '1');
 			$this->db->where('status_verifikasi', '0');
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('drainase');
-			return $this->db->count_all_results();
+			return count($this->db->get()->result()); 
 		}
 		
-		#belum dilaksanakan
+		#data verifikasi
 		public function getJumlahDrainaseBelumDilaksanakan() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->where('status_verifikasi', '1');
 			$this->db->where('status_sedang_dilaksanakan', '0');
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('drainase');
-			return $this->db->count_all_results();
+				return count($this->db->get()->result()); 
 		}
 		
-		#belum selesai
+		#data verifikasi
 		public function getJumlahDrainaseBelumSelesai() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->where('status_verifikasi', '1');
+			$this->db->where('status_sedang_dilaksanakan', '1');
 			$this->db->where('status_sudah_dilaksanakan', '0');
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('drainase');
-			return $this->db->count_all_results();
-		}	
+				return count($this->db->get()->result()); 
+		}
 		
+				
 		# selesai
-		public function getJumlahDrainaseSelesai() {
+		public function drainase_dilaksanakan() {
 			$this->db->where('status_sudah_dilaksanakan', '1');
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('drainase');
-			return $this->db->count_all_results();
+			return $this->db->get();
 		}	
 		
 		# tidak terlaksana
-		public function getJumlahDrainaseTidakDilaksanakan() {
+		public function drainase_tidak_dilaksanakan() {
 			$this->db->where('status_tidak_dilaksanakan', '1');
 			$this->db->from('drainase');
-			return $this->db->count_all_results();
-		}	
+			return $this->db->get(); 
+		}
 		/////////////// END DRAINASE /////////////////////////////
 		
 		/////////////// JALAN /////////////////////////////
 		#jumlah jalan
 		
-		public function getJumlahJalan() {
-			return $this->db->count_all('jalan');
-		}
-		
+			
 		#data usulan
-		public function getJumlahJalanAwal() {
+		public function jalan_awal() {
 			$this->db->where('status_data_awal', '1');
-			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('jalan');
-			return $this->db->count_all_results();
+			return $this->db->get();
 		}
 		
-		#belum diverifikasi
-		public function getJumlahJalanVerifikasi() {
-			$this->db->where('status_verifikasi', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
-			$this->db->from('jalan');
-			return $this->db->count_all_results();
-		}
-		
-		#belum dilaksanakan
-		public function getJumlahJalanBelumDilaksanakan() {
-			$this->db->where('status_sedang_dilaksanakan', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
-			$this->db->from('jalan');
-			return $this->db->count_all_results();
-		}
-		
-		#belum selesai
-		public function getJumlahJalanBelumSelesai() {
-			$this->db->where('status_sudah_dilaksanakan', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
-			$this->db->from('jalan');
-			return $this->db->count_all_results();
-		}		
-		
+				
 		# selesai
-		public function getJumlahJalanSelesai() {
+		public function jalan_dilaksanakan() {
 			$this->db->where('status_sudah_dilaksanakan', '1');
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('jalan');
-			return $this->db->count_all_results();
+			return $this->db->get();
 		}	
 		
 		# tidak terlaksana
-		public function getJumlahJalanTidakDilaksanakan() {
+		public function jalan_tidak_dilaksanakan() {
 			$this->db->where('status_tidak_dilaksanakan', '1');
 			$this->db->from('jalan');
-			return $this->db->count_all_results();
+			return $this->db->get();
 		}
 		/////////////// END JALAN /////////////////////////////
 		
@@ -136,47 +130,29 @@
 		/////////////// KIRMIR /////////////////////////////
 		#jumlah kirmir
 		
-		public function getJumlahKirmir() {
-			return $this->db->count_all('kirmir');
+		
+		
+		#data usulan
+		public function kirmir_awal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->from('kirmir');
+			return $this->db->get();
 		}
 		
-		#belum diverifikasi
-		public function getJumlahKirmirVerifikasi() {
-			$this->db->where('status_verifikasi', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
-			$this->db->from('kirmir');
-			return $this->db->count_all_results();
-		}
-		
-		#belum dilaksanakan
-		public function getJumlahKirmirBelumDilaksanakan() {
-			$this->db->where('status_sedang_dilaksanakan', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
-			$this->db->from('kirmir');
-			return $this->db->count_all_results();
-		}
-		
-		#belum selesai
-		public function getJumlahKirmirBelumSelesai() {
-			$this->db->where('status_sudah_dilaksanakan', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
-			$this->db->from('kirmir');
-			return $this->db->count_all_results();
-		}		
-		
+				
 		# selesai
-		public function getJumlahKirmirSelesai() {
+		public function kirmir_dilaksanakan() {
 			$this->db->where('status_sudah_dilaksanakan', '1');
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('kirmir');
-			return $this->db->count_all_results();
+			return $this->db->get();
 		}	
 		
 		# tidak terlaksana
-		public function getJumlahKirmirTidakDilaksanakan() {
+		public function kirmir_tidak_dilaksanakan() {
 			$this->db->where('status_tidak_dilaksanakan', '1');
 			$this->db->from('kirmir');
-			return $this->db->count_all_results();
+			return $this->db->get();
 		}
 		/////////////// END KIRMIR /////////////////////////////
 		
@@ -184,79 +160,161 @@
 		
 		#jumlah mck
 		
-		public function getJumlahMck() {
-			return $this->db->count_all('mck');
+		#data usulan
+		public function mck_awal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->from('mck');
+			return $this->db->get();
 		}
 		
-		#belum diverifikasi
-		public function getJumlahMckVerifikasi() {
-			$this->db->where('status_verifikasi', '0');
+				
+		# selesai
+		public function mck_dilaksanakan() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('mck');
-			return $this->db->count_all_results();
-		}
+			return $this->db->get();
+		}	
 		
-		#belum dilaksanakan
-		public function getJumlahMckBelumDilaksanakan() {
-			$this->db->where('status_sedang_dilaksanakan', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
+		# tidak terlaksana
+		public function mck_tidak_dilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
 			$this->db->from('mck');
-			return $this->db->count_all_results();
-		}
-		
-		#belum selesai
-		public function getJumlahMckBelumSelesai() {
-			$this->db->where('status_sudah_dilaksanakan', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
-			$this->db->from('mck');
-			return $this->db->count_all_results();
-		}		
+			return $this->db->get();
+		}	
 		/////////////// END MCK /////////////////////////////
 		
 		/////////////// SEPTICTANK /////////////////////////////
 		
-		#jumlah septictank
-		
-		public function getJumlahSeptictank() {
-			return $this->db->count_all('septictank');
-		}
-		#belum diverifikasi
-		public function getJumlahSeptictankVerifikasi() {
-			$this->db->where('status_verifikasi', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
+		#data usulan
+		public function septictank_awal() {
+			$this->db->where('status_data_awal', '1');
 			$this->db->from('septictank');
-			return $this->db->count_all_results();
+			return $this->db->get();
 		}
 		
-		#belum dilaksanakan
-		public function getJumlahSeptictankBelumDilaksanakan() {
-			$this->db->where('status_sedang_dilaksanakan', '0');
+				
+		# selesai
+		public function septictank_dilaksanakan() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
 			$this->db->where('status_tidak_dilaksanakan', '0');
 			$this->db->from('septictank');
-			return $this->db->count_all_results();
-		}
+			return $this->db->get();
+		}	
 		
-		#belum selesai
-		public function getJumlahSeptictankBelumSelesai() {
-			$this->db->where('status_sudah_dilaksanakan', '0');
-			$this->db->where('status_tidak_dilaksanakan', '0');
+		# tidak terlaksana
+		public function septictank_tidak_dilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
 			$this->db->from('septictank');
-			return $this->db->count_all_results();
-		}		
+			return $this->db->get();
+		}
 		/////////////// END SEPTICTANK /////////////////////////////
 		
 		#jumlah septictank_komunal
 		
-		public function getJumlahSeptictankKomunal() {
-			return $this->db->count_all('septictank_komunal');
+		#data usulan
+		public function septictank_komunal_awal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->from('septictank_komunal');
+			return $this->db->get();
+		}
+		
+				
+		# selesai
+		public function septictank_komunal_dilaksanakan() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('septictank_komunal');
+			return $this->db->get();
+		}	
+		
+		# tidak terlaksana
+		public function septictank_komunal_tidak_dilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
+			$this->db->from('septictank_komunal');
+			return $this->db->get();
 		}
 		
 		#jumlah sumur_dangkal
 		
-		public function getJumlahSumurDangkal() {
-			return $this->db->count_all('sumur_dangkal');
+		#data usulan
+		public function sumur_dangkal_awal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->from('sumur_dangkal');
+			return $this->db->get();
 		}
 		
+				
+		# selesai
+		public function sumur_dangkal_dilaksanakan() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('sumur_dangkal');
+			return $this->db->get();
+		}	
+		
+		# tidak terlaksana
+		public function sumur_dangkal_tidak_dilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
+			$this->db->from('sumur_dangkal');
+			return $this->db->get();
+		}
+		
+		/////////////// SUMUR RESAPAN /////////////////////////////
+		#jumlah jalan
+		
+			
+		#data usulan
+		public function sumur_resapan_awal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->from('sumur_resapan');
+			return $this->db->get();
+		}
+		
+				
+		# selesai
+		public function sumur_resapan_dilaksanakan() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('sumur_resapan');
+			return $this->db->get();
+		}	
+		
+		# tidak terlaksana
+		public function sumur_resapan_tidak_dilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
+			$this->db->from('sumur_resapan');
+			return $this->db->get();
+		}
+		/////////////// END sumur_resapan /////////////////////////////
+                
+                /////////////// SUMUR LAIN LAIN /////////////////////////////
+		#jumlah jalan
+		
+			
+		#data usulan
+		public function lain_awal() {
+			$this->db->where('status_data_awal', '1');
+			$this->db->from('lain');
+			return $this->db->get();
+		}
+		
+				
+		# selesai
+		public function lain_dilaksanakan() {
+			$this->db->where('status_sudah_dilaksanakan', '1');
+			$this->db->where('status_tidak_dilaksanakan', '0');
+			$this->db->from('lain');
+			return $this->db->get();
+		}	
+		
+		# tidak terlaksana
+		public function lain_tidak_dilaksanakan() {
+			$this->db->where('status_tidak_dilaksanakan', '1');
+			$this->db->from('lain');
+			return $this->db->get();
+		}
+		/////////////// END lain /////////////////////////////
 		
 		
 		#getJumlahJenisKelamin

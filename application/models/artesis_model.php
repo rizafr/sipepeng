@@ -15,25 +15,36 @@ class Artesis_model extends CI_Model {
 
     //select 
     public function select_all_data_awal() {
-        $sql = "select * from artesis where status_verifikasi='0' ";
+        $sql = "SELECT *
+					FROM `artesis`
+					WHERE 
+					status_data_awal = '1'
+					and status_verifikasi='0' and status_sedang_dilaksanakan='0' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
-
+	
+	#data usulan
+		public function getJumlahartesisAwal() {
+			 $sql = "SELECT *
+					FROM `artesis` ";
+			return $this->db->query($sql);
+		}
+		
     //select
     public function select_all_verifikasi() {
-        $sql = "select * from artesis where status_sedang_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from artesis where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='0' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sedang_dilaksanakan() {
-        $sql = "select * from artesis where status_sudah_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from artesis where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='1' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sudah_dilaksanakan() {
-        $sql = "select * from artesis where status_sudah_dilaksanakan='1' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from artesis where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='1' and status_sudah_dilaksanakan='1'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
@@ -45,7 +56,7 @@ class Artesis_model extends CI_Model {
 
     //search
     public function select_by_id($id_artesis) {
-        $sql = " select * from dra where id_artesis=" . $id_artesis;
+        $sql = " select * from artesis where id_artesis=" . $id_artesis;
         $query = $this->db->query($sql);
         return $query;
     }

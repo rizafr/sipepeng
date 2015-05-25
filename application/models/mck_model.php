@@ -13,27 +13,38 @@ class Mck_model extends CI_Model {
         parent::__construct();
     }
 
-    //select 
+     //select 
     public function select_all_data_awal() {
-        $sql = "select * from mck where status_verifikasi='0' ";
+        $sql = "SELECT *
+					FROM `mck`
+					WHERE 
+					status_data_awal = '1'
+					and status_verifikasi='0' and status_sedang_dilaksanakan='0' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
-
+	
+	#data usulan
+		public function getJumlahmckAwal() {
+			 $sql = "SELECT *
+					FROM `mck` ";
+			return $this->db->query($sql);
+		}
+		
     //select
     public function select_all_verifikasi() {
-        $sql = "select * from mck where status_sedang_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from mck where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='0' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sedang_dilaksanakan() {
-        $sql = "select * from mck where status_sudah_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from mck where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='1' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sudah_dilaksanakan() {
-        $sql = "select * from mck where status_sudah_dilaksanakan='1' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from mck where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='1' and status_sudah_dilaksanakan='1'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 

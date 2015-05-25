@@ -15,25 +15,36 @@ class Sumur_dangkal_model extends CI_Model {
 
     //select 
     public function select_all_data_awal() {
-        $sql = "select * from sumur_dangkal where status_verifikasi='0' ";
+        $sql = "SELECT *
+					FROM `sumur_dangkal`
+					WHERE 
+					status_data_awal = '1'
+					and status_verifikasi='0' and status_sedang_dilaksanakan='0' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
-
+	
+	#data usulan
+		public function getJumlahJalanAwal() {
+			 $sql = "SELECT *
+					FROM `sumur_dangkal` ";
+			return $this->db->query($sql);
+		}
+		
     //select
     public function select_all_verifikasi() {
-        $sql = "select * from sumur_dangkal where status_sedang_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from sumur_dangkal where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='0' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sedang_dilaksanakan() {
-        $sql = "select * from sumur_dangkal where status_sudah_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from sumur_dangkal where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='1' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sudah_dilaksanakan() {
-        $sql = "select * from sumur_dangkal where status_sudah_dilaksanakan='1' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from sumur_dangkal where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='1' and status_sudah_dilaksanakan='1'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
@@ -45,7 +56,7 @@ class Sumur_dangkal_model extends CI_Model {
 
     //search
     public function select_by_id($id_sumur_dangkal) {
-        $sql = " select * from dra where id_sumur_dangkal=" . $id_sumur_dangkal;
+        $sql = " select * from sumur_dangkal where id_sumur_dangkal=" . $id_sumur_dangkal;
         $query = $this->db->query($sql);
         return $query;
     }

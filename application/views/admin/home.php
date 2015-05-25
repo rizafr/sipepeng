@@ -60,14 +60,14 @@
 			
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2 panel-item">
                 <a href="<?php echo base_url() ?>admin/user_managements">
-					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/user_managements">
+					</a><div class="panel panel-default hvr-grow-shadow"><a href="<?php echo base_url() ?>admin/artesis_managements/index/1">
 						<div class="panel-thumbnail"><img src="<?php echo base_url(); ?>assets/home/pembangunan.png" class="img-responsive"></div>
-						</a><div class="panel-body"><a href="<?php echo base_url() ?>admin/user_managements">
+						</a><div class="panel-body"><a href="<?php echo base_url() ?>admin/artesis_managements/index/1">
 							<h4>
 								DATA PEMBANGUNAN
 							</h4>
-							</a><div class="btn-group" role="group" aria-label="aksi"><a href="<?php echo base_url() ?>admin/user_managements">
-							</a><a href="<?php echo base_url() ?>admin/user_managements" class="btn btn-primary"><i class="fa fa-eye" style="color: white;"></i> Lihat</a>
+							</a><div class="btn-group" role="group" aria-label="aksi"><a href="<?php echo base_url() ?>admin/artesis_managements/index/1">
+							</a><a href="<?php echo base_url() ?>admin/artesis_managements/index/1" class="btn btn-primary"><i class="fa fa-eye" style="color: white;"></i> Lihat</a>
 						</div>
 					</div>
 				</div>

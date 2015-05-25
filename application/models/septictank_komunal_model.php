@@ -13,27 +13,38 @@ class Septictank_komunal_model extends CI_Model {
         parent::__construct();
     }
 
-    //select 
+     //select 
     public function select_all_data_awal() {
-        $sql = "select * from septictank_komunal where status_verifikasi='0' ";
+        $sql = "SELECT *
+					FROM `septictank_komunal`
+					WHERE 
+					status_data_awal = '1'
+					and status_verifikasi='0' and status_sedang_dilaksanakan='0' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
-
+	
+	#data usulan
+		public function getJumlahseptictank_komunalAwal() {
+			 $sql = "SELECT *
+					FROM `septictank_komunal` ";
+			return $this->db->query($sql);
+		}
+		
     //select
     public function select_all_verifikasi() {
-        $sql = "select * from septictank_komunal where status_sedang_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from septictank_komunal where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='0' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sedang_dilaksanakan() {
-        $sql = "select * from septictank_komunal where status_sudah_dilaksanakan='0' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from septictank_komunal where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='1' and status_sudah_dilaksanakan='0'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
     //select
     public function select_all_sudah_dilaksanakan() {
-        $sql = "select * from septictank_komunal where status_sudah_dilaksanakan='1' and status_tidak_dilaksanakan='0'";
+        $sql = "select * from septictank_komunal where status_data_awal='1' and status_verifikasi='1' and status_sedang_dilaksanakan='1' and status_sudah_dilaksanakan='1'  and status_tidak_dilaksanakan='0'";
         return $this->db->query($sql);
     }
 
@@ -45,7 +56,7 @@ class Septictank_komunal_model extends CI_Model {
 
     //search
     public function select_by_id($id_septictank_komunal) {
-        $sql = " select * from dra where id_septictank_komunal=" . $id_septictank_komunal;
+        $sql = " select * from septictank_komunal where id_septictank_komunal=" . $id_septictank_komunal;
         $query = $this->db->query($sql);
         return $query;
     }

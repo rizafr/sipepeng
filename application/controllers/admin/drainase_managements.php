@@ -156,7 +156,7 @@ class Drainase_managements extends CI_Controller {
         $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
         $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
         $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
-            /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+        /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
 
 
         $aksi = $this->input->post('aksi');
@@ -194,7 +194,7 @@ class Drainase_managements extends CI_Controller {
             $ket = "drainase";
 
             //mengecek apakah foto di upload
-            
+
             if ($_FILES['foto']['name'] != "") {
                 $foto = $this->upload_foto($ket, $data['tahun_usulan'], $data['rw'], $data['alamat']);
             }
@@ -217,7 +217,7 @@ class Drainase_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->drainase_model->update($data,$id_drainase);
+                $hasil = $this->drainase_model->update($data, $id_drainase);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {
