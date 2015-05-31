@@ -198,7 +198,7 @@ class Septictank_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->septictank_model->update($data,$id_septictank);
+                $hasil = $this->septictank_model->update($data, $id_septictank);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {
@@ -275,6 +275,52 @@ class Septictank_managements extends CI_Controller {
 
 
         $this->load->view('admin/septictank/septictank_view', $data);
+    }
+    //fungsi menampilkan berdasarkan id yg dipilih
+    public function cetak_detail($id_septictank) {
+
+        $data['id_septictank'] = $id_septictank;
+        $data['title'] = "View Data Septictank | SIPEPENG";
+        $data['judulForm'] = "Detail Septictank";
+        $data['septictank_list'] = $this->septictank_model->getSeptictankById($id_septictank);
+        $data['username'] = $this->session->userdata('username');
+
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+        #menampilkan menu
+        #menampilkan menu sesuai hak ases				
+        $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+        $data['menu_list'] = $akses;
+        #end menampilkan menu sesuai hak ases	
+        #jumlah status menu
+        #drainase
+        $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+        $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+        $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+        $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+        /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////	
+        # menampilkan google map ke dalam view berdasarkan koordinat didalam database
+        $config['center'] = '-6.900282, 107.530010';
+        $config['zoom'] = '16';
+        $this->googlemaps->initialize($config);
+
+        #garis di google map
+        $polyline = array();
+        $polyline['points'] = array($data['septictank_list']['lat'] . "," . $data['septictank_list']['long']);
+        $this->googlemaps->add_polyline($polyline);
+
+        #marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['septictank_list']['lat'] . "," . $data['septictank_list']['long'];
+        $marker['infowindow_content'] = "RW : " . $data['septictank_list']['rw'] . " <br /> Alamat:  " . $data['septictank_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+        #buat peta google map
+        $data['map'] = $this->googlemaps->create_map();
+        # end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+
+
+        $this->load->view('admin/septictank/septictank_cetak', $data);
     }
 
     function update_status_data_awal() {

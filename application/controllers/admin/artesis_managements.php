@@ -271,6 +271,40 @@ class Artesis_managements extends CI_Controller {
 
         $this->load->view('admin/artesis/artesis_view', $data);
     }
+    //fungsi menampilkan berdasarkan id yg dipilih
+    public function cetak_detail($id_artesis) {
+
+        $data['id_artesis'] = $id_artesis;
+        $data['title'] = "View Data Artesis | SIPEPENG";
+        $data['judulForm'] = "Detail Artesis";
+        $data['artesis_list'] = $this->artesis_model->getArtesisById($id_artesis);
+        $data['username'] = $this->session->userdata('username');
+
+       
+        # menampilkan google map ke dalam view berdasarkan koordinat didalam database
+        $config['center'] = '-6.900282, 107.530010';
+        $config['zoom'] = '16';
+        $this->googlemaps->initialize($config);
+
+        #garis di google map
+        $polyline = array();
+        $polyline['points'] = array($data['artesis_list']['lat'] . "," . $data['artesis_list']['long']);
+        $this->googlemaps->add_polyline($polyline);
+
+        #marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['artesis_list']['lat'] . "," . $data['artesis_list']['long'];
+        $marker['infowindow_content'] = "RW : " . $data['artesis_list']['rw'] . " <br /> Alamat:  " . $data['artesis_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+        #buat peta google map
+        $data['map'] = $this->googlemaps->create_map();
+        # end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+
+
+        $this->load->view('admin/artesis/artesis_cetak', $data);
+    }
 
     function update_status_data_awal() {
         $id_artesis = $this->uri->segment(4);

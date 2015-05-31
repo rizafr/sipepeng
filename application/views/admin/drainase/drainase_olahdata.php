@@ -205,7 +205,7 @@ if (strtolower($aksi) == 'add') {
                                             <figure>
                                                 <img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
                                                 <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
-                                            </figure
+                                            </figure>
                                             <div class="col-lg-8">
                                                 <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value=""  data-validation="mime size" data-validation-allowing="jpg, png, gif" 
                                                        data-validation-max-size="512kb">
@@ -222,8 +222,6 @@ if (strtolower($aksi) == 'add') {
                                             <span class="help-inline"><?php echo form_error('dokumen'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
-
-
 
                                     <div class="form-group">
                                         <div class="col-lg-10"> 

@@ -271,6 +271,52 @@ class Septictank_komunal_managements extends CI_Controller {
 
         $this->load->view('admin/septictank_komunal/septictank_komunal_view', $data);
     }
+    //fungsi menampilkan berdasarkan id yg dipilih
+    public function cetak_detail($id_septictank_komunal) {
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+        #menampilkan menu
+        #menampilkan menu sesuai hak ases				
+        $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+        $data['menu_list'] = $akses;
+        #end menampilkan menu sesuai hak ases	
+        #jumlah status menu
+        #drainase
+        $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+        $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+        $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+        $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+        /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+
+        $data['id_septictank_komunal'] = $id_septictank_komunal;
+        $data['title'] = "View Data Septictank Komunal | SIPEPENG";
+        $data['judulForm'] = "Detail Septictank Komunal";
+        $data['septictank_komunal_list'] = $this->septictank_komunal_model->getSeptictankKomunalById($id_septictank_komunal);
+        $data['username'] = $this->session->userdata('username');
+
+        # menampilkan google map ke dalam view berdasarkan koordinat didalam database
+        $config['center'] = '-6.900282, 107.530010';
+        $config['zoom'] = '16';
+        $this->googlemaps->initialize($config);
+
+        #garis di google map
+        $polyline = array();
+        $polyline['points'] = array($data['septictank_komunal_list']['lat'] . "," . $data['septictank_komunal_list']['long']);
+        $this->googlemaps->add_polyline($polyline);
+
+        #marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['septictank_komunal_list']['lat'] . "," . $data['septictank_komunal_list']['long'];
+        $marker['infowindow_content'] = "RW : " . $data['septictank_komunal_list']['rw'] . " <br /> Alamat:  " . $data['septictank_komunal_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+        #buat peta google map
+        $data['map'] = $this->googlemaps->create_map();
+        # end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+
+
+        $this->load->view('admin/septictank_komunal/septictank_komunal_cetak', $data);
+    }
 
     function update_status_data_awal() {
         $id_septictank_komunal = $this->uri->segment(4);

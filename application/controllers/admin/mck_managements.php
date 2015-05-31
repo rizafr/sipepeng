@@ -192,7 +192,7 @@ class Mck_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->mck_model->update($data,$id_mck);
+                $hasil = $this->mck_model->update($data, $id_mck);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {
@@ -269,6 +269,52 @@ class Mck_managements extends CI_Controller {
 
 
         $this->load->view('admin/mck/mck_view', $data);
+    }
+    //fungsi menampilkan berdasarkan id yg dipilih
+    public function cetak_detail($id_mck) {
+
+        $data['id_mck'] = $id_mck;
+        $data['title'] = "View Data MCK | SIPEPENG";
+        $data['judulForm'] = "Detail MCK";
+        $data['mck_list'] = $this->mck_model->getMckById($id_mck);
+        $data['username'] = $this->session->userdata('username');
+
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+        #menampilkan menu
+        #menampilkan menu sesuai hak ases				
+        $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+        $data['menu_list'] = $akses;
+        #end menampilkan menu sesuai hak ases	
+        #jumlah status menu
+        #drainase
+        $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+        $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+        $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+        $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+        /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+        # menampilkan google map ke dalam view berdasarkan koordinat didalam database
+        $config['center'] = '-6.900282, 107.530010';
+        $config['zoom'] = '16';
+        $this->googlemaps->initialize($config);
+
+        #garis di google map
+        $polyline = array();
+        $polyline['points'] = array($data['mck_list']['lat'] . "," . $data['mck_list']['long']);
+        $this->googlemaps->add_polyline($polyline);
+
+        #marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['mck_list']['lat'] . "," . $data['mck_list']['long'];
+        $marker['infowindow_content'] = "RW : " . $data['mck_list']['rw'] . " <br /> Alamat:  " . $data['mck_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+        #buat peta google map
+        $data['map'] = $this->googlemaps->create_map();
+        # end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+
+
+        $this->load->view('admin/mck/mck_cetak', $data);
     }
 
     function update_status_data_awal() {

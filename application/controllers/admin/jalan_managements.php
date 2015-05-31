@@ -207,7 +207,7 @@ class Jalan_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->jalan_model->update($data,$id_jalan);
+                $hasil = $this->jalan_model->update($data, $id_jalan);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {
@@ -342,6 +342,61 @@ class Jalan_managements extends CI_Controller {
 
         $this->session->set_flashdata('message', '<div class="alert alert-success">Surat Usulan Berhasil Didownload. Silakan lihat di C:SIPEPENG</div>');
         redirect('admin/jalan_managements/view/' . $id_jalan);
+    }
+
+    //fungsi menampilkan berdasarkan id yg dipilih
+    public function cetak_detail($id_jalan) {
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+        #menampilkan menu
+        #menampilkan menu sesuai hak ases				
+        $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+        $data['menu_list'] = $akses;
+#end menampilkan menu sesuai hak ases	
+#jumlah status menu
+#drainase
+        $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+        $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+        $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+        $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+/////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
+        $data['id_jalan'] = $id_jalan;
+        $data['title'] = "View Data Jalan | SIPEPENG";
+        $data['judulForm'] = "Detail Jalan";
+        $data['jalan_list'] = $this->jalan_model->getJalanById($id_jalan);
+// var_dump($data['jalan_list']['lat_awal']);
+        $data['username'] = $this->session->userdata('username');
+
+# menampilkan google map ke dalam view berdasarkan koordinat didalam database
+        $config['center'] = '-6.900282, 107.530010';
+        $config['zoom'] = '16';
+        $this->googlemaps->initialize($config);
+
+#garis di google map
+        $polyline = array();
+        $polyline['points'] = array($data['jalan_list']['lat_awal'] . "," . $data['jalan_list']['long_awal'], $data['jalan_list']['lat_akhir'] . "," . $data['jalan_list']['long_akhir']);
+        $this->googlemaps->add_polyline($polyline);
+
+#marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['jalan_list']['lat_awal'] . "," . $data['jalan_list']['long_awal'];
+        $marker['infowindow_content'] = "RW : " . $data['jalan_list']['rw'] . " <br /> Alamat:  " . $data['jalan_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+#marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['jalan_list']['lat_akhir'] . "," . $data['jalan_list']['long_akhir'];
+        $marker['infowindow_content'] = "RW : " . $data['jalan_list']['rw'] . " <br /> Alamat:  " . $data['jalan_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=B|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+#buat peta google map
+        $data['map'] = $this->googlemaps->create_map();
+
+# end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+# kopi sampe sini
+
+        $this->load->view('admin/jalan/jalan_cetak', $data);
     }
 
     function update_status_data_awal() {

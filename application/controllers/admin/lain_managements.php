@@ -193,7 +193,7 @@ class Lain_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->lain_model->update($data,$id_lain);
+                $hasil = $this->lain_model->update($data, $id_lain);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {

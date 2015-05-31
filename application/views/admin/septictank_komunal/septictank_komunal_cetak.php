@@ -65,7 +65,12 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
                     <td width="32">:</td>
                     <td width="357"> <?php echo set_value('ketersediaan_lahan', isset($septictank_komunal_list['ketersediaan_lahan']) ? $septictank_komunal_list['ketersediaan_lahan'] : 'Belum Ada'); ?></td>
                 </tr>
-				<tr>
+                <tr>
+                    <td width="161">Ketersediaan Lahan</td>
+                    <td width="32">:</td>
+                    <td width="357"> <?php echo set_value('ketersediaan_lahan', isset($septictank_komunal_list['ketersediaan_lahan']) ? $septictank_komunal_list['ketersediaan_lahan'] : 'Belum Ada'); ?></td>
+                </tr>
+                <tr>
                     <td width="161">Kontur Tanah</td>
                     <td width="32">:</td>
                     <td width="357"> <?php echo set_value('kontur_tanah', isset($septictank_komunal_list['kontur_tanah']) ? $septictank_komunal_list['kontur_tanah'] : 'Belum Ada'); ?></td>
@@ -95,12 +100,12 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
                     <td width="32">:</td>
                     <td width="357"><?php echo set_value('tahun_usulan', isset($septictank_komunal_list['tahun_usulan']) ? $septictank_komunal_list['tahun_usulan'] : 'Belum Ada'); ?></td>
                 </tr>
-				<tr>
+                <tr>
                     <td width="161">Persetujuan Warga</td>
                     <td width="32">:</td>
                     <td width="357"><?php echo set_value('persetujuan_warga', isset($septictank_komunal_list['persetujuan_warga']) ? $septictank_komunal_list['persetujuan_warga'] : 'Belum Ada'); ?></td>
                 </tr>
-				<tr>
+                <tr>
                     <td width="161">Jumlah Pemakai</td>
                     <td width="32">:</td>
                     <td width="357"><?php echo set_value('jml_pemakai', isset($septictank_komunal_list['jml_pemakai']) ? $septictank_komunal_list['jml_pemakai'] : 'Belum Ada'); ?></td>
