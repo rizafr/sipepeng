@@ -103,22 +103,22 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
                 <tr>
                     <td width="161">Anggaran</td>
                     <td width="32">:</td>
-                    <td width="357">&nbsp;</td>
+                    <td width="357"><?php echo set_value('anggaran', isset($drainase_list['anggaran']) ? $drainase_list['anggaran'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Sumber Data</td>
                     <td width="32">:</td>
-                    <td width="357">&nbsp;</td>
+                    <td width="357"><?php echo set_value('sumber_data', isset($drainase_list['sumber_data']) ? $drainase_list['sumber_data'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Tahun Usulan</td>
                     <td width="32">:</td>
-                    <td width="357">&nbsp;</td>
+                    <td width="357"><?php echo set_value('tahun_usulan', isset($drainase_list['tahun_usulan']) ? $drainase_list['tahun_usulan'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Keterangan</td>
                     <td width="32">:</td>
-                    <td width="357">&nbsp;</td>
+                    <td width="357"><?php echo set_value('ket', isset($drainase_list['ket']) ? $drainase_list['ket'] : 'Belum Ada'); ?></td>
                 </tr>
             </tbody>
         </table>

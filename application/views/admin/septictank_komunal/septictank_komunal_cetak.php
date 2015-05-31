@@ -14,7 +14,7 @@ $bulan = $array_bulan[date('n')];
 //Format Tahun 
 $tahun = date('Y');
 
-$file_name = "DETAIL SEPTICTANK RT " . $septictank_list['rt'] . " RW " . $septictank_list['rw'] . " - " . $tanggal . " " . $bulan . " " . $tahun . ".doc";
+$file_name = "DETAIL SEPTICTANK KOMUNAL RT " . $septictank_komunal_list['rt'] . " RW " . $septictank_komunal_list['rw'] . " - " . $tanggal . " " . $bulan . " " . $tahun . ".doc";
 header("Expires: Mon, 26 Jul 2001 05:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate");
@@ -26,7 +26,7 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
 ?>
 
 <html>
-    <title>DETAIL SEPTICTANK RT <?php echo $septictank_list['rt'] ?>  RW  <?php echo $septictank_list['rw'] ?> <?php echo $tanggal . " " . $bulan . " " . $tahun; ?></title>
+    <title>DETAIL SEPTICTANK KOMUNAL RT <?php echo $septictank_komunal_list['rt'] ?>  RW  <?php echo $septictank_komunal_list['rw'] ?> <?php echo $tanggal . " " . $bulan . " " . $tahun; ?></title>
     <head> 
         <meta charset="utf-8">
         <link href="<?php echo base_url(); ?>assets/admin/css/print.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
             <tbody>
                 <tr>
                     <td colspan="3" width="550">
-                        <h2 style="text-align: center;"><strong>DATA DETAIL SEPTICTANK</strong></h2>
+                        <h2 style="text-align: center;"><strong>DATA DETAIL SEPTICTANK KOMUNAL</strong></h2>
                     </td>
                 </tr>
                 <tr>
@@ -48,57 +48,67 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
                 <tr>
                     <td width="161">RT</td>
                     <td width="32">:</td>
-                    <td width="357"> <?php echo set_value('rt', isset($septictank_list['rt']) ? $septictank_list['rt'] : 'Belum Ada'); ?></td>
+                    <td width="357"> <?php echo set_value('rt', isset($septictank_komunal_list['rt']) ? $septictank_komunal_list['rt'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">RW</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('rw', isset($septictank_list['rw']) ? $septictank_list['rw'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('rw', isset($septictank_komunal_list['rw']) ? $septictank_komunal_list['rw'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Alamat</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('alamat', isset($septictank_list['alamat']) ? $septictank_list['alamat'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('alamat', isset($septictank_komunal_list['alamat']) ? $septictank_komunal_list['alamat'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Ketersediaan Lahan</td>
                     <td width="32">:</td>
-                    <td width="357"> <?php echo set_value('ketersediaan_lahan', isset($septictank_list['ketersediaan_lahan']) ? $septictank_list['ketersediaan_lahan'] : 'Belum Ada'); ?></td>
+                    <td width="357"> <?php echo set_value('ketersediaan_lahan', isset($septictank_komunal_list['ketersediaan_lahan']) ? $septictank_komunal_list['ketersediaan_lahan'] : 'Belum Ada'); ?></td>
+                </tr>
+				<tr>
+                    <td width="161">Kontur Tanah</td>
+                    <td width="32">:</td>
+                    <td width="357"> <?php echo set_value('kontur_tanah', isset($septictank_komunal_list['kontur_tanah']) ? $septictank_komunal_list['kontur_tanah'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Latitude</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('lat', isset($septictank_list['lat']) ? $septictank_list['lat'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('lat', isset($septictank_komunal_list['lat']) ? $septictank_komunal_list['lat'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Longitude</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('long', isset($septictank_list['long']) ? $septictank_list['long'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('long', isset($septictank_komunal_list['long']) ? $septictank_komunal_list['long'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Anggaran</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('anggaran', isset($septictank_list['anggaran']) ? $septictank_list['anggaran'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('anggaran', isset($septictank_komunal_list['anggaran']) ? $septictank_komunal_list['anggaran'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Sumber Data</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('sumber_data', isset($septictank_list['sumber_data']) ? $septictank_list['sumber_data'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('sumber_data', isset($septictank_komunal_list['sumber_data']) ? $septictank_komunal_list['sumber_data'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Tahun Usulan</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('tahun_usulan', isset($septictank_list['tahun_usulan']) ? $septictank_list['tahun_usulan'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('tahun_usulan', isset($septictank_komunal_list['tahun_usulan']) ? $septictank_komunal_list['tahun_usulan'] : 'Belum Ada'); ?></td>
                 </tr>
 				<tr>
                     <td width="161">Persetujuan Warga</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('persetujuan_warga', isset($septictank_list['persetujuan_warga']) ? $septictank_list['persetujuan_warga'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('persetujuan_warga', isset($septictank_komunal_list['persetujuan_warga']) ? $septictank_komunal_list['persetujuan_warga'] : 'Belum Ada'); ?></td>
+                </tr>
+				<tr>
+                    <td width="161">Jumlah Pemakai</td>
+                    <td width="32">:</td>
+                    <td width="357"><?php echo set_value('jml_pemakai', isset($septictank_komunal_list['jml_pemakai']) ? $septictank_komunal_list['jml_pemakai'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Keterangan</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('ket', isset($septictank_list['ket']) ? $septictank_list['ket'] : 'Belum Ada'); ?></td>
+                    <td width="357"><?php echo set_value('ket', isset($septictank_komunal_list['ket']) ? $septictank_komunal_list['ket'] : 'Belum Ada'); ?></td>
                 </tr>
             </tbody>
         </table>
@@ -107,7 +117,7 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
             <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: </label>
             <div class="col-lg-10">
                 <?
-                $foto = isset($septictank_list['foto']) ? $septictank_list['foto'] : NULL;
+                $foto = isset($septictank_komunal_list['foto']) ? $septictank_komunal_list['foto'] : NULL;
                 if ($foto === NULL) {
                     $foto = 'noimage.jpg';
                 } else {
@@ -115,7 +125,7 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
                 }
 
 
-                $dokumen = isset($septictank_list['dokumen']) ? $septictank_list['dokumen'] : NULL;
+                $dokumen = isset($septictank_komunal_list['dokumen']) ? $septictank_komunal_list['dokumen'] : NULL;
                 if ($dokumen === NULL) {
                     $dokumen = 'noimage.jpg';
                 } else {
@@ -131,7 +141,7 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
         <div class="form-group">
             <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: </label>
             <div class="col-lg-10">
-                <button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($septictank_list['dokumen']) ? $septictank_list['dokumen'] : 'Belum Ada'); ?></button>
+                <button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($septictank_komunal_list['dokumen']) ? $septictank_komunal_list['dokumen'] : 'Belum Ada'); ?></button>
 
             </div>
         </div><!--end control-group-->
