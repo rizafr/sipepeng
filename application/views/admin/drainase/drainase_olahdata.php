@@ -105,8 +105,8 @@ if (strtolower($aksi) == 'add') {
                                     </div><!--end control-group--> 
 
                                     <div class="form-group">
-                                        <label class="col-lg-2 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>
-                                        <div class="col-lg-10">
+                                        <label class="col-lg-1 col-sm-2 control-label" for="long_awal">Peta: <span class="text-error">*</span></label>
+                                        <div class="col-lg-11 col-sm-11">
                                             <?php
                                             $map = isset($map['html']) ? $map['html'] : '';
                                             echo $map;

@@ -139,7 +139,6 @@ class Homes extends CI_Controller {
 //        $sumur_dangkal_list = $this->public_model->sumur_dangkal_all()->result();
 //        //ambil koordinator drainase_list
 //        $sumur_resapan_list = $this->public_model->sumur_resapan_all()->result();
-
         #google map yg bisa di klik otomatis dapetin koordinatnya
         $config['center'] = '-6.900282, 107.530010';
         $config['map_height'] = '650px';
@@ -157,7 +156,7 @@ class Homes extends CI_Controller {
             $marker = array();
             $marker['position'] = $row->lat . "," . $row->long;
             $marker['infowindow_content'] = "Artesis <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|673ab7|000000';
             $this->googlemaps->add_marker($marker);
         }
         #end tampilkan data koordinat artesis 
@@ -248,7 +247,7 @@ class Homes extends CI_Controller {
             $marker = array();
             $marker['position'] = $row->lat . "," . $row->long;
             $marker['infowindow_content'] = "Septictank Komunal <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SK|ffeb3b|000000';
+            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SK|4caf50|000000';
             $this->googlemaps->add_marker($marker);
         }
         #end tampilkan data koordinat septictank_komunal 
@@ -261,7 +260,7 @@ class Homes extends CI_Controller {
             $marker = array();
             $marker['position'] = $row->lat . "," . $row->long;
             $marker['infowindow_content'] = "Sumur DANGKAL <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SD|ffeb3b|000000';
+            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SD|3f51b5|000000';
             $this->googlemaps->add_marker($marker);
         }
         #end tampilkan data koordinat septictank_komunal 
@@ -274,7 +273,7 @@ class Homes extends CI_Controller {
             $marker = array();
             $marker['position'] = $row->lat . "," . $row->long;
             $marker['infowindow_content'] = "Sumur RESAPAN <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SR|eee|000000';
+            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SR|8bc34a|000000';
             $this->googlemaps->add_marker($marker);
         }
         #end tampilkan data koordinat septictank_komunal 

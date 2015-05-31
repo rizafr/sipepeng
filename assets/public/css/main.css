@@ -191,7 +191,8 @@ body > section {
 .navbar {
     border-radius: 0;
     margin-bottom: 0;
-    background-color: rgba(33, 171, 202, 0.85);
+    background: #30ADE7;
+    border-bottom: 3px solid #D8D9D7;
     padding-bottom: 0;
     color: #c3c8d6;
     border: none;
@@ -199,7 +200,7 @@ body > section {
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
-    min-height: 20px !important;
+    min-height: 10px !important;
 }
 
 .navbar-nav{
@@ -216,7 +217,7 @@ body > section {
     margin: 0;
     border-radius: 3px;
     color: #fff;
-    line-height: 24px;
+    line-height: 16px;
     display: inline-block;
 }
 
@@ -260,7 +261,8 @@ body > section {
     padding: 0px !important;
 }
 .shrink {
-    min-height: 15px !important;
+    height: 50px !important;
+    padding-top:7px;
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
     -ms-transition: 0.5s;

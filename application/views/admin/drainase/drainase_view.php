@@ -143,7 +143,7 @@
                                             <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: </label>
                                             <div class="col-lg-10">
                                                 <?
-                                                $foto = isset($drainase_list['foto']) ? $drainase_list['foto'] : 'NULL';
+                                                $foto = isset($drainase_list['foto']) ? $drainase_list['foto'] : NULL;
                                                 if ($foto === NULL) {
                                                     $foto = 'noimage.jpg';
                                                 } else {
@@ -151,7 +151,7 @@
                                                 }
 
 
-                                                $dokumen = isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'NULL';
+                                                $dokumen = isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : NULL;
                                                 if ($dokumen === NULL) {
                                                     $dokumen = 'noimage.jpg';
                                                 } else {
@@ -182,8 +182,9 @@
 
                                     <div class="form-group">
                                         <div class="col-lg-10">                                           
-                                            <a href="<?php echo base_url() . 'admin/drainase_managements/cetak/' . $drainase_list['id_drainase'] ?>"><button type="button" class="btn btn-info "><i class=" icon-print"></i>Print</button></a>
-                                            <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
+                                            <button type="button" class="btn btn-default " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Kembali</button>
+                                            <a href="<?php echo base_url() . 'admin/drainase_managements/cetak/' . $drainase_list['id_drainase'] ?>"><button type="button" class="btn btn-info "><i class=" icon-print"></i> Print Data Usulan</button></a>
+                                            <a href="<?php echo base_url() . 'admin/drainase_managements/cetak_detail/' . $drainase_list['id_drainase'] ?>"><button type="button" class="btn btn-primary"><i class=" icon-print"></i> Print Data Detail</button></a>
                                         </div>
                                     </div><!--end control-group-->
 

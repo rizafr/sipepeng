@@ -68,17 +68,17 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
                 <tr>
                     <td width="161">Lebar</td>
                     <td width="32">:</td>
-                    <td width="357"><?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : 'Belum Ada'); ?></td>
+                    <td width="357">&nbsp;</td>
                 </tr>
                 <tr>
                     <td width="161">Kedalaman</td>
                     <td width="32">:</td>
-                    <td width="357"> <?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : 'Belum Ada'); ?></td>
+                    <td width="357"> <?php echo set_value('lebar', isset($drainase_list['lebar']) ? $drainase_list['lebar'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Ketersediaan Lahan</td>
                     <td width="32">:</td>
-                    <td width="357"> <?php echo set_value('ketersediaan_lahan', isset($drainase_list['ketersediaan_lahan']) ? $drainase_list['ketersediaan_lahan'] : 'Belum Ada'); ?></td>
+                    <td width="357"> <?php echo set_value('kedalaman', isset($drainase_list['kedalaman']) ? $drainase_list['kedalaman'] : 'Belum Ada'); ?></td>
                 </tr>
                 <tr>
                     <td width="161">Latitude Awal</td>
@@ -151,7 +151,7 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
         <div class="form-group">
             <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: </label>
             <div class="col-lg-10">
-                <button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'Belum Ada'); ?></button>
+               <button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'Belum Ada'); ?></button>
 
             </div>
         </div><!--end control-group-->

@@ -32,14 +32,13 @@ class Dashboards extends CI_Controller {
 
             $data['title'] = "Home Admin | SIPEPENG";
             $data['user_name'] = $this->session->userdata('user_name');
-             /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+            /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
             #menampilkan menu
             #menampilkan menu sesuai hak ases				
             $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
             $data['menu_list'] = $akses;
             #end menampilkan menu sesuai hak ases	
             #jumlah status menu
-            
             /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////
             #jumlah status menu
             #drainase
@@ -82,169 +81,167 @@ class Dashboards extends CI_Controller {
             $data['sumur_resapan_tidak_dilaksanakan'] = count($this->home_model->sumur_resapan_tidak_dilaksanakan()->result());
 
             //ambil koordinator artesis_list
-        $artesis_list = $this->public_model->artesis_all()->result();
-        //ambil koordinator drainase_list
-	
-        $drainase_list = $this->public_model->drainase_all()->result();
-        //ambil koordinator jalan_list
-        $jalan_list = $this->public_model->jalan_all()->result();
-        //ambil koordinator kirmir_list
-        $kirmir_list = $this->public_model->kirmir_all()->result();
-        //ambil koordinator mck_list
-        $mck_list = $this->public_model->mck_all()->result();
-        //ambil koordinator septictank_list
-        $septictank_list = $this->public_model->septictank_all()->result();
-        //ambil koordinator drainase_list
-        $septictank_komunal_list = $this->public_model->septictank_komunal_all()->result();
-        //ambil koordinator sumur_dangkal_list
-        $sumur_dangkal_list = $this->public_model->sumur_dangkal_all()->result();
-        //ambil koordinator drainase_list
-        $sumur_resapan_list = $this->public_model->sumur_resapan_all()->result();
+            $artesis_list = $this->public_model->artesis_all()->result();
+            //ambil koordinator drainase_list
 
-        #google map yg bisa di klik otomatis dapetin koordinatnya
-        $config['center'] = '-6.900282, 107.530010';
-        $config['map_height'] = '650px';
-        $config['zoom'] = 'auto';
-        $config['sensor'] = TRUE;
-		$config['kmlLayerURL'] =  'http://sipepeng/assets/kml/cimahi.kml';
-        $this->googlemaps->initialize($config);
+            $drainase_list = $this->public_model->drainase_all()->result();
+            //ambil koordinator jalan_list
+            $jalan_list = $this->public_model->jalan_all()->result();
+            //ambil koordinator kirmir_list
+            $kirmir_list = $this->public_model->kirmir_all()->result();
+            //ambil koordinator mck_list
+            $mck_list = $this->public_model->mck_all()->result();
+            //ambil koordinator septictank_list
+            $septictank_list = $this->public_model->septictank_all()->result();
+            //ambil koordinator drainase_list
+            $septictank_komunal_list = $this->public_model->septictank_komunal_all()->result();
+            //ambil koordinator sumur_dangkal_list
+            $sumur_dangkal_list = $this->public_model->sumur_dangkal_all()->result();
+            //ambil koordinator drainase_list
+            $sumur_resapan_list = $this->public_model->sumur_resapan_all()->result();
 
-        #tampilkan data koordinat artesis
-        foreach ($artesis_list as $row) {
+            #google map yg bisa di klik otomatis dapetin koordinatnya
+            $config['center'] = '-6.900282, 107.530010';
+            $config['map_height'] = '650px';
+            $config['zoom'] = 'auto';
+            $config['sensor'] = TRUE;
+            $config['kmlLayerURL'] = 'http://sipepeng/assets/kml/cimahi.kml';
+            $this->googlemaps->initialize($config);
 
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+            #tampilkan data koordinat artesis
+            foreach ($artesis_list as $row) {
 
-            $marker = array();
-            $marker['position'] = $row->lat . "," . $row->long;
-            $marker['infowindow_content'] = "Artesis <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
-            $this->googlemaps->add_marker($marker);
-        }
-        #end tampilkan data koordinat artesis 
-        #tampilkan data koordinat drainase
-			
-        foreach ($drainase_list as $row) {
+                #ambil fotonya jika ada
+                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
 
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+                $marker = array();
+                $marker['position'] = $row->lat . "," . $row->long;
+                $marker['infowindow_content'] = "Artesis <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|2196f3|000000';
+                $this->googlemaps->add_marker($marker);
+            }
+            #end tampilkan data koordinat artesis 
+            #tampilkan data koordinat drainase
 
-            $polyline = array();
-            $polyline['points'] = array($row->lat_awal . "," . $row->long_awal, $row->lat_akhir . "," . $row->long_akhir);
-            $this->googlemaps->add_polyline($polyline);
+            foreach ($drainase_list as $row) {
 
-            $marker = array();
-            $marker['position'] = $row->lat_awal . "," . $row->long_awal;
-            $marker['infowindow_content'] = "Drainase <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
-            $marker['icon'] = base_url() . "assets/public/map-icon/drainase.png";
-            $this->googlemaps->add_marker($marker);
+                #ambil fotonya jika ada
+                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
 
-            $marker = array();
-            $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
-            $marker['infowindow_content'] = "Drainase <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = base_url() . "assets/public/map-icon/drainase.png";
-            $this->googlemaps->add_marker($marker);
-        	}
-		
-        #end tampilkan data koordinat drainase 
-		 #tampilkan data koordinat drainase
-        foreach ($jalan_list as $row) {
+                $polyline = array();
+                $polyline['points'] = array($row->lat_awal . "," . $row->long_awal, $row->lat_akhir . "," . $row->long_akhir);
+                $this->googlemaps->add_polyline($polyline);
 
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+                $marker = array();
+                $marker['position'] = $row->lat_awal . "," . $row->long_awal;
+                $marker['infowindow_content'] = "Drainase <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
+                $marker['icon'] = base_url() . "assets/public/map-icon/drainase.png";
+                $this->googlemaps->add_marker($marker);
 
-            $polyline = array();
-            $polyline['strokeColor'] = #FF8000;
-            $polyline['strokeWeight'] = 5;
-            $polyline['points'] = array($row->lat_awal . "," . $row->long_awal, $row->lat_akhir . "," . $row->long_akhir);
-            $this->googlemaps->add_polyline($polyline);
+                $marker = array();
+                $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
+                $marker['infowindow_content'] = "Drainase <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                $marker['icon'] = base_url() . "assets/public/map-icon/drainase.png";
+                $this->googlemaps->add_marker($marker);
+            }
 
-            $marker = array();
-			$polyline['strokeColor'] = #FF8000;
-            $polyline['strokeWeight'] = 5;
-            $marker['position'] = $row->lat_awal . "," . $row->long_awal;
-            $marker['infowindow_content'] = "Jalan <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
-            $marker['icon'] = base_url() . "assets/public/map-icon/jalan.png";
-            $this->googlemaps->add_marker($marker);
+            #end tampilkan data koordinat drainase 
+            #tampilkan data koordinat drainase
+            foreach ($jalan_list as $row) {
 
-            $marker = array();
-            $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
-            $marker['infowindow_content'] = "Jalan <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = base_url() . "assets/public/map-icon/jalan.png";
-            $this->googlemaps->add_marker($marker);
-        
-        }
-        #end tampilkan data koordinat drainase 
-        #tampilkan data koordinat mck
-        foreach ($mck_list as $row) {
-            $path = base_url();
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+                #ambil fotonya jika ada
+                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
 
-            $marker = array();
-            $marker['position'] = $row->lat . "," . $row->long;
-            $marker['infowindow_content'] = "MCK <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = base_url() . "assets/public/map-icon/mck.png";
-            $this->googlemaps->add_marker($marker);
-        }
-        #end tampilkan data koordinat mck 
-        #tampilkan data koordinat septictank
-        foreach ($septictank_list as $row) {
+                $polyline = array();
+                $polyline['strokeColor'] = #FF8000;
+                        $polyline['strokeWeight'] = 5;
+                $polyline['points'] = array($row->lat_awal . "," . $row->long_awal, $row->lat_akhir . "," . $row->long_akhir);
+                $this->googlemaps->add_polyline($polyline);
 
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+                $marker = array();
+                $polyline['strokeColor'] = #FF8000;
+                        $polyline['strokeWeight'] = 5;
+                $marker['position'] = $row->lat_awal . "," . $row->long_awal;
+                $marker['infowindow_content'] = "Jalan <br /> RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />	" . $foto;
+                $marker['icon'] = base_url() . "assets/public/map-icon/jalan.png";
+                $this->googlemaps->add_marker($marker);
 
-            $marker = array();
-            $marker['position'] = $row->lat . "," . $row->long;
-            $marker['infowindow_content'] = "Septictank <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = base_url() . "assets/public/map-icon/septictank.png";
-            $this->googlemaps->add_marker($marker);
-        }
-        #end tampilkan data koordinat septictank 
-        #tampilkan data koordinat septictank_komunal
-        foreach ($septictank_komunal_list as $row) {
+                $marker = array();
+                $marker['position'] = $row->lat_akhir . "," . $row->long_akhir;
+                $marker['infowindow_content'] = "Jalan <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                $marker['icon'] = base_url() . "assets/public/map-icon/jalan.png";
+                $this->googlemaps->add_marker($marker);
+            }
+            #end tampilkan data koordinat drainase 
+            #tampilkan data koordinat mck
+            foreach ($mck_list as $row) {
+                $path = base_url();
+                #ambil fotonya jika ada
+                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
 
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+                $marker = array();
+                $marker['position'] = $row->lat . "," . $row->long;
+                $marker['infowindow_content'] = "MCK <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                $marker['icon'] = base_url() . "assets/public/map-icon/mck.png";
+                $this->googlemaps->add_marker($marker);
+            }
+            #end tampilkan data koordinat mck 
+            #tampilkan data koordinat septictank
+            foreach ($septictank_list as $row) {
 
-            $marker = array();
-            $marker['position'] = $row->lat . "," . $row->long;
-            $marker['infowindow_content'] = "Septictank Komunal <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SK|ffeb3b|000000';
-            $this->googlemaps->add_marker($marker);
-        }
-        #end tampilkan data koordinat septictank_komunal 
-        
-         #tampilkan data koordinat sumur_dangkal_list
-        foreach ($sumur_dangkal_list as $row) {
+                #ambil fotonya jika ada
+                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
 
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+                $marker = array();
+                $marker['position'] = $row->lat . "," . $row->long;
+                $marker['infowindow_content'] = "Septictank <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                $marker['icon'] = base_url() . "assets/public/map-icon/septictank.png";
+                $this->googlemaps->add_marker($marker);
+            }
+            #end tampilkan data koordinat septictank 
+            #tampilkan data koordinat septictank_komunal
+            foreach ($septictank_komunal_list as $row) {
 
-            $marker = array();
-            $marker['position'] = $row->lat . "," . $row->long;
-            $marker['infowindow_content'] = "Sumur DANGKAL <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SD|ffeb3b|000000';
-            $this->googlemaps->add_marker($marker);
-        }
-        #end tampilkan data koordinat septictank_komunal 
-        #tampilkan data koordinat sumur_dangkal_list
-        foreach ($sumur_resapan_list as $row) {
+                #ambil fotonya jika ada
+                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
 
-            #ambil fotonya jika ada
-            $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+                $marker = array();
+                $marker['position'] = $row->lat . "," . $row->long;
+                $marker['infowindow_content'] = "Septictank Komunal <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SK|ffeb3b|000000';
+                $this->googlemaps->add_marker($marker);
+            }
+            #end tampilkan data koordinat septictank_komunal 
+            #tampilkan data koordinat sumur_dangkal_list
+            foreach ($sumur_dangkal_list as $row) {
 
-            $marker = array();
-            $marker['position'] = $row->lat . "," . $row->long;
-            $marker['infowindow_content'] = "Sumur RESAPAN <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
-            $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SR|eee|000000';
-            $this->googlemaps->add_marker($marker);
-        }
-        #end tampilkan data koordinat septictank_komunal 
+                #ambil fotonya jika ada
+                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+
+                $marker = array();
+                $marker['position'] = $row->lat . "," . $row->long;
+                $marker['infowindow_content'] = "Sumur DANGKAL <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SD|3f51b5|000000';
+                $this->googlemaps->add_marker($marker);
+            }
+            #end tampilkan data koordinat septictank_komunal 
+            #tampilkan data koordinat sumur_dangkal_list
+            foreach ($sumur_resapan_list as $row) {
+
+                #ambil fotonya jika ada
+                $foto = isset($row->foto) ? "<img src='" . base_url() . "assets/upload/foto/" . $row->foto . "' height='150px' width='250px'/>" : 'Belum Ada foto';
+
+                $marker = array();
+                $marker['position'] = $row->lat . "," . $row->long;
+                $marker['infowindow_content'] = "Sumur RESAPAN <br />RW : " . $row->rw . " <br /> Alamat:  " . $row->alamat . "<br />" . $foto;
+                $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=SR|eee|000000';
+                $this->googlemaps->add_marker($marker);
+            }
+            #end tampilkan data koordinat septictank_komunal 
 
 
-        $data['map'] = $this->googlemaps->create_map();
-        #end google map
+            $data['map'] = $this->googlemaps->create_map();
+            #end google map
 
             $this->load->view('admin/dashboard', $data);
         } else {
