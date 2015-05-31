@@ -51,16 +51,27 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
-		
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
@@ -77,14 +88,26 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
@@ -104,14 +127,26 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
@@ -129,14 +164,26 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
@@ -155,14 +202,26 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
@@ -181,16 +240,27 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
-		
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
@@ -208,14 +278,26 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
@@ -233,16 +315,27 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
-		
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
@@ -260,16 +353,27 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
-		
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
@@ -287,14 +391,26 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
@@ -312,16 +428,27 @@ class Laporan_model extends CI_Model {
 		
 		if($data['status'] == 1){
 			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '0');			
+			$this->db->where('status_sedang_dilaksanakan', '0');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');			
 		}
 		
 		if($data['status'] == 3){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '0');			
+			$this->db->where('status_tidak_dilaksanakan', '0');				
 		}
 		
 		if($data['status'] == 4){
+			$this->db->where('status_data_awal', '1');			
+			$this->db->where('status_verifikasi', '1');			
 			$this->db->where('status_sedang_dilaksanakan', '1');			
+			$this->db->where('status_sudah_dilaksanakan', '1');			
+			$this->db->where('status_tidak_dilaksanakan', '0');					
 		}
-		
 		if($data['status'] == 5){
 			$this->db->where('status_tidak_dilaksanakan', '1');			
 		}
