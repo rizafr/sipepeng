@@ -270,6 +270,53 @@ class Sumur_resapan_managements extends CI_Controller {
 
         $this->load->view('admin/sumur_resapan/sumur_resapan_view', $data);
     }
+    
+    
+     //fungsi menampilkan berdasarkan id yg dipilih
+    public function cetak_detail($id_sumur_resapan) {
+
+        $data['id_sumur_resapan'] = $id_sumur_resapan;
+        $data['title'] = "View Data Sumur Resapan | SIPEPENG";
+        $data['judulForm'] = "Detail Sumur Resapan";
+        $data['sumur_resapan_list'] = $this->sumur_resapan_model->getSumurResapanById($id_sumur_resapan);
+        $data['username'] = $this->session->userdata('username');
+
+        /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////
+        #menampilkan menu
+        #menampilkan menu sesuai hak ases				
+        $akses = $this->access_lib->hak_akses($this->session->userdata('id_jenis_pengguna'));
+        $data['menu_list'] = $akses;
+        #end menampilkan menu sesuai hak ases	
+        #jumlah status menu
+        #drainase
+        $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
+        $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
+        $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
+        $data['jumStatusDrainase'] = $data['jumDrainaseVerifikasi'] + $data['jumDrainaseBelumDilaksanakan'] + $data['jumDrainaseBelumSelesai'];
+        /////////////////////// END KOPI DI TIAP FUNGSI /////////////////////////////	
+        # menampilkan google map ke dalam view berdasarkan koordinat didalam database
+        $config['center'] = '-6.900282, 107.530010';
+        $config['zoom'] = '16';
+        $this->googlemaps->initialize($config);
+
+        #garis di google map
+        $polyline = array();
+        $polyline['points'] = array($data['sumur_resapan_list']['lat'] . "," . $data['sumur_resapan_list']['long']);
+        $this->googlemaps->add_polyline($polyline);
+
+        #marker / tanda di google map
+        $marker = array();
+        $marker['position'] = $data['sumur_resapan_list']['lat'] . "," . $data['sumur_resapan_list']['long'];
+        $marker['infowindow_content'] = "RW : " . $data['sumur_resapan_list']['rw'] . " <br /> Alamat:  " . $data['sumur_resapan_list']['alamat'];
+        $marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
+        $this->googlemaps->add_marker($marker);
+
+        #buat peta google map
+        $data['map'] = $this->googlemaps->create_map();
+        # end menampilkan google map ke dalam view berdasarkan koordinat didalam database
+
+        $this->load->view('admin/sumur_resapan/sumur_resapan_cetak', $data);
+    }
 
     function update_status_data_awal() {
         $id_sumur_resapan = $this->uri->segment(4);

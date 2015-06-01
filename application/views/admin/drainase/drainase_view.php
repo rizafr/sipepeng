@@ -161,7 +161,7 @@
                                                 <figure>
                                                     <img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
                                                     <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
-                                                </figure
+                                                </figure>
                                             </div>
                                         </div><!--end control-group-->
 

@@ -192,7 +192,7 @@ class Sumur_dangkal_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->sumur_dangkal_model->update($data,$id_sumur_dangkal);
+                $hasil = $this->sumur_dangkal_model->update($data, $id_sumur_dangkal);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {
@@ -270,6 +270,46 @@ class Sumur_dangkal_managements extends CI_Controller {
 
         $this->load->view('admin/sumur_dangkal/sumur_dangkal_view', $data);
     }
+    
+     public function cetak($id_sumur_dangkal) {
+        //Format Tanggal Berbahasa Indonesia 
+        // Array Hari
+        $array_hari = array(1 => 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu');
+        $hari = $array_hari[date('N')];
+
+        //Format Tanggal 
+        $tanggal = date('j');
+
+        //Array Bulan 
+        $array_bulan = array(1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+        $bulan = $array_bulan[date('n')];
+
+        //Format Tahun 
+        $tahun = date('Y');
+
+        $data['sumur_dangkal_list'] = $this->sumur_dangkal_model->getDrainaseById($id_sumur_dangkal);
+
+        $this->load->library('Word');
+        $document = $this->word->loadTemplate('etc/data/template/SumurDangkalTemplate.docx');
+
+        $document->setValue('tanggalSurat', $tanggal . " " . $bulan . " " . $tahun);
+        $document->setValue('rt', $data['sumur_dangkal_list']['rt']);
+        $document->setValue('rw', $data['sumur_dangkal_list']['rw']);
+        $document->setValue('alamat', $data['sumur_dangkal_list']['alamat']);
+        $document->setValue('kegiatan', 'Drainase');
+
+        $path = 'C:SIPEPENG';
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        $document->save($path . '/SURAT USULAN DRAINASE RT ' . $data['sumur_dangkal_list']['rt'] . ' RW ' . $data['sumur_dangkal_list']['rw'] . '_' . $tanggal . ' ' . $bulan . ' ' . $tahun . '.docx');
+
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success">Surat Usulan Berhasil Didownload. Silakan lihat di C:SIPEPENG </div>');
+        redirect('admin/sumur_dangkal_managements/view/' . $id_sumur_dangkal);
+    }
+
     //fungsi menampilkan berdasarkan id yg dipilih
     public function cetak_detail($id_sumur_dangkal) {
 
@@ -286,7 +326,7 @@ class Sumur_dangkal_managements extends CI_Controller {
         $data['menu_list'] = $akses;
         #end menampilkan menu sesuai hak ases	
         #jumlah status menu
-        #drainase
+        #sumur_dangkal
         $data['jumDrainaseVerifikasi'] = $this->home_model->getJumlahDrainaseVerifikasi();
         $data['jumDrainaseBelumDilaksanakan'] = $this->home_model->getJumlahDrainaseBelumDilaksanakan();
         $data['jumDrainaseBelumSelesai'] = $this->home_model->getJumlahDrainaseBelumSelesai();
@@ -314,7 +354,7 @@ class Sumur_dangkal_managements extends CI_Controller {
         # end menampilkan google map ke dalam view berdasarkan koordinat didalam database
 
 
-        $this->load->view('admin/sumur_dangkal/sumur_dangkal_view', $data);
+        $this->load->view('admin/sumur_dangkal/sumur_dangkal_cetak', $data);
     }
 
     function update_status_data_awal() {

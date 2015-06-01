@@ -65,16 +65,7 @@ header('Content-Disposition: attachment; filename="' . basename($file_name) . '"
                     <td width="32">:</td>
                     <td width="357"> <?php echo set_value('ketersediaan_lahan', isset($septictank_komunal_list['ketersediaan_lahan']) ? $septictank_komunal_list['ketersediaan_lahan'] : 'Belum Ada'); ?></td>
                 </tr>
-                <tr>
-                    <td width="161">Ketersediaan Lahan</td>
-                    <td width="32">:</td>
-                    <td width="357"> <?php echo set_value('ketersediaan_lahan', isset($septictank_komunal_list['ketersediaan_lahan']) ? $septictank_komunal_list['ketersediaan_lahan'] : 'Belum Ada'); ?></td>
-                </tr>
-                <tr>
-                    <td width="161">Kontur Tanah</td>
-                    <td width="32">:</td>
-                    <td width="357"> <?php echo set_value('kontur_tanah', isset($septictank_komunal_list['kontur_tanah']) ? $septictank_komunal_list['kontur_tanah'] : 'Belum Ada'); ?></td>
-                </tr>
+               
                 <tr>
                     <td width="161">Latitude</td>
                     <td width="32">:</td>

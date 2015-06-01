@@ -193,7 +193,7 @@ class Septictank_komunal_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->septictank_komunal_model->update($data,$id_septictank_komunal);
+                $hasil = $this->septictank_komunal_model->update($data, $id_septictank_komunal);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {
@@ -271,6 +271,7 @@ class Septictank_komunal_managements extends CI_Controller {
 
         $this->load->view('admin/septictank_komunal/septictank_komunal_view', $data);
     }
+
     //fungsi menampilkan berdasarkan id yg dipilih
     public function cetak_detail($id_septictank_komunal) {
         /////////////////////// KOPI DI TIAP FUNGSI /////////////////////////////

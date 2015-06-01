@@ -171,7 +171,7 @@ if (strtolower($aksi) == 'add') {
                                         <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                              <?
-                                            $foto = isset($septictank_komunal_list['foto']) ? $septictank_komunal_list['foto'] : 'NULL';
+                                            $foto = isset($septictank_komunal_list['foto']) ? $septictank_komunal_list['foto'] : NULL;
                                             if ($foto === NULL) {
                                                 $foto = 'noimage.jpg';
                                             } else {
@@ -179,7 +179,7 @@ if (strtolower($aksi) == 'add') {
                                             }
 
 
-                                            $dokumen = isset($septictank_komunal_list['dokumen']) ? $septictank_komunal_list['dokumen'] : 'NULL';
+                                            $dokumen = isset($septictank_komunal_list['dokumen']) ? $septictank_komunal_list['dokumen'] : NULL;
                                             if ($dokumen === NULL) {
                                                 $dokumen = 'noimage.jpg';
                                             } else {
