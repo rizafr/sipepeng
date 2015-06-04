@@ -201,12 +201,18 @@ class Drainase_managements extends CI_Controller {
             if ($_FILES['foto']['name'] != "") {
                 $foto = $this->upload_foto($ket, $data['tahun_usulan'], $data['rw'], $data['alamat']);
             }
+			else{
+				 $foto = $this->input->post('foto_old');
+				}
             $data['foto'] = $foto;
 
             //mengecek apakah dokumen di upload
             if ($_FILES['dokumen']['name'] != "") {
                 $dokumen = $this->upload_dokumen($ket, $data['tahun_usulan'], $data['rw'], $data['alamat']);
             }
+			else{
+				 $dokumen = $this->input->post('dokumen');
+				}
             $data['dokumen'] = $dokumen;
 
             //mengecek aksi

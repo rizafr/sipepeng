@@ -10,15 +10,15 @@
 				</button>
 				<a href="#" class="navbar-brand visible-lg visible-md">
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
-					<strong>SIPEPENG</strong> 
+					<strong>SIMPEM LEUWIGAJAH</strong> 
 				</a>
 				<a href="<?php echo base_url(); ?>admin/homes" class="navbar-brand visible-sm">
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
-					SIPEPENG
+					SIMPEM LEUWIGAJAH
 				</a>
 				<a href="<?php echo base_url(); ?>admin/homes" class="navbar-brand visible-xs">
 					<img src="<?php echo base_url(); ?>assets/home/logo.png" style="width: 30px;display: inline-block;vertical-align: middle;" alt="">
-					<small><strong>SIPEPENG</strong></small>
+					<small><strong>SIMPEM LEUWIGAJAH</strong></small>
 				</a>
 			</div>
 			
