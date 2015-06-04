@@ -169,11 +169,19 @@ class Sumur_dangkal_managements extends CI_Controller {
             $data['ket'] = $this->input->post('ket');
             $ket = "sumur_dangkal";
 
-            //mengecek apakah foto di upload
-            if ($_FILES['foto']['name'] != "") {
-                $foto = $this->upload_foto($ket, $data['tahun_usulan'], $data['rw'], $data['alamat']);
+             //mengecek apakah foto di upload
+            // kita cek dulu dengan kode error 4
+            if ($_FILES['foto']['error'] <> 4) {
+            // jika file tidak kosong lakukan sesuatu disini
+            // anda bisa update data dan gambar
+            // atau aksi yang lain
+                if ($_FILES['foto']['name'] != "") {
+                    $foto = $this->upload_foto($ket, $data['tahun_usulan'], $data['rw'], $data['alamat']);
+                }
+                $data['foto'] = $foto;
+            } else {
+                 $data['foto'] = $this->input->post('foto_old');
             }
-            $data['foto'] = $foto;
 
             //mengecek apakah dokumen di upload
             if ($_FILES['dokumen']['name'] != "") {

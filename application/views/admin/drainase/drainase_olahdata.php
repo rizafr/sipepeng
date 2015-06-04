@@ -208,8 +208,7 @@ if (strtolower($aksi) == 'add') {
                                             </figure>
                                             <div class="col-lg-8">
                                                 <input type="text" class="form-control" id="foto_old" name="foto_old" placeholder="Foto" value="<?php echo set_value('foto', isset($drainase_list['foto']) ? $drainase_list['foto'] : NULL) ?>" />
-                                                <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value=""  data-validation="mime size" data-validation-allowing="jpg, png, gif" 
-                                                       data-validation-max-size="512kb">
+                                                <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value=""  data-validation="mime size" data-validation-allowing="jpg, png, gif" data-validation-max-size="512kb">
                                                 <span class="help-inline"><?php echo form_error('foto'); ?></span>
 												</div>
                                         </div>
@@ -219,7 +218,7 @@ if (strtolower($aksi) == 'add') {
                                         <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                             <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($drainase_list['dokumen']) ? $drainase_list['dokumen'] : 'Belum Ada'); ?></button></a>
-                                            <input type="file" class="form-control" id="dokumen" name="dokumen" placeholder="Dokumen" value="" data-validation="required">
+                                            <input type="file" class="form-control" id="dokumen" name="dokumen" placeholder="Dokumen" value="">
                                             <span class="help-inline"><?php echo form_error('dokumen'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
@@ -272,5 +271,18 @@ if (strtolower($aksi) == 'add') {
                                                     document.getElementById('lat_akhir').value = newLat;
                                                     document.getElementById('long_akhir').value = newLng;
                                                 }
+        </script>
+
+
+        <script type="text/javascript">
+            function PreviewImage() {
+                var oFReader = new FileReader();
+                oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+                oFReader.onload = function (oFREvent) {
+                    document.getElementById("uploadPreview").src = oFREvent.target.result;
+                };
+            }
+            ;
         </script>
 

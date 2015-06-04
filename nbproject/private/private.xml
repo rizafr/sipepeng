@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/xampp/htdocs/sipepeng/application/views/admin/drainase/drainase_cetak.php</file>
+            <file>file:/C:/xampp/htdocs/sipepeng/application/controllers/admin/drainase_managements.php</file>
+        </group>
+>>>>>>> fa208afda0b3ee4c8a5ed948016a4460af427533
     </open-files>
 </project-private>

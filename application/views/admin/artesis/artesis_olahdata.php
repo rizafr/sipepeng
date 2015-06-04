@@ -170,7 +170,7 @@ if (strtolower($aksi) == 'add') {
                                     <div class="form-group">
                                         <label class="col-lg-2 col-sm-2 control-label" for="foto">Foto: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
-                                             <?
+                                            <?
                                             $foto = isset($artesis_list['foto']) ? $artesis_list['foto'] : NULL;
                                             if ($foto === NULL) {
                                                 $foto = 'noimage.jpg';
@@ -190,7 +190,7 @@ if (strtolower($aksi) == 'add') {
                                                 <img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
                                                 <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
                                             </figure>
-                                            
+                                            <input type="hidden" class="form-control" id="foto_old" name="foto_old" placeholder="Foto" value="<?php echo $artesis_list['foto'] ?>" >
                                             <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
                                                    data-validation-max-size="512kb">
                                             <span class="help-inline"><?php echo form_error('foto'); ?></span>
@@ -201,13 +201,13 @@ if (strtolower($aksi) == 'add') {
                                         <label class="col-lg-2 col-sm-2 control-label" for="dokumen">Dokumen: <span class="text-error">*</span></label>
                                         <div class="col-lg-10">
                                             <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/dokumen/<?php echo $dokumen ?>"><button type="button" class="btn btn-shadow btn-primary"><?php echo set_value('dokumen', isset($artesis_list['dokumen']) ? $artesis_list['dokumen'] : 'Belum Ada'); ?></button></a>
-                                           
+
                                             <input type="file" class="form-control" id="dokumen" name="dokumen" placeholder="Dokumen" value="<?php echo set_value('dokumen'); ?>">
                                             <span class="help-inline"><?php echo form_error('dokumen'); ?></span>
                                         </div>
                                     </div><!--end control-group-->
 
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <div class="col-lg-10"> 
                                             <button type="button" class="btn btn-info " onclick="history.go(-1);"><i class=" icon-chevron-sign-left"></i> Batal</button>
                                             <button type="submit" class="btn btn-primary"><? echo $namaform ?></button>
@@ -215,7 +215,7 @@ if (strtolower($aksi) == 'add') {
                                         </div>
                                     </div><!--end control-group-->
 
-                               </form><!--end form-->
+                                </form><!--end form-->
                             </div>
                         </section>
                     </div>
@@ -243,11 +243,11 @@ if (strtolower($aksi) == 'add') {
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
 
         <script type="text/javascript">
-            //FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
-            function getLokasi(newLat, newLng)
-            {
-                document.getElementById('lat').value = newLat;
-                document.getElementById('long').value = newLng;
-            }
+                                                //FUNGSI MENANGKAP Latitude DAN lONGITUDE DAN MENYIMPANNYA KE DALAM VARIABEL ID DI FORM
+                                                function getLokasi(newLat, newLng)
+                                                {
+                                                    document.getElementById('lat').value = newLat;
+                                                    document.getElementById('long').value = newLng;
+                                                }
 
         </script>										
