@@ -1,7 +1,5 @@
 <?php
 
-date_default_timezone_set('Asia/Jakarta');
-
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -20,7 +18,7 @@ date_default_timezone_set('Asia/Jakarta');
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'production');
+	define('ENVIRONMENT', 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -127,7 +125,7 @@ if (defined('ENVIRONMENT'))
 
 
 // --------------------------------------------------------------------
-// END OF user CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
 // --------------------------------------------------------------------
 
 /*
