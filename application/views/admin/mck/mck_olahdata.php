@@ -182,6 +182,7 @@ if (strtolower($aksi) == 'add') {
                                                 <img src="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"  alt="img03">
                                                 <a class="fancybox" rel="group" href="<?php echo base_url(); ?>assets/upload/foto/<?php echo $foto ?>"><button type="button" class="btn btn-shadow btn-info">Lihat</button></a>
                                             </figure>
+                                            <input type="hidden" class="form-control" id="foto_old" name="foto_old" placeholder="Foto" value="<?php echo $mck_list['foto'] ?>" >
                                             <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo set_value('foto'); ?>" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
                                                    data-validation-max-size="512kb">
                                             <span class="help-inline"><?php echo form_error('foto'); ?></span>

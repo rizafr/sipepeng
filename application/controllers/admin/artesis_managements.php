@@ -170,10 +170,22 @@ class Artesis_managements extends CI_Controller {
             $data['ket'] = $this->input->post('ket');
             $ket = "artesis";
 
-            //mengecek apakah foto di upload
-            if ($_FILES['foto']['name'] != "") {
-                $foto = $this->upload_foto($ket, $data['tahun_usulan'], $data['rw'], $data['alamat']);
+
+              //mengecek apakah foto di upload
+            // kita cek dulu dengan kode error 4
+            if ($_FILES['foto']['error'] <> 4) {
+            // jika file tidak kosong lakukan sesuatu disini
+            // anda bisa update data dan gambar
+            // atau aksi yang lain
+                if ($_FILES['foto']['name'] != "") {
+                    $foto = $this->upload_foto($ket, $data['tahun_usulan'], $data['rw'], $data['alamat']);
+                }
+                $data['foto'] = $foto;
+            } else {
+                 $data['foto'] = $this->input->post('foto_old');
             }
+
+
             $data['foto'] = $foto;
 
             //mengecek apakah dokumen di upload
@@ -193,7 +205,7 @@ class Artesis_managements extends CI_Controller {
             if ($aksi == 'edit') {
 
                 //proses menginput ke model
-                $hasil = $this->artesis_model->update($data,$id_artesis);
+                $hasil = $this->artesis_model->update($data, $id_artesis);
                 if ($hasil == TRUE) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success"> Berhasil diubah </div>');
                 } else {
@@ -271,6 +283,7 @@ class Artesis_managements extends CI_Controller {
 
         $this->load->view('admin/artesis/artesis_view', $data);
     }
+
     //fungsi menampilkan berdasarkan id yg dipilih
     public function cetak_detail($id_artesis) {
 
@@ -280,7 +293,7 @@ class Artesis_managements extends CI_Controller {
         $data['artesis_list'] = $this->artesis_model->getArtesisById($id_artesis);
         $data['username'] = $this->session->userdata('username');
 
-       
+
         # menampilkan google map ke dalam view berdasarkan koordinat didalam database
         $config['center'] = '-6.900282, 107.530010';
         $config['zoom'] = '16';
